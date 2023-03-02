@@ -1,5 +1,8 @@
 package com.tecmis.mis;
 
+import animatefx.animation.FadeIn;
+import animatefx.animation.Shake;
+import animatefx.animation.ZoomIn;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -15,7 +18,7 @@ public class Main extends Application {
     double x,y =0;
     @Override
     public void start(Stage primaryStage) throws IOException {
-        Parent root =   FXMLLoader.load(Objects.requireNonNull(getClass().getResource("admin/admin-home.fxml")));
+        Parent root =   FXMLLoader.load(Objects.requireNonNull(getClass().getResource("login-page.fxml")));
         primaryStage.setTitle("TECMIS");
       //  primaryStage.initStyle(StageStyle.UNDECORATED);
 
@@ -29,8 +32,11 @@ public class Main extends Application {
             primaryStage.setY(event.getScreenY() - y);
         });
 
-        primaryStage.setScene(new Scene(root, 1050,600));
+        primaryStage.setScene(new Scene(root, 600,400));
         primaryStage.show();
+        primaryStage.centerOnScreen();
+        primaryStage.resizableProperty().setValue(false);
+        new FadeIn(root).play();
 
     }
 

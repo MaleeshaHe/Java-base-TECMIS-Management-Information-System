@@ -11,11 +11,11 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane fx:id="parent" prefHeight="600.0" prefWidth="900.0" styleClass="body" stylesheets="@../../../style/light_mode.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.tecmis.mis.LoginPageController">
+<BorderPane fx:id="parent" prefHeight="400.0" prefWidth="600.0" styleClass="body" stylesheets="@../../../style/light_mode.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.tecmis.mis.LoginPageController">
    <center>
       <Pane prefHeight="400.0" prefWidth="600.0" styleClass="body" stylesheets="@../../../style/light_mode.css" BorderPane.alignment="CENTER">
          <children>
-            <Pane prefHeight="600.0" prefWidth="450.0" styleClass="success" stylesheets="@../../../style/light_mode.css">
+            <Pane prefHeight="400.0" prefWidth="300.0" styleClass="success" stylesheets="@../../../style/light_mode.css">
                <children>
                   <Button fx:id="btn_changeMode" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" style="-fx-background-color: none;">
                      <graphic>
@@ -26,18 +26,18 @@
                         </ImageView>
                      </graphic>
                   </Button>
-                  <ImageView fitHeight="370.0" fitWidth="370.0" layoutX="40.0" layoutY="82.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="297.0" fitWidth="312.0" layoutX="2.0" layoutY="52.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../../../images/logo.png" />
                      </image>
                   </ImageView>
                </children></Pane>
-            <Label layoutX="528.0" layoutY="146.0" styleClass="txt-primary" stylesheets="@../../../style/light_mode.css" text="LOGIN">
+            <Label layoutX="328.0" layoutY="86.0" styleClass="txt-primary" stylesheets="@../../../style/light_mode.css" text="LOGIN">
                <font>
                   <Font name="System Bold" size="20.0" />
                </font>
             </Label>
-            <JFXButton buttonType="RAISED" layoutX="605.0" layoutY="376.0" prefHeight="35.0" prefWidth="148.0" style="-fx-background-radius: 18;" styleClass="btn-success" stylesheets="@../../../style/light_mode.css" text="LOGIN">
+            <JFXButton buttonType="RAISED" layoutX="374.0" layoutY="294.0" onAction="#logInbtn" prefHeight="35.0" prefWidth="148.0" style="-fx-background-radius: 18;" styleClass="btn-success" stylesheets="@../../../style/light_mode.css" text="LOGIN">
                <font>
                   <Font name="System Bold" size="15.0" />
                </font>
@@ -47,8 +47,8 @@
                   <Image url="@../../../images/close.png" />
                </image>
             </ImageView>
-            <JFXTextField layoutX="528.0" layoutY="223.0" prefHeight="25.0" prefWidth="306.0" promptText="User name" />
-            <JFXPasswordField layoutX="528.0" layoutY="297.0" prefHeight="25.0" prefWidth="302.0" promptText="Password" />
+            <JFXTextField layoutX="328.0" layoutY="159.0" prefHeight="25.0" prefWidth="240.0" promptText="User name" />
+            <JFXPasswordField layoutX="328.0" layoutY="228.0" prefHeight="25.0" prefWidth="240.0" promptText="Password" />
          </children>
       </Pane>
    </center>
