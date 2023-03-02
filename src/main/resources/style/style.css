@@ -1,0 +1,27 @@
+.menuItem:hover{
+    -fx-border-color: #5271FF;
+    -fx-border-width: 0px 0px 3px 0px;
+}
+
+.sidebarItem:hover{
+    -fx-background-color: #757575;
+    -fx-border-color: WHITE;
+    -fx-border-width: 0px 0px 0px 3px;
+}
+
+.sidebarShadow{
+    -fx-effect: dropshadow(three-pass-box, rgba(149, 157, 165, 1), 30,0,0, 0);
+}
+
+.white-background{
+    -fx-background-color: #fff;
+}
+
+.transparent{
+    -fx-background-color: rgba(0,0,0,0);
+}
+
+.light-gray-background{
+    -fx-background-color: #F3F3F3;
+}
+

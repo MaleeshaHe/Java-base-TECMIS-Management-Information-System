@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
+
+<StackPane prefHeight="42.0" prefWidth="410.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
+    <HBox alignment="TOP_CENTER" layoutX="239.0" layoutY="1.0">
+        <children>
+            <JFXButton prefHeight="38.0" prefWidth="136.0" styleClass="menuItem" text="Maleesha">
+                <graphic>
+                    <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
+                        <image>
+                            <Image url="@../../../../../images/dash1.png" />
+                        </image>
+                    </ImageView>
+                </graphic>
+            </JFXButton>
+            <JFXButton prefHeight="38.0" prefWidth="136.0" styleClass="menuItem" text="ADD">
+                <graphic>
+                    <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
+                        <image>
+                            <Image url="@../../../../../images/add1.png" />
+                        </image>
+                    </ImageView>
+                </graphic>
+            </JFXButton>
+            <JFXButton prefHeight="38.0" prefWidth="136.0" styleClass="menuItem" text="Report">
+                <graphic>
+                    <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
+                        <image>
+                            <Image url="@../../../../../images/report1.png" />
+                        </image>
+                    </ImageView>
+                </graphic>
+            </JFXButton>
+            <JFXButton prefHeight="38.0" prefWidth="136.0" styleClass="menuItem" text="BackUp">
+                <graphic>
+                    <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
+                        <image>
+                            <Image url="@../../../../../images/data1.png" />
+                        </image>
+                    </ImageView>
+                </graphic>
+            </JFXButton>
+        </children>
+      <padding>
+         <Insets top="20.0" />
+      </padding>
+    </HBox>
+</StackPane>

@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.tecmis.mis.admin.user.UserViewController">
+    <children>
+        <BorderPane prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <top>
+                <HBox alignment="TOP_CENTER" layoutX="239.0" layoutY="1.0">
+                    <children>
+                        <JFXButton prefHeight="38.0" prefWidth="136.0" styleClass="menuItem" text="Dashboard">
+                            <graphic>
+                                <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
+                                    <image>
+                                        <Image url="@../../../../../images/dash1.png" />
+                                    </image>
+                                </ImageView>
+                            </graphic>
+                        </JFXButton>
+                        <JFXButton prefHeight="38.0" prefWidth="136.0" styleClass="menuItem" text="ADD">
+                            <graphic>
+                                <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
+                                    <image>
+                                        <Image url="@../../../../../images/add1.png" />
+                                    </image>
+                                </ImageView>
+                            </graphic>
+                        </JFXButton>
+                        <JFXButton prefHeight="38.0" prefWidth="136.0" styleClass="menuItem" text="Report">
+                            <graphic>
+                                <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
+                                    <image>
+                                        <Image url="@../../../../../images/report1.png" />
+                                    </image>
+                                </ImageView>
+                            </graphic>
+                        </JFXButton>
+                        <JFXButton prefHeight="38.0" prefWidth="136.0" styleClass="menuItem" text="BackUp">
+                            <graphic>
+                                <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
+                                    <image>
+                                        <Image url="@../../../../../images/data1.png" />
+                                    </image>
+                                </ImageView>
+                            </graphic>
+                        </JFXButton>
+                    </children>
+                    <padding>
+                        <Insets top="20.0" />
+                    </padding>
+                </HBox>
+            </top>
+            <center>
+                <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+                    <children>
+                        <HBox alignment="CENTER" prefHeight="67.0" prefWidth="600.0" stylesheets="@../../../../../style/light_mode.css">
+                            <children>
+                                <JFXButton style="-fx-background-radius: 20;" styleClass="btn-success" text="Admin">
+                                    <HBox.margin>
+                                        <Insets left="10.0" right="10.0" />
+                                    </HBox.margin>
+                                    <padding>
+                                        <Insets bottom="8.0" left="15.0" right="15.0" top="8.0" />
+                                    </padding>
+                                </JFXButton>
+                                <JFXButton layoutX="10.0" layoutY="10.0" style="-fx-background-radius: 20;" styleClass="btn-success" text="Student">
+                                    <HBox.margin>
+                                        <Insets left="10.0" right="10.0" />
+                                    </HBox.margin>
+                                    <padding>
+                                        <Insets bottom="8.0" left="15.0" right="15.0" top="8.0" />
+                                    </padding>
+                                </JFXButton>
+                                <JFXButton layoutX="62.0" layoutY="10.0" style="-fx-background-radius: 20;" styleClass="btn-success" text="Lecture">
+                                    <HBox.margin>
+                                        <Insets left="10.0" right="10.0" />
+                                    </HBox.margin>
+                                    <padding>
+                                        <Insets bottom="8.0" left="15.0" right="15.0" top="8.0" />
+                                    </padding>
+                                </JFXButton>
+                                <JFXButton layoutX="515.0" layoutY="27.0" style="-fx-background-radius: 20;" styleClass="btn-success" text="Technical Officer">
+                                    <padding>
+                                        <Insets bottom="8.0" left="15.0" right="15.0" top="8.0" />
+                                    </padding>
+                                    <HBox.margin>
+                                        <Insets left="10.0" right="10.0" />
+                                    </HBox.margin>
+                                </JFXButton>
+                            </children>
+                            <VBox.margin>
+                                <Insets />
+                            </VBox.margin>
+                        </HBox>
+                        <HBox alignment="CENTER_LEFT" prefHeight="30.0" prefWidth="600.0">
+                            <children>
+                                <Label prefHeight="35.0" prefWidth="126.0" text="Student ">
+                                    <font>
+                                        <Font name="System Bold" size="24.0" />
+                                    </font>
+                                    <padding>
+                                        <Insets left="20.0" />
+                                    </padding>
+                                </Label>
+                            </children>
+                        </HBox>
+                        <HBox prefHeight="396.0" prefWidth="638.0" VBox.vgrow="ALWAYS">
+                            <children>
+                                <ScrollPane prefHeight="498.0" prefWidth="850.0" styleClass="transparent" stylesheets="@../../../../../style/style.css">
+                                    <content>
+                                        <VBox fx:id="userLayout" prefHeight="523.0" prefWidth="846.0" styleClass="white-background" stylesheets="@../../../../../style/style.css">
+                                            <children>
+                                                <HBox alignment="CENTER_LEFT" prefHeight="55.0" prefWidth="727.0" spacing="10.0" styleClass="light-gray-background" stylesheets="@../../../../../style/style.css">
+                                                    <children>
+                                                        <Label alignment="CENTER" prefHeight="26.0" prefWidth="50.0" text="No" textFill="#535353">
+                                                            <font>
+                                                                <Font name="System Bold" size="16.0" />
+                                                            </font>
+                                                            <HBox.margin>
+                                                                <Insets left="10.0" />
+                                                            </HBox.margin>
+                                                        </Label>
+                                                        <Label alignment="CENTER" layoutX="10.0" layoutY="25.0" prefHeight="26.0" prefWidth="154.0" text="Name" textFill="#535353">
+                                                            <font>
+                                                                <Font name="System Bold" size="16.0" />
+                                                            </font>
+                                                        </Label>
+                                                        <Label alignment="CENTER" layoutX="65.0" layoutY="25.0" prefHeight="26.0" prefWidth="124.0" text="Phone" textFill="#535353">
+                                                            <font>
+                                                                <Font name="System Bold" size="16.0" />
+                                                            </font>
+                                                        </Label>
+                                                        <Label alignment="CENTER" layoutX="165.0" layoutY="25.0" prefHeight="26.0" prefWidth="210.0" text="Email" textFill="#535353">
+                                                            <font>
+                                                                <Font name="System Bold" size="16.0" />
+                                                            </font>
+                                                        </Label>
+                                                        <Label alignment="CENTER" layoutX="265.0" layoutY="25.0" prefHeight="26.0" prefWidth="250.0" text="Actions" textFill="#535353">
+                                                            <font>
+                                                                <Font name="System Bold" size="16.0" />
+                                                            </font>
+                                                        </Label>
+                                                    </children>
+                                                </HBox>
+                                            </children>
+                                        </VBox>
+                                    </content>
+                                </ScrollPane>
+                            </children>
+                            <VBox.margin>
+                                <Insets left="10.0" />
+                            </VBox.margin>
+                        </HBox>
+                    </children>
+                </VBox>
+            </center>
+        </BorderPane>
+    </children>
+</AnchorPane>
