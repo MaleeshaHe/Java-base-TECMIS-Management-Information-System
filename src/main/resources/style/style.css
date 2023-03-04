@@ -25,3 +25,13 @@
     -fx-background-color: #F3F3F3;
 }
 
+.addNoticeBtn{
+    -fx-background-color: #5271FF;
+    -fx-text-fill: #ffff;
+}
+
+.cancelNoticeBtn{
+    -fx-background-color: #ff0000;
+    -fx-text-fill: #ffff;
+}
+

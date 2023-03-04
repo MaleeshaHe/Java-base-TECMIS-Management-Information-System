@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXTextArea?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="450.0" prefWidth="412.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.tecmis.mis.admin.notice.AddNoticeControlloer">
+   <children>
+      <HBox alignment="CENTER" prefHeight="66.0" prefWidth="412.0">
+         <children>
+            <Label contentDisplay="CENTER" text="Create New Notice" textAlignment="CENTER" textFill="#535353">
+               <font>
+                  <Font name="System Bold" size="22.0" />
+               </font>
+            </Label>
+         </children>
+      </HBox>
+      <HBox alignment="CENTER" prefHeight="41.0" prefWidth="412.0">
+         <children>
+            <Label prefHeight="26.0" prefWidth="83.0" text="Title" textFill="#595959">
+               <font>
+                  <Font name="System Bold" size="17.0" />
+               </font>
+            </Label>
+            <JFXTextField fx:id="txtTitle" focusColor="#5271ff" prefHeight="26.0" prefWidth="280.0" promptText="type short title">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </JFXTextField>
+         </children>
+      </HBox>
+      <HBox alignment="CENTER" layoutX="10.0" layoutY="76.0" prefHeight="41.0" prefWidth="412.0">
+         <children>
+            <Label prefHeight="26.0" prefWidth="83.0" text="Date" textFill="#595959">
+               <font>
+                  <Font name="System Bold" size="17.0" />
+               </font>
+            </Label>
+            <JFXTextField fx:id="txtDate" focusColor="#5271ff" prefHeight="26.0" prefWidth="280.0" promptText="YYYY / MM / DD">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </JFXTextField>
+         </children>
+      </HBox>
+      <HBox alignment="CENTER" layoutX="10.0" layoutY="118.0" prefHeight="41.0" prefWidth="412.0">
+         <children>
+            <Label prefHeight="26.0" prefWidth="83.0" text="Time" textFill="#595959">
+               <font>
+                  <Font name="System Bold" size="17.0" />
+               </font>
+            </Label>
+            <JFXTextField fx:id="txtTime" focusColor="#5271ff" prefHeight="26.0" prefWidth="280.0" promptText="00 : 00 PM">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </JFXTextField>
+         </children>
+      </HBox>
+      <HBox alignment="CENTER" layoutX="10.0" layoutY="160.0" prefHeight="150.0" prefWidth="412.0">
+         <children>
+            <Label prefHeight="26.0" prefWidth="83.0" text="Content" textFill="#595959">
+               <font>
+                  <Font name="System Bold" size="17.0" />
+               </font>
+            </Label>
+            <JFXTextArea fx:id="txtContent" focusColor="#5271ff" prefHeight="126.0" prefWidth="283.0" promptText="type content of notice">
+               <HBox.margin>
+                  <Insets top="20.0" />
+               </HBox.margin>
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </JFXTextArea>
+         </children>
+      </HBox>
+      <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+         <children>
+            <JFXButton fx:id="addBtn" alignment="CENTER" maxWidth="88.0" onAction="#addNotice" prefHeight="34.0" prefWidth="86.0" style="-fx-background-radius: 18;" styleClass="addNoticeBtn" stylesheets="@../../../../../style/style.css" text="Add" textAlignment="CENTER">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+               <HBox.margin>
+                  <Insets right="10.0" />
+               </HBox.margin>
+            </JFXButton>
+            <JFXButton fx:id="clearBtn" alignment="CENTER" layoutX="173.0" layoutY="43.0" maxWidth="88.0" onAction="#clearNotice" prefHeight="34.0" prefWidth="86.0" style="-fx-background-radius: 18;" styleClass="cancelNoticeBtn" stylesheets="@../../../../../style/style.css" text="Clear" textAlignment="CENTER">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+               <HBox.margin>
+                  <Insets left="10.0" />
+               </HBox.margin>
+            </JFXButton>
+         </children>
+      </HBox>
+   </children>
+</VBox>
