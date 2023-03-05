@@ -2,7 +2,7 @@ package com.tecmis.mis.admin.notice;
 
 import com.tecmis.mis.admin.user.UserDetails;
 
-public class NoticeDetails extends UserDetails {
+public class NoticeDetails {
     private int notice_id;
     private String title;
     private String date;

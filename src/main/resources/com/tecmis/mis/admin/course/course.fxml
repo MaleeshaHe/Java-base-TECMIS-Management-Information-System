@@ -2,69 +2,125 @@
 
 <?import com.jfoenix.controls.JFXButton?>
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
-<?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.tecmis.mis.admin.course.Course">
+<AnchorPane prefHeight="600.0" prefWidth="900.0" stylesheets="@../../../../../style/table_view.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.tecmis.mis.admin.course.CourseControlloer">
     <children>
-        <BorderPane prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-            <top>
-                <HBox alignment="TOP_CENTER" layoutX="239.0" layoutY="1.0">
-                    <children>
-                        <JFXButton prefHeight="38.0" prefWidth="136.0" styleClass="menuItem" text="Dashboard">
-                            <graphic>
-                                <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
-                                    <image>
-                                        <Image url="@../../../../../images/dash1.png" />
-                                    </image>
-                                </ImageView>
-                            </graphic>
+        <BorderPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #ffff;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <center>
+            <TableView fx:id="courseTable" prefHeight="478.0" prefWidth="860.0" BorderPane.alignment="CENTER">
+              <columns>
+                <TableColumn fx:id="courseCodeCol" maxWidth="114.39998817443848" prefWidth="109.5999698638916" resizable="false" style="-fx-alignment: center;" text="Course Code" />
+                <TableColumn fx:id="courseNameCol" maxWidth="524.8000793457031" prefWidth="524.8000793457031" resizable="false" style="-fx-alignment: center;" text="Course Name" />
+                  <TableColumn fx:id="creditCol" maxWidth="455.2000427246094" prefWidth="59.199951171875" resizable="false" style="-fx-alignment: center;" text="Credit" />
+                  <TableColumn fx:id="materialCol" maxWidth="630.0" prefWidth="153.5999755859375" resizable="false" style="-fx-alignment: center;" text="Materials" />
+              </columns>
+               <BorderPane.margin>
+                  <Insets bottom="20.0" left="20.0" right="20.0" top="5.0" />
+               </BorderPane.margin>
+               <padding>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </padding>
+            </TableView>
+         </center>
+         <top>
+            <VBox prefHeight="42.0" prefWidth="900.0" BorderPane.alignment="CENTER">
+               <children>
+                      <HBox alignment="CENTER" prefHeight="50.0" prefWidth="839.0" styleClass="table-view" stylesheets="@../../../../../style/table_view.css">
+                          <children>
+                              <JFXButton fx:id="refreshBtn" onAction="#refreshTable" prefHeight="38.0" prefWidth="136.0" styleClass="menuItem" text="Refresh">
+                                  <graphic>
+                                      <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
+                                          <image>
+                                              <Image url="@../../../../../images/sinchronize-64.png" />
+                                          </image>
+                                      </ImageView>
+                                  </graphic>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                              </JFXButton>
+                              <JFXButton fx:id="addNewCourse" prefHeight="38.0" prefWidth="184.0" styleClass="menuItem" text="Add a New Course">
+                                  <graphic>
+                                      <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
+                                          <image>
+                                              <Image url="@../../../../../images/add-64.png" />
+                                          </image>
+                                      </ImageView>
+                                  </graphic>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                              </JFXButton>
+                        <JFXButton fx:id="editCourse" layoutX="436.0" layoutY="30.0" prefHeight="38.0" prefWidth="184.0" styleClass="menuItem" text="Edit Course">
+                           <graphic>
+                              <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../../../../images/edit-11-64.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                           <font>
+                              <Font size="14.0" />
+                           </font>
                         </JFXButton>
-                        <JFXButton prefHeight="38.0" prefWidth="136.0" styleClass="menuItem" text="ADD">
-                            <graphic>
-                                <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
-                                    <image>
-                                        <Image url="@../../../../../images/add1.png" />
-                                    </image>
-                                </ImageView>
-                            </graphic>
+                        <JFXButton fx:id="deleteCourse" layoutX="528.0" layoutY="30.0" onAction="#deleteCourse" prefHeight="38.0" prefWidth="184.0" styleClass="menuItem" text="Delete Course">
+                           <graphic>
+                              <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../../../../images/delete-64.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                           <font>
+                              <Font size="14.0" />
+                           </font>
                         </JFXButton>
-                        <JFXButton prefHeight="38.0" prefWidth="136.0" styleClass="menuItem" text="Report">
-                            <graphic>
-                                <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
-                                    <image>
-                                        <Image url="@../../../../../images/report1.png" />
-                                    </image>
-                                </ImageView>
-                            </graphic>
-                        </JFXButton>
-                        <JFXButton prefHeight="38.0" prefWidth="136.0" styleClass="menuItem" text="BackUp">
-                            <graphic>
-                                <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
-                                    <image>
-                                        <Image url="@../../../../../images/data1.png" />
-                                    </image>
-                                </ImageView>
-                            </graphic>
-                        </JFXButton>
-                    </children>
-                    <padding>
-                        <Insets top="20.0" />
-                    </padding>
-                </HBox>
-            </top>
-            <center>
-                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Course" BorderPane.alignment="CENTER">
-                    <font>
-                        <Font size="37.0" />
-                    </font>
-                </Text>
-            </center>
+                          </children>
+                          <padding>
+                              <Insets left="20.0" right="20.0" top="20.0" />
+                          </padding>
+                     <VBox.margin>
+                        <Insets bottom="5.0" left="50.0" right="50.0" />
+                     </VBox.margin>
+                      </HBox>
+                  <HBox alignment="CENTER" layoutX="10.0" layoutY="10.0" prefHeight="55.0" prefWidth="798.0" styleClass="table-view" stylesheets="@../../../../../style/table_view.css">
+                     <children>
+                        <Label alignment="CENTER" contentDisplay="CENTER" text="Course" textAlignment="CENTER" textFill="#515151">
+                           <font>
+                              <Font name="System Bold" size="26.0" />
+                           </font>
+                        </Label>
+                     </children>
+                     <VBox.margin>
+                        <Insets left="200.0" right="200.0" top="5.0" />
+                     </VBox.margin>
+                  </HBox>
+               </children>
+            </VBox>
+         </top>
         </BorderPane>
     </children>
 </AnchorPane>
