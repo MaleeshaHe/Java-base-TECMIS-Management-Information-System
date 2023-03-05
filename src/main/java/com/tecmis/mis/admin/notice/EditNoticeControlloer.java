@@ -6,12 +6,18 @@ import com.jfoenix.controls.JFXTextField;
 import com.tecmis.mis.db_connect.DbConnect;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
+import javafx.stage.Stage;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.util.Objects;
 import java.util.Optional;
 
 public class EditNoticeControlloer {
@@ -32,6 +38,10 @@ public class EditNoticeControlloer {
 
     @FXML
     private JFXTextField txtTitle;
+    @FXML
+    private Stage stage;
+    private Scene scene;
+    private Parent root;
 
     String query = null;
     Connection connection = null ;
@@ -77,6 +87,11 @@ public class EditNoticeControlloer {
 
                 if(result.get() == ButtonType.OK){
                     reset();
+                    Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("add-notice.fxml")));
+                    stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+                    stage.setScene(scene);
+                    stage.centerOnScreen();
+                    stage.close();
                 }
 
             }catch (Exception e){
