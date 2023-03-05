@@ -7,21 +7,22 @@ import com.tecmis.mis.db_connect.DbConnect;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
 import javafx.stage.Stage;
 
-import java.io.IOException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.util.Objects;
 import java.util.Optional;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-public class AddNoticeControlloer{
+public class AddNoticeControlloer {
     @FXML
     private JFXButton addBtn;
 
@@ -39,6 +40,10 @@ public class AddNoticeControlloer{
 
     @FXML
     private JFXTextField txtTitle;
+    @FXML
+    private Stage stage;
+    private Scene scene;
+    private Parent root;
 
     String query = null;
     Connection connection = null ;
@@ -53,7 +58,6 @@ public class AddNoticeControlloer{
     @FXML
     void addNotice(ActionEvent event) {
         try {
-
             String noTitle = txtTitle.getText();
             String noDate = txtDate.getText();
             String noTime = txtTime.getText();
@@ -65,7 +69,7 @@ public class AddNoticeControlloer{
             preparedStatement.setString(1,noTitle);
             preparedStatement.setString(2,noDate);
             preparedStatement.setString(3,noTime);
-            preparedStatement.setString(4,noDate);
+            preparedStatement.setString(4,noContent);
             preparedStatement.executeUpdate();
 
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
@@ -75,6 +79,11 @@ public class AddNoticeControlloer{
 
             if(result.get() == ButtonType.OK){
                 reset();
+                Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("add-notice.fxml")));
+                stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+                stage.setScene(scene);
+                stage.centerOnScreen();
+                stage.close();
             }
 
         }catch (Exception e){
@@ -88,7 +97,5 @@ public class AddNoticeControlloer{
         txtTime.setText("");
         txtContent.setText("");
     }
-
-
 
 }

@@ -1,15 +1,19 @@
 package com.tecmis.mis.admin;
 
-import animatefx.animation.FadeInDown;
+import animatefx.animation.*;
 import com.jfoenix.controls.JFXButton;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
+import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
@@ -43,6 +47,13 @@ public class AdminHomeController implements Initializable {
 
     @FXML
     private JFXButton user;
+
+    @FXML
+    private Stage stage;
+    private Scene scene;
+    private Parent root;
+
+    double x,y =0;
 
 
     @Override
@@ -82,6 +93,19 @@ public class AdminHomeController implements Initializable {
         borderpane.getChildren().removeAll();
         borderpane.setCenter(view);
         new FadeInDown(view).play();
+    }
+
+    public void btnLogOut(ActionEvent event) throws IOException {
+
+        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("../login-page.fxml")));
+        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        scene = new Scene(root, 600,400);
+        stage.setScene(scene);
+        stage.centerOnScreen();
+        stage.setTitle("TECMIS");
+        stage.show();
+        stage.resizableProperty().setValue(false);
+        new Swing(root).play();
     }
 }
 

@@ -10,11 +10,11 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="450.0" prefWidth="412.0" style="-fx-background-color: #ffffff;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.tecmis.mis.admin.notice.AddNoticeControlloer">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="450.0" prefWidth="412.0" style="-fx-background-color: #ffffff;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.tecmis.mis.admin.notice.EditNoticeControlloer">
    <children>
       <HBox alignment="CENTER" prefHeight="66.0" prefWidth="412.0">
          <children>
-            <Label contentDisplay="CENTER" text="Create New Notice" textAlignment="CENTER" textFill="#535353">
+            <Label contentDisplay="CENTER" text="Update Notice" textAlignment="CENTER" textFill="#535353">
                <font>
                   <Font name="System Bold" size="22.0" />
                </font>
@@ -82,7 +82,7 @@
       </HBox>
       <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
          <children>
-            <JFXButton fx:id="addBtn" alignment="CENTER" maxWidth="88.0" onAction="#addNotice" prefHeight="34.0" prefWidth="86.0" style="-fx-background-radius: 18;" styleClass="addNoticeBtn" stylesheets="@../../../../../style/style.css" text="Add" textAlignment="CENTER">
+            <JFXButton fx:id="editBtn" alignment="CENTER" maxWidth="88.0" onAction="#addNotice" prefHeight="34.0" prefWidth="86.0" style="-fx-background-radius: 18;" styleClass="addNoticeBtn" stylesheets="@../../../../../style/style.css" text="Update" textAlignment="CENTER">
                <font>
                   <Font name="System Bold" size="14.0" />
                </font>

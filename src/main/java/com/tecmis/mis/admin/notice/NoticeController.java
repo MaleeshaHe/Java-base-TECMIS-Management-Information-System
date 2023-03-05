@@ -10,9 +10,7 @@ import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.TableCell;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
@@ -22,6 +20,7 @@ import javafx.util.Callback;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.*;
+import java.util.Optional;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -32,6 +31,11 @@ public class NoticeController implements Initializable {
 
     @FXML
     private JFXButton refreshBtn;
+    @FXML
+    private JFXButton deleteNotice;
+
+    @FXML
+    private JFXButton editNotice;
 
     @FXML
     private TableColumn<NoticeDetails, String> datecol;
@@ -62,12 +66,12 @@ public class NoticeController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         loadData();
-
     }
 
     @FXML
     private void addNotice(){
         try {
+            noticeDetails = noticeTable.getSelectionModel().getSelectedItem();
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("add-notice.fxml"));
             Parent root = (Parent) fxmlLoader.load();
             Stage stage = new Stage();
@@ -78,6 +82,67 @@ public class NoticeController implements Initializable {
 
         } catch (IOException ex) {
             Logger.getLogger(NoticeController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+    @FXML
+    private void editNotice(){
+        if(noticeTable.getSelectionModel().getSelectedItem() != null){
+            try {
+                noticeDetails = noticeTable.getSelectionModel().getSelectedItem();
+                FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("edit-notice.fxml"));
+                Parent root = (Parent) fxmlLoader.load();
+
+                EditNoticeControlloer senddata = fxmlLoader.getController();
+                senddata.showInformation(noticeDetails.getNotice_id(),noticeDetails.getTitle(),noticeDetails.getDate(),noticeDetails.getTime(),noticeDetails.getContent());
+
+                Stage stage = new Stage();
+                stage.setTitle("Edit Notice");
+                stage.resizableProperty().setValue(false);
+                stage.setScene(new Scene(root));
+                stage.show();
+
+            } catch (IOException ex) {
+                Logger.getLogger(NoticeController.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        else {
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Warning");
+            alert.setContentText("If you want to update any notice, First you select the row that you want to update");
+            alert.showAndWait();
+        }
+
+    }
+
+    @FXML
+    private void deleteNotice(){
+
+        if(noticeTable.getSelectionModel().getSelectedItem() != null){
+            Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+            alert.setTitle("Delete Notice");
+            alert.setContentText("Are you sure delete this Notice");
+            Optional<ButtonType> result = alert.showAndWait();
+
+            if(result.get() == ButtonType.OK){
+                try {
+                    noticeDetails = noticeTable.getSelectionModel().getSelectedItem();
+                    query = "DELETE FROM `notice` WHERE notice_id='"+noticeDetails.getNotice_id()+"'";
+                    connection = DbConnect.getConnect();
+                    preparedStatement = connection.prepareStatement(query);
+                    preparedStatement.execute();
+                    refreshTable();
+
+                } catch (SQLException ex) {
+                    Logger.getLogger(NoticeController.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+        }
+        else{
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Warning");
+            alert.setContentText("If you want to delete any notice, First you select the row that you want to delete");
+            alert.showAndWait();
         }
     }
 
@@ -96,7 +161,8 @@ public class NoticeController implements Initializable {
                         resultSet.getInt("notice_id"),
                         resultSet.getString("title"),
                         resultSet.getString("date"),
-                        resultSet.getString("time")));
+                        resultSet.getString("time"),
+                        resultSet.getString("content")));
                 noticeTable.setItems(noticeList);
             }
 
@@ -106,7 +172,7 @@ public class NoticeController implements Initializable {
 
     }
 
-    private void loadData() {
+    public void loadData() {
         connection = DbConnect.getConnect();
         refreshTable();
 
@@ -114,74 +180,6 @@ public class NoticeController implements Initializable {
         titlecol.setCellValueFactory(new PropertyValueFactory<>("title"));
         datecol.setCellValueFactory(new PropertyValueFactory<>("date"));
         timecol.setCellValueFactory(new PropertyValueFactory<>("time"));
-
-        noticeDetails = noticeTable.getSelectionModel().getSelectedItem();
-
-        //add cell of button edit
-        Callback<TableColumn<NoticeDetails, String>, TableCell<NoticeDetails, String>> cellFoctory = (TableColumn<NoticeDetails, String> param) -> {
-            // make cell containing buttons
-            final TableCell<NoticeDetails, String> cell = new TableCell<NoticeDetails, String>() {
-                @Override
-                public void updateItem(String item, boolean empty) {
-                    super.updateItem(item, empty);
-                    //that cell created only on non-empty rows
-                    if (empty) {
-                        setGraphic(null);
-                        setText(null);
-
-                    } else {
-
-
-                        JFXButton deleteIcon = new JFXButton("Delete");
-                        JFXButton editIcon = new JFXButton("Edit");
-
-                        deleteIcon.setStyle(
-                                "-fx-background-color: #ff0000;"
-                                        + "-fx-fill:#ffffff;"
-                                        +"-fx-text-fill: #ffff;"
-                        );
-                        editIcon.setStyle(
-                                "-fx-background-color: #5271FF;"
-                                        +"-fx-text-fill: #ffff;"
-                        );
-
-                        deleteIcon.setOnMouseClicked((MouseEvent event) -> {
-                            try {
-                                noticeDetails = noticeTable.getSelectionModel().getSelectedItem();
-                                query = "DELETE FROM `notice` WHERE notice_id='"+noticeDetails.getNotice_id()+"'";
-                                connection = DbConnect.getConnect();
-                                preparedStatement = connection.prepareStatement(query);
-                                preparedStatement.execute();
-                                refreshTable();
-
-                            } catch (SQLException ex) {
-                                Logger.getLogger(NoticeController.class.getName()).log(Level.SEVERE, null, ex);
-                            }
-
-                        });
-                        editIcon.setOnMouseClicked((MouseEvent event) -> {
-
-                        });
-
-                        HBox managebtn = new HBox(editIcon, deleteIcon);
-                        managebtn.setStyle("-fx-alignment:center");
-                        HBox.setMargin(deleteIcon, new Insets(2, 2, 0, 3));
-                        HBox.setMargin(editIcon, new Insets(2, 3, 0, 2));
-
-                        setGraphic(managebtn);
-
-                        setText(null);
-
-                    }
-                }
-
-            };
-
-            return cell;
-        };
-        editcol.setCellFactory(cellFoctory);
         noticeTable.setItems(noticeList);
-
-
     }
 }

@@ -7,12 +7,16 @@ public class NoticeDetails extends UserDetails {
     private String title;
     private String date;
     private String time;
+    private String content;
 
-    public NoticeDetails(int notice_id, String title, String date, String time) {
+
+
+    public NoticeDetails(int notice_id, String title, String date, String time, String content) {
         this.notice_id = notice_id;
         this.title = title;
         this.date = date;
         this.time = time;
+        this.content = content;
     }
 
 
@@ -46,5 +50,13 @@ public class NoticeDetails extends UserDetails {
 
     public void setTime(String time) {
         this.time = time;
+    }
+
+    public String getContent() {
+        return content;
+    }
+
+    public void setContent(String content) {
+        this.content = content;
     }
 }
