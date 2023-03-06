@@ -36,6 +36,18 @@
          <top>
             <VBox prefHeight="42.0" prefWidth="900.0" BorderPane.alignment="CENTER">
                <children>
+                  <HBox alignment="CENTER" layoutX="10.0" layoutY="10.0" prefHeight="55.0" prefWidth="798.0" styleClass="table-view" stylesheets="@../../../../../style/table_view.css">
+                     <children>
+                        <Label alignment="CENTER" contentDisplay="CENTER" text="Notice" textAlignment="CENTER" textFill="#515151">
+                           <font>
+                              <Font name="System Bold" size="26.0" />
+                           </font>
+                        </Label>
+                     </children>
+                     <VBox.margin>
+                        <Insets left="200.0" right="200.0" top="5.0" />
+                     </VBox.margin>
+                  </HBox>
                       <HBox alignment="CENTER" prefHeight="50.0" prefWidth="839.0" styleClass="table-view" stylesheets="@../../../../../style/table_view.css">
                           <children>
                               <JFXButton fx:id="refreshBtn" onAction="#refreshTable" prefHeight="38.0" prefWidth="136.0" styleClass="menuItem" text="Refresh">
@@ -106,18 +118,6 @@
                         <Insets bottom="5.0" left="50.0" right="50.0" />
                      </VBox.margin>
                       </HBox>
-                  <HBox alignment="CENTER" layoutX="10.0" layoutY="10.0" prefHeight="55.0" prefWidth="798.0" styleClass="table-view" stylesheets="@../../../../../style/table_view.css">
-                     <children>
-                        <Label alignment="CENTER" contentDisplay="CENTER" text="Notice" textAlignment="CENTER" textFill="#515151">
-                           <font>
-                              <Font name="System Bold" size="26.0" />
-                           </font>
-                        </Label>
-                     </children>
-                     <VBox.margin>
-                        <Insets left="200.0" right="200.0" top="5.0" />
-                     </VBox.margin>
-                  </HBox>
                </children>
             </VBox>
          </top>

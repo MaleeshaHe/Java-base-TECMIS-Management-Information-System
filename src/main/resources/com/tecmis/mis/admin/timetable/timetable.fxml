@@ -1,70 +1,218 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import com.jfoenix.controls.JFXTextField?>
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
-<?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.tecmis.mis.admin.timetable.Timetable">
+<AnchorPane prefHeight="600.0" prefWidth="900.0" stylesheets="@../../../../../style/table_view.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.tecmis.mis.admin.timetable.Timetable">
     <children>
-        <BorderPane prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-            <top>
-                <HBox alignment="TOP_CENTER" layoutX="239.0" layoutY="1.0">
-                    <children>
-                        <JFXButton prefHeight="38.0" prefWidth="136.0" styleClass="menuItem" text="Dashboard">
-                            <graphic>
-                                <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
-                                    <image>
-                                        <Image url="@../../../../../images/dash1.png" />
-                                    </image>
-                                </ImageView>
-                            </graphic>
+        <BorderPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #fff;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <top>
+            <VBox prefHeight="42.0" prefWidth="900.0" BorderPane.alignment="CENTER">
+               <children>
+                  <HBox alignment="CENTER" layoutX="10.0" layoutY="10.0" prefHeight="55.0" prefWidth="798.0" styleClass="table-view" stylesheets="@../../../../../style/table_view.css">
+                     <children>
+                        <Label alignment="CENTER" contentDisplay="CENTER" text="Time Table" textAlignment="CENTER" textFill="#515151">
+                           <font>
+                              <Font name="System Bold" size="26.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets />
+                           </HBox.margin>
+                        </Label>
+                     </children>
+                     <VBox.margin>
+                        <Insets left="200.0" right="200.0" top="5.0" />
+                     </VBox.margin>
+                  </HBox>
+                  <HBox alignment="CENTER" prefHeight="50.0" prefWidth="839.0" styleClass="table-view" stylesheets="@../../../../../style/table_view.css">
+                     <children>
+                        <JFXButton fx:id="refreshBtn" prefHeight="38.0" prefWidth="136.0" styleClass="menuItem" text="Refresh">
+                           <graphic>
+                              <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../../../../images/sinchronize-64.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                           <font>
+                              <Font size="14.0" />
+                           </font>
                         </JFXButton>
-                        <JFXButton prefHeight="38.0" prefWidth="136.0" styleClass="menuItem" text="ADD">
-                            <graphic>
-                                <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
-                                    <image>
-                                        <Image url="@../../../../../images/add1.png" />
-                                    </image>
-                                </ImageView>
-                            </graphic>
+                        <JFXButton fx:id="editNotice" layoutX="436.0" layoutY="30.0" prefHeight="38.0" prefWidth="184.0" styleClass="menuItem" text="Edit Timetable">
+                           <graphic>
+                              <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../../../../images/edit-11-64.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                           <font>
+                              <Font size="14.0" />
+                           </font>
                         </JFXButton>
-                        <JFXButton prefHeight="38.0" prefWidth="136.0" styleClass="menuItem" text="Report">
-                            <graphic>
-                                <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
-                                    <image>
-                                        <Image url="@../../../../../images/report1.png" />
-                                    </image>
-                                </ImageView>
-                            </graphic>
+                        <JFXButton fx:id="deleteNotice" layoutX="528.0" layoutY="30.0" prefHeight="38.0" prefWidth="184.0" styleClass="menuItem" text="Delete Timetable">
+                           <graphic>
+                              <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../../../../images/delete-64.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                           <font>
+                              <Font size="14.0" />
+                           </font>
                         </JFXButton>
-                        <JFXButton prefHeight="38.0" prefWidth="136.0" styleClass="menuItem" text="BackUp">
-                            <graphic>
-                                <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
-                                    <image>
-                                        <Image url="@../../../../../images/data1.png" />
-                                    </image>
-                                </ImageView>
-                            </graphic>
-                        </JFXButton>
-                    </children>
-                    <padding>
-                        <Insets top="20.0" />
-                    </padding>
-                </HBox>
-            </top>
-            <center>
-                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Time Table" BorderPane.alignment="CENTER">
-                    <font>
-                        <Font size="37.0" />
-                    </font>
-                </Text>
-            </center>
+                     </children>
+                     <padding>
+                        <Insets left="20.0" right="20.0" top="20.0" />
+                     </padding>
+                     <VBox.margin>
+                        <Insets bottom="5.0" left="50.0" right="50.0" />
+                     </VBox.margin>
+                  </HBox>
+               </children>
+            </VBox>
+         </top>
+         <center>
+            <HBox prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+               <children>
+                  <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="450.0" prefWidth="412.0" style="-fx-background-color: #ffffff;">
+                     <children>
+                        <HBox alignment="CENTER" prefHeight="78.0" prefWidth="412.0">
+                           <children>
+                              <Label contentDisplay="CENTER" text="Upload New Time Table" textAlignment="CENTER" textFill="#535353">
+                                 <font>
+                                    <Font name="System Bold" size="22.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </HBox>
+                        <HBox alignment="CENTER" prefHeight="41.0" prefWidth="412.0">
+                           <children>
+                              <Label prefHeight="26.0" prefWidth="125.0" text="Title" textFill="#595959">
+                                 <font>
+                                    <Font name="System Bold" size="17.0" />
+                                 </font>
+                              </Label>
+                              <JFXTextField fx:id="txtCourseCode" focusColor="#5271ff" prefHeight="30.0" prefWidth="245.0" promptText="type the title">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </JFXTextField>
+                           </children>
+                           <VBox.margin>
+                              <Insets bottom="20.0" />
+                           </VBox.margin>
+                        </HBox>
+                        <HBox alignment="CENTER" layoutX="10.0" layoutY="260.0" prefHeight="41.0" prefWidth="412.0">
+                           <children>
+                              <Label prefHeight="26.0" prefWidth="125.0" text="Deparment" textFill="#595959">
+                                 <font>
+                                    <Font name="System Bold" size="17.0" />
+                                 </font>
+                              </Label>
+                              <JFXComboBox fx:id="comboDepartment" prefHeight="26.0" prefWidth="245.0" promptText="selete the department" />
+                           </children>
+                           <VBox.margin>
+                              <Insets bottom="20.0" />
+                           </VBox.margin>
+                        </HBox>
+                        <HBox alignment="CENTER" layoutX="10.0" layoutY="218.0" prefHeight="41.0" prefWidth="412.0">
+                           <children>
+                              <Label prefHeight="26.0" prefWidth="125.0" text="Level" textFill="#595959">
+                                 <font>
+                                    <Font name="System Bold" size="17.0" />
+                                 </font>
+                              </Label>
+                              <JFXComboBox fx:id="comboDepartment1" prefHeight="26.0" prefWidth="245.0" promptText="selete the level" />
+                           </children>
+                           <VBox.margin>
+                              <Insets bottom="20.0" />
+                           </VBox.margin>
+                        </HBox>
+                        <HBox alignment="CENTER" layoutX="10.0" layoutY="201.0" prefHeight="41.0" prefWidth="412.0">
+                           <children>
+                              <Label prefHeight="26.0" prefWidth="125.0" text="Time Table" textFill="#595959">
+                                 <font>
+                                    <Font name="System Bold" size="17.0" />
+                                 </font>
+                              </Label>
+                              <JFXTextField fx:id="txtMaterials" focusColor="#5271ff" prefHeight="30.0" prefWidth="247.0" promptText="enter material links">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </JFXTextField>
+                           </children>
+                           <VBox.margin>
+                              <Insets bottom="20.0" />
+                           </VBox.margin>
+                        </HBox>
+                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                           <children>
+                              <JFXButton alignment="CENTER" maxWidth="88.0" prefHeight="34.0" prefWidth="86.0" style="-fx-background-radius: 18;" styleClass="addNoticeBtn" stylesheets="@../../../../../style/style.css" text="Upload" textAlignment="CENTER">
+                                 <font>
+                                    <Font name="System Bold" size="14.0" />
+                                 </font>
+                                 <HBox.margin>
+                                    <Insets right="10.0" />
+                                 </HBox.margin>
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                              </JFXButton>
+                              <JFXButton alignment="CENTER" layoutX="173.0" layoutY="43.0" maxWidth="88.0" prefHeight="34.0" prefWidth="86.0" style="-fx-background-radius: 18;" styleClass="cancelNoticeBtn" stylesheets="@../../../../../style/style.css" text="Clear" textAlignment="CENTER">
+                                 <font>
+                                    <Font name="System Bold" size="14.0" />
+                                 </font>
+                                 <HBox.margin>
+                                    <Insets left="10.0" />
+                                 </HBox.margin>
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                              </JFXButton>
+                           </children>
+                        </HBox>
+                     </children>
+                  </VBox>
+                  <Line endX="-99.37870788574219" endY="476.0929260253906" startX="-100.0" stroke="#848484" />
+                  <TableView fx:id="noticeTable" prefHeight="498.0" prefWidth="477.0">
+                     <columns>
+                        <TableColumn fx:id="idcol" maxWidth="148.80008554458618" prefWidth="102.40005350112915" resizable="false" style="-fx-alignment: center;" text="Title" />
+                        <TableColumn fx:id="datecol" maxWidth="320.00003814697266" prefWidth="148.00000762939453" resizable="false" style="-fx-alignment: center;" text="Deparment" />
+                        <TableColumn fx:id="titlecol" maxWidth="630.0" minWidth="0.0" prefWidth="53.5999755859375" resizable="false" style="-fx-alignment: center;" text="Level" />
+                        <TableColumn fx:id="timecol" maxWidth="339.20001220703125" prefWidth="159.2000732421875" resizable="false" style="-fx-alignment: center;" text="TimeTable" />
+                     </columns>
+                     <padding>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </padding>
+                  </TableView>
+               </children>
+            </HBox>
+         </center>
         </BorderPane>
     </children>
 </AnchorPane>
