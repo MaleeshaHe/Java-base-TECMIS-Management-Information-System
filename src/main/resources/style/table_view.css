@@ -22,6 +22,10 @@
     -fx-text-fill: #414141;
 }
 
+.table-row-cell {
+    -fx-cell-size: 50px;
+}
+
 .table-view {
     -fx-font-size: 16;
 }

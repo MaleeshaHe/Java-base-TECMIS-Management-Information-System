@@ -105,7 +105,7 @@ public class AdminHomeController implements Initializable {
         stage.setTitle("TECMIS");
         stage.show();
         stage.resizableProperty().setValue(false);
-        new Swing(root).play();
+        new FadeIn(root).play();
     }
 }
 
