@@ -53,6 +53,11 @@
             <artifactId>hcUtils-mobile</artifactId>
             <version>1.0.13.RELEASE</version>
         </dependency>
+        <dependency>
+            <groupId>com.sun.webkit</groupId>
+            <artifactId>webview-deps</artifactId>
+            <version>1.3.2</version>
+        </dependency>
     </dependencies>
 
     <build>
