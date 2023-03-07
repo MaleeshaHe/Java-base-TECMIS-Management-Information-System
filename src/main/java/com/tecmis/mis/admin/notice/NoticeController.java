@@ -12,6 +12,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.image.Image;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
@@ -76,6 +77,8 @@ public class NoticeController implements Initializable {
             Parent root = (Parent) fxmlLoader.load();
             Stage stage = new Stage();
             stage.setTitle("Create a new Notice");
+            javafx.scene.image.Image image = new Image("images/appIcon.png");
+            stage.getIcons().add(image);
             stage.resizableProperty().setValue(false);
             stage.setScene(new Scene(root));
             stage.show();
@@ -98,6 +101,8 @@ public class NoticeController implements Initializable {
 
                 Stage stage = new Stage();
                 stage.setTitle("Edit Notice");
+                javafx.scene.image.Image image = new Image("images/appIcon.png");
+                stage.getIcons().add(image);
                 stage.resizableProperty().setValue(false);
                 stage.setScene(new Scene(root));
                 stage.show();
