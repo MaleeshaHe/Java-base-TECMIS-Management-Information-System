@@ -12,9 +12,9 @@ public class UserDetails {
     private String sex;
     private String address;
     private String user_roll;
-    private String department;
+    private String short_name;
 
-    public UserDetails(int user_id, String tgnum, String fname, String lname, String phone_num, String email, String dob, String sex, String address, String user_roll, String department) {
+    public UserDetails(int user_id, String tgnum, String fname, String lname, String phone_num, String email, String dob, String sex, String address, String user_roll, String short_name) {
         this.user_id = user_id;
         this.tgnum = tgnum;
         this.fname = fname;
@@ -25,7 +25,7 @@ public class UserDetails {
         this.sex = sex;
         this.address = address;
         this.user_roll = user_roll;
-        this.department = department;
+        this.short_name = short_name;
     }
 
     public int getUser_id() {
@@ -108,12 +108,12 @@ public class UserDetails {
         this.user_roll = user_roll;
     }
 
-    public String getDepartment() {
-        return department;
+    public String getShort_name() {
+        return short_name;
     }
 
-    public void setDepartment(String department) {
-        this.department = department;
+    public void setShort_name(String short_name) {
+        this.short_name = short_name;
     }
 
     //    private String name;

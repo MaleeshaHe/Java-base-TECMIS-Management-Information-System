@@ -53,7 +53,7 @@
                   </HBox>
                   <HBox alignment="CENTER" prefHeight="50.0" prefWidth="839.0" styleClass="table-view" stylesheets="@../../../../../style/table_view.css">
                      <children>
-                        <JFXButton prefHeight="38.0" prefWidth="136.0" styleClass="menuItem" text="Refresh">
+                        <JFXButton onAction="#refreshTable" prefHeight="38.0" prefWidth="136.0" styleClass="menuItem" text="Refresh">
                            <graphic>
                               <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
                                  <image>

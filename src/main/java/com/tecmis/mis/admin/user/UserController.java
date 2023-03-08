@@ -143,7 +143,7 @@ public class UserController implements Initializable {
             return cell;
         };
         photocol.setCellFactory(cellFoctory);
-        departmentcol.setCellValueFactory(new PropertyValueFactory<>("department"));
+        departmentcol.setCellValueFactory(new PropertyValueFactory<>("short_name"));
         userTable.setItems(userList);
     }
 
@@ -152,7 +152,7 @@ public class UserController implements Initializable {
         try {
             userList.clear();
 
-            query = "SELECT * FROM `users`";
+            query = "SELECT * FROM department,users WHERE users.depId=department.depId";
             preparedStatement = connection.prepareStatement(query);
             resultSet = preparedStatement.executeQuery();
 
@@ -169,7 +169,7 @@ public class UserController implements Initializable {
                         resultSet.getString("sex"),
                         resultSet.getString("address"),
                         resultSet.getString("user_roll"),
-                        resultSet.getString("department")));
+                        resultSet.getString("short_name")));
                 userTable.setItems(userList);
             }
 
