@@ -60,7 +60,7 @@ public class AdminHomeController implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
 
         try {
-            AnchorPane view = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("user/user-view.fxml")));
+            AnchorPane view = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("user/user.fxml")));
             borderpane.setCenter(view);
         } catch (IOException ex) {
             Logger.getLogger(ModuleLayer.Controller.class.getName()).log(Level.SEVERE,null,ex);
@@ -68,7 +68,7 @@ public class AdminHomeController implements Initializable {
     }
 
     public void btnUser(ActionEvent actionEvent) throws IOException {
-        AnchorPane view = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("user/user-view.fxml")));
+        AnchorPane view = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("user/user.fxml")));
         borderpane.getChildren().removeAll();
         borderpane.setCenter(view);
         new FadeInDown(view).play();

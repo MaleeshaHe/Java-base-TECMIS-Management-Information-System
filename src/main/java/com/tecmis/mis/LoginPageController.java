@@ -66,9 +66,9 @@ public class LoginPageController implements Initializable {
             ResultSet rs = stmt.executeQuery(query);
 
             while (rs.next()){
-                if(userName.equals(rs.getString(5)) && passwordl.equals(rs.getString(6))){
+                if(userName.equals(rs.getString(6)) && passwordl.equals(rs.getString(7))){
 
-                    if(rs.getString(11).equals("admin")){
+                    if(rs.getString(12).equals("admin")){
 
                         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("admin/admin-home.fxml")));
                         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
