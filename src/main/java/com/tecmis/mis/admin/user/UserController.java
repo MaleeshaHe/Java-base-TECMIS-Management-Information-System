@@ -1,6 +1,7 @@
 package com.tecmis.mis.admin.user;
 
 import animatefx.animation.*;
+import com.tecmis.mis.admin.course.EditCourseControlloer;
 import com.tecmis.mis.admin.notice.NoticeController;
 import com.tecmis.mis.admin.notice.NoticeDetails;
 import com.tecmis.mis.admin.timetable.TimetableDetails;
@@ -12,6 +13,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -28,10 +30,7 @@ import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import javafx.util.Callback;
 
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.InputStream;
-import java.io.OutputStream;
+import java.io.*;
 import java.net.URL;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -39,6 +38,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Base64;
 import java.util.Objects;
+import java.util.Optional;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -80,6 +80,16 @@ public class UserController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         loadData();
     }
+
+    private static UserDetails selectedUser;
+    public static UserDetails getSelectedUser() {
+        return selectedUser;
+    }
+    public static void setSelectedUser(UserDetails user) {
+        selectedUser = user;
+    }
+
+
     public void loadData() {
         connection = DbConnect.getConnect();
         refreshTable();
@@ -169,6 +179,7 @@ public class UserController implements Initializable {
                         resultSet.getString("sex"),
                         resultSet.getString("address"),
                         resultSet.getString("user_roll"),
+                        resultSet.getString("password"),
                         resultSet.getString("short_name")));
                 userTable.setItems(userList);
             }
@@ -185,5 +196,62 @@ public class UserController implements Initializable {
         borderpane.getChildren().removeAll();
         borderpane.setCenter(view);
         new FadeInRight(view).play();
+    }
+
+
+    @FXML
+    void deleteUser(ActionEvent event) {
+        if(userTable.getSelectionModel().getSelectedItem() != null){
+            Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+            alert.setTitle("Delete User");
+            alert.setContentText("Are you sure delete this User");
+            Optional<ButtonType> result = alert.showAndWait();
+
+            if(result.get() == ButtonType.OK){
+                try {
+                    userDetails = userTable.getSelectionModel().getSelectedItem();
+                    query = "DELETE FROM `users` WHERE user_id='"+userDetails.getUser_id()+"'";
+                    connection = DbConnect.getConnect();
+                    preparedStatement = connection.prepareStatement(query);
+                    preparedStatement.execute();
+                    refreshTable();
+
+                } catch (SQLException ex) {
+                    Logger.getLogger(NoticeController.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+        }
+        else{
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Warning");
+            alert.setContentText("If you want to delete any user, First you select the row that you want to delete");
+            alert.showAndWait();
+        }
+    }
+
+
+    @FXML
+    void editUser(ActionEvent event) throws Exception {
+
+        if(userTable.getSelectionModel().getSelectedItem() != null){
+            try {
+
+                userDetails = userTable.getSelectionModel().getSelectedItem();
+                UserController.setSelectedUser(userDetails);
+                AnchorPane view = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("edit-user.fxml")));
+                borderpane.getChildren().removeAll();
+                borderpane.setCenter(view);
+                new FadeInRight(view).play();
+
+            } catch (IOException ex) {
+                Logger.getLogger(NoticeController.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        else {
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Warning");
+            alert.setContentText("If you want to update any user, First you select the row that you want to update");
+            alert.showAndWait();
+        }
     }
 }

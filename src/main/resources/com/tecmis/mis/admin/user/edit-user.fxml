@@ -20,7 +20,7 @@
 <?import javafx.scene.shape.Circle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.tecmis.mis.admin.user.AddUserControlloer">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.tecmis.mis.admin.user.EditUserControlloer">
    <children>
       <BorderPane fx:id="borderpane" prefHeight="500.0" prefWidth="600.0" style="-fx-background-color: #fff;">
          <top>
@@ -38,7 +38,7 @@
                         </ImageView>
                      </graphic>
                   </JFXButton>
-                  <Label alignment="CENTER" contentDisplay="CENTER" text="Create New User" textAlignment="CENTER" textFill="#535353">
+                  <Label alignment="CENTER" contentDisplay="CENTER" text="Update User Details" textAlignment="CENTER" textFill="#535353">
                      <font>
                         <Font name="System Bold" size="22.0" />
                      </font>
@@ -301,7 +301,7 @@
                      <children>
                         <HBox alignment="CENTER" prefHeight="52.0" prefWidth="841.0">
                            <children>
-                              <JFXButton alignment="CENTER" maxWidth="88.0" onAction="#addUser" prefHeight="34.0" prefWidth="86.0" style="-fx-background-radius: 18;" styleClass="addNoticeBtn" stylesheets="@../../../../../style/style.css" text="Add" textAlignment="CENTER">
+                              <JFXButton alignment="CENTER" maxWidth="88.0" onAction="#updateUser" prefHeight="34.0" prefWidth="86.0" style="-fx-background-radius: 18;" styleClass="addNoticeBtn" stylesheets="@../../../../../style/style.css" text="Add" textAlignment="CENTER">
                                  <font>
                                     <Font name="System Bold" size="14.0" />
                                  </font>

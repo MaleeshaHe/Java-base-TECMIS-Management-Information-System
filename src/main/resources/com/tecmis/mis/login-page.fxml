@@ -38,7 +38,7 @@
                </image>
             </ImageView>
             <JFXTextField fx:id="user_name" layoutX="328.0" layoutY="130.0" prefHeight="25.0" prefWidth="240.0" promptText="User name" />
-            <JFXPasswordField fx:id="password" layoutX="328.0" layoutY="188.0" prefHeight="25.0" prefWidth="240.0" promptText="Password" />
+            <JFXPasswordField fx:id="passwordlog" layoutX="328.0" layoutY="188.0" prefHeight="25.0" prefWidth="240.0" promptText="Password" />
             <Label fx:id="error" layoutX="354.0" layoutY="245.0" textAlignment="CENTER" textFill="#e70000">
                <font>
                   <Font size="13.0" />

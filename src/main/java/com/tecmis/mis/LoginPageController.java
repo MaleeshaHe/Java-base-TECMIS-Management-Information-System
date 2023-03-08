@@ -29,7 +29,7 @@ public class LoginPageController implements Initializable {
     @FXML
     private Label error;
     @FXML
-    private JFXPasswordField password;
+    private JFXPasswordField passwordlog;
 
     @FXML
     private JFXTextField user_name;
@@ -61,14 +61,16 @@ public class LoginPageController implements Initializable {
             String query = "SELECT * from users";
 
             userName = user_name.getText();
-            passwordl = password.getText();
+            passwordl = passwordlog.getText();
+
+
 
             ResultSet rs = stmt.executeQuery(query);
 
             while (rs.next()){
                 if(userName.equals(rs.getString(6)) && passwordl.equals(rs.getString(7))){
 
-                    if(rs.getString(12).equals("admin")){
+                    if(rs.getString(12).equals("Admin")){
 
                         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("admin/admin-home.fxml")));
                         stage = (Stage)((Node)event.getSource()).getScene().getWindow();

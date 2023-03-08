@@ -83,7 +83,7 @@
                               <Font size="14.0" />
                            </font>
                         </JFXButton>
-                        <JFXButton layoutX="436.0" layoutY="30.0" prefHeight="38.0" prefWidth="184.0" styleClass="menuItem" text="Edit User">
+                        <JFXButton layoutX="436.0" layoutY="30.0" onAction="#editUser" prefHeight="38.0" prefWidth="184.0" styleClass="menuItem" text="Edit User">
                            <graphic>
                               <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
@@ -98,7 +98,7 @@
                               <Font size="14.0" />
                            </font>
                         </JFXButton>
-                        <JFXButton layoutX="528.0" layoutY="30.0" prefHeight="38.0" prefWidth="184.0" styleClass="menuItem" text="Delete User">
+                        <JFXButton layoutX="528.0" layoutY="30.0" onAction="#deleteUser" prefHeight="38.0" prefWidth="184.0" styleClass="menuItem" text="Delete User">
                            <graphic>
                               <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
                                  <image>

@@ -1,6 +1,5 @@
 package com.tecmis.mis.admin.user;
 
-import animatefx.animation.*;
 import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXPasswordField;
 import com.jfoenix.controls.JFXTextField;
@@ -17,16 +16,13 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.DatePicker;
 import javafx.scene.image.Image;
-import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Circle;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.InputStream;
+import java.io.*;
 import java.net.URL;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -36,7 +32,7 @@ import java.util.Objects;
 import java.util.Optional;
 import java.util.ResourceBundle;
 
-public class AddUserControlloer implements Initializable {
+public class EditUserControlloer implements Initializable {
     @FXML
     private JFXComboBox<String> comboDepartment;
 
@@ -80,13 +76,13 @@ public class AddUserControlloer implements Initializable {
     private Stage stage;
     private Scene scene;
     private Parent root;
-
+    private UserDetails selectedUser;
     private FileInputStream fis;
     private File img;
     String query = null;
     Connection connection = null ;
+    ResultSet resultSet = null ;
     PreparedStatement preparedStatement = null ;
-
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -94,8 +90,44 @@ public class AddUserControlloer implements Initializable {
         comboDepartment.setItems(FXCollections.observableArrayList("Engineering Technology","Information & Communication Technology","Biosystems Technology","Multidisciplinary Studies"));
         comboGender.setItems(FXCollections.observableArrayList("Male","Female","Other"));
         comboUserType.setItems(FXCollections.observableArrayList("Student","Lecturer","Admin","Technical Officer"));
+        selectedUser = UserController.getSelectedUser();
+        loadData();
     }
 
+    private void loadData(){
+        txtRnumber.setText(selectedUser.getTgnum());
+        txtFname.setText(selectedUser.getFname());
+        txtLname.setText(selectedUser.getLname());
+        txtEmail.setText(selectedUser.getEmail());
+        txtPhoneNumber.setText(selectedUser.getPhone_num());
+        txtAddress.setText(selectedUser.getAddress());
+
+        try {
+            connection = DbConnect.getConnect();
+            query = "SELECT profile_pic FROM users WHERE user_id='"+selectedUser.getUser_id()+"'";
+            preparedStatement = connection.prepareStatement(query);
+            resultSet = preparedStatement.executeQuery();
+
+            while (resultSet.next()){
+
+                InputStream is = resultSet.getBinaryStream("profile_pic");
+                OutputStream os = new FileOutputStream(new File("photo.jpg"));
+                byte[] content = new byte[1024];
+                int size = 0;
+                while ((size = is.read(content)) != -1){
+                    os.write(content,0,size);
+                }
+                os.close();
+                is.close();
+
+                imageView.setFill(new ImagePattern(new Image("file:photo.jpg",0,0,true,true)));
+            }
+
+        }catch (Exception e){
+            System.out.println(e);
+        }
+
+    }
     @FXML
     void backBtn(ActionEvent event) throws Exception{
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("../admin-home.fxml")));
@@ -106,6 +138,7 @@ public class AddUserControlloer implements Initializable {
         stage.show();
         stage.resizableProperty().setValue(false);
     }
+
 
     @FXML
     void clearBtn(ActionEvent event) {
@@ -132,7 +165,7 @@ public class AddUserControlloer implements Initializable {
     }
 
     @FXML
-    void addUser(ActionEvent event) {
+    void updateUser(ActionEvent event) {
 
         LocalDate birtDate = txtDoB.getValue();
 
@@ -147,10 +180,12 @@ public class AddUserControlloer implements Initializable {
         String gender = comboGender.getValue();
         String password = txtPasswordC.getText();
         int department = comboDepartment.getSelectionModel().getSelectedIndex()+1;
+        int userId = selectedUser.getUser_id();
+
 
         try {
             connection = DbConnect.getConnect();
-            query = "INSERT INTO users (tgnum,fname,lname,phone_num,email,password,dob,sex,address,user_roll,depId,profile_pic) VALUES (?,?,?,?,?,?,?,?,?,?,?,?)";
+            query = "UPDATE users SET tgnum = ?, fname= ?, lname = ?, phone_num = ?, email = ?, password = ?, dob = ?, sex = ?, address = ?, user_roll = ?, depId = ?, profile_pic = ? WHERE user_id = ?";
             preparedStatement = connection.prepareStatement(query);
             preparedStatement.setString(1,tgnum);
             preparedStatement.setString(2,fname);
@@ -165,11 +200,12 @@ public class AddUserControlloer implements Initializable {
             preparedStatement.setInt(11,department);
             fis = new FileInputStream(img);
             preparedStatement.setBinaryStream(12, (InputStream)fis, (int)img.length());
+            preparedStatement.setInt(13,userId);
             preparedStatement.executeUpdate();
 
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setTitle("successfull");
-            alert.setContentText("successfully Added User");
+            alert.setContentText("successfully update User");
             Optional<ButtonType> result = alert.showAndWait();
 
             if(result.get() == ButtonType.OK){
@@ -187,6 +223,4 @@ public class AddUserControlloer implements Initializable {
         }
 
     }
-
-
 }
