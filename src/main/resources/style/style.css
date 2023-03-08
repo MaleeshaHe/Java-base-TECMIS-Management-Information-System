@@ -1,6 +1,8 @@
 .menuItem:hover{
     -fx-border-color: #5271FF;
-    -fx-border-width: 0px 0px 1px 0px;
+    -fx-border-width: 0px 0px 0px 4px;
+    -fx-background-radius: 0 6 6 0;
+    -fx-background-color: #dadada;
 }
 
 .sidebarItem:hover{

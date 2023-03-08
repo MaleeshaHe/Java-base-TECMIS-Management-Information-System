@@ -40,7 +40,7 @@
                   </HBox>
                   <HBox alignment="CENTER" prefHeight="50.0" prefWidth="839.0" styleClass="table-view" stylesheets="@../../../../../style/table_view.css">
                      <children>
-                        <JFXButton onAction="#refreshTable" prefHeight="38.0" prefWidth="136.0" styleClass="menuItem" text="Refresh">
+                        <JFXButton onAction="#refreshTable" prefHeight="38.0" prefWidth="121.0" styleClass="menuItem" text="Refresh">
                            <graphic>
                               <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
@@ -55,7 +55,7 @@
                               <Font size="14.0" />
                            </font>
                         </JFXButton>
-                        <JFXButton layoutX="436.0" layoutY="30.0" onAction="#editTimetable" prefHeight="38.0" prefWidth="184.0" styleClass="menuItem" text="Edit Timetable">
+                        <JFXButton layoutX="436.0" layoutY="30.0" onAction="#editTimetable" prefHeight="38.0" prefWidth="170.0" styleClass="menuItem" text="Edit Timetable">
                            <graphic>
                               <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
@@ -70,7 +70,7 @@
                               <Font size="14.0" />
                            </font>
                         </JFXButton>
-                        <JFXButton fx:id="deleteNotice" layoutX="528.0" layoutY="30.0" onAction="#deleteTimetable" prefHeight="38.0" prefWidth="184.0" styleClass="menuItem" text="Delete Timetable">
+                        <JFXButton fx:id="deleteNotice" layoutX="528.0" layoutY="30.0" onAction="#deleteTimetable" prefHeight="32.0" prefWidth="161.0" styleClass="menuItem" text="Delete Timetable">
                            <graphic>
                               <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
