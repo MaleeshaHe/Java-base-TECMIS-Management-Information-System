@@ -36,9 +36,21 @@
          <top>
             <VBox prefHeight="42.0" prefWidth="900.0" BorderPane.alignment="CENTER">
                <children>
+                  <HBox alignment="CENTER" layoutX="10.0" layoutY="10.0" prefHeight="55.0" prefWidth="798.0" styleClass="table-view" stylesheets="@../../../../../style/table_view.css">
+                     <children>
+                        <Label alignment="CENTER" contentDisplay="CENTER" text="Course" textAlignment="CENTER" textFill="#515151">
+                           <font>
+                              <Font name="System Bold" size="26.0" />
+                           </font>
+                        </Label>
+                     </children>
+                     <VBox.margin>
+                        <Insets left="200.0" right="200.0" top="5.0" />
+                     </VBox.margin>
+                  </HBox>
                       <HBox alignment="CENTER" prefHeight="50.0" prefWidth="839.0" styleClass="table-view" stylesheets="@../../../../../style/table_view.css">
                           <children>
-                              <JFXButton fx:id="refreshBtn" onAction="#refreshTable" prefHeight="38.0" prefWidth="136.0" styleClass="menuItem" text="Refresh">
+                              <JFXButton fx:id="refreshBtn" onAction="#refreshTable" prefHeight="38.0" prefWidth="121.0" styleClass="menuItem" text="Refresh">
                                   <graphic>
                                       <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
                                           <image>
@@ -53,7 +65,7 @@
                               <Font size="14.0" />
                            </font>
                               </JFXButton>
-                              <JFXButton fx:id="addNewCourse" onAction="#addCourse" prefHeight="38.0" prefWidth="184.0" styleClass="menuItem" text="Add a New Course">
+                              <JFXButton fx:id="addNewCourse" onAction="#addCourse" prefHeight="38.0" prefWidth="170.0" styleClass="menuItem" text="Add a New Course">
                                   <graphic>
                                       <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
                                           <image>
@@ -68,7 +80,7 @@
                               <Font size="14.0" />
                            </font>
                               </JFXButton>
-                        <JFXButton fx:id="editCourse" layoutX="436.0" layoutY="30.0" onAction="#editCourse" prefHeight="38.0" prefWidth="184.0" styleClass="menuItem" text="Edit Course">
+                        <JFXButton fx:id="editCourse" layoutX="436.0" layoutY="30.0" onAction="#editCourse" prefHeight="38.0" prefWidth="136.0" styleClass="menuItem" text="Edit Course">
                            <graphic>
                               <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
@@ -83,7 +95,7 @@
                               <Font size="14.0" />
                            </font>
                         </JFXButton>
-                        <JFXButton fx:id="deleteCourse" layoutX="528.0" layoutY="30.0" onAction="#deleteCourse" prefHeight="38.0" prefWidth="184.0" styleClass="menuItem" text="Delete Course">
+                        <JFXButton fx:id="deleteCourse" layoutX="528.0" layoutY="30.0" onAction="#deleteCourse" prefHeight="38.0" prefWidth="136.0" styleClass="menuItem" text="Delete Course">
                            <graphic>
                               <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
@@ -106,18 +118,6 @@
                         <Insets bottom="5.0" left="50.0" right="50.0" />
                      </VBox.margin>
                       </HBox>
-                  <HBox alignment="CENTER" layoutX="10.0" layoutY="10.0" prefHeight="55.0" prefWidth="798.0" styleClass="table-view" stylesheets="@../../../../../style/table_view.css">
-                     <children>
-                        <Label alignment="CENTER" contentDisplay="CENTER" text="Course" textAlignment="CENTER" textFill="#515151">
-                           <font>
-                              <Font name="System Bold" size="26.0" />
-                           </font>
-                        </Label>
-                     </children>
-                     <VBox.margin>
-                        <Insets left="200.0" right="200.0" top="5.0" />
-                     </VBox.margin>
-                  </HBox>
                </children>
             </VBox>
          </top>

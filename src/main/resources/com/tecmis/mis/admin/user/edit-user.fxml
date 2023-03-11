@@ -1,0 +1,335 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import com.jfoenix.controls.JFXPasswordField?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.tecmis.mis.admin.user.EditUserControlloer">
+   <children>
+      <BorderPane fx:id="borderpane" prefHeight="500.0" prefWidth="600.0" style="-fx-background-color: #fff;">
+         <top>
+            <HBox alignment="CENTER_LEFT" prefHeight="53.0" prefWidth="824.0" BorderPane.alignment="CENTER">
+               <children>
+                  <JFXButton alignment="CENTER" contentDisplay="CENTER" onAction="#backBtn" prefHeight="51.0" prefWidth="48.0" style="-fx-background-radius: 10;" text=" " textAlignment="CENTER">
+                     <HBox.margin>
+                        <Insets left="10.0" top="10.0" />
+                     </HBox.margin>
+                     <graphic>
+                        <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../../../images/arrow-93-48.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </JFXButton>
+                  <Label alignment="CENTER" contentDisplay="CENTER" text="Update User Details" textAlignment="CENTER" textFill="#535353">
+                     <font>
+                        <Font name="System Bold" size="22.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets top="8.0" />
+                     </HBox.margin>
+                  </Label>
+               </children>
+            </HBox>
+         </top>
+         <center>
+            <VBox prefHeight="390.0" prefWidth="824.0" BorderPane.alignment="CENTER">
+               <children>
+                  <HBox prefHeight="100.0" prefWidth="200.0">
+                     <children>
+                        <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="360.0" prefWidth="440.0" style="-fx-background-color: #ffffff;">
+                           <children>
+                              <HBox alignment="CENTER" prefHeight="41.0" prefWidth="412.0">
+                                 <children>
+                                    <Label prefHeight="26.0" prefWidth="180.0" text="User Type" textFill="#737373">
+                                       <font>
+                                          <Font name="System Bold" size="17.0" />
+                                       </font>
+                                    </Label>
+                                    <JFXComboBox fx:id="comboUserType" focusColor="#5271ff" prefHeight="26.0" prefWidth="220.0" promptText="selete user type">
+                                       <opaqueInsets>
+                                          <Insets />
+                                       </opaqueInsets>
+                                    </JFXComboBox>
+                                 </children>
+                                 <VBox.margin>
+                                    <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                 </VBox.margin>
+                              </HBox>
+                              <HBox alignment="CENTER" layoutX="10.0" layoutY="10.0" prefHeight="41.0" prefWidth="412.0">
+                                 <children>
+                                    <Label prefHeight="26.0" prefWidth="180.0" text="Registration Number" textFill="#737373">
+                                       <font>
+                                          <Font name="System Bold" size="17.0" />
+                                       </font>
+                                    </Label>
+                                    <JFXTextField fx:id="txtRnumber" focusColor="#5271ff" prefHeight="30.0" prefWidth="220.0" promptText="TG/2020/711">
+                                       <font>
+                                          <Font size="13.0" />
+                                       </font>
+                                    </JFXTextField>
+                                 </children>
+                                 <VBox.margin>
+                                    <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                 </VBox.margin>
+                              </HBox>
+                              <HBox alignment="CENTER" layoutX="10.0" layoutY="76.0" prefHeight="41.0" prefWidth="412.0">
+                                 <children>
+                                    <Label prefHeight="26.0" prefWidth="180.0" text="First Name" textFill="#737373">
+                                       <font>
+                                          <Font name="System Bold" size="17.0" />
+                                       </font>
+                                    </Label>
+                                    <JFXTextField fx:id="txtFname" focusColor="#5271ff" prefHeight="30.0" prefWidth="220.0" promptText="type user first name">
+                                       <font>
+                                          <Font size="13.0" />
+                                       </font>
+                                    </JFXTextField>
+                                 </children>
+                                 <VBox.margin>
+                                    <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                 </VBox.margin>
+                              </HBox>
+                              <HBox alignment="CENTER" layoutX="10.0" layoutY="218.0" prefHeight="41.0" prefWidth="412.0">
+                                 <children>
+                                    <Label prefHeight="26.0" prefWidth="180.0" text="Last Name" textFill="#737373">
+                                       <font>
+                                          <Font name="System Bold" size="17.0" />
+                                       </font>
+                                    </Label>
+                                    <JFXTextField fx:id="txtLname" focusColor="#5271ff" prefHeight="30.0" prefWidth="220.0" promptText="type user last name">
+                                       <font>
+                                          <Font size="13.0" />
+                                       </font>
+                                    </JFXTextField>
+                                 </children>
+                                 <VBox.margin>
+                                    <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                 </VBox.margin>
+                              </HBox>
+                              <HBox alignment="CENTER" layoutX="10.0" layoutY="260.0" prefHeight="41.0" prefWidth="412.0">
+                                 <children>
+                                    <Label prefHeight="26.0" prefWidth="180.0" text="Email" textFill="#737373">
+                                       <font>
+                                          <Font name="System Bold" size="17.0" />
+                                       </font>
+                                    </Label>
+                                    <JFXTextField fx:id="txtEmail" focusColor="#5271ff" prefHeight="30.0" prefWidth="220.0" promptText="type email ">
+                                       <font>
+                                          <Font size="13.0" />
+                                       </font>
+                                    </JFXTextField>
+                                 </children>
+                                 <VBox.margin>
+                                    <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                 </VBox.margin>
+                              </HBox>
+                              <HBox alignment="CENTER" layoutX="10.0" layoutY="229.0" prefHeight="41.0" prefWidth="412.0">
+                                 <children>
+                                    <Label prefHeight="26.0" prefWidth="180.0" text="Phone Number" textFill="#737373">
+                                       <font>
+                                          <Font name="System Bold" size="17.0" />
+                                       </font>
+                                    </Label>
+                                    <JFXTextField fx:id="txtPhoneNumber" focusColor="#5271ff" prefHeight="30.0" prefWidth="220.0" promptText="enter phone number">
+                                       <font>
+                                          <Font size="13.0" />
+                                       </font>
+                                    </JFXTextField>
+                                 </children>
+                                 <VBox.margin>
+                                    <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                 </VBox.margin>
+                              </HBox>
+                              <HBox alignment="CENTER" layoutX="10.0" layoutY="247.0" prefHeight="41.0" prefWidth="412.0">
+                                 <children>
+                                    <Label prefHeight="26.0" prefWidth="180.0" text="Address" textFill="#737373">
+                                       <font>
+                                          <Font name="System Bold" size="17.0" />
+                                       </font>
+                                    </Label>
+                                    <JFXTextField fx:id="txtAddress" focusColor="#5271ff" prefHeight="30.0" prefWidth="220.0" promptText="type user full address">
+                                       <font>
+                                          <Font size="13.0" />
+                                       </font>
+                                    </JFXTextField>
+                                 </children>
+                                 <VBox.margin>
+                                    <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                 </VBox.margin>
+                              </HBox>
+                           </children>
+                           <HBox.margin>
+                              <Insets />
+                           </HBox.margin>
+                           <padding>
+                              <Insets left="30.0" />
+                           </padding>
+                        </VBox>
+                        <VBox layoutX="10.0" layoutY="10.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="360.0" prefWidth="412.0" style="-fx-background-color: #ffffff;">
+                           <children>
+                              <HBox alignment="CENTER" layoutX="10.0" layoutY="76.0" prefHeight="41.0" prefWidth="412.0">
+                                 <children>
+                                    <Label prefHeight="26.0" prefWidth="126.0" text="Date of Birth" textFill="#737373">
+                                       <font>
+                                          <Font name="System Bold" size="17.0" />
+                                       </font>
+                                    </Label>
+                                    <DatePicker fx:id="txtDoB" prefHeight="26.0" prefWidth="220.0" promptText="select your birth day" />
+                                 </children>
+                                 <VBox.margin>
+                                    <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                 </VBox.margin>
+                              </HBox>
+                              <HBox alignment="CENTER" layoutX="10.0" layoutY="218.0" prefHeight="41.0" prefWidth="412.0">
+                                 <children>
+                                    <Label prefHeight="26.0" prefWidth="125.0" text="Gender" textFill="#737373">
+                                       <font>
+                                          <Font name="System Bold" size="17.0" />
+                                       </font>
+                                    </Label>
+                                    <JFXComboBox fx:id="comboGender" focusColor="#5271ff" prefHeight="30.0" prefWidth="220.0" promptText="selete gender" />
+                                 </children>
+                                 <VBox.margin>
+                                    <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                 </VBox.margin>
+                              </HBox>
+                              <HBox alignment="CENTER" layoutX="10.0" layoutY="260.0" prefHeight="41.0" prefWidth="412.0">
+                                 <children>
+                                    <Label prefHeight="26.0" prefWidth="125.0" text="Deparment" textFill="#737373">
+                                       <font>
+                                          <Font name="System Bold" size="17.0" />
+                                       </font>
+                                    </Label>
+                                    <JFXComboBox fx:id="comboDepartment" focusColor="#5271ff" prefHeight="30.0" prefWidth="220.0" promptText="selete the department" />
+                                 </children>
+                                 <VBox.margin>
+                                    <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                 </VBox.margin>
+                              </HBox>
+                              <HBox alignment="CENTER" layoutX="10.0" layoutY="201.0" prefHeight="41.0" prefWidth="412.0">
+                                 <children>
+                                    <Label prefHeight="26.0" prefWidth="125.0" text="Password" textFill="#737373">
+                                       <font>
+                                          <Font name="System Bold" size="17.0" />
+                                       </font>
+                                    </Label>
+                                    <JFXPasswordField fx:id="txtPassword" focusColor="#5271ff" prefHeight="30.0" prefWidth="220.0" promptText="type a strong password">
+                                       <font>
+                                          <Font size="13.0" />
+                                       </font>
+                                    </JFXPasswordField>
+                                 </children>
+                                 <VBox.margin>
+                                    <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                 </VBox.margin>
+                              </HBox>
+                              <HBox alignment="CENTER" layoutX="10.0" layoutY="218.0" prefHeight="41.0" prefWidth="412.0">
+                                 <children>
+                                    <Label prefHeight="26.0" prefWidth="125.0" text="Comfirm Password" textFill="#737373">
+                                       <font>
+                                          <Font name="System Bold" size="17.0" />
+                                       </font>
+                                    </Label>
+                                    <JFXPasswordField fx:id="txtPasswordC" focusColor="#5271ff" prefHeight="30.0" prefWidth="220.0" promptText="re-type above password">
+                                       <font>
+                                          <Font size="13.0" />
+                                       </font>
+                                    </JFXPasswordField>
+                                 </children>
+                                 <VBox.margin>
+                                    <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                 </VBox.margin>
+                              </HBox>
+                              <HBox alignment="CENTER" prefHeight="86.0" prefWidth="402.0">
+                                 <children>
+                                    <Label prefHeight="26.0" prefWidth="125.0" text="Profile Picture" textFill="#737373">
+                                       <font>
+                                          <Font name="System Bold" size="17.0" />
+                                       </font>
+                                    </Label>
+                                    <Circle fx:id="imageView" radius="50.0" stroke="#dcdcdc" strokeType="INSIDE">
+                                       <fill>
+                                          <LinearGradient endX="1.0" endY="1.0">
+                                             <stops>
+                                                <Stop>
+                                                   <color>
+                                                      <Color red="0.5074074268341064" green="0.7619135975837708" blue="1.0" />
+                                                   </color>
+                                                </Stop>
+                                                <Stop offset="1.0">
+                                                   <color>
+                                                      <Color red="1.0" green="1.0" blue="1.0" />
+                                                   </color>
+                                                </Stop>
+                                             </stops>
+                                          </LinearGradient>
+                                       </fill>
+                                    </Circle>
+                                    <JFXButton onAction="#choosePhoto" prefHeight="35.0" prefWidth="94.0" style="-fx-background-color: #dcdcdc;" text="Select a photo">
+                                       <HBox.margin>
+                                          <Insets left="28.0" />
+                                       </HBox.margin>
+                                    </JFXButton>
+                                 </children>
+                                 <VBox.margin>
+                                    <Insets top="2.0" />
+                                 </VBox.margin>
+                              </HBox>
+                           </children>
+                        </VBox>
+                     </children>
+                  </HBox>
+                  <HBox prefHeight="52.0" prefWidth="824.0">
+                     <children>
+                        <HBox alignment="CENTER" prefHeight="52.0" prefWidth="841.0">
+                           <children>
+                              <JFXButton alignment="CENTER" maxWidth="88.0" onAction="#updateUser" prefHeight="34.0" prefWidth="86.0" style="-fx-background-radius: 18;" styleClass="addNoticeBtn" stylesheets="@../../../../../style/style.css" text="Add" textAlignment="CENTER">
+                                 <font>
+                                    <Font name="System Bold" size="14.0" />
+                                 </font>
+                                 <HBox.margin>
+                                    <Insets right="10.0" />
+                                 </HBox.margin>
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                              </JFXButton>
+                              <JFXButton alignment="CENTER" layoutX="173.0" layoutY="43.0" maxWidth="88.0" onAction="#clearBtn" prefHeight="34.0" prefWidth="86.0" style="-fx-background-radius: 18;" styleClass="cancelNoticeBtn" stylesheets="@../../../../../style/style.css" text="Clear" textAlignment="CENTER">
+                                 <font>
+                                    <Font name="System Bold" size="14.0" />
+                                 </font>
+                                 <HBox.margin>
+                                    <Insets left="10.0" />
+                                 </HBox.margin>
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                              </JFXButton>
+                           </children>
+                        </HBox>
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+         </center>
+      </BorderPane>
+   </children>
+</AnchorPane>

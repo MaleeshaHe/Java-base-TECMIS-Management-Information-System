@@ -1,6 +1,8 @@
 .menuItem:hover{
     -fx-border-color: #5271FF;
-    -fx-border-width: 0px 0px 1px 0px;
+    -fx-border-width: 0px 0px 0px 4px;
+    -fx-background-radius: 0 6 6 0;
+    -fx-background-color: #dadada;
 }
 
 .sidebarItem:hover{
@@ -35,3 +37,6 @@
     -fx-text-fill: #ffff;
 }
 
+.detailsShadow{
+    -fx-effect: dropshadow(three-pass-box, rgba(149, 157, 165, 1), 20,0,0, 0);
+}
