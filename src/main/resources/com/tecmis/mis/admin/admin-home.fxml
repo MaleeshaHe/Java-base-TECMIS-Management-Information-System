@@ -24,7 +24,7 @@
                                         <Image url="@../../../../images/logo200.png" />
                                     </image>
                                 </ImageView>
-                        <JFXButton alignment="BASELINE_LEFT" layoutX="10.0" layoutY="144.0" onAction="#btnUser" prefHeight="50.0" prefWidth="176.0" styleClass="sidebarItem" text="  Home" textFill="WHITE">
+                        <JFXButton alignment="BASELINE_LEFT" layoutX="10.0" layoutY="144.0" onAction="#btnHome" prefHeight="50.0" prefWidth="176.0" styleClass="sidebarItem" text="  Home" textFill="WHITE">
                            <font>
                               <Font name="System Bold" size="16.0" />
                            </font>

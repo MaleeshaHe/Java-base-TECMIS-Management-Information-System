@@ -99,6 +99,7 @@ public class UserController implements Initializable {
         lnamecol.setCellValueFactory(new PropertyValueFactory<>("lname"));
         phonecol.setCellValueFactory(new PropertyValueFactory<>("phone_num"));
         emailcol.setCellValueFactory(new PropertyValueFactory<>("email"));
+        departmentcol.setCellValueFactory(new PropertyValueFactory<>("user_roll"));
 
         Callback<TableColumn<UserDetails, String>, TableCell<UserDetails, String>> cellFoctory = (TableColumn<UserDetails, String> param) -> {
             final TableCell<UserDetails, String> cell = new TableCell<UserDetails, String>() {
@@ -153,7 +154,6 @@ public class UserController implements Initializable {
             return cell;
         };
         photocol.setCellFactory(cellFoctory);
-        departmentcol.setCellValueFactory(new PropertyValueFactory<>("short_name"));
         userTable.setItems(userList);
     }
 
@@ -162,7 +162,7 @@ public class UserController implements Initializable {
         try {
             userList.clear();
 
-            query = "SELECT * FROM department,users WHERE users.depId=department.depId";
+            query = "SELECT * FROM users,department WHERE users.depId=department.depId";
             preparedStatement = connection.prepareStatement(query);
             resultSet = preparedStatement.executeQuery();
 
@@ -178,9 +178,9 @@ public class UserController implements Initializable {
                         resultSet.getString("dob"),
                         resultSet.getString("sex"),
                         resultSet.getString("address"),
-                        resultSet.getString("user_roll"),
+                        resultSet.getString("short_name"),
                         resultSet.getString("password"),
-                        resultSet.getString("short_name")));
+                        resultSet.getString("user_roll")));
                 userTable.setItems(userList);
             }
 

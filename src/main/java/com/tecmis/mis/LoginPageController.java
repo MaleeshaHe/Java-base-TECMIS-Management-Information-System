@@ -62,9 +62,7 @@ public class LoginPageController implements Initializable {
 
             userName = user_name.getText();
             passwordl = passwordlog.getText();
-
-
-
+            
             ResultSet rs = stmt.executeQuery(query);
 
             while (rs.next()){

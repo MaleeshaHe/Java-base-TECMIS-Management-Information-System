@@ -60,11 +60,19 @@ public class AdminHomeController implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
 
         try {
-            AnchorPane view = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("user/user.fxml")));
+            AnchorPane view = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("home/home.fxml")));
             borderpane.setCenter(view);
+            new FadeIn(view).play();
         } catch (IOException ex) {
             Logger.getLogger(ModuleLayer.Controller.class.getName()).log(Level.SEVERE,null,ex);
         }
+    }
+
+    public void btnHome(ActionEvent actionEvent) throws IOException {
+        AnchorPane view = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("home/home.fxml")));
+        borderpane.getChildren().removeAll();
+        borderpane.setCenter(view);
+        new FadeInDown(view).play();
     }
 
     public void btnUser(ActionEvent actionEvent) throws IOException {

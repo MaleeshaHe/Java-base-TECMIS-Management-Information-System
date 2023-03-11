@@ -37,3 +37,6 @@
     -fx-text-fill: #ffff;
 }
 
+.detailsShadow{
+    -fx-effect: dropshadow(three-pass-box, rgba(149, 157, 165, 1), 20,0,0, 0);
+}
