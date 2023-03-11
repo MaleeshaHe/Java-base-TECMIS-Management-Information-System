@@ -4,6 +4,7 @@ import animatefx.animation.FadeIn;
 import animatefx.animation.Shake;
 import com.jfoenix.controls.JFXPasswordField;
 import com.jfoenix.controls.JFXTextField;
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -42,8 +43,11 @@ public class LoginPageController implements Initializable {
     private Scene scene;
     private Parent root;
 
+
     String userName;
     String passwordl;
+
+    int userId;
 
     public LoginPageController() {
         con = JDBC.connection();
@@ -62,13 +66,15 @@ public class LoginPageController implements Initializable {
 
             userName = user_name.getText();
             passwordl = passwordlog.getText();
-            
+
             ResultSet rs = stmt.executeQuery(query);
 
             while (rs.next()){
                 if(userName.equals(rs.getString(6)) && passwordl.equals(rs.getString(7))){
 
                     if(rs.getString(12).equals("Admin")){
+
+                        userId = Integer.parseInt(rs.getString(1));
 
                         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("admin/admin-home.fxml")));
                         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
