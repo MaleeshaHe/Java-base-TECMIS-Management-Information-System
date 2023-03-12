@@ -1,5 +1,6 @@
 package com.tecmis.mis.admin.timetable;
 
+import animatefx.animation.Shake;
 import com.google.common.primitives.Bytes;
 import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXTextField;
@@ -14,6 +15,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
+import javafx.scene.control.Label;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import org.apache.commons.io.IOUtils;
@@ -42,6 +44,10 @@ public class EditTimetableControlloer implements Initializable {
 
     @FXML
     private JFXTextField txtTimetableTitle;
+
+    @FXML
+    private Label error;
+
     @FXML
     private Stage stage;
     private Scene scene;
@@ -75,39 +81,46 @@ public class EditTimetableControlloer implements Initializable {
 
     @FXML
     void uploadPdf(ActionEvent event) {
-        try {
-            String title = txtTimetableTitle.getText();
-            int department = comboDepartment.getSelectionModel().getSelectedIndex()+1;
-            int level = comboLevel.getSelectionModel().getSelectedIndex()+1;
-            byte[] pdf = pdfBytes;
-            int id = tid;
 
-            connection = DbConnect.getConnect();
-            query = "UPDATE timetable SET title = ?, depName= ?, level = ?, pdffile = ? WHERE tid = ?";
-            preparedStatement = connection.prepareStatement(query);
-            preparedStatement.setString(1,title);
-            preparedStatement.setInt(2,department);
-            preparedStatement.setInt(3,level);
-            preparedStatement.setBytes(4,pdf);
-            preparedStatement.setInt(5,id);
-            preparedStatement.executeUpdate();
+        if(txtTimetableTitle.getText().length() == 0 || txtMaterials.getText().length() == 0){
+            new Shake(error).play();
+            error.setText("Please fill the all Fields");
+        }
+        else {
+            try {
+                String title = txtTimetableTitle.getText();
+                int department = comboDepartment.getSelectionModel().getSelectedIndex()+1;
+                int level = comboLevel.getSelectionModel().getSelectedIndex()+1;
+                byte[] pdf = pdfBytes;
+                int id = tid;
 
-            Alert alert = new Alert(Alert.AlertType.INFORMATION);
-            alert.setTitle("successfully Update");
-            alert.setContentText("successfully update Time Table");
-            Optional<ButtonType> result = alert.showAndWait();
+                connection = DbConnect.getConnect();
+                query = "UPDATE timetable SET title = ?, depName= ?, level = ?, pdffile = ? WHERE tid = ?";
+                preparedStatement = connection.prepareStatement(query);
+                preparedStatement.setString(1,title);
+                preparedStatement.setInt(2,department);
+                preparedStatement.setInt(3,level);
+                preparedStatement.setBytes(4,pdf);
+                preparedStatement.setInt(5,id);
+                preparedStatement.executeUpdate();
 
-            if(result.get() == ButtonType.OK){
-                reset();
-                Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("edit-timetable.fxml")));
-                stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-                stage.setScene(scene);
-                stage.centerOnScreen();
-                stage.close();
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setTitle("successfully Update");
+                alert.setContentText("successfully update Time Table");
+                Optional<ButtonType> result = alert.showAndWait();
+
+                if(result.get() == ButtonType.OK){
+                    reset();
+                    Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("edit-timetable.fxml")));
+                    stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+                    stage.setScene(scene);
+                    stage.centerOnScreen();
+                    stage.close();
+                }
+
+            }catch (Exception e){
+                System.out.println(e);
             }
-
-        }catch (Exception e){
-            System.out.println(e);
         }
     }
 

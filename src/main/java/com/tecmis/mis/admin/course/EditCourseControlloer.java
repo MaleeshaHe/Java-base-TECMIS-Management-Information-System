@@ -1,5 +1,6 @@
 package com.tecmis.mis.admin.course;
 
+import animatefx.animation.Shake;
 import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXTextField;
 import com.tecmis.mis.db_connect.DbConnect;
@@ -13,6 +14,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
+import javafx.scene.control.Label;
 import javafx.stage.Stage;
 
 import javax.swing.*;
@@ -43,6 +45,10 @@ public class EditCourseControlloer implements Initializable {
     @FXML
     private JFXTextField txtMaterials;
 
+
+    @FXML
+    private Label error;
+
     @FXML
     private Stage stage;
     private Scene scene;
@@ -67,41 +73,48 @@ public class EditCourseControlloer implements Initializable {
 
     @FXML
     void addCourse(ActionEvent event) {
-        try {
-            String courseCode = txtCourseCode.getText();
-            String courseName = txtCourseName.getText();
-            String credit = txtCredit.getText();
-            String materials = txtMaterials.getText();
-            int department = comboDepartment.getSelectionModel().getSelectedIndex()+1;
+
+        if(txtCourseCode.getText().length() == 0 || txtCourseName.getText().length() == 0 || txtCredit.getText().length() == 0 || txtMaterials.getText().length() == 0){
+            new Shake(error).play();
+            error.setText("Please fill the all Fields");
+        }
+        else {
+            try {
+                String courseCode = txtCourseCode.getText();
+                String courseName = txtCourseName.getText();
+                String credit = txtCredit.getText();
+                String materials = txtMaterials.getText();
+                int department = comboDepartment.getSelectionModel().getSelectedIndex()+1;
 
 
-            connection = DbConnect.getConnect();
-            query = "UPDATE course SET courseCode = ?, courseName= ?, credit = ?, material = ?, depId = ? WHERE cId = ?";
-            preparedStatement = connection.prepareStatement(query);
-            preparedStatement.setString(1,courseCode);
-            preparedStatement.setString(2,courseName);
-            preparedStatement.setString(3,credit);
-            preparedStatement.setString(4, materials);
-            preparedStatement.setInt(5,department);
-            preparedStatement.setInt(6,c_id);
-            preparedStatement.executeUpdate();
+                connection = DbConnect.getConnect();
+                query = "UPDATE course SET courseCode = ?, courseName= ?, credit = ?, material = ?, depId = ? WHERE cId = ?";
+                preparedStatement = connection.prepareStatement(query);
+                preparedStatement.setString(1,courseCode);
+                preparedStatement.setString(2,courseName);
+                preparedStatement.setString(3,credit);
+                preparedStatement.setString(4, materials);
+                preparedStatement.setInt(5,department);
+                preparedStatement.setInt(6,c_id);
+                preparedStatement.executeUpdate();
 
-            Alert alert = new Alert(Alert.AlertType.INFORMATION);
-            alert.setTitle("successfully updated");
-            alert.setContentText("successfully updated Course");
-            Optional<ButtonType> result = alert.showAndWait();
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setTitle("successfully updated");
+                alert.setContentText("successfully updated Course");
+                Optional<ButtonType> result = alert.showAndWait();
 
-            if(result.get() == ButtonType.OK){
-                reset();
-                Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("edit-course.fxml")));
-                stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-                stage.setScene(scene);
-                stage.centerOnScreen();
-                stage.close();
+                if(result.get() == ButtonType.OK){
+                    reset();
+                    Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("edit-course.fxml")));
+                    stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+                    stage.setScene(scene);
+                    stage.centerOnScreen();
+                    stage.close();
+                }
+
+            }catch (Exception e){
+                System.out.println(e);
             }
-
-        }catch (Exception e){
-            System.out.println(e);
         }
     }
 

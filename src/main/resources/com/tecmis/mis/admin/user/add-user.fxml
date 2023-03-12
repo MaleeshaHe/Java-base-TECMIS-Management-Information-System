@@ -297,6 +297,15 @@
                         </VBox>
                      </children>
                   </HBox>
+                  <HBox alignment="CENTER" prefHeight="23.0" prefWidth="852.0">
+                     <children>
+                        <Label fx:id="error" textAlignment="CENTER" textFill="#e70000">
+                           <font>
+                              <Font size="13.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </HBox>
                   <HBox prefHeight="52.0" prefWidth="824.0">
                      <children>
                         <HBox alignment="CENTER" prefHeight="52.0" prefWidth="841.0">

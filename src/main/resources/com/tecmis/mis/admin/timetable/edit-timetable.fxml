@@ -88,7 +88,16 @@
             <Insets bottom="20.0" />
          </VBox.margin>
       </HBox>
-      <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+      <HBox alignment="CENTER" prefHeight="40.0" prefWidth="412.0">
+         <children>
+            <Label fx:id="error" textAlignment="CENTER" textFill="#e70000">
+               <font>
+                  <Font size="13.0" />
+               </font>
+            </Label>
+         </children>
+      </HBox>
+      <HBox alignment="CENTER" prefHeight="82.0" prefWidth="398.0">
          <children>
             <JFXButton alignment="CENTER" maxWidth="88.0" onAction="#uploadPdf" prefHeight="34.0" prefWidth="86.0" style="-fx-background-radius: 18;" styleClass="addNoticeBtn" stylesheets="@../../../../../style/style.css" text="Upload" textAlignment="CENTER">
                <font>

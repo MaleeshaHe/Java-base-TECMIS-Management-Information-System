@@ -2,11 +2,13 @@ package com.tecmis.mis;
 
 import animatefx.animation.FadeIn;
 import javafx.application.Application;
+import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
+import javafx.stage.WindowEvent;
 
 import java.io.IOException;
 import java.util.Objects;
@@ -36,7 +38,6 @@ public class Main extends Application {
         primaryStage.centerOnScreen();
         primaryStage.resizableProperty().setValue(false);
         new FadeIn(root).play();
-
     }
 
     public static void main(String[] args) {

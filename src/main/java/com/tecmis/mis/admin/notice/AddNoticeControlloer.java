@@ -1,5 +1,6 @@
 package com.tecmis.mis.admin.notice;
 
+import animatefx.animation.Shake;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTextArea;
 import com.jfoenix.controls.JFXTextField;
@@ -12,6 +13,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
+import javafx.scene.control.Label;
 import javafx.stage.Stage;
 
 import java.sql.Connection;
@@ -40,6 +42,10 @@ public class AddNoticeControlloer {
 
     @FXML
     private JFXTextField txtTitle;
+
+    @FXML
+    private Label error;
+
     @FXML
     private Stage stage;
     private Scene scene;
@@ -57,37 +63,45 @@ public class AddNoticeControlloer {
 
     @FXML
     void addNotice(ActionEvent event) {
-        try {
-            String noTitle = txtTitle.getText();
-            String noDate = txtDate.getText();
-            String noTime = txtTime.getText();
-            String noContent = txtContent.getText();
 
-            connection = DbConnect.getConnect();
-            query = "INSERT INTO notice (title,date,time,content) VALUES (?,?,?,?)";
-            preparedStatement = connection.prepareStatement(query);
-            preparedStatement.setString(1,noTitle);
-            preparedStatement.setString(2,noDate);
-            preparedStatement.setString(3,noTime);
-            preparedStatement.setString(4,noContent);
-            preparedStatement.executeUpdate();
+        if(txtTitle.getText().length() == 0 || txtTime.getText().length() == 0 || txtDate.getText().length() == 0 || txtContent.getText().length() == 0){
+            new Shake(error).play();
+            error.setText("Please fill the all Fields");
+        }
+        else {
 
-            Alert alert = new Alert(Alert.AlertType.INFORMATION);
-            alert.setTitle("successfully created");
-            alert.setContentText("successfully created new Notice");
-            Optional<ButtonType> result = alert.showAndWait();
+            try {
+                String noTitle = txtTitle.getText();
+                String noDate = txtDate.getText();
+                String noTime = txtTime.getText();
+                String noContent = txtContent.getText();
 
-            if(result.get() == ButtonType.OK){
-                reset();
-                Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("add-notice.fxml")));
-                stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-                stage.setScene(scene);
-                stage.centerOnScreen();
-                stage.close();
+                connection = DbConnect.getConnect();
+                query = "INSERT INTO notice (title,date,time,content) VALUES (?,?,?,?)";
+                preparedStatement = connection.prepareStatement(query);
+                preparedStatement.setString(1,noTitle);
+                preparedStatement.setString(2,noDate);
+                preparedStatement.setString(3,noTime);
+                preparedStatement.setString(4,noContent);
+                preparedStatement.executeUpdate();
+
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setTitle("successfully created");
+                alert.setContentText("successfully created new Notice");
+                Optional<ButtonType> result = alert.showAndWait();
+
+                if(result.get() == ButtonType.OK){
+                    reset();
+                    Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("add-notice.fxml")));
+                    stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+                    stage.setScene(scene);
+                    stage.centerOnScreen();
+                    stage.close();
+                }
+
+            }catch (Exception e){
+                System.out.println(e);
             }
-
-        }catch (Exception e){
-            System.out.println(e);
         }
     }
 

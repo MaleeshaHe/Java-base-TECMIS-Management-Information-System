@@ -1,5 +1,6 @@
 package com.tecmis.mis.admin.timetable;
 
+import animatefx.animation.Shake;
 import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXTextField;
 import com.tecmis.mis.admin.course.CourseDetails;
@@ -15,6 +16,7 @@ import javafx.geometry.Insets;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.control.Label;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
 import javafx.scene.input.MouseEvent;
@@ -53,6 +55,9 @@ public class TimetableController implements Initializable {
 
     @FXML
     private JFXComboBox<String> comboLevel;
+
+    @FXML
+    private Label error;
 
     @FXML
     private TableView<TimetableDetails> timeTable;
@@ -177,34 +182,41 @@ public class TimetableController implements Initializable {
 
     @FXML
     void uploadPdf(ActionEvent event) {
-        try {
-            String title = txtTimetableTitle.getText();
-            int department = comboDepartment.getSelectionModel().getSelectedIndex()+1;
-            int level = comboLevel.getSelectionModel().getSelectedIndex()+1;
-            byte[] pdf = pdfBytes;
 
-            connection = DbConnect.getConnect();
-            query = "INSERT INTO timetable (title,depName,level,pdffile) VALUES (?,?,?,?)";
-            preparedStatement = connection.prepareStatement(query);
-            preparedStatement.setString(1,title);
-            preparedStatement.setInt(2,department);
-            preparedStatement.setInt(3,level);
-            preparedStatement.setBytes(4,pdf);
-            preparedStatement.executeUpdate();
-
-            Alert alert = new Alert(Alert.AlertType.INFORMATION);
-            alert.setTitle("successfully Upload");
-            alert.setContentText("successfully upload new Time Table");
-            Optional<ButtonType> result = alert.showAndWait();
-
-            if(result.get() == ButtonType.OK){
-                reset();
-            }
-
-        }catch (Exception e){
-            System.out.println(e);
+        if(txtTimetableTitle.getText().length() == 0 || txtMaterials.getText().length() == 0){
+            new Shake(error).play();
+            error.setText("Please fill the all Fields");
         }
-        loadData();
+        else {
+            try {
+                String title = txtTimetableTitle.getText();
+                int department = comboDepartment.getSelectionModel().getSelectedIndex()+1;
+                int level = comboLevel.getSelectionModel().getSelectedIndex()+1;
+                byte[] pdf = pdfBytes;
+
+                connection = DbConnect.getConnect();
+                query = "INSERT INTO timetable (title,depName,level,pdffile) VALUES (?,?,?,?)";
+                preparedStatement = connection.prepareStatement(query);
+                preparedStatement.setString(1,title);
+                preparedStatement.setInt(2,department);
+                preparedStatement.setInt(3,level);
+                preparedStatement.setBytes(4,pdf);
+                preparedStatement.executeUpdate();
+
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setTitle("successfully Upload");
+                alert.setContentText("successfully upload new Time Table");
+                Optional<ButtonType> result = alert.showAndWait();
+
+                if(result.get() == ButtonType.OK){
+                    reset();
+                }
+
+            }catch (Exception e){
+                System.out.println(e);
+            }
+            loadData();
+        }
     }
 
     private void reset(){

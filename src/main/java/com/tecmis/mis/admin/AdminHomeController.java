@@ -2,7 +2,6 @@ package com.tecmis.mis.admin;
 
 import animatefx.animation.*;
 import com.jfoenix.controls.JFXButton;
-import com.tecmis.mis.DataModel;
 import com.tecmis.mis.db_connect.DbConnect;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
@@ -30,8 +29,6 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Objects;
 import java.util.ResourceBundle;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 public class AdminHomeController implements Initializable {
 
@@ -97,11 +94,18 @@ public class AdminHomeController implements Initializable {
 
 
     double x,y =0;
+    public int user_Id;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         dateShow();
         timeNow();
+        getId(user_Id);
+        showData();
+    }
+
+    public void getId(int userId){
+        user_Id = userId;
         showData();
     }
 
@@ -109,7 +113,7 @@ public class AdminHomeController implements Initializable {
 
         try {
             connection = DbConnect.getConnect();
-            query = "SELECT * FROM users,department WHERE users.depId=department.depId AND user_id=2";
+            query = "SELECT * FROM users,department WHERE users.depId=department.depId AND user_id='"+user_Id+"'";
             preparedStatement = connection.prepareStatement(query);
             resultSet = preparedStatement.executeQuery();
 
@@ -166,7 +170,11 @@ public class AdminHomeController implements Initializable {
     }
 
     public void btnHome(ActionEvent event) throws IOException {
-        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("admin-home.fxml")));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("admin-home.fxml"));
+        root = loader.load();
+        AdminHomeController adminHomeController = loader.getController();
+        adminHomeController.getId(user_Id);
+
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root, 1050,600);
         stage.setScene(scene);
