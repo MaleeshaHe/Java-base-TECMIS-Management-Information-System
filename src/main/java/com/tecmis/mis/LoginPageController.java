@@ -7,6 +7,7 @@ import com.jfoenix.controls.JFXTextField;
 
 import com.tecmis.mis.admin.AdminHomeController;
 import com.tecmis.mis.db_connect.DbConnect;
+import com.tecmis.mis.student.StudentHomeController;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -106,9 +107,16 @@ public class LoginPageController implements Initializable {
                             stage.resizableProperty().setValue(false);
                             new FadeIn(root).play();
 
-                        } else if (rs.getString(11).equals("student")) {
+                        } else if (rs.getString(12).equals("Student")) {
 
-                            Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("admin/admin-homse.fxml")));
+                            userId = Integer.parseInt(rs.getString(1));
+
+                            FXMLLoader loader = new FXMLLoader(getClass().getResource("student/student-home.fxml"));
+                            root = loader.load();
+
+                            StudentHomeController studentHomeController = loader.getController();
+                            studentHomeController.getId(userId);
+
                             stage = (Stage)((Node)event.getSource()).getScene().getWindow();
                             scene = new Scene(root, 1050,600);
                             stage.setScene(scene);

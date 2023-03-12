@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="600.0" prefWidth="900.0" stylesheets="@../../../../../style/table_view.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.tecmis.mis.student.notice.NoticeController">
+    <children>
+        <BorderPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #ffff;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <center>
+            <TableView fx:id="noticeTable" onMousePressed="#showNotice" prefHeight="478.0" prefWidth="860.0" BorderPane.alignment="CENTER">
+              <columns>
+                <TableColumn fx:id="idcol" maxWidth="50.0" prefWidth="50.0" resizable="false" style="-fx-alignment: center;" text="No" />
+                <TableColumn fx:id="datecol" maxWidth="100.0" prefWidth="100.0" resizable="false" style="-fx-alignment: center;" text="Date" />
+                  <TableColumn fx:id="timecol" maxWidth="100.0" prefWidth="100.0" resizable="false" style="-fx-alignment: center;" text="Time" />
+                  <TableColumn fx:id="titlecol" maxWidth="630.0" prefWidth="589.6000671386719" resizable="false" style="-fx-alignment: center;" text="Title" />
+              </columns>
+               <BorderPane.margin>
+                  <Insets bottom="20.0" left="20.0" right="20.0" top="5.0" />
+               </BorderPane.margin>
+               <padding>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </padding>
+            </TableView>
+         </center>
+         <top>
+            <VBox prefHeight="42.0" prefWidth="900.0" BorderPane.alignment="CENTER">
+               <children>
+                  <HBox alignment="CENTER" layoutX="10.0" layoutY="10.0" prefHeight="55.0" prefWidth="798.0" styleClass="table-view" stylesheets="@../../../../../style/table_view.css">
+                     <children>
+                        <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="56.0" prefWidth="81.0" text="Notice" textAlignment="CENTER" textFill="#515151">
+                           <font>
+                              <Font name="System Bold" size="26.0" />
+                           </font>
+                        </Label>
+                     </children>
+                     <VBox.margin>
+                        <Insets left="200.0" right="200.0" top="5.0" />
+                     </VBox.margin>
+                  </HBox>
+                      <HBox alignment="CENTER" prefHeight="73.0" prefWidth="799.0" styleClass="table-view" stylesheets="@../../../../../style/table_view.css">
+                          <padding>
+                              <Insets left="20.0" right="20.0" top="20.0" />
+                          </padding>
+                     <VBox.margin>
+                        <Insets bottom="5.0" left="50.0" right="50.0" />
+                     </VBox.margin>
+                      </HBox>
+               </children>
+            </VBox>
+         </top>
+        </BorderPane>
+    </children>
+</AnchorPane>

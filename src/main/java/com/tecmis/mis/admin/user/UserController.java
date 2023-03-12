@@ -1,10 +1,7 @@
 package com.tecmis.mis.admin.user;
 
 import animatefx.animation.*;
-import com.tecmis.mis.admin.course.EditCourseControlloer;
 import com.tecmis.mis.admin.notice.NoticeController;
-import com.tecmis.mis.admin.notice.NoticeDetails;
-import com.tecmis.mis.admin.timetable.TimetableDetails;
 import com.tecmis.mis.db_connect.DbConnect;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -13,21 +10,14 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
-import javafx.scene.layout.StackPane;
 import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Circle;
-import javafx.scene.web.WebView;
-import javafx.stage.FileChooser;
-import javafx.stage.Stage;
 import javafx.util.Callback;
 
 import java.io.*;
@@ -36,7 +26,6 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.Base64;
 import java.util.Objects;
 import java.util.Optional;
 import java.util.ResourceBundle;
@@ -50,30 +39,24 @@ public class UserController implements Initializable {
     private TableColumn<UserDetails, String> departmentcol;
     @FXML
     private TableColumn<UserDetails, String> photocol;
-
     @FXML
     private TableColumn<UserDetails, String> emailcol;
-
     @FXML
     private TableColumn<UserDetails, String> fnamecol;
-
     @FXML
     private TableColumn<UserDetails, String> idcol;
-
     @FXML
     private TableColumn<UserDetails, String> lnamecol;
-
     @FXML
     private TableColumn<UserDetails, String> phonecol;
-
     @FXML
     private TableView<UserDetails> userTable;
+
     String query = null;
     Connection connection = null ;
     PreparedStatement preparedStatement = null ;
     ResultSet resultSet = null ;
     UserDetails userDetails = null ;
-
     ObservableList<UserDetails> userList = FXCollections.observableArrayList();
 
     @Override
@@ -88,7 +71,6 @@ public class UserController implements Initializable {
     public static void setSelectedUser(UserDetails user) {
         selectedUser = user;
     }
-
 
     public void loadData() {
         connection = DbConnect.getConnect();
