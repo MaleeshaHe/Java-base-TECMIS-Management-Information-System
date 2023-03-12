@@ -6,6 +6,7 @@ GUI of this project
 
 
 <img src="https://user-images.githubusercontent.com/91375598/223187087-cca932be-791c-47cb-a14a-425cc81067d6.png"  width="450">
+<img src="https://user-images.githubusercontent.com/91375598/224529194-e6e40af6-cebc-444c-a83f-7ff7cfc229cc.png"  width="450">
 <img src="https://user-images.githubusercontent.com/91375598/223831177-7e3bd25c-7968-429a-b1fe-03f81cfcc157.png"  width="600">
 <img src="https://user-images.githubusercontent.com/91375598/223831250-07ca0dd5-cb66-46da-9efe-1107ed2ccbb5.png"  width="600">
 <img src="https://user-images.githubusercontent.com/91375598/223831285-338a0bd2-68c4-4ccd-9172-e2a9a113fc73.png"  width="600">
