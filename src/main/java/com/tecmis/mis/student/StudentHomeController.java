@@ -2,9 +2,11 @@ package com.tecmis.mis.student;
 
 import animatefx.animation.FadeIn;
 import animatefx.animation.FadeInDown;
+import animatefx.animation.FadeInRight;
 import com.jfoenix.controls.JFXButton;
 import com.tecmis.mis.UserSession;
 import com.tecmis.mis.admin.AdminHomeController;
+import com.tecmis.mis.admin.notice.NoticeController;
 import com.tecmis.mis.db_connect.DbConnect;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
@@ -32,6 +34,8 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Objects;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class StudentHomeController implements Initializable {
 
@@ -172,6 +176,24 @@ public class StudentHomeController implements Initializable {
         stage.show();
         stage.resizableProperty().setValue(false);
         new FadeIn(root).play();
+    }
+
+
+    public void btnEditUser(ActionEvent actionEvent) {
+        try {
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("student-update.fxml"));
+            Parent root = (Parent) fxmlLoader.load();
+            Stage stage = new Stage();
+            stage.setTitle("Update student Details");
+            javafx.scene.image.Image image = new Image("images/appIcon.png");
+            stage.getIcons().add(image);
+            stage.resizableProperty().setValue(false);
+            stage.setScene(new Scene(root));
+            stage.show();
+
+        } catch (IOException ex) {
+            Logger.getLogger(NoticeController.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     public void btnMedical(ActionEvent actionEvent) throws IOException {
