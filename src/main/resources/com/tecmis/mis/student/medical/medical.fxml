@@ -15,12 +15,12 @@
     <children>
         <BorderPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #ffff;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <center>
-            <TableView fx:id="noticeTable" onMousePressed="#showNotice" prefHeight="512.0" prefWidth="860.0" BorderPane.alignment="CENTER">
+            <TableView fx:id="medicalTable" prefHeight="512.0" prefWidth="860.0" BorderPane.alignment="CENTER">
               <columns>
-                <TableColumn fx:id="idcol" maxWidth="50.0" prefWidth="50.0" resizable="false" style="-fx-alignment: center;" text="No" />
-                <TableColumn fx:id="datecol" maxWidth="100.0" prefWidth="100.0" resizable="false" style="-fx-alignment: center;" text="Date" />
-                  <TableColumn fx:id="timecol" maxWidth="100.0" prefWidth="100.0" resizable="false" style="-fx-alignment: center;" text="Time" />
-                  <TableColumn fx:id="titlecol" maxWidth="630.0" prefWidth="589.6000671386719" resizable="false" style="-fx-alignment: center;" text="Title" />
+                <TableColumn fx:id="titleCol" maxWidth="206.4000186920166" prefWidth="188.79998207092285" resizable="false" style="-fx-alignment: center;" text="Title" />
+                <TableColumn fx:id="descCol" maxWidth="514.4000473022461" prefWidth="376.800048828125" resizable="false" style="-fx-alignment: center;" text="Description" />
+                  <TableColumn fx:id="sdateCol" maxWidth="580.0000305175781" prefWidth="130.0" resizable="false" style="-fx-alignment: center;" text="Start Date" />
+                  <TableColumn fx:id="edateCol" maxWidth="630.0" prefWidth="130.0" resizable="false" style="-fx-alignment: center;" text="End Date" />
               </columns>
                <BorderPane.margin>
                   <Insets bottom="20.0" left="20.0" right="20.0" top="5.0" />
