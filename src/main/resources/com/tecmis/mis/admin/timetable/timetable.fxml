@@ -38,6 +38,11 @@
                         <Insets left="200.0" right="200.0" top="5.0" />
                      </VBox.margin>
                   </HBox>
+                  <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                     <children>
+                        <Line endX="580.8928833007812" endY="0.8000076413154602" startX="-100.0" stroke="#c9c8c8" strokeWidth="2.0" />
+                     </children>
+                  </HBox>
                   <HBox alignment="CENTER" prefHeight="50.0" prefWidth="839.0" styleClass="table-view" stylesheets="@../../../../../style/table_view.css">
                      <children>
                         <JFXButton onAction="#refreshTable" prefHeight="38.0" prefWidth="121.0" styleClass="menuItem" text="Refresh">
@@ -219,7 +224,7 @@
                      </children>
                   </VBox>
                   <Line endX="-99.37870788574219" endY="476.0929260253906" startX="-100.0" stroke="#c9c8c8" />
-                  <TableView fx:id="timeTable" prefHeight="498.0" prefWidth="477.0">
+                  <TableView fx:id="timeTable" onMouseClicked="#showPdf" onMousePressed="#showPdf" prefHeight="498.0" prefWidth="477.0">
                      <columns>
                         <TableColumn fx:id="titleCol" maxWidth="193.60007333755493" prefWidth="187.20004892349243" resizable="false" style="-fx-alignment: center;" text="Title" />
                         <TableColumn fx:id="depCol" maxWidth="320.00003814697266" prefWidth="95.99993896484375" resizable="false" style="-fx-alignment: center;" text="Deparment" />

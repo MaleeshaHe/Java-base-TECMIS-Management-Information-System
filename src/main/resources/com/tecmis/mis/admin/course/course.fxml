@@ -12,6 +12,7 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane prefHeight="600.0" prefWidth="900.0" stylesheets="@../../../../../style/table_view.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.tecmis.mis.admin.course.CourseControlloer">
@@ -47,6 +48,11 @@
                      <VBox.margin>
                         <Insets left="200.0" right="200.0" top="5.0" />
                      </VBox.margin>
+                  </HBox>
+                  <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                     <children>
+                        <Line endX="580.8928833007812" endY="0.8000076413154602" startX="-100.0" stroke="#c9c8c8" strokeWidth="2.0" />
+                     </children>
                   </HBox>
                       <HBox alignment="CENTER" prefHeight="50.0" prefWidth="839.0" styleClass="table-view" stylesheets="@../../../../../style/table_view.css">
                           <children>

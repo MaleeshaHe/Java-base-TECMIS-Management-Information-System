@@ -9,7 +9,6 @@ import com.tecmis.mis.admin.AdminHomeController;
 import com.tecmis.mis.db_connect.DbConnect;
 import com.tecmis.mis.student.StudentHomeController;
 import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -19,7 +18,6 @@ import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
-import javafx.stage.WindowEvent;
 
 import java.io.IOException;
 import java.net.URL;
@@ -27,8 +25,9 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
-import java.util.Objects;
+import java.util.HashSet;
 import java.util.ResourceBundle;
+import java.util.Set;
 
 public class LoginPageController implements Initializable {
     Connection con = null;
@@ -59,6 +58,7 @@ public class LoginPageController implements Initializable {
     String passwordl;
 
     int userId;
+    String userTg;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -92,13 +92,15 @@ public class LoginPageController implements Initializable {
                         if(rs.getString(12).equals("Admin")){
 
                             userId = Integer.parseInt(rs.getString(1));
+                            userTg = rs.getString("tgnum");
+
+                            Set<String> privileges = new HashSet<>();
+                            privileges.add("adminPrivilege");
+
+                            UserSession.getInstance(String.valueOf(userId), userTg, privileges);
 
                             FXMLLoader loader = new FXMLLoader(getClass().getResource("admin/admin-home.fxml"));
                             root = loader.load();
-
-                            AdminHomeController adminHomeController = loader.getController();
-                            adminHomeController.getId(userId);
-
                             stage = (Stage)((Node)event.getSource()).getScene().getWindow();
                             scene = new Scene(root, 1050,600);
                             stage.setScene(scene);
@@ -110,13 +112,15 @@ public class LoginPageController implements Initializable {
                         } else if (rs.getString(12).equals("Student")) {
 
                             userId = Integer.parseInt(rs.getString(1));
+                            userTg = rs.getString("tgnum");
+
+                            Set<String> privileges = new HashSet<>();
+                            privileges.add("studentPrivilege");
+
+                            UserSession.getInstance(String.valueOf(userId), userTg, privileges);
 
                             FXMLLoader loader = new FXMLLoader(getClass().getResource("student/student-home.fxml"));
                             root = loader.load();
-
-                            StudentHomeController studentHomeController = loader.getController();
-                            studentHomeController.getId(userId);
-
                             stage = (Stage)((Node)event.getSource()).getScene().getWindow();
                             scene = new Scene(root, 1050,600);
                             stage.setScene(scene);

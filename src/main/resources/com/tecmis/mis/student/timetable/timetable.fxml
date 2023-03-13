@@ -11,23 +11,23 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="600.0" prefWidth="900.0" stylesheets="@../../../../../style/table_view.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.tecmis.mis.student.notice.NoticeController">
+<AnchorPane prefHeight="600.0" prefWidth="900.0" stylesheets="@../../../../../style/table_view.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.tecmis.mis.student.timetable.TimetableController">
     <children>
-        <BorderPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #ffff;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <BorderPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #fff;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <center>
-            <TableView fx:id="noticeTable" onMousePressed="#showNotice" prefHeight="512.0" prefWidth="860.0" BorderPane.alignment="CENTER">
-              <columns>
-                <TableColumn fx:id="idcol" maxWidth="50.0" prefWidth="50.0" resizable="false" style="-fx-alignment: center;" text="No" />
-                <TableColumn fx:id="datecol" maxWidth="100.0" prefWidth="100.0" resizable="false" style="-fx-alignment: center;" text="Date" />
-                  <TableColumn fx:id="timecol" maxWidth="100.0" prefWidth="100.0" resizable="false" style="-fx-alignment: center;" text="Time" />
-                  <TableColumn fx:id="titlecol" maxWidth="630.0" prefWidth="589.6000671386719" resizable="false" style="-fx-alignment: center;" text="Title" />
-              </columns>
-               <BorderPane.margin>
-                  <Insets bottom="20.0" left="20.0" right="20.0" top="5.0" />
-               </BorderPane.margin>
+            <TableView fx:id="timeTable" onMouseClicked="#showPdf" onMousePressed="#showPdf" prefHeight="521.0" prefWidth="846.0" BorderPane.alignment="CENTER">
+               <columns>
+                  <TableColumn fx:id="titleCol" maxWidth="279.2000060081482" prefWidth="235.99999380111694" resizable="false" style="-fx-alignment: center;" text="Title" />
+                  <TableColumn fx:id="depCol" maxWidth="359.20001220703125" prefWidth="300.8000183105469" resizable="false" style="-fx-alignment: center;" text="Deparment" />
+                  <TableColumn fx:id="levelCol" maxWidth="630.0" minWidth="0.0" prefWidth="156.79998779296875" resizable="false" style="-fx-alignment: center;" text="Level" />
+                  <TableColumn fx:id="timeCol" maxWidth="547.1999816894531" prefWidth="141.60003662109375" resizable="false" style="-fx-alignment: center;" text="TimeTable" />
+               </columns>
                <padding>
                   <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                </padding>
+               <BorderPane.margin>
+                  <Insets left="20.0" right="20.0" />
+               </BorderPane.margin>
             </TableView>
          </center>
          <top>
@@ -40,7 +40,7 @@
                   </HBox>
                   <HBox alignment="CENTER" layoutX="10.0" layoutY="10.0" prefHeight="78.0" prefWidth="900.0" styleClass="table-view" stylesheets="@../../../../../style/table_view.css">
                      <children>
-                        <Label alignment="CENTER" prefHeight="38.0" prefWidth="853.0" text="Notice" textFill="#515151">
+                        <Label alignment="CENTER" prefHeight="38.0" prefWidth="853.0" text="Time Table" textFill="#515151">
                            <font>
                               <Font name="System Bold" size="26.0" />
                            </font>

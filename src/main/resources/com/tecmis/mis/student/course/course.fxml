@@ -11,16 +11,16 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="600.0" prefWidth="900.0" stylesheets="@../../../../../style/table_view.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.tecmis.mis.student.notice.NoticeController">
+<AnchorPane prefHeight="600.0" prefWidth="900.0" stylesheets="@../../../../../style/table_view.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.tecmis.mis.student.course.CourseControlloer">
     <children>
         <BorderPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #ffff;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <center>
-            <TableView fx:id="noticeTable" onMousePressed="#showNotice" prefHeight="512.0" prefWidth="860.0" BorderPane.alignment="CENTER">
+            <TableView fx:id="courseTable" prefHeight="478.0" prefWidth="860.0" BorderPane.alignment="CENTER">
               <columns>
-                <TableColumn fx:id="idcol" maxWidth="50.0" prefWidth="50.0" resizable="false" style="-fx-alignment: center;" text="No" />
-                <TableColumn fx:id="datecol" maxWidth="100.0" prefWidth="100.0" resizable="false" style="-fx-alignment: center;" text="Date" />
-                  <TableColumn fx:id="timecol" maxWidth="100.0" prefWidth="100.0" resizable="false" style="-fx-alignment: center;" text="Time" />
-                  <TableColumn fx:id="titlecol" maxWidth="630.0" prefWidth="589.6000671386719" resizable="false" style="-fx-alignment: center;" text="Title" />
+                <TableColumn fx:id="courseCodeCol" maxWidth="114.39998817443848" prefWidth="109.5999698638916" resizable="false" style="-fx-alignment: center;" text="Course Code" />
+                <TableColumn fx:id="courseNameCol" maxWidth="524.8000793457031" prefWidth="524.8000793457031" resizable="false" style="-fx-alignment: center;" text="Course Name" />
+                  <TableColumn fx:id="creditCol" maxWidth="455.2000427246094" prefWidth="59.199951171875" resizable="false" style="-fx-alignment: center;" text="Credit" />
+                  <TableColumn fx:id="materialCol" maxWidth="630.0" prefWidth="153.5999755859375" resizable="false" style="-fx-alignment: center;" text="Materials" />
               </columns>
                <BorderPane.margin>
                   <Insets bottom="20.0" left="20.0" right="20.0" top="5.0" />
@@ -40,7 +40,7 @@
                   </HBox>
                   <HBox alignment="CENTER" layoutX="10.0" layoutY="10.0" prefHeight="78.0" prefWidth="900.0" styleClass="table-view" stylesheets="@../../../../../style/table_view.css">
                      <children>
-                        <Label alignment="CENTER" prefHeight="38.0" prefWidth="853.0" text="Notice" textFill="#515151">
+                        <Label alignment="CENTER" prefHeight="38.0" prefWidth="853.0" text="Courses" textFill="#515151">
                            <font>
                               <Font name="System Bold" size="26.0" />
                            </font>

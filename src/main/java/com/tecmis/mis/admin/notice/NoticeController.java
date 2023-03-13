@@ -1,6 +1,7 @@
 package com.tecmis.mis.admin.notice;
 
 import com.jfoenix.controls.JFXButton;
+import com.tecmis.mis.UserSession;
 import com.tecmis.mis.db_connect.DbConnect;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;

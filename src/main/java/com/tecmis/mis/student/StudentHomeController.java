@@ -3,6 +3,7 @@ package com.tecmis.mis.student;
 import animatefx.animation.FadeIn;
 import animatefx.animation.FadeInDown;
 import com.jfoenix.controls.JFXButton;
+import com.tecmis.mis.UserSession;
 import com.tecmis.mis.admin.AdminHomeController;
 import com.tecmis.mis.db_connect.DbConnect;
 import javafx.application.Platform;
@@ -94,27 +95,18 @@ public class StudentHomeController implements Initializable {
     PreparedStatement preparedStatement = null ;
     ResultSet resultSet = null ;
 
-    private int user_Id;
-
-
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         dateShow();
         timeNow();
-        getId(user_Id);
-        showData();
-    }
-
-    public void getId(int userId){
-        user_Id = userId;
         showData();
     }
 
     private void showData(){
-
+        int userId = Integer.parseInt(UserSession.getUserName());
         try {
             connection = DbConnect.getConnect();
-            query = "SELECT * FROM users,department WHERE users.depId=department.depId AND user_id='"+user_Id+"'";
+            query = "SELECT * FROM users,department WHERE users.depId=department.depId AND user_id='"+userId+"'";
             preparedStatement = connection.prepareStatement(query);
             resultSet = preparedStatement.executeQuery();
 
@@ -171,11 +163,8 @@ public class StudentHomeController implements Initializable {
     }
 
     public void btnHome(ActionEvent event) throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("admin-home.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("student-home.fxml"));
         root = loader.load();
-        AdminHomeController adminHomeController = loader.getController();
-        adminHomeController.getId(user_Id);
-
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root, 1050,600);
         stage.setScene(scene);
@@ -185,8 +174,8 @@ public class StudentHomeController implements Initializable {
         new FadeIn(root).play();
     }
 
-    public void btnUser(ActionEvent actionEvent) throws IOException {
-        AnchorPane view = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("user/user.fxml")));
+    public void btnMedical(ActionEvent actionEvent) throws IOException {
+        AnchorPane view = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("medical/medical.fxml")));
         borderpane.getChildren().removeAll();
         borderpane.setCenter(view);
         new FadeInDown(view).play();
@@ -224,5 +213,7 @@ public class StudentHomeController implements Initializable {
         stage.show();
         stage.resizableProperty().setValue(false);
         new FadeIn(root).play();
+
+        UserSession.cleanUserSession();
     }
 }

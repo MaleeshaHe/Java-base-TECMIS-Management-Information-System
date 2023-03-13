@@ -32,21 +32,7 @@ import java.util.logging.Logger;
 
 public class NoticeController implements Initializable {
     @FXML
-    private JFXButton addNewNotice;
-
-    @FXML
-    private JFXButton refreshBtn;
-    @FXML
-    private JFXButton deleteNotice;
-
-    @FXML
-    private JFXButton editNotice;
-
-    @FXML
     private TableColumn<NoticeDetails, String> datecol;
-
-    @FXML
-    private TableColumn<NoticeDetails, String> editcol;
 
     @FXML
     private TableColumn<NoticeDetails, Integer> idcol;
@@ -113,7 +99,25 @@ public class NoticeController implements Initializable {
     @FXML
     void showNotice(MouseEvent event) {
             if (event.isPrimaryButtonDown() && event.getClickCount() == 2) {
-                System.out.println("click");
+                try {
+                    noticeDetails = noticeTable.getSelectionModel().getSelectedItem();
+                    FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("view-notice.fxml"));
+                    Parent root = (Parent) fxmlLoader.load();
+
+                    ViewNoticeControlloer senddata = fxmlLoader.getController();
+                    senddata.showInformation(noticeDetails.getNotice_id(),noticeDetails.getTitle(),noticeDetails.getDate(),noticeDetails.getTime(),noticeDetails.getContent());
+
+                    Stage stage = new Stage();
+                    stage.setTitle("View Notice");
+                    javafx.scene.image.Image image = new Image("images/appIcon.png");
+                    stage.getIcons().add(image);
+                    stage.resizableProperty().setValue(false);
+                    stage.setScene(new Scene(root));
+                    stage.show();
+
+                } catch (IOException ex) {
+                    Logger.getLogger(com.tecmis.mis.admin.notice.NoticeController.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
     }
 

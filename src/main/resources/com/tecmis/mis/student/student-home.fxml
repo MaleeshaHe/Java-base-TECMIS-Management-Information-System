@@ -27,7 +27,7 @@
                                         <Image url="@../../../../images/logo200.png" />
                                     </image>
                                 </ImageView>
-                        <JFXButton alignment="BASELINE_LEFT" layoutX="10.0" layoutY="144.0" prefHeight="50.0" prefWidth="176.0" styleClass="sidebarItem" text="  Home" textFill="WHITE">
+                        <JFXButton alignment="BASELINE_LEFT" layoutX="10.0" layoutY="144.0" onAction="#btnHome" prefHeight="50.0" prefWidth="176.0" styleClass="sidebarItem" text="  Home" textFill="WHITE">
                            <font>
                               <Font name="System Bold" size="16.0" />
                            </font>
@@ -45,27 +45,6 @@
                               <Insets bottom="15.0" left="15.0" right="15.0" top="10.0" />
                            </padding>
                         </JFXButton>
-                                <JFXButton alignment="BASELINE_LEFT" prefHeight="50.0" prefWidth="176.0" styleClass="sidebarItem" text="  User" textFill="WHITE">
-                                    <font>
-                                        <Font name="System Bold" size="16.0" />
-                                    </font>
-                                    <graphic>
-                                        <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
-                                            <image>
-                                                <Image url="@../../../../images/conference-64.png" />
-                                            </image>
-                                        </ImageView>
-                                    </graphic>
-                                    <VBox.margin>
-                                        <Insets bottom="10.0" />
-                                    </VBox.margin>
-                                    <opaqueInsets>
-                                        <Insets />
-                                    </opaqueInsets>
-                                    <padding>
-                                        <Insets bottom="15.0" left="15.0" right="15.0" top="10.0" />
-                                    </padding>
-                                </JFXButton>
                                 <JFXButton alignment="BASELINE_LEFT" onAction="#btnNotice" prefHeight="50.0" prefWidth="176.0" styleClass="sidebarItem" text="  Notice" textFill="WHITE">
                                     <font>
                                         <Font name="System Bold" size="16.0" />
@@ -87,7 +66,7 @@
                                         <Insets bottom="15.0" left="15.0" right="15.0" top="10.0" />
                                     </padding>
                                 </JFXButton>
-                                <JFXButton fx:id="course_btn" alignment="BASELINE_LEFT" prefHeight="50.0" prefWidth="176.0" styleClass="sidebarItem" text="  course" textFill="WHITE">
+                                <JFXButton fx:id="course_btn" alignment="BASELINE_LEFT" onAction="#btnCourse" prefHeight="50.0" prefWidth="176.0" styleClass="sidebarItem" text="  course" textFill="WHITE">
                                     <font>
                                         <Font name="System Bold" size="16.0" />
                                     </font>
@@ -108,7 +87,7 @@
                                         <Insets bottom="15.0" left="15.0" right="15.0" top="10.0" />
                                     </padding>
                                 </JFXButton>
-                                <JFXButton alignment="BASELINE_LEFT" prefHeight="50.0" prefWidth="176.0" styleClass="sidebarItem" text="  Time Table" textFill="WHITE">
+                                <JFXButton alignment="BASELINE_LEFT" onAction="#btnTimeTable" prefHeight="50.0" prefWidth="176.0" styleClass="sidebarItem" text="  Time Table" textFill="WHITE">
                                     <font>
                                         <Font name="System Bold" size="16.0" />
                                     </font>
@@ -116,6 +95,27 @@
                                         <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
                                             <image>
                                                 <Image url="@../../../../images/time-13-64.png" />
+                                            </image>
+                                        </ImageView>
+                                    </graphic>
+                                    <VBox.margin>
+                                        <Insets bottom="10.0" />
+                                    </VBox.margin>
+                                    <opaqueInsets>
+                                        <Insets />
+                                    </opaqueInsets>
+                                    <padding>
+                                        <Insets bottom="15.0" left="15.0" right="15.0" top="10.0" />
+                                    </padding>
+                                </JFXButton>
+                                <JFXButton alignment="BASELINE_LEFT" onAction="#btnMedical" prefHeight="50.0" prefWidth="176.0" styleClass="sidebarItem" text="  Medical" textFill="WHITE">
+                                    <font>
+                                        <Font name="System Bold" size="16.0" />
+                                    </font>
+                                    <graphic>
+                                        <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
+                                            <image>
+                                                <Image url="@../../../../images/clinic-64.png" />
                                             </image>
                                         </ImageView>
                                     </graphic>
@@ -232,7 +232,7 @@
                                                       <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
                                                    </HBox.margin>
                                                 </JFXButton>
-                                                <JFXButton contentDisplay="GRAPHIC_ONLY" prefHeight="120.0" prefWidth="120.0" style="-fx-background-color: #ffff; -fx-border-radius: 20; -fx-background-radius: 20; -fx-border-color: #565656;" text="USER" textFill="#565656">
+                                                <JFXButton contentDisplay="GRAPHIC_ONLY" onAction="#btnTimeTable" prefHeight="120.0" prefWidth="120.0" style="-fx-background-color: #ffff; -fx-border-radius: 20; -fx-background-radius: 20; -fx-border-color: #565656;" text="USER" textFill="#565656">
                                                    <graphic>
                                                       <ImageView fitHeight="70.0" fitWidth="70.0" pickOnBounds="true" preserveRatio="true">
                                                          <image>
@@ -251,7 +251,7 @@
                                           </HBox>
                                           <HBox alignment="CENTER" layoutX="10.0" layoutY="252.0" prefHeight="200.0" prefWidth="311.0">
                                              <children>
-                                                <JFXButton contentDisplay="GRAPHIC_ONLY" prefHeight="120.0" prefWidth="120.0" style="-fx-background-color: #ffff; -fx-border-radius: 20; -fx-background-radius: 20; -fx-border-color: #565656;" text="USER" textFill="#565656">
+                                                <JFXButton contentDisplay="GRAPHIC_ONLY" onAction="#btnCourse" prefHeight="120.0" prefWidth="120.0" style="-fx-background-color: #ffff; -fx-border-radius: 20; -fx-background-radius: 20; -fx-border-color: #565656;" text="USER" textFill="#565656">
                                                    <graphic>
                                                       <ImageView fitHeight="70.0" fitWidth="70.0" pickOnBounds="true" preserveRatio="true">
                                                          <image>

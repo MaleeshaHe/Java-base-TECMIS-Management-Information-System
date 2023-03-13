@@ -11,7 +11,7 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="600.0" prefWidth="900.0" stylesheets="@../../../../../style/table_view.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.tecmis.mis.student.notice.NoticeController">
+<AnchorPane prefHeight="600.0" prefWidth="900.0" stylesheets="@../../../../../style/table_view.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.tecmis.mis.student.medical.MedicalCotroller">
     <children>
         <BorderPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #ffff;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <center>
@@ -40,7 +40,7 @@
                   </HBox>
                   <HBox alignment="CENTER" layoutX="10.0" layoutY="10.0" prefHeight="78.0" prefWidth="900.0" styleClass="table-view" stylesheets="@../../../../../style/table_view.css">
                      <children>
-                        <Label alignment="CENTER" prefHeight="38.0" prefWidth="853.0" text="Notice" textFill="#515151">
+                        <Label alignment="CENTER" prefHeight="38.0" prefWidth="853.0" text="Medicals" textFill="#515151">
                            <font>
                               <Font name="System Bold" size="26.0" />
                            </font>
