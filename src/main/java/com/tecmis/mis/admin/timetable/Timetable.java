@@ -1,7 +1,5 @@
 package com.tecmis.mis.admin.timetable;
 
-
-import ch.qos.logback.core.Layout;
 import com.jfoenix.controls.JFXTextField;
 import com.sun.javafx.scene.control.skin.Utils;
 import com.tecmis.mis.admin.course.CourseDetails;
