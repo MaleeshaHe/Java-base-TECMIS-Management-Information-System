@@ -1,0 +1,261 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="600.0" prefWidth="900.0" stylesheets="@../../../../../style/table_view.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.tecmis.mis.technical_officer.medical.MedicalController">
+    <children>
+        <BorderPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #fff;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <top>
+                <VBox prefHeight="42.0" prefWidth="900.0" BorderPane.alignment="CENTER">
+                    <children>
+                        <HBox alignment="CENTER" layoutX="10.0" layoutY="10.0" prefHeight="55.0" prefWidth="798.0" styleClass="table-view" stylesheets="@../../../../../style/table_view.css">
+                            <children>
+                                <Label alignment="CENTER" contentDisplay="CENTER" text="Medical" textAlignment="CENTER" textFill="#515151">
+                                    <font>
+                                        <Font name="System Bold" size="26.0" />
+                                    </font>
+                                    <HBox.margin>
+                                        <Insets />
+                                    </HBox.margin>
+                                </Label>
+                            </children>
+                            <VBox.margin>
+                                <Insets left="200.0" right="200.0" top="5.0" />
+                            </VBox.margin>
+                        </HBox>
+                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                            <children>
+                                <Line endX="580.8928833007812" endY="0.8000076413154602" startX="-100.0" stroke="#c9c8c8" strokeWidth="2.0" />
+                            </children>
+                        </HBox>
+                        <HBox alignment="CENTER" prefHeight="50.0" prefWidth="839.0" styleClass="table-view" stylesheets="@../../../../../style/table_view.css">
+                            <children>
+                                <JFXButton onAction="#refreshTable" prefHeight="38.0" prefWidth="121.0" styleClass="menuItem" text="Refresh">
+                                    <graphic>
+                                        <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
+                                            <image>
+                                                <Image url="@../../../../../images/sinchronize-64.png" />
+                                            </image>
+                                        </ImageView>
+                                    </graphic>
+                                    <cursor>
+                                        <Cursor fx:constant="HAND" />
+                                    </cursor>
+                                    <font>
+                                        <Font size="14.0" />
+                                    </font>
+                                </JFXButton>
+                                <JFXButton layoutX="436.0" layoutY="30.0" onAction="#editTimetable" prefHeight="38.0" prefWidth="170.0" styleClass="menuItem" text="Edit Medical">
+                                    <graphic>
+                                        <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
+                                            <image>
+                                                <Image url="@../../../../../images/edit-11-64.png" />
+                                            </image>
+                                        </ImageView>
+                                    </graphic>
+                                    <cursor>
+                                        <Cursor fx:constant="HAND" />
+                                    </cursor>
+                                    <font>
+                                        <Font size="14.0" />
+                                    </font>
+                                </JFXButton>
+                                <JFXButton fx:id="deleteNotice" layoutX="528.0" layoutY="30.0" onAction="#deleteTimetable" prefHeight="32.0" prefWidth="161.0" styleClass="menuItem" text="Delete Medical">
+                                    <graphic>
+                                        <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
+                                            <image>
+                                                <Image url="@../../../../../images/delete-64.png" />
+                                            </image>
+                                        </ImageView>
+                                    </graphic>
+                                    <cursor>
+                                        <Cursor fx:constant="HAND" />
+                                    </cursor>
+                                    <font>
+                                        <Font size="14.0" />
+                                    </font>
+                                </JFXButton>
+                            </children>
+                            <padding>
+                                <Insets left="20.0" right="20.0" top="20.0" />
+                            </padding>
+                            <VBox.margin>
+                                <Insets bottom="5.0" left="50.0" right="50.0" />
+                            </VBox.margin>
+                        </HBox>
+                    </children>
+                </VBox>
+            </top>
+            <center>
+                <HBox prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+                    <children>
+                        <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="450.0" prefWidth="397.0" style="-fx-background-color: #ffffff;">
+                            <children>
+                                <HBox alignment="CENTER" prefHeight="78.0" prefWidth="412.0">
+                                    <children>
+                                        <Label contentDisplay="CENTER" text="Upload New Medical" textAlignment="CENTER" textFill="#535353">
+                                            <font>
+                                                <Font name="System Bold" size="22.0" />
+                                            </font>
+                                        </Label>
+                                    </children>
+                                </HBox>
+                        <HBox alignment="CENTER" layoutX="10.0" layoutY="150.0" prefHeight="41.0" prefWidth="412.0">
+                           <children>
+                              <Label prefHeight="26.0" prefWidth="125.0" text="Student TG" textFill="#595959">
+                                 <font>
+                                    <Font name="System Bold" size="17.0" />
+                                 </font>
+                              </Label>
+                              <JFXTextField fx:id="txtStudentTg" focusColor="#5271ff" prefHeight="30.0" prefWidth="245.0" promptText="type the student TG Number">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </JFXTextField>
+                           </children>
+                        </HBox>
+                                <HBox alignment="CENTER" prefHeight="41.0" prefWidth="412.0">
+                                    <children>
+                                        <Label prefHeight="26.0" prefWidth="125.0" text="Title" textFill="#595959">
+                                            <font>
+                                                <Font name="System Bold" size="17.0" />
+                                            </font>
+                                        </Label>
+                                        <JFXTextField fx:id="txtTitle" focusColor="#5271ff" prefHeight="30.0" prefWidth="245.0" promptText="type the title">
+                                            <font>
+                                                <Font size="14.0" />
+                                            </font>
+                                        </JFXTextField>
+                                    </children>
+                                    <VBox.margin>
+                                        <Insets bottom="20.0" />
+                                    </VBox.margin>
+                                </HBox>
+                                <HBox alignment="CENTER" layoutX="10.0" layoutY="260.0" prefHeight="41.0" prefWidth="412.0">
+                                    <children>
+                                        <Label prefHeight="26.0" prefWidth="125.0" text="Description" textFill="#595959">
+                                            <font>
+                                                <Font name="System Bold" size="17.0" />
+                                            </font>
+                                        </Label>
+                              <JFXTextField fx:id="txtDescription" focusColor="#5271ff" prefHeight="30.0" prefWidth="245.0" promptText="type the description">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </JFXTextField>
+                                    </children>
+                                    <VBox.margin>
+                                        <Insets bottom="20.0" />
+                                    </VBox.margin>
+                                </HBox>
+                                <HBox alignment="CENTER" layoutX="10.0" layoutY="218.0" prefHeight="41.0" prefWidth="412.0">
+                                    <children>
+                                        <Label prefHeight="26.0" prefWidth="125.0" text="Date" textFill="#595959">
+                                            <font>
+                                                <Font name="System Bold" size="17.0" />
+                                            </font>
+                                        </Label>
+                              <DatePicker fx:id="date" prefHeight="26.0" prefWidth="245.0" />
+                                    </children>
+                                    <VBox.margin>
+                                        <Insets bottom="20.0" />
+                                    </VBox.margin>
+                                </HBox>
+                                <HBox alignment="CENTER" layoutX="10.0" layoutY="201.0" prefHeight="41.0" prefWidth="412.0">
+                                    <children>
+                                        <Label prefHeight="26.0" prefWidth="125.0" text="Document" textFill="#595959">
+                                            <font>
+                                                <Font name="System Bold" size="17.0" />
+                                            </font>
+                                        </Label>
+                                        <JFXTextField fx:id="txtDoc" focusColor="#5271ff" prefHeight="30.0" prefWidth="146.0" promptText="select the PDF ">
+                                            <font>
+                                                <Font size="14.0" />
+                                            </font>
+                                        </JFXTextField>
+                                        <JFXButton onAction="#choosePdf" prefHeight="26.0" prefWidth="95.0" style="-fx-background-color: #c2c2c2;" text="Choose Pdf">
+                                            <HBox.margin>
+                                                <Insets left="5.0" />
+                                            </HBox.margin></JFXButton>
+                                    </children>
+                                    <VBox.margin>
+                                        <Insets bottom="20.0" />
+                                    </VBox.margin>
+                                </HBox>
+                                <HBox alignment="CENTER" prefHeight="30.0" prefWidth="398.0">
+                                    <children>
+                                        <Label fx:id="error" textAlignment="CENTER" textFill="#e70000">
+                                            <font>
+                                                <Font size="13.0" />
+                                            </font>
+                                        </Label>
+                                    </children>
+                                </HBox>
+                                <HBox alignment="CENTER" prefHeight="52.0" prefWidth="398.0">
+                                    <children>
+                                        <JFXButton alignment="CENTER" maxWidth="88.0" onAction="#uploadMedical" prefHeight="34.0" prefWidth="86.0" style="-fx-background-radius: 18;" styleClass="addNoticeBtn" stylesheets="@../../../../../style/style.css" text="Upload" textAlignment="CENTER">
+                                            <font>
+                                                <Font name="System Bold" size="14.0" />
+                                            </font>
+                                            <HBox.margin>
+                                                <Insets right="10.0" />
+                                            </HBox.margin>
+                                            <cursor>
+                                                <Cursor fx:constant="HAND" />
+                                            </cursor>
+                                            <graphic>
+                                                <ImageView fitHeight="13.0" fitWidth="13.0" pickOnBounds="true" preserveRatio="true">
+                                                    <image>
+                                                        <Image url="@../../../../../images/upload-2-64.png" />
+                                                    </image>
+                                                </ImageView>
+                                            </graphic>
+                                        </JFXButton>
+                                        <JFXButton alignment="CENTER" layoutX="173.0" layoutY="43.0" maxWidth="88.0" onAction="#clear" prefHeight="34.0" prefWidth="86.0" style="-fx-background-radius: 18;" styleClass="cancelNoticeBtn" stylesheets="@../../../../../style/style.css" text="Clear" textAlignment="CENTER">
+                                            <font>
+                                                <Font name="System Bold" size="14.0" />
+                                            </font>
+                                            <HBox.margin>
+                                                <Insets left="10.0" />
+                                            </HBox.margin>
+                                            <cursor>
+                                                <Cursor fx:constant="HAND" />
+                                            </cursor>
+                                        </JFXButton>
+                                    </children>
+                                </HBox>
+                            </children>
+                        </VBox>
+                        <Line endX="-99.37870788574219" endY="476.0929260253906" startX="-100.0" stroke="#c9c8c8" />
+                        <TableView fx:id="medicalTable" onMousePressed="#showPdf" prefHeight="498.0" prefWidth="477.0">
+                            <columns>
+                                <TableColumn fx:id="titleCol" maxWidth="193.60007333755493" prefWidth="143.19998168945312" resizable="false" style="-fx-alignment: center;" text="Title" />
+                                <TableColumn fx:id="depCol" maxWidth="320.00003814697266" prefWidth="113.60003662109375" resizable="false" style="-fx-alignment: center;" text="Student TG" />
+                                <TableColumn fx:id="dateCol" maxWidth="630.0" minWidth="0.0" prefWidth="119.20001220703125" resizable="false" style="-fx-alignment: center;" text="Date" />
+                                <TableColumn fx:id="docCol" maxWidth="339.20001220703125" prefWidth="94.4000244140625" resizable="false" style="-fx-alignment: center;" text="Document" />
+                            </columns>
+                            <padding>
+                                <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                            </padding>
+                        </TableView>
+                    </children>
+                </HBox>
+            </center>
+        </BorderPane>
+    </children>
+</AnchorPane>

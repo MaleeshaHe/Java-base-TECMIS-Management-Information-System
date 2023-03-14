@@ -129,6 +129,26 @@ public class LoginPageController implements Initializable {
                             stage.resizableProperty().setValue(false);
                             new FadeIn(root).play();
 
+                        } else if (rs.getString(12).equals("Technical Officer")) {
+
+                            userId = Integer.parseInt(rs.getString(1));
+                            userTg = rs.getString("tgnum");
+
+                            Set<String> privileges = new HashSet<>();
+                            privileges.add("studentPrivilege");
+
+                            UserSession.getInstance(String.valueOf(userId), userTg, privileges);
+
+                            FXMLLoader loader = new FXMLLoader(getClass().getResource("technical_officer/technical-officer-home.fxml"));
+                            root = loader.load();
+                            stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+                            scene = new Scene(root, 1050,600);
+                            stage.setScene(scene);
+                            stage.centerOnScreen();
+                            stage.show();
+                            stage.resizableProperty().setValue(false);
+                            new FadeIn(root).play();
+
                         }
                     }
                     else {

@@ -1,18 +1,23 @@
-package com.tecmis.mis.student.medical;
+package com.tecmis.mis.technical_officer.timetable;
 
+import com.jfoenix.controls.JFXComboBox;
+import com.jfoenix.controls.JFXTextField;
 import com.tecmis.mis.UserSession;
+import com.tecmis.mis.admin.notice.NoticeController;
 import com.tecmis.mis.db_connect.DbConnect;
-import com.tecmis.mis.student.notice.NoticeController;
-import com.tecmis.mis.student.notice.NoticeDetails;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.Label;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
+import javafx.stage.Stage;
 import javafx.util.Callback;
 
 import java.awt.*;
@@ -29,54 +34,72 @@ import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-public class MedicalCotroller implements Initializable {
+
+public class TimetableController implements Initializable {
     @FXML
-    private TableColumn<MedicalDetails, String> descCol;
+    private Stage stage;
+    private Stage primaryStage;
+    private Scene scene;
+    private Parent root;
+    @FXML
+    private JFXComboBox<String> comboDepartment;
 
     @FXML
-    private TableColumn<com.tecmis.mis.technical_officer.medical.MedicalDetails, String> edateCol;
+    private JFXComboBox<String> comboLevel;
 
     @FXML
-    private TableView<MedicalDetails> medicalTable;
+    private Label error;
 
     @FXML
-    private TableColumn<MedicalDetails, String> sdateCol;
+    private TableView<TimetableDetails> timeTable;
+    @FXML
+    private TableColumn<TimetableDetails, String> titleCol;
+    @FXML
+    private TableColumn<TimetableDetails, Integer> depCol;
+    @FXML
+    private TableColumn<TimetableDetails, Integer> levelCol;
+    @FXML
+    private TableColumn<TimetableDetails, String> timeCol;
 
     @FXML
-    private TableColumn<MedicalDetails, String> titleCol;
+    private JFXTextField txtMaterials;
+
+    @FXML
+    private JFXTextField txtTimetableTitle;
 
     String query = null;
     Connection connection = null ;
     PreparedStatement preparedStatement = null ;
     ResultSet resultSet = null ;
-    NoticeDetails noticeDetails = null ;
-
-    ObservableList<MedicalDetails> medicalList = FXCollections.observableArrayList();
+    TimetableDetails timetableDetails = null ;
+    byte[] pdfBytes;
+    ObservableList<TimetableDetails> timetableList = FXCollections.observableArrayList();
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         loadData();
     }
 
+
     @FXML
     private void refreshTable() {
         try {
-            medicalList.clear();
-            String tg = UserSession.getUserTgNum();
-            query = "SELECT * FROM medical WHERE students_tg='"+tg+"'";
+            timetableList.clear();
+            int userId = Integer.parseInt(UserSession.getUserName());
+            query = "SELECT * from department,timetable,users WHERE timetable.depName=department.depId AND users.depId=department.depId AND users.user_id='"+userId+"'";
             preparedStatement = connection.prepareStatement(query);
             resultSet = preparedStatement.executeQuery();
 
 
             while (resultSet.next()){
-                medicalList.add(new MedicalDetails(
-                        resultSet.getString("m_title"),
-                        resultSet.getString("m_description"),
-                        resultSet.getString("start_date"),
-                        resultSet.getString("end_date"),
-                        resultSet.getInt("m_id"),
-                        resultSet.getString("students_tg")));
-                medicalTable.setItems(medicalList);
+                timetableList.add(new TimetableDetails(
+                        resultSet.getInt("tid"),
+                        resultSet.getString("title"),
+                        resultSet.getString("depName"),
+                        resultSet.getString("short_name"),
+                        resultSet.getInt("level"),
+                        resultSet.getBytes("pdffile")));
+                timeTable.setItems(timetableList);
             }
 
         } catch (SQLException ex) {
@@ -88,12 +111,13 @@ public class MedicalCotroller implements Initializable {
     public void loadData() {
         connection = DbConnect.getConnect();
         refreshTable();
-        titleCol.setCellValueFactory(new PropertyValueFactory<>("m_title"));
-        descCol.setCellValueFactory(new PropertyValueFactory<>("m_description"));
-        sdateCol.setCellValueFactory(new PropertyValueFactory<>("start_date"));
 
-        Callback<TableColumn<com.tecmis.mis.technical_officer.medical.MedicalDetails, String>, TableCell<com.tecmis.mis.technical_officer.medical.MedicalDetails, String>> cellFoctory = (TableColumn<com.tecmis.mis.technical_officer.medical.MedicalDetails, String> param) -> {
-            final TableCell<com.tecmis.mis.technical_officer.medical.MedicalDetails, String> cell = new TableCell<com.tecmis.mis.technical_officer.medical.MedicalDetails, String>() {
+        titleCol.setCellValueFactory(new PropertyValueFactory<>("title"));
+        depCol.setCellValueFactory(new PropertyValueFactory<>("depName"));
+        levelCol.setCellValueFactory(new PropertyValueFactory<>("level"));
+
+        Callback<TableColumn<TimetableDetails, String>, TableCell<TimetableDetails, String>> cellFoctory = (TableColumn<TimetableDetails, String> param) -> {
+            final TableCell<TimetableDetails, String> cell = new TableCell<TimetableDetails, String>() {
                 @Override
                 public void updateItem(String item, boolean empty) {
                     super.updateItem(item, empty);
@@ -115,17 +139,18 @@ public class MedicalCotroller implements Initializable {
 
                         openMaterial.setOnMouseClicked((MouseEvent event) -> {
 
-                            if(medicalTable.getSelectionModel().getSelectedItem() != null){
+                            if(timeTable.getSelectionModel().getSelectedItem() != null){
+                                timetableDetails = timeTable.getSelectionModel().getSelectedItem();
 
                                 try {
                                     connection = DbConnect.getConnect();
-                                    query = "SELECT document FROM medical WHERE students_tg='"+UserSession.getUserTgNum()+"'";
+                                    query = "SELECT pdffile FROM timetable WHERE tid='"+timetableDetails.getTid()+"'";
                                     preparedStatement = connection.prepareStatement(query);
                                     resultSet = preparedStatement.executeQuery();
 
                                     while (resultSet.next()){
 
-                                        InputStream is = resultSet.getBinaryStream("document");
+                                        InputStream is = resultSet.getBinaryStream("pdffile");
                                         OutputStream os = new FileOutputStream(new File("doc.pdf"));
                                         byte[] content = new byte[1024];
                                         int size = 0;
@@ -149,7 +174,7 @@ public class MedicalCotroller implements Initializable {
                             else{
                                 Alert alert = new Alert(Alert.AlertType.WARNING);
                                 alert.setTitle("Warning");
-                                alert.setContentText("If you want to open any Medical Document, First you select the row that you want to open");
+                                alert.setContentText("If you want to open any course material, First you select the row that you want to open");
                                 alert.showAndWait();
                             }
                         });
@@ -165,7 +190,43 @@ public class MedicalCotroller implements Initializable {
 
             return cell;
         };
-        edateCol.setCellFactory(cellFoctory);
-        medicalTable.setItems(medicalList);
+        timeCol.setCellFactory(cellFoctory);
+
+        timeTable.setItems(timetableList);
+    }
+
+    @FXML
+    void showPdf(MouseEvent event) {
+        if (event.isPrimaryButtonDown() && event.getClickCount() == 2) {
+            timetableDetails = timeTable.getSelectionModel().getSelectedItem();
+
+            try {
+                connection = DbConnect.getConnect();
+                query = "SELECT pdffile FROM timetable WHERE tid='"+timetableDetails.getTid()+"'";
+                preparedStatement = connection.prepareStatement(query);
+                resultSet = preparedStatement.executeQuery();
+
+                while (resultSet.next()){
+
+                    InputStream is = resultSet.getBinaryStream("pdffile");
+                    OutputStream os = new FileOutputStream(new File("doc.pdf"));
+                    byte[] content = new byte[1024];
+                    int size = 0;
+                    while ((size = is.read(content)) != -1){
+                        os.write(content,0,size);
+                    }
+                    os.close();
+                    is.close();
+
+                    String path = "doc.pdf"; // provide the path to the PDF file
+                    File file = new File(path);
+                    Desktop.getDesktop().open(file);
+
+                }
+
+            }catch (Exception e){
+                System.out.println(e);
+            }
+        }
     }
 }

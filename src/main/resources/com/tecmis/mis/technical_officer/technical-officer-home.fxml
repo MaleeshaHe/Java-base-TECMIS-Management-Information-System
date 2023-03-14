@@ -14,7 +14,7 @@
 <?import javafx.scene.shape.Circle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="600.0" prefWidth="1050.0" stylesheets="@../../../../style/style.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.tecmis.mis.admin.AdminHomeController">
+<AnchorPane prefHeight="600.0" prefWidth="1050.0" stylesheets="@../../../../style/style.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.tecmis.mis.technical_officer.TechnicalOfficerHomeController">
     <children>
         <BorderPane fx:id="borderpane" layoutX="114.0" layoutY="54.0" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #ffffff;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
             <left>
@@ -45,27 +45,6 @@
                               <Insets bottom="15.0" left="15.0" right="15.0" top="10.0" />
                            </padding>
                         </JFXButton>
-                                <JFXButton alignment="BASELINE_LEFT" onAction="#btnUser" prefHeight="50.0" prefWidth="176.0" styleClass="sidebarItem" text="  User" textFill="WHITE">
-                                    <font>
-                                        <Font name="System Bold" size="16.0" />
-                                    </font>
-                                    <graphic>
-                                        <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
-                                            <image>
-                                                <Image url="@../../../../images/conference-64.png" />
-                                            </image>
-                                        </ImageView>
-                                    </graphic>
-                                    <VBox.margin>
-                                        <Insets bottom="10.0" />
-                                    </VBox.margin>
-                                    <opaqueInsets>
-                                        <Insets />
-                                    </opaqueInsets>
-                                    <padding>
-                                        <Insets bottom="15.0" left="15.0" right="15.0" top="10.0" />
-                                    </padding>
-                                </JFXButton>
                                 <JFXButton alignment="BASELINE_LEFT" onAction="#btnNotice" prefHeight="50.0" prefWidth="176.0" styleClass="sidebarItem" text="  Notice" textFill="WHITE">
                                     <font>
                                         <Font name="System Bold" size="16.0" />
@@ -116,6 +95,27 @@
                                         <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
                                             <image>
                                                 <Image url="@../../../../images/time-13-64.png" />
+                                            </image>
+                                        </ImageView>
+                                    </graphic>
+                                    <VBox.margin>
+                                        <Insets bottom="10.0" />
+                                    </VBox.margin>
+                                    <opaqueInsets>
+                                        <Insets />
+                                    </opaqueInsets>
+                                    <padding>
+                                        <Insets bottom="15.0" left="15.0" right="15.0" top="10.0" />
+                                    </padding>
+                                </JFXButton>
+                                <JFXButton alignment="BASELINE_LEFT" onAction="#btnMedical" prefHeight="50.0" prefWidth="176.0" styleClass="sidebarItem" text="  Medical" textFill="WHITE">
+                                    <font>
+                                        <Font name="System Bold" size="16.0" />
+                                    </font>
+                                    <graphic>
+                                        <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
+                                            <image>
+                                                <Image url="@../../../../images/clinic-64.png" />
                                             </image>
                                         </ImageView>
                                     </graphic>
@@ -208,7 +208,7 @@
                                        <children>
                                           <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
                                              <children>
-                                                <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="30.0" prefWidth="171.0" text="Admin Dashboard" textAlignment="CENTER" textFill="#797979">
+                                                <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="30.0" prefWidth="267.0" text="Technical Officer Dashboard" textAlignment="CENTER" textFill="#797979">
                                                    <font>
                                                       <Font name="System Bold" size="20.0" />
                                                    </font>
@@ -217,11 +217,11 @@
                                           </HBox>
                                           <HBox alignment="CENTER" layoutX="30.0" layoutY="30.0" prefHeight="200.0" prefWidth="311.0">
                                              <children>
-                                                <JFXButton contentDisplay="GRAPHIC_ONLY" onAction="#btnUser" prefHeight="120.0" prefWidth="120.0" style="-fx-background-color: #ffff; -fx-border-radius: 20; -fx-background-radius: 20; -fx-border-color: #565656;" text="USER" textFill="#565656">
+                                                <JFXButton contentDisplay="GRAPHIC_ONLY" onAction="#btnMedical" prefHeight="115.0" prefWidth="115.0" style="-fx-background-color: #ffff; -fx-border-radius: 20; -fx-background-radius: 20; -fx-border-color: #565656;" text="USER" textFill="#565656">
                                                    <graphic>
-                                                      <ImageView fitHeight="70.0" fitWidth="70.0" pickOnBounds="true" preserveRatio="true">
+                                                      <ImageView fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true">
                                                          <image>
-                                                            <Image url="@../../../../images/team.png" />
+                                                            <Image url="@../../../../images/medical-record.png" />
                                                          </image>
                                                       </ImageView>
                                                    </graphic>
@@ -232,9 +232,9 @@
                                                       <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
                                                    </HBox.margin>
                                                 </JFXButton>
-                                                <JFXButton contentDisplay="GRAPHIC_ONLY" onAction="#btnTimeTable" prefHeight="120.0" prefWidth="120.0" style="-fx-background-color: #ffff; -fx-border-radius: 20; -fx-background-radius: 20; -fx-border-color: #565656;" text="USER" textFill="#565656">
+                                                <JFXButton contentDisplay="GRAPHIC_ONLY" onAction="#btnTimeTable" prefHeight="115.0" prefWidth="115.0" style="-fx-background-color: #ffff; -fx-border-radius: 20; -fx-background-radius: 20; -fx-border-color: #565656;" text="USER" textFill="#565656">
                                                    <graphic>
-                                                      <ImageView fitHeight="70.0" fitWidth="70.0" pickOnBounds="true" preserveRatio="true">
+                                                      <ImageView fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true">
                                                          <image>
                                                             <Image url="@../../../../images/clock.png" />
                                                          </image>
@@ -251,9 +251,9 @@
                                           </HBox>
                                           <HBox alignment="CENTER" layoutX="10.0" layoutY="252.0" prefHeight="200.0" prefWidth="311.0">
                                              <children>
-                                                <JFXButton contentDisplay="GRAPHIC_ONLY" onAction="#btnCourse" prefHeight="120.0" prefWidth="120.0" style="-fx-background-color: #ffff; -fx-border-radius: 20; -fx-background-radius: 20; -fx-border-color: #565656;" text="USER" textFill="#565656">
+                                                <JFXButton contentDisplay="GRAPHIC_ONLY" onAction="#btnCourse" prefHeight="115.0" prefWidth="115.0" style="-fx-background-color: #ffff; -fx-border-radius: 20; -fx-background-radius: 20; -fx-border-color: #565656;" text="USER" textFill="#565656">
                                                    <graphic>
-                                                      <ImageView fitHeight="70.0" fitWidth="70.0" pickOnBounds="true" preserveRatio="true">
+                                                      <ImageView fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true">
                                                          <image>
                                                             <Image url="@../../../../images/online-course.png" />
                                                          </image>
@@ -266,9 +266,9 @@
                                                       <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
                                                    </HBox.margin>
                                                 </JFXButton>
-                                                <JFXButton contentDisplay="GRAPHIC_ONLY" onAction="#btnNotice" prefHeight="120.0" prefWidth="120.0" style="-fx-background-color: #ffff; -fx-border-radius: 20; -fx-background-radius: 20; -fx-border-color: #565656;" text="USER" textFill="#565656">
+                                                <JFXButton contentDisplay="GRAPHIC_ONLY" onAction="#btnNotice" prefHeight="115.0" prefWidth="115.0" style="-fx-background-color: #ffff; -fx-border-radius: 20; -fx-background-radius: 20; -fx-border-color: #565656;" text="USER" textFill="#565656">
                                                    <graphic>
-                                                      <ImageView fitHeight="70.0" fitWidth="70.0" pickOnBounds="true" preserveRatio="true">
+                                                      <ImageView fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true">
                                                          <image>
                                                             <Image url="@../../../../images/notification-bell.png" />
                                                          </image>
@@ -379,7 +379,7 @@
                                              </children>
                                           </HBox>
                                           <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="365.0" prefHeight="10.0" prefWidth="346.0" />
-                                          <HBox alignment="CENTER" prefHeight="41.0" prefWidth="340.0">
+                                          <HBox alignment="CENTER" layoutX="30.0" layoutY="343.0" prefHeight="41.0" prefWidth="340.0">
                                              <children>
                                                 <JFXButton onAction="#btnEditUser" prefHeight="28.0" prefWidth="135.0" style="-fx-background-radius: 18; -fx-border-radius: 18; -fx-border-color: #797979;" text="Edit your details">
                                                    <graphic>
@@ -388,8 +388,7 @@
                                                             <Image url="@../../../../images/edit-11-64.png" />
                                                          </image>
                                                       </ImageView>
-                                                   </graphic>
-                                                </JFXButton>
+                                                   </graphic></JFXButton>
                                              </children>
                                           </HBox>
                                        </children>

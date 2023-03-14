@@ -1,6 +1,7 @@
-package com.tecmis.mis.admin;
+package com.tecmis.mis.technical_officer;
 
-import animatefx.animation.*;
+import animatefx.animation.FadeIn;
+import animatefx.animation.FadeInDown;
 import com.jfoenix.controls.JFXButton;
 import com.tecmis.mis.UserSession;
 import com.tecmis.mis.admin.notice.NoticeController;
@@ -34,7 +35,7 @@ import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-public class AdminHomeController implements Initializable {
+public class TechnicalOfficerHomeController implements Initializable {
 
     @FXML
     private Label time;
@@ -97,11 +98,12 @@ public class AdminHomeController implements Initializable {
     ResultSet resultSet = null ;
 
     @Override
-    public void initialize(URL location, ResourceBundle resources) {
+    public void initialize(URL url, ResourceBundle resourceBundle) {
         dateShow();
         timeNow();
         showData();
     }
+
     private void showData(){
         int userId = Integer.parseInt(UserSession.getUserName());
         try {
@@ -162,25 +164,8 @@ public class AdminHomeController implements Initializable {
         thread.start();
     }
 
-    public void btnEditUser(ActionEvent actionEvent) {
-        try {
-            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("admin-update.fxml"));
-            Parent root = (Parent) fxmlLoader.load();
-            Stage stage = new Stage();
-            stage.setTitle("Update Admin Details");
-            javafx.scene.image.Image image = new Image("images/appIcon.png");
-            stage.getIcons().add(image);
-            stage.resizableProperty().setValue(false);
-            stage.setScene(new Scene(root));
-            stage.show();
-
-        } catch (IOException ex) {
-            Logger.getLogger(NoticeController.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }
-
     public void btnHome(ActionEvent event) throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("admin-home.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("technical-officer-home.fxml"));
         root = loader.load();
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root, 1050,600);
@@ -191,8 +176,26 @@ public class AdminHomeController implements Initializable {
         new FadeIn(root).play();
     }
 
-    public void btnUser(ActionEvent actionEvent) throws IOException {
-        AnchorPane view = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("user/user.fxml")));
+
+    public void btnEditUser(ActionEvent actionEvent) {
+        try {
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("technical-officer-update.fxml"));
+            Parent root = (Parent) fxmlLoader.load();
+            Stage stage = new Stage();
+            stage.setTitle("Update student Details");
+            Image image = new Image("images/appIcon.png");
+            stage.getIcons().add(image);
+            stage.resizableProperty().setValue(false);
+            stage.setScene(new Scene(root));
+            stage.show();
+
+        } catch (IOException ex) {
+            Logger.getLogger(NoticeController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+    public void btnMedical(ActionEvent actionEvent) throws IOException {
+        AnchorPane view = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("medical/medical.fxml")));
         borderpane.getChildren().removeAll();
         borderpane.setCenter(view);
         new FadeInDown(view).play();
@@ -230,7 +233,7 @@ public class AdminHomeController implements Initializable {
         stage.show();
         stage.resizableProperty().setValue(false);
         new FadeIn(root).play();
+
         UserSession.cleanUserSession();
     }
 }
-
