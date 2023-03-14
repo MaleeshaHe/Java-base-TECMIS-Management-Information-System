@@ -4,12 +4,14 @@ import animatefx.animation.Shake;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTextField;
 import com.tecmis.mis.admin.notice.NoticeController;
+import com.tecmis.mis.admin.timetable.EditTimetableControlloer;
 import com.tecmis.mis.admin.timetable.TimetableDetails;
 import com.tecmis.mis.db_connect.DbConnect;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
 import javafx.scene.Parent;
@@ -17,6 +19,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.Label;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.image.Image;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
 import javafx.stage.FileChooser;
@@ -308,17 +311,72 @@ public class MedicalController implements Initializable {
 
     @FXML
     void clear() {
-
+        txtStudentTg.setText("");
+        txtTitle.setText("");
+        txtDescription.setText("");
+        txtDoc.setText("");
     }
 
     @FXML
     void deleteTimetable(ActionEvent event) {
+        if(medicalTable.getSelectionModel().getSelectedItem() != null){
+            Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+            alert.setTitle("Delete Medical");
+            alert.setContentText("Are you sure delete this Medical");
+            Optional<ButtonType> result = alert.showAndWait();
 
+            if(result.get() == ButtonType.OK){
+                try {
+                    medicalDetails = medicalTable.getSelectionModel().getSelectedItem();
+                    query = "DELETE FROM `medical` WHERE m_id='"+medicalDetails.getM_id()+"'";
+                    connection = DbConnect.getConnect();
+                    preparedStatement = connection.prepareStatement(query);
+                    preparedStatement.execute();
+                    refreshTable();
+
+                } catch (SQLException ex) {
+                    Logger.getLogger(NoticeController.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+        }
+        else{
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Warning");
+            alert.setContentText("If you want to delete any Medical, First you select the row that you want to delete");
+            alert.showAndWait();
+        }
     }
 
     @FXML
     void editTimetable(ActionEvent event) {
+        if(medicalTable.getSelectionModel().getSelectedItem() != null){
+            try{
+                medicalDetails = medicalTable.getSelectionModel().getSelectedItem();
+                FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("edit-medical.fxml"));
+                Parent root = (Parent) fxmlLoader.load();
 
+                EditMedicalControlloer senddata = fxmlLoader.getController();
+                senddata.showInformation(medicalDetails.getM_id(),medicalDetails.getStudents_tg(),medicalDetails.getM_title(),medicalDetails.getM_description());
+
+                Stage stage = new Stage();
+                stage.setTitle("Edit Medical");
+                javafx.scene.image.Image image = new Image("images/appIcon.png");
+                stage.getIcons().add(image);
+                stage.resizableProperty().setValue(false);
+                stage.setScene(new Scene(root));
+                stage.show();
+
+            } catch (IOException ex) {
+                Logger.getLogger(NoticeController.class.getName()).log(Level.SEVERE, null, ex);
+            }
+
+        }
+        else {
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Warning");
+            alert.setContentText("If you want to update any Medical, First you select the row that you want to update");
+            alert.showAndWait();
+        }
     }
 
 }

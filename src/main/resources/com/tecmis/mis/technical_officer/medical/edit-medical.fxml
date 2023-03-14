@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXButton?>
-<?import com.jfoenix.controls.JFXComboBox?>
 <?import com.jfoenix.controls.JFXTextField?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.Cursor?>
+<?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -12,123 +12,141 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="450.0" prefWidth="397.0" style="-fx-background-color: #ffffff;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.tecmis.mis.admin.timetable.EditTimetableControlloer">
-    <children>
-        <HBox alignment="CENTER" prefHeight="78.0" prefWidth="412.0">
-            <children>
-                <Label contentDisplay="CENTER" text="Update Time Table" textAlignment="CENTER" textFill="#535353">
-                    <font>
-                        <Font name="System Bold" size="22.0" />
-                    </font>
-                </Label>
-            </children>
-        </HBox>
-        <HBox alignment="CENTER" prefHeight="41.0" prefWidth="412.0">
-            <children>
-                <Label prefHeight="26.0" prefWidth="125.0" text="Title" textFill="#595959">
-                    <font>
-                        <Font name="System Bold" size="17.0" />
-                    </font>
-                </Label>
-                <JFXTextField fx:id="txtTimetableTitle" focusColor="#5271ff" prefHeight="30.0" prefWidth="245.0" promptText="type the title">
-                    <font>
-                        <Font size="14.0" />
-                    </font>
-                </JFXTextField>
-            </children>
-            <VBox.margin>
-                <Insets bottom="20.0" />
-            </VBox.margin>
-        </HBox>
-        <HBox alignment="CENTER" layoutX="10.0" layoutY="260.0" prefHeight="41.0" prefWidth="412.0">
-            <children>
-                <Label prefHeight="26.0" prefWidth="125.0" text="Deparment" textFill="#595959">
-                    <font>
-                        <Font name="System Bold" size="17.0" />
-                    </font>
-                </Label>
-                <JFXComboBox fx:id="comboDepartment" prefHeight="26.0" prefWidth="245.0" promptText="selete the department" />
-            </children>
-            <VBox.margin>
-                <Insets bottom="20.0" />
-            </VBox.margin>
-        </HBox>
-        <HBox alignment="CENTER" layoutX="10.0" layoutY="218.0" prefHeight="41.0" prefWidth="412.0">
-            <children>
-                <Label prefHeight="26.0" prefWidth="125.0" text="Level" textFill="#595959">
-                    <font>
-                        <Font name="System Bold" size="17.0" />
-                    </font>
-                </Label>
-                <JFXComboBox fx:id="comboLevel" prefHeight="26.0" prefWidth="245.0" promptText="selete the level" />
-            </children>
-            <VBox.margin>
-                <Insets bottom="20.0" />
-            </VBox.margin>
-        </HBox>
-        <HBox alignment="CENTER" layoutX="10.0" layoutY="201.0" prefHeight="41.0" prefWidth="412.0">
-            <children>
-                <Label prefHeight="26.0" prefWidth="125.0" text="Time Table" textFill="#595959">
-                    <font>
-                        <Font name="System Bold" size="17.0" />
-                    </font>
-                </Label>
-                <JFXTextField fx:id="txtMaterials" focusColor="#5271ff" prefHeight="30.0" prefWidth="146.0" promptText="select the PDF ">
-                    <font>
-                        <Font size="14.0" />
-                    </font>
-                </JFXTextField>
-                <JFXButton onAction="#choosePdf" prefHeight="26.0" prefWidth="95.0" style="-fx-background-color: #c2c2c2;" text="Choose Pdf">
-                    <HBox.margin>
-                        <Insets left="5.0" />
-                    </HBox.margin>
-                </JFXButton>
-            </children>
-            <VBox.margin>
-                <Insets bottom="20.0" />
-            </VBox.margin>
-        </HBox>
-        <HBox alignment="CENTER" prefHeight="40.0" prefWidth="412.0">
-            <children>
-                <Label fx:id="error" textAlignment="CENTER" textFill="#e70000">
-                    <font>
-                        <Font size="13.0" />
-                    </font>
-                </Label>
-            </children>
-        </HBox>
-        <HBox alignment="CENTER" prefHeight="82.0" prefWidth="398.0">
-            <children>
-                <JFXButton alignment="CENTER" maxWidth="88.0" onAction="#uploadPdf" prefHeight="34.0" prefWidth="86.0" style="-fx-background-radius: 18;" styleClass="addNoticeBtn" stylesheets="@../../../../../style/style.css" text="Upload" textAlignment="CENTER">
-                    <font>
-                        <Font name="System Bold" size="14.0" />
-                    </font>
-                    <HBox.margin>
-                        <Insets right="10.0" />
-                    </HBox.margin>
-                    <cursor>
-                        <Cursor fx:constant="HAND" />
-                    </cursor>
-                    <graphic>
-                        <ImageView fitHeight="13.0" fitWidth="13.0" pickOnBounds="true" preserveRatio="true">
-                            <image>
-                                <Image url="@../../../../../images/upload-2-64.png" />
-                            </image>
-                        </ImageView>
-                    </graphic>
-                </JFXButton>
-                <JFXButton alignment="CENTER" layoutX="173.0" layoutY="43.0" maxWidth="88.0" onAction="#clearTimetable" prefHeight="34.0" prefWidth="86.0" style="-fx-background-radius: 18;" styleClass="cancelNoticeBtn" stylesheets="@../../../../../style/style.css" text="Clear" textAlignment="CENTER">
-                    <font>
-                        <Font name="System Bold" size="14.0" />
-                    </font>
-                    <HBox.margin>
-                        <Insets left="10.0" />
-                    </HBox.margin>
-                    <cursor>
-                        <Cursor fx:constant="HAND" />
-                    </cursor>
-                </JFXButton>
-            </children>
-        </HBox>
-    </children>
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="462.0" prefWidth="397.0" style="-fx-background-color: #ffffff;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.tecmis.mis.technical_officer.medical.EditMedicalControlloer">
+   <children>
+      <HBox alignment="CENTER" prefHeight="78.0" prefWidth="412.0">
+         <children>
+            <Label contentDisplay="CENTER" text="Upload New Medical" textAlignment="CENTER" textFill="#535353">
+               <font>
+                  <Font name="System Bold" size="22.0" />
+               </font>
+            </Label>
+         </children>
+      </HBox>
+      <HBox alignment="CENTER" layoutX="10.0" layoutY="150.0" prefHeight="41.0" prefWidth="412.0">
+         <children>
+            <Label prefHeight="26.0" prefWidth="125.0" text="Student TG" textFill="#595959">
+               <font>
+                  <Font name="System Bold" size="17.0" />
+               </font>
+            </Label>
+            <JFXTextField fx:id="txtStudentTg" focusColor="#5271ff" prefHeight="30.0" prefWidth="245.0" promptText="type the student TG Number">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </JFXTextField>
+         </children>
+      </HBox>
+      <HBox alignment="CENTER" prefHeight="41.0" prefWidth="412.0">
+         <children>
+            <Label prefHeight="26.0" prefWidth="125.0" text="Title" textFill="#595959">
+               <font>
+                  <Font name="System Bold" size="17.0" />
+               </font>
+            </Label>
+            <JFXTextField fx:id="txtTitle" focusColor="#5271ff" prefHeight="30.0" prefWidth="245.0" promptText="type the title">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </JFXTextField>
+         </children>
+         <VBox.margin>
+            <Insets bottom="20.0" />
+         </VBox.margin>
+      </HBox>
+      <HBox alignment="CENTER" layoutX="10.0" layoutY="260.0" prefHeight="41.0" prefWidth="412.0">
+         <children>
+            <Label prefHeight="26.0" prefWidth="125.0" text="Description" textFill="#595959">
+               <font>
+                  <Font name="System Bold" size="17.0" />
+               </font>
+            </Label>
+            <JFXTextField fx:id="txtDescription" focusColor="#5271ff" prefHeight="30.0" prefWidth="245.0" promptText="type the description">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </JFXTextField>
+         </children>
+         <VBox.margin>
+            <Insets bottom="20.0" />
+         </VBox.margin>
+      </HBox>
+      <HBox alignment="CENTER" layoutX="10.0" layoutY="218.0" prefHeight="41.0" prefWidth="412.0">
+         <children>
+            <Label prefHeight="26.0" prefWidth="125.0" text="Date" textFill="#595959">
+               <font>
+                  <Font name="System Bold" size="17.0" />
+               </font>
+            </Label>
+            <DatePicker fx:id="date" prefHeight="26.0" prefWidth="245.0" />
+         </children>
+         <VBox.margin>
+            <Insets bottom="20.0" />
+         </VBox.margin>
+      </HBox>
+      <HBox alignment="CENTER" layoutX="10.0" layoutY="201.0" prefHeight="41.0" prefWidth="412.0">
+         <children>
+            <Label prefHeight="26.0" prefWidth="125.0" text="Document" textFill="#595959">
+               <font>
+                  <Font name="System Bold" size="17.0" />
+               </font>
+            </Label>
+            <JFXTextField fx:id="txtDoc" focusColor="#5271ff" prefHeight="30.0" prefWidth="146.0" promptText="select the PDF ">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </JFXTextField>
+            <JFXButton onAction="#choosePdf" prefHeight="26.0" prefWidth="95.0" style="-fx-background-color: #c2c2c2;" text="Choose Pdf">
+               <HBox.margin>
+                  <Insets left="5.0" />
+               </HBox.margin>
+            </JFXButton>
+         </children>
+         <VBox.margin>
+            <Insets bottom="20.0" />
+         </VBox.margin>
+      </HBox>
+      <HBox alignment="CENTER" prefHeight="30.0" prefWidth="398.0">
+         <children>
+            <Label fx:id="error" textAlignment="CENTER" textFill="#e70000">
+               <font>
+                  <Font size="13.0" />
+               </font>
+            </Label>
+         </children>
+      </HBox>
+      <HBox alignment="CENTER" prefHeight="52.0" prefWidth="398.0">
+         <children>
+            <JFXButton alignment="CENTER" maxWidth="88.0" onAction="#uploadPdf" prefHeight="34.0" prefWidth="86.0" style="-fx-background-radius: 18;" styleClass="addNoticeBtn" stylesheets="@../../../../../style/style.css" text="Update" textAlignment="CENTER">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+               <HBox.margin>
+                  <Insets right="10.0" />
+               </HBox.margin>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+               <graphic>
+                  <ImageView fitHeight="13.0" fitWidth="13.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../../../images/upload-2-64.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </JFXButton>
+            <JFXButton alignment="CENTER" layoutX="173.0" layoutY="43.0" maxWidth="88.0" onAction="#clear" prefHeight="34.0" prefWidth="86.0" style="-fx-background-radius: 18;" styleClass="cancelNoticeBtn" stylesheets="@../../../../../style/style.css" text="Clear" textAlignment="CENTER">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+               <HBox.margin>
+                  <Insets left="10.0" />
+               </HBox.margin>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </JFXButton>
+         </children>
+      </HBox>
+   </children>
 </VBox>
