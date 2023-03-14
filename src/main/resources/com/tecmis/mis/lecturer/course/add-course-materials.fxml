@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="450.0" prefWidth="412.0" style="-fx-background-color: #ffffff;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.tecmis.mis.lecturer.course.AddMaterialsCourseController">
+   <children>
+      <HBox alignment="CENTER" prefHeight="66.0" prefWidth="412.0">
+         <children>
+            <Label contentDisplay="CENTER" text="Add Course  Materials" textAlignment="CENTER" textFill="#535353">
+               <font>
+                  <Font name="System Bold" size="22.0" />
+               </font>
+            </Label>
+         </children>
+      </HBox>
+      <HBox alignment="CENTER" prefHeight="41.0" prefWidth="412.0">
+         <children>
+            <Label prefHeight="26.0" prefWidth="111.0" text="Course Code" textFill="#595959">
+               <font>
+                  <Font name="System Bold" size="17.0" />
+               </font>
+            </Label>
+            <Label fx:id="txtCourseCode" prefHeight="33.0" prefWidth="259.0" text="ICT1132">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+         </children>
+         <VBox.margin>
+            <Insets bottom="10.0" />
+         </VBox.margin>
+      </HBox>
+      <HBox alignment="CENTER" layoutX="10.0" layoutY="76.0" prefHeight="41.0" prefWidth="412.0">
+         <children>
+            <Label prefHeight="26.0" prefWidth="114.0" text="Course Name" textFill="#595959">
+               <font>
+                  <Font name="System Bold" size="17.0" />
+               </font>
+            </Label>
+            <Label fx:id="txtCourseName" prefHeight="32.0" prefWidth="255.0" text="Course Name">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+         </children>
+         <VBox.margin>
+            <Insets bottom="10.0" />
+         </VBox.margin>
+      </HBox>
+      <HBox alignment="CENTER" layoutX="10.0" layoutY="218.0" prefHeight="41.0" prefWidth="412.0">
+         <children>
+            <Label prefHeight="26.0" prefWidth="112.0" text="Credit" textFill="#595959">
+               <font>
+                  <Font name="System Bold" size="17.0" />
+               </font>
+            </Label>
+            <Label fx:id="txtCredit" prefHeight="33.0" prefWidth="255.0" text="Credits">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+         </children>
+         <VBox.margin>
+            <Insets bottom="10.0" />
+         </VBox.margin>
+      </HBox>
+      <HBox alignment="CENTER" layoutX="10.0" layoutY="201.0" prefHeight="41.0" prefWidth="412.0">
+         <children>
+            <Label prefHeight="26.0" prefWidth="121.0" text="Materials" textFill="#595959">
+               <font>
+                  <Font name="System Bold" size="17.0" />
+               </font>
+            </Label>
+            <JFXTextField fx:id="txtMaterials" focusColor="#5271ff" prefHeight="30.0" prefWidth="252.0" promptText="Enter material link">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </JFXTextField>
+         </children>
+         <VBox.margin>
+            <Insets bottom="10.0" />
+         </VBox.margin>
+      </HBox>
+      <HBox alignment="CENTER" prefHeight="40.0" prefWidth="412.0">
+         <children>
+            <Label fx:id="error" textAlignment="CENTER" textFill="#e70000">
+               <font>
+                  <Font size="13.0" />
+               </font>
+            </Label>
+         </children>
+      </HBox>
+      <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+         <children>
+            <JFXButton alignment="CENTER" maxWidth="88.0" onAction="#addCourseMaterials" prefHeight="34.0" prefWidth="86.0" style="-fx-background-radius: 18;" styleClass="addNoticeBtn" stylesheets="@../../../../../style/style.css" text="Update" textAlignment="CENTER">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+               <HBox.margin>
+                  <Insets right="10.0" />
+               </HBox.margin>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </JFXButton>
+            <JFXButton alignment="CENTER" layoutX="173.0" layoutY="43.0" maxWidth="88.0" onAction="#clearCourse" prefHeight="34.0" prefWidth="86.0" style="-fx-background-radius: 18;" styleClass="cancelNoticeBtn" stylesheets="@../../../../../style/style.css" text="Clear" textAlignment="CENTER">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+               <HBox.margin>
+                  <Insets left="10.0" />
+               </HBox.margin>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </JFXButton>
+         </children>
+      </HBox>
+   </children>
+</VBox>
