@@ -1,6 +1,7 @@
 package com.tecmis.mis.admin.user;
 
 import animatefx.animation.*;
+import com.jfoenix.controls.JFXComboBox;
 import com.tecmis.mis.admin.notice.NoticeController;
 import com.tecmis.mis.db_connect.DbConnect;
 import javafx.collections.FXCollections;
@@ -33,6 +34,9 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class UserController implements Initializable {
+
+    @FXML
+    private JFXComboBox<String> comboUserRole;
     @FXML
     private BorderPane borderpane;
     @FXML
@@ -61,6 +65,7 @@ public class UserController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        comboUserRole.setItems(FXCollections.observableArrayList("Student","Lecturer","Admin","Technical Officer"));
         loadData();
     }
 
@@ -137,6 +142,7 @@ public class UserController implements Initializable {
         };
         photocol.setCellFactory(cellFoctory);
         userTable.setItems(userList);
+        new FadeIn(userTable).play();
     }
 
     @FXML
@@ -235,5 +241,111 @@ public class UserController implements Initializable {
             alert.setContentText("If you want to update any user, First you select the row that you want to update");
             alert.showAndWait();
         }
+    }
+
+    public void comboSelectUser(){
+        loadDataCombo();
+    }
+
+
+    public void loadDataCombo() {
+        connection = DbConnect.getConnect();
+        refreshTableCombo();
+
+        idcol.setCellValueFactory(new PropertyValueFactory<>("tgnum"));
+        fnamecol.setCellValueFactory(new PropertyValueFactory<>("fname"));
+        lnamecol.setCellValueFactory(new PropertyValueFactory<>("lname"));
+        phonecol.setCellValueFactory(new PropertyValueFactory<>("phone_num"));
+        emailcol.setCellValueFactory(new PropertyValueFactory<>("email"));
+        departmentcol.setCellValueFactory(new PropertyValueFactory<>("user_roll"));
+
+        Callback<TableColumn<UserDetails, String>, TableCell<UserDetails, String>> cellFoctory = (TableColumn<UserDetails, String> param) -> {
+            final TableCell<UserDetails, String> cell = new TableCell<UserDetails, String>() {
+                @Override
+                public void updateItem(String item, boolean empty) {
+                    super.updateItem(item, empty);
+
+                    if (empty) {
+                        setGraphic(null);
+                        setText(null);
+
+                    } else {
+
+                        UserDetails userDetails = getTableView().getItems().get(getIndex());
+                        String tg = userDetails.getTgnum(); // get tgnum value from UserDetails object
+
+                        Circle propic = new Circle(25);
+                        try {
+                            connection = DbConnect.getConnect();
+                            query = "SELECT profile_pic FROM users WHERE tgnum='"+tg+"'";
+                            preparedStatement = connection.prepareStatement(query);
+                            resultSet = preparedStatement.executeQuery();
+
+                            while (resultSet.next()){
+
+                                InputStream is = resultSet.getBinaryStream("profile_pic");
+                                OutputStream os = new FileOutputStream(new File("photo.jpg"));
+                                byte[] content = new byte[1024];
+                                int size = 0;
+                                while ((size = is.read(content)) != -1){
+                                    os.write(content,0,size);
+                                }
+                                os.close();
+                                is.close();
+
+                                propic.setFill(new ImagePattern(new Image("file:photo.jpg",0,0,true,true)));
+                            }
+
+                        }catch (Exception e){
+                            System.out.println(e);
+                        }
+
+                        HBox managebtn = new HBox(propic);
+                        managebtn.setStyle("-fx-alignment:center");
+                        HBox.setMargin(propic, new Insets(5, 2, 5, 2));
+                        setGraphic(managebtn);
+                        setText(null);
+                    }
+                }
+            };
+
+            return cell;
+        };
+        photocol.setCellFactory(cellFoctory);
+        userTable.setItems(userList);
+        new FadeIn(userTable).play();
+    }
+
+    @FXML
+    private void refreshTableCombo() {
+        try {
+            userList.clear();
+
+            query = "SELECT * FROM users,department WHERE users.depId=department.depId AND user_roll='"+comboUserRole.getValue()+"'";
+            preparedStatement = connection.prepareStatement(query);
+            resultSet = preparedStatement.executeQuery();
+
+
+            while (resultSet.next()){
+                userList.add(new UserDetails(
+                        resultSet.getInt("user_id"),
+                        resultSet.getString("tgnum"),
+                        resultSet.getString("fname"),
+                        resultSet.getString("lname"),
+                        resultSet.getString("phone_num"),
+                        resultSet.getString("email"),
+                        resultSet.getString("dob"),
+                        resultSet.getString("sex"),
+                        resultSet.getString("address"),
+                        resultSet.getString("short_name"),
+                        resultSet.getString("password"),
+                        resultSet.getString("user_roll")));
+                userTable.setItems(userList);
+            }
+
+        } catch (SQLException ex) {
+            Logger.getLogger(NoticeController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
     }
 }

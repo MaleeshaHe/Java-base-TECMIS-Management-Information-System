@@ -135,7 +135,7 @@ public class LoginPageController implements Initializable {
                             userTg = rs.getString("tgnum");
 
                             Set<String> privileges = new HashSet<>();
-                            privileges.add("studentPrivilege");
+                            privileges.add("technicalOfficerPrivilege");
 
                             UserSession.getInstance(String.valueOf(userId), userTg, privileges);
 

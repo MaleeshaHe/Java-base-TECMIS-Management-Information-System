@@ -40,3 +40,8 @@
 .detailsShadow{
     -fx-effect: dropshadow(three-pass-box, rgba(149, 157, 165, 1), 20,0,0, 0);
 }
+
+.comboBox{
+    -fx-font-size: 13;
+    -fx-background-radius: 0 6 6 0;
+}
