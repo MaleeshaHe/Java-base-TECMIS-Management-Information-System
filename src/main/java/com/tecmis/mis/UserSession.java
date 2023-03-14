@@ -9,16 +9,18 @@ public final class UserSession {
     private static String userName;
     private static String userTgNum;
     private Set<String> privileges;
+    private static String depId;
 
-    private UserSession(String userName, String userTgNum, Set<String> privileges) {
+    private UserSession(String userName, String userTgNum,Set<String> privileges,String depId) {
         this.userName = userName;
         this.userTgNum = userTgNum;
         this.privileges = privileges;
+        this.depId=depId;
     }
 
-    public static UserSession getInstance(String userName, String userTgNum, Set<String> privileges) {
+    public static UserSession getInstance(String userName, String userTgNum, Set<String> privileges,String depId) {
         if(instance == null) {
-            instance = new UserSession(userName, userTgNum, privileges);
+            instance = new UserSession(userName, userTgNum, privileges,depId);
         }
         return instance;
     }
@@ -35,10 +37,16 @@ public final class UserSession {
         return privileges;
     }
 
+    public static String getUserDepId(){
+        return depId;
+    }
+
     public static void cleanUserSession() {
         userName = null;
         userTgNum = null;
         instance = null;
+        depId = null;
+
     }
 
     @Override
