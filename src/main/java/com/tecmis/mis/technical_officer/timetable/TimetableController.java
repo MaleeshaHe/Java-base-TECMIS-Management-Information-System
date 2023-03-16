@@ -85,8 +85,8 @@ public class TimetableController implements Initializable {
     private void refreshTable() {
         try {
             timetableList.clear();
-            int userId = Integer.parseInt(UserSession.getUserName());
-            query = "SELECT * from department,timetable,users WHERE timetable.depName=department.depId AND users.depId=department.depId AND users.user_id='"+userId+"'";
+            String usertg = UserSession.getUserTgNum();
+            query = "SELECT * from department,timetable,user WHERE timetable.depName=department.depId AND user.depId=department.depId AND user.tgnum='"+usertg+"'";
             preparedStatement = connection.prepareStatement(query);
             resultSet = preparedStatement.executeQuery();
 

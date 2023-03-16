@@ -108,7 +108,7 @@ public class EditUserControlloer implements Initializable {
 
         try {
             connection = DbConnect.getConnect();
-            query = "SELECT profile_pic FROM users WHERE user_id='"+selectedUser.getUser_id()+"'";
+            query = "SELECT profile_pic FROM user WHERE tgnum='"+selectedUser.getTgnum()+"'";
             preparedStatement = connection.prepareStatement(query);
             resultSet = preparedStatement.executeQuery();
 
@@ -189,12 +189,12 @@ public class EditUserControlloer implements Initializable {
             String gender = comboGender.getValue();
             String password = txtPasswordC.getText();
             int department = comboDepartment.getSelectionModel().getSelectedIndex()+1;
-            int userId = selectedUser.getUser_id();
+            tgnum = selectedUser.getTgnum();
 
 
             try {
                 connection = DbConnect.getConnect();
-                query = "UPDATE users SET tgnum = ?, fname= ?, lname = ?, phone_num = ?, email = ?, password = ?, dob = ?, sex = ?, address = ?, user_roll = ?, depId = ?, profile_pic = ? WHERE user_id = ?";
+                query = "UPDATE user SET tgnum = ?, fname= ?, lname = ?, phone_num = ?, email = ?, password = ?, dob = ?, sex = ?, address = ?, user_roll = ?, depId = ?, profile_pic = ? WHERE tgnum = ?";
                 preparedStatement = connection.prepareStatement(query);
                 preparedStatement.setString(1,tgnum);
                 preparedStatement.setString(2,fname);
@@ -209,7 +209,7 @@ public class EditUserControlloer implements Initializable {
                 preparedStatement.setInt(11,department);
                 fis = new FileInputStream(img);
                 preparedStatement.setBinaryStream(12, (InputStream)fis, (int)img.length());
-                preparedStatement.setInt(13,userId);
+                preparedStatement.setString(13,tgnum);
                 preparedStatement.executeUpdate();
 
                 Alert alert = new Alert(Alert.AlertType.INFORMATION);

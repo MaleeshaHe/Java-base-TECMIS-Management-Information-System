@@ -2,11 +2,9 @@ package com.tecmis.mis.lecturer.course;
 
 import com.jfoenix.controls.JFXButton;
 import com.tecmis.mis.UserSession;
-import com.tecmis.mis.admin.course.CourseDetails;
-import com.tecmis.mis.admin.course.EditCourseControlloer;
-import com.tecmis.mis.admin.notice.NoticeController;
-import com.tecmis.mis.admin.notice.NoticeDetails;
 import com.tecmis.mis.db_connect.DbConnect;
+import com.tecmis.mis.lecturer.notice.NoticeController;
+import com.tecmis.mis.lecturer.notice.NoticeDetails;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -77,7 +75,7 @@ public class CourseController implements Initializable {
                 Parent root = (Parent) fxmlLoader.load();
 
                 AddMaterialsCourseController senddata = fxmlLoader.getController();
-                senddata.showInformation(courseDetails.getCid(), courseDetails.getCourseCode(), courseDetails.getCourseName(), courseDetails.getCredit(), courseDetails.getMaterial());
+                senddata.showInformation(courseDetails.getCourseCode(), courseDetails.getCourseName(), courseDetails.getCredit(), courseDetails.getMaterial());
 
                 Stage stage = new Stage();
                 stage.setTitle("Add Course Material");
@@ -103,14 +101,13 @@ public class CourseController implements Initializable {
         try {
             courseList.clear();
 
-            query = "SELECT * FROM `course` WHERE depId="+DepId+"";
+            query = "SELECT * FROM `course` WHERE depId='"+DepId+"'";
             preparedStatement = connection.prepareStatement(query);
             resultSet = preparedStatement.executeQuery();
 
 
             while (resultSet.next()){
                 courseList.add(new CourseDetails(
-                        resultSet.getInt("cId"),
                         resultSet.getString("courseCode"),
                         resultSet.getString("courseName"),
                         resultSet.getInt("credit"),

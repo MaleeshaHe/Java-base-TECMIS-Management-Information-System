@@ -194,7 +194,7 @@ public class TimetableController implements Initializable {
                 byte[] pdf = pdfBytes;
 
                 connection = DbConnect.getConnect();
-                query = "INSERT INTO timetable (title,depName,level,pdffile) VALUES (?,?,?,?)";
+                query = "INSERT INTO timetable (title,depId,level,pdffile) VALUES (?,?,?,?)";
                 preparedStatement = connection.prepareStatement(query);
                 preparedStatement.setString(1,title);
                 preparedStatement.setInt(2,department);
@@ -228,7 +228,7 @@ public class TimetableController implements Initializable {
         try {
             timetableList.clear();
 
-            query = "SELECT * from department,timetable WHERE timetable.depName=department.depId";
+            query = "SELECT * from department,timetable WHERE timetable.depId=department.depId";
             preparedStatement = connection.prepareStatement(query);
             resultSet = preparedStatement.executeQuery();
 
@@ -237,7 +237,7 @@ public class TimetableController implements Initializable {
                 timetableList.add(new TimetableDetails(
                         resultSet.getInt("tid"),
                         resultSet.getString("title"),
-                        resultSet.getString("depName"),
+                        resultSet.getInt("depId"),
                         resultSet.getString("short_name"),
                         resultSet.getInt("level"),
                         resultSet.getBytes("pdffile")));
