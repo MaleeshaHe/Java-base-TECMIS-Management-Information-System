@@ -45,7 +45,7 @@
                   </HBox>
                   <HBox alignment="CENTER" prefHeight="50.0" prefWidth="839.0" styleClass="table-view" stylesheets="@../../../../../style/table_view.css">
                      <children>
-                        <JFXButton fx:id="refreshAttendance"  prefHeight="38.0" prefWidth="121.0" styleClass="menuItem" text="Refresh">
+                        <JFXButton fx:id="refreshAttendance" prefHeight="38.0" prefWidth="121.0" styleClass="menuItem" text="Refresh">
                            <graphic>
                               <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
@@ -60,7 +60,7 @@
                               <Font size="14.0" />
                            </font>
                         </JFXButton>
-                        <JFXButton fx:id="editAttendance" layoutX="436.0" layoutY="30.0"  prefHeight="38.0" prefWidth="170.0" styleClass="menuItem" text="Edit Attendance">
+                        <JFXButton fx:id="editAttendance" layoutX="436.0" layoutY="30.0" prefHeight="38.0" prefWidth="170.0" styleClass="menuItem" text="Edit Attendance">
                            <graphic>
                               <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
@@ -75,7 +75,7 @@
                               <Font size="14.0" />
                            </font>
                         </JFXButton>
-                        <JFXButton fx:id="deleteAttendance" layoutX="528.0" layoutY="30.0"  prefHeight="32.0" prefWidth="161.0" styleClass="menuItem" text="Delete Attendance">
+                        <JFXButton fx:id="deleteAttendance" layoutX="528.0" layoutY="30.0" prefHeight="32.0" prefWidth="161.0" styleClass="menuItem" text="Delete Attendance">
                            <graphic>
                               <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
@@ -125,7 +125,7 @@
                                     <Insets />
                                  </HBox.margin>
                               </Label>
-                              <JFXComboBox fx:id="cmbCourseCode" prefHeight="26.0" prefWidth="245.0" promptText="selete the department" />
+                              <JFXComboBox fx:id="cmbCourseCode" prefHeight="26.0" prefWidth="245.0" promptText="selete the course code" />
                            </children>
                            <VBox.margin>
                               <Insets bottom="20.0" />
@@ -138,7 +138,7 @@
                                     <Font name="System Bold" size="17.0" />
                                  </font>
                               </Label>
-                              <JFXComboBox fx:id="cmbStudentTG" prefHeight="26.0" prefWidth="245.0" promptText="selete the department" />
+                              <JFXComboBox fx:id="cmbStudentTG" prefHeight="26.0" prefWidth="245.0" promptText="selete the student tg" />
                            </children>
                            <VBox.margin>
                               <Insets bottom="20.0" />
@@ -151,7 +151,7 @@
                                     <Font name="System Bold" size="17.0" />
                                  </font>
                               </Label>
-                              <JFXComboBox fx:id="cmbState" prefHeight="26.0" prefWidth="245.0" promptText="selete the level" />
+                              <JFXComboBox fx:id="cmbState" prefHeight="26.0" prefWidth="245.0" promptText="selete the state" />
                            </children>
                            <VBox.margin>
                               <Insets bottom="20.0" />
@@ -178,7 +178,7 @@
                         </HBox>
                         <HBox alignment="CENTER" prefHeight="52.0" prefWidth="398.0">
                            <children>
-                              <JFXButton fx:id="btnAttendanceUpload" alignment="CENTER" maxWidth="88.0" prefHeight="34.0" prefWidth="86.0" style="-fx-background-radius: 18;" styleClass="addNoticeBtn" stylesheets="@../../../../../style/style.css" text="Upload" textAlignment="CENTER">
+                              <JFXButton fx:id="btnAttendanceUpload" alignment="CENTER" maxWidth="88.0" onAction="#addAttendance" prefHeight="34.0" prefWidth="86.0" style="-fx-background-radius: 18;" styleClass="addNoticeBtn" stylesheets="@../../../../../style/style.css" text="Upload" textAlignment="CENTER">
                                  <font>
                                     <Font name="System Bold" size="14.0" />
                                  </font>
@@ -196,7 +196,7 @@
                                     </ImageView>
                                  </graphic>
                               </JFXButton>
-                              <JFXButton fx:id="btnClear" alignment="CENTER" layoutX="173.0" layoutY="43.0" maxWidth="88.0" prefHeight="34.0" prefWidth="86.0" style="-fx-background-radius: 18;" styleClass="cancelNoticeBtn" stylesheets="@../../../../../style/style.css" text="Clear" textAlignment="CENTER">
+                              <JFXButton fx:id="btnClear" alignment="CENTER" layoutX="173.0" layoutY="43.0" maxWidth="88.0" onAction="#reset" prefHeight="34.0" prefWidth="86.0" style="-fx-background-radius: 18;" styleClass="cancelNoticeBtn" stylesheets="@../../../../../style/style.css" text="Clear" textAlignment="CENTER">
                                  <font>
                                     <Font name="System Bold" size="14.0" />
                                  </font>
@@ -212,7 +212,7 @@
                      </children>
                   </VBox>
                   <Line endX="-99.37870788574219" endY="476.0929260253906" startX="-100.0" stroke="#c9c8c8" />
-                  <TableView fx:id="timeTable"  prefHeight="498.0" prefWidth="477.0">
+                  <TableView fx:id="table_attendance" prefHeight="498.0" prefWidth="477.0">
                      <columns>
                         <TableColumn fx:id="courseCodeCol" maxWidth="193.60007333755493" prefWidth="114.39999389648438" resizable="false" style="-fx-alignment: center;" text="Course Code" />
                         <TableColumn fx:id="stuTGCol" maxWidth="320.00003814697266" prefWidth="116.0" resizable="false" style="-fx-alignment: center;" text="Student TG" />

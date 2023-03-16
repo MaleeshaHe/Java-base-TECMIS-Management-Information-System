@@ -14,7 +14,9 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import com.tecmis.mis.JDBC.*;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
+import org.bytedeco.javacpp.presets.opencv_core;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.MouseEvent;
@@ -23,6 +25,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.time.LocalDate;
+import java.util.Date;
 import java.util.ResourceBundle;
 
 public class AttendanceController implements Initializable {
@@ -33,19 +37,19 @@ public class AttendanceController implements Initializable {
     private JFXButton btnClear;
 
     @FXML
-    private JFXComboBox<?> cmbCourseCode;
+    private JFXComboBox<Attendance> cmbCourseCode;
 
     @FXML
-    private JFXComboBox<?> cmbState;
+    private JFXComboBox<Attendance> cmbState;
 
     @FXML
-    private JFXComboBox<?> cmbStudentTG;
+    private JFXComboBox<Attendance> cmbStudentTG;
 
     @FXML
-    private TableColumn<?, ?> courseCodeCol;
+    private TableColumn<Attendance, String> courseCodeCol;
 
     @FXML
-    private TableColumn<?, ?> dateCol;
+    private TableColumn<Attendance, Date> dateCol;
 
     @FXML
     private JFXButton deleteAttendance;
@@ -66,13 +70,13 @@ public class AttendanceController implements Initializable {
     private JFXButton refreshAttendance;
 
     @FXML
-    private TableColumn<?, ?> stateCol;
+    private TableColumn<Attendance, String> stateCol;
 
     @FXML
-    private TableColumn<?, ?> stuTGCol;
+    private TableColumn<Attendance, String> stuTGCol;
 
     @FXML
-    private TableView<?> timeTable;
+    private TableView<Attendance> table_attendance;
 
     @FXML
     private Stage stage;
@@ -84,6 +88,8 @@ public class AttendanceController implements Initializable {
     Connection connection = null ;
     PreparedStatement preparedStatement = null ;
     ResultSet resultSet = null ;
+
+    ObservableList<Attendance> attlist = FXCollections.observableArrayList();
 
     @FXML
     void clear(ActionEvent event) {
@@ -171,10 +177,71 @@ public class AttendanceController implements Initializable {
         cmbStudentTG.setItems(FXCollections.observableArrayList(data));
     }
 
+    public void setState(){
+        ObservableList stateList = FXCollections.observableArrayList("Present","Absent");
+        cmbState.setItems(stateList);
+    }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         setComboCourseCode();
         setComboStudentTG();
+        setState();
+        loadAttendance();
+    }
+
+    public void reset(){
+        cmbCourseCode.setItems(FXCollections.emptyObservableList());
+        cmbStudentTG.setItems(FXCollections.emptyObservableList());
+        cmbState.setItems(FXCollections.emptyObservableList());
+        dtpDate.setDayCellFactory(null);
+    }
+
+    public void loadAttendance(){
+        connection = DbConnect.getConnect();
+        attlist.clear();
+        query = "SELECT * FROM attendance";
+        try {
+            preparedStatement = connection.prepareStatement(query);
+            resultSet = preparedStatement.executeQuery();
+
+            while (resultSet.next()){
+                attlist.add(new Attendance(
+                        resultSet.getString("CourseCode"),
+                        resultSet.getString("tgnum"),
+                        resultSet.getString("State"),
+                        resultSet.getString("date")
+                ));
+                table_attendance.setItems(attlist);
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        courseCodeCol.setCellValueFactory(new PropertyValueFactory<>("Course_Code"));
+        stuTGCol.setCellValueFactory(new PropertyValueFactory<>("Student_TG"));
+        stateCol.setCellValueFactory(new PropertyValueFactory<>("Attendance_State"));
+        //dateCol.setCellValueFactory(new PropertyValueFactory<>("sDate"));
+    }
+
+    public void addAttendance(){
+        String aCourceCode = String.valueOf(cmbCourseCode.getValue());
+        String aStudentTG = String.valueOf(cmbStudentTG.getValue());
+        String aState = String.valueOf(cmbState.getValue());
+        String aDate = String.valueOf(dtpDate.getValue());
+
+        connection = DbConnect.getConnect();
+        query = "INSERT INTO attendance(CourseCode,tgnum,State,date) VALUES (?,?,?,?)";
+        try {
+            preparedStatement = connection.prepareStatement(query);
+            preparedStatement.setString(1,aCourceCode);
+            preparedStatement.setString(2,aStudentTG);
+            preparedStatement.setString(3,aState);
+            preparedStatement.setString(4, aDate);
+            preparedStatement.executeUpdate();
+
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        loadAttendance();
     }
 }
