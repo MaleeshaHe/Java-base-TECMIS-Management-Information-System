@@ -85,8 +85,7 @@ public class CourseControlloer implements Initializable {
 
 
             while (resultSet.next()){
-                courseList.add(new CourseDetails(
-                        resultSet.getInt("cId"),
+                courseList.add(new com.tecmis.mis.student.course.CourseDetails(
                         resultSet.getString("courseCode"),
                         resultSet.getString("courseName"),
                         resultSet.getInt("credit"),
