@@ -1,4 +1,4 @@
-package com.tecmis.mis.student.course;
+package com.tecmis.mis.lecturer.course;
 
 public class CourseDetails {
     private String courseCode;

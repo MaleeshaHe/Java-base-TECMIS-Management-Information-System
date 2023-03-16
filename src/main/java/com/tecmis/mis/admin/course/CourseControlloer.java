@@ -82,7 +82,7 @@ public class CourseControlloer implements Initializable {
                 Parent root = (Parent) fxmlLoader.load();
 
                 EditCourseControlloer senddata = fxmlLoader.getController();
-                senddata.showInformation(courseDetails.getCid(),courseDetails.getCourseCode(),courseDetails.getCourseName(),courseDetails.getCredit(),courseDetails.getMaterial());
+                senddata.showInformation(courseDetails.getCourseCode(),courseDetails.getCourseName(),courseDetails.getCredit(),courseDetails.getMaterial());
 
                 Stage stage = new Stage();
                 stage.setTitle("Edit Course");
@@ -135,7 +135,7 @@ public class CourseControlloer implements Initializable {
             if(result.get() == ButtonType.OK){
                 try {
                     courseDetails = courseTable.getSelectionModel().getSelectedItem();
-                    query = "DELETE FROM `course` WHERE cId='"+courseDetails.getCid()+"'";
+                    query = "DELETE FROM `course` WHERE courseCode='"+courseDetails.getCourseCode()+"'";
                     connection = DbConnect.getConnect();
                     preparedStatement = connection.prepareStatement(query);
                     preparedStatement.execute();
@@ -166,7 +166,6 @@ public class CourseControlloer implements Initializable {
 
             while (resultSet.next()){
                 courseList.add(new CourseDetails(
-                        resultSet.getInt("cId"),
                         resultSet.getString("courseCode"),
                         resultSet.getString("courseName"),
                         resultSet.getInt("credit"),

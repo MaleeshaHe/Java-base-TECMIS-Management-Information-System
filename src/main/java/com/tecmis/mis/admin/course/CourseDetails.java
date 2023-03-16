@@ -1,26 +1,16 @@
 package com.tecmis.mis.admin.course;
 
 public class CourseDetails {
-    private int cid;
     private String courseCode;
     private String courseName;
     private int credit;
     private String material;
 
-    public CourseDetails(int cid, String courseCode, String courseName, int credit, String material) {
-        this.cid = cid;
+    public CourseDetails(String courseCode, String courseName, int credit, String material) {
         this.courseCode = courseCode;
         this.courseName = courseName;
         this.credit = credit;
         this.material = material;
-    }
-
-    public int getCid() {
-        return cid;
-    }
-
-    public void setCid(int cid) {
-        this.cid = cid;
     }
 
     public String getCourseCode() {
