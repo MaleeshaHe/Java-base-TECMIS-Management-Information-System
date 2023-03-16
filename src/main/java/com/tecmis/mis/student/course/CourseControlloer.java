@@ -88,7 +88,7 @@ public class CourseControlloer implements Initializable {
     private void comboboxDataLoad(){
         try {
             connection = DbConnect.getConnect();
-            query = "SELECT * FROM course WHERE depId="+UserSession.getUserDepId()+"";
+            query = "SELECT * FROM course WHERE depId=4 OR depId="+UserSession.getUserDepId()+"";
             preparedStatement = connection.prepareStatement(query);
             resultSet = preparedStatement.executeQuery();
 
