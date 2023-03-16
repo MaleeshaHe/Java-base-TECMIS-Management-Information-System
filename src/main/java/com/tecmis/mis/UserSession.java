@@ -11,23 +11,19 @@ public final class UserSession {
     private Set<String> privileges;
     private static String depId;
 
-    private UserSession(String userName, String userTgNum,Set<String> privileges,String depId) {
-        this.userName = userName;
+    private UserSession( String userTgNum,Set<String> privileges,String depId) {
         this.userTgNum = userTgNum;
         this.privileges = privileges;
         this.depId=depId;
     }
 
-    public static UserSession getInstance(String userName, String userTgNum, Set<String> privileges,String depId) {
+    public static UserSession getInstance(String userTgNum, Set<String> privileges,String depId) {
         if(instance == null) {
-            instance = new UserSession(userName, userTgNum, privileges,depId);
+            instance = new UserSession( userTgNum, privileges,depId);
         }
         return instance;
     }
 
-    public static String getUserName() {
-        return userName;
-    }
 
     public static String getUserTgNum() {
         return userTgNum;

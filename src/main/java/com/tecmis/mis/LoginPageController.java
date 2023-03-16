@@ -80,7 +80,7 @@ public class LoginPageController implements Initializable {
             try {
 
                 connection = DbConnect.getConnect();
-                query = "SELECT * from users";
+                query = "SELECT * from user";
                 preparedStatement = connection.prepareStatement(query);
                 rs = preparedStatement.executeQuery();
 
@@ -88,18 +88,17 @@ public class LoginPageController implements Initializable {
                 passwordl = passwordlog.getText();
 
                 while (rs.next()){
-                    if(userName.equals(rs.getString(6)) && passwordl.equals(rs.getString(7))){
+                    if(userName.equals(rs.getString("email")) && passwordl.equals(rs.getString("password"))){
 
-                        if(rs.getString(12).equals("Admin")){
+                        if(rs.getString("user_roll").equals("Admin")){
 
-                            userId = Integer.parseInt(rs.getString(1));
                             userTg = rs.getString("tgnum");
                             depId = Integer.parseInt(rs.getString("depId"));
 
                             Set<String> privileges = new HashSet<>();
                             privileges.add("adminPrivilege");
 
-                            UserSession.getInstance(String.valueOf(userId), userTg, privileges,String.valueOf(depId));
+                            UserSession.getInstance(userTg, privileges,String.valueOf(depId));
 
                             FXMLLoader loader = new FXMLLoader(getClass().getResource("admin/admin-home.fxml"));
                             root = loader.load();
@@ -111,16 +110,15 @@ public class LoginPageController implements Initializable {
                             stage.resizableProperty().setValue(false);
                             new FadeIn(root).play();
 
-                        } else if (rs.getString(12).equals("Student")) {
+                        } else if(rs.getString("user_roll").equals("Student")) {
 
-                            userId = Integer.parseInt(rs.getString(1));
                             userTg = rs.getString("tgnum");
                             depId = Integer.parseInt(rs.getString("depId"));
 
                             Set<String> privileges = new HashSet<>();
                             privileges.add("studentPrivilege");
 
-                            UserSession.getInstance(String.valueOf(userId), userTg, privileges,String.valueOf(depId));
+                            UserSession.getInstance(userTg, privileges,String.valueOf(depId));
 
                             FXMLLoader loader = new FXMLLoader(getClass().getResource("student/student-home.fxml"));
                             root = loader.load();
@@ -132,16 +130,15 @@ public class LoginPageController implements Initializable {
                             stage.resizableProperty().setValue(false);
                             new FadeIn(root).play();
 
-                        } else if (rs.getString(12).equals("Technical Officer")) {
+                        } else if(rs.getString("user_roll").equals("Technical Officer")) {
 
-                            userId = Integer.parseInt(rs.getString(1));
                             userTg = rs.getString("tgnum");
                             depId = Integer.parseInt(rs.getString("depId"));
 
                             Set<String> privileges = new HashSet<>();
                             privileges.add("studentPrivilege");
 
-                            UserSession.getInstance(String.valueOf(userId), userTg, privileges,String.valueOf(depId));
+                            UserSession.getInstance(userTg, privileges,String.valueOf(depId));
 
                             FXMLLoader loader = new FXMLLoader(getClass().getResource("technical_officer/technical-officer-home.fxml"));
                             root = loader.load();
@@ -153,16 +150,15 @@ public class LoginPageController implements Initializable {
                             stage.resizableProperty().setValue(false);
                             new FadeIn(root).play();
 
-                        }else if (rs.getString(12).equals("Lecturer")) {
+                        }else if(rs.getString("user_roll").equals("Lecturer")) {
 
-                            userId = Integer.parseInt(rs.getString(1));
                             userTg = rs.getString("tgnum");
                             depId = Integer.parseInt(rs.getString("depId"));
 
                             Set<String> privileges = new HashSet<>();
                             privileges.add("lecturerPrivilege");
 
-                            UserSession.getInstance(String.valueOf(userId), userTg, privileges,String.valueOf(depId));
+                            UserSession.getInstance(userTg, privileges,String.valueOf(depId));
 
                             FXMLLoader loader = new FXMLLoader(getClass().getResource("lecturer/lecturer-home.fxml"));
                             root = loader.load();
