@@ -16,7 +16,7 @@ import javafx.scene.control.TableView;
 import com.tecmis.mis.JDBC.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
-import org.bytedeco.javacpp.presets.opencv_core;
+
 
 import java.awt.event.ActionEvent;
 import java.awt.event.MouseEvent;
@@ -49,7 +49,7 @@ public class AttendanceController implements Initializable {
     private TableColumn<Attendance, String> courseCodeCol;
 
     @FXML
-    private TableColumn<Attendance, Date> dateCol;
+    private TableColumn<Attendance, String> dateCol;
 
     @FXML
     private JFXButton deleteAttendance;
@@ -210,17 +210,18 @@ public class AttendanceController implements Initializable {
                         resultSet.getString("CourseCode"),
                         resultSet.getString("tgnum"),
                         resultSet.getString("State"),
-                        resultSet.getString("date")
-                ));
+                        resultSet.getString("date")));
                 table_attendance.setItems(attlist);
             }
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
+
         courseCodeCol.setCellValueFactory(new PropertyValueFactory<>("Course_Code"));
         stuTGCol.setCellValueFactory(new PropertyValueFactory<>("Student_TG"));
         stateCol.setCellValueFactory(new PropertyValueFactory<>("Attendance_State"));
-        //dateCol.setCellValueFactory(new PropertyValueFactory<>("sDate"));
+        dateCol.setCellValueFactory(new PropertyValueFactory<>("AttDate"));
+        table_attendance.setItems(attlist);
     }
 
     public void addAttendance(){
