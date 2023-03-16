@@ -15,7 +15,6 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import com.tecmis.mis.JDBC.*;
 import javafx.stage.Stage;
-import lombok.SneakyThrows;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.MouseEvent;
@@ -106,7 +105,7 @@ public class AttendanceController implements Initializable {
 
     }
 
-    @SneakyThrows
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         connection = DbConnect.getConnect();
@@ -126,8 +125,17 @@ public class AttendanceController implements Initializable {
 
         ObservableList data = FXCollections.observableArrayList();
 
-        while (resultSet.next()){
-            data.add(new String(resultSet.getString(1)));
+        while (true){
+            try {
+                if (!resultSet.next()) break;
+            } catch (SQLException e) {
+                throw new RuntimeException(e);
+            }
+            try {
+                data.add(new String(resultSet.getString(1)));
+            } catch (SQLException e) {
+                throw new RuntimeException(e);
+            }
         }
         cmbCourseCode.setItems(FXCollections.observableArrayList(data));
     }
