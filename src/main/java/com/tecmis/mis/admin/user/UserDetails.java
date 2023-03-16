@@ -1,8 +1,6 @@
 package com.tecmis.mis.admin.user;
 
 public class UserDetails {
-
-    private int user_id;
     private String tgnum;
     private String fname;
     private String lname;
@@ -15,8 +13,7 @@ public class UserDetails {
     private String short_name;
     private String password;
 
-    public UserDetails(int user_id, String tgnum, String fname, String lname, String phone_num, String email, String dob, String sex, String address, String user_roll, String short_name,String password) {
-        this.user_id = user_id;
+    public UserDetails(String tgnum, String fname, String lname, String phone_num, String email, String dob, String sex, String address, String user_roll, String short_name,String password) {
         this.tgnum = tgnum;
         this.fname = fname;
         this.lname = lname;
@@ -38,13 +35,7 @@ public class UserDetails {
         this.password = password;
     }
 
-    public int getUser_id() {
-        return user_id;
-    }
 
-    public void setUser_id(int user_id) {
-        this.user_id = user_id;
-    }
 
     public String getTgnum() {
         return tgnum;

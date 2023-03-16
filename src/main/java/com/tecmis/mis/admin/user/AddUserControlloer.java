@@ -157,7 +157,7 @@ public class AddUserControlloer implements Initializable {
 
             try {
                 connection = DbConnect.getConnect();
-                query = "INSERT INTO users (tgnum,fname,lname,phone_num,email,password,dob,sex,address,user_roll,depId,profile_pic) VALUES (?,?,?,?,?,?,?,?,?,?,?,?)";
+                query = "INSERT INTO user (tgnum,fname,lname,phone_num,email,password,dob,sex,address,user_roll,depId,profile_pic) VALUES (?,?,?,?,?,?,?,?,?,?,?,?)";
                 preparedStatement = connection.prepareStatement(query);
                 preparedStatement.setString(1,tgnum);
                 preparedStatement.setString(2,fname);
