@@ -1,5 +1,6 @@
 package com.tecmis.mis.technical_officer.attendance;
 
+import animatefx.animation.Shake;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXComboBox;
 import com.tecmis.mis.db_connect.DbConnect;
@@ -194,7 +195,7 @@ public class AttendanceController implements Initializable {
         cmbCourseCode.setItems(FXCollections.emptyObservableList());
         cmbStudentTG.setItems(FXCollections.emptyObservableList());
         cmbState.setItems(FXCollections.emptyObservableList());
-        dtpDate.setDayCellFactory(null);
+        dtpDate.setValue(null);
     }
 
     public void loadAttendance(){
@@ -225,24 +226,30 @@ public class AttendanceController implements Initializable {
     }
 
     public void addAttendance(){
-        String aCourceCode = String.valueOf(cmbCourseCode.getValue());
-        String aStudentTG = String.valueOf(cmbStudentTG.getValue());
-        String aState = String.valueOf(cmbState.getValue());
-        String aDate = String.valueOf(dtpDate.getValue());
-
-        connection = DbConnect.getConnect();
-        query = "INSERT INTO attendance(CourseCode,tgnum,State,date) VALUES (?,?,?,?)";
-        try {
-            preparedStatement = connection.prepareStatement(query);
-            preparedStatement.setString(1,aCourceCode);
-            preparedStatement.setString(2,aStudentTG);
-            preparedStatement.setString(3,aState);
-            preparedStatement.setString(4, aDate);
-            preparedStatement.executeUpdate();
-
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
+        if(cmbCourseCode.getValue() == null || cmbStudentTG.getValue() == null || cmbState.getValue() == null || dtpDate.getValue() == null){
+            new Shake(error).play();
+            error.setText("Please fill the all Fields");
         }
-        loadAttendance();
+        else{
+            String aCourceCode = String.valueOf(cmbCourseCode.getValue());
+            String aStudentTG = String.valueOf(cmbStudentTG.getValue());
+            String aState = String.valueOf(cmbState.getValue());
+            String aDate = String.valueOf(dtpDate.getValue());
+
+            connection = DbConnect.getConnect();
+            query = "INSERT INTO attendance(CourseCode,tgnum,State,date) VALUES (?,?,?,?)";
+            try {
+                preparedStatement = connection.prepareStatement(query);
+                preparedStatement.setString(1,aCourceCode);
+                preparedStatement.setString(2,aStudentTG);
+                preparedStatement.setString(3,aState);
+                preparedStatement.setString(4, aDate);
+                preparedStatement.executeUpdate();
+
+            } catch (SQLException e) {
+                throw new RuntimeException(e);
+            }
+            loadAttendance();
+        }
     }
 }
