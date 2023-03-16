@@ -92,10 +92,10 @@ public class UpdateTechnicalOfficerControlloer implements Initializable {
     }
 
     private void loadData(){
-        int userId = Integer.parseInt(UserSession.getUserName());
+        String usertg = UserSession.getUserTgNum();
         try {
             connection = DbConnect.getConnect();
-            query = "SELECT * FROM users WHERE user_id='"+userId+"'";
+            query = "SELECT * FROM user WHERE tgnum='"+usertg+"'";
             preparedStatement = connection.prepareStatement(query);
             resultSet = preparedStatement.executeQuery();
 
@@ -165,11 +165,11 @@ public class UpdateTechnicalOfficerControlloer implements Initializable {
             String address = txtAddress.getText();
             String dob = String.valueOf(birtDate);
 
-            int userId = Integer.parseInt(UserSession.getUserName());
+            String usertg = UserSession.getUserTgNum();
 
             try {
                 connection = DbConnect.getConnect();
-                query = "UPDATE users SET fname= ?, lname = ?, phone_num = ?, email = ?, dob = ?, address = ?,profile_pic = ? WHERE user_id = ?";
+                query = "UPDATE user SET fname= ?, lname = ?, phone_num = ?, email = ?, dob = ?, address = ?,profile_pic = ? WHERE tgnum = ?";
                 preparedStatement = connection.prepareStatement(query);
                 preparedStatement.setString(1,fname);
                 preparedStatement.setString(2,lname);
@@ -179,7 +179,7 @@ public class UpdateTechnicalOfficerControlloer implements Initializable {
                 preparedStatement.setString(6,address);
                 fis = new FileInputStream(img);
                 preparedStatement.setBinaryStream(7, (InputStream)fis, (int)img.length());
-                preparedStatement.setInt(8,userId);
+                preparedStatement.setString(8,usertg);
 
                 preparedStatement.executeUpdate();
 
