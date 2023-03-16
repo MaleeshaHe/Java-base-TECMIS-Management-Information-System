@@ -17,15 +17,15 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="368.0" prefWidth="666.0" style="-fx-background-color: #ffff;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.tecmis.mis.admin.UpdateAdminControlloer">
+<AnchorPane prefHeight="368.0" prefWidth="666.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.tecmis.mis.admin.UpdateAdminControlloer">
    <children>
-      <BorderPane fx:id="borderpane" layoutX="10.0" layoutY="10.0" prefHeight="470.0" prefWidth="776.0" style="-fx-background-color: #fff;">
+      <BorderPane fx:id="borderpane" layoutX="10.0" layoutY="10.0" prefHeight="470.0" prefWidth="776.0">
          <center>
             <VBox prefHeight="434.0" prefWidth="852.0" BorderPane.alignment="CENTER">
                <children>
                   <HBox prefHeight="298.0" prefWidth="852.0">
                      <children>
-                        <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="318.0" prefWidth="440.0" style="-fx-background-color: #ffffff;">
+                        <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="318.0" prefWidth="440.0">
                            <children>
                               <HBox alignment="CENTER" layoutX="10.0" layoutY="76.0" prefHeight="41.0" prefWidth="412.0">
                                  <children>
@@ -133,7 +133,7 @@
                               <Insets left="30.0" />
                            </padding>
                         </VBox>
-                        <VBox layoutX="10.0" layoutY="10.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="262.0" prefWidth="307.0" style="-fx-background-color: #ffffff;">
+                        <VBox layoutX="10.0" layoutY="10.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="210.0" prefWidth="310.0">
                            <children>
                               <HBox prefHeight="36.0" prefWidth="382.0">
                                  <children>

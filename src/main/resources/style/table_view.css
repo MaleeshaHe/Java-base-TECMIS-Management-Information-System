@@ -29,3 +29,7 @@
 .table-view {
     -fx-font-size: 16;
 }
+
+.comboBox{
+    -fx-font-size: 14;
+}

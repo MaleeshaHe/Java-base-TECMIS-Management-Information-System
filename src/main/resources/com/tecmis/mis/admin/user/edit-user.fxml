@@ -20,7 +20,7 @@
 <?import javafx.scene.shape.Circle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.tecmis.mis.admin.user.EditUserControlloer">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" stylesheets="@../../../../../style/table_view.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.tecmis.mis.admin.user.EditUserControlloer">
    <children>
       <BorderPane fx:id="borderpane" prefHeight="500.0" prefWidth="600.0" style="-fx-background-color: #fff;">
          <top>
@@ -63,7 +63,7 @@
                                           <Font name="System Bold" size="17.0" />
                                        </font>
                                     </Label>
-                                    <JFXComboBox fx:id="comboUserType" focusColor="#5271ff" prefHeight="26.0" prefWidth="220.0" promptText="selete user type">
+                                    <JFXComboBox fx:id="comboUserType" focusColor="#5271ff" prefHeight="26.0" prefWidth="220.0" promptText="selete user type" styleClass="comboBox" stylesheets="@../../../../../style/style.css">
                                        <opaqueInsets>
                                           <Insets />
                                        </opaqueInsets>
@@ -82,7 +82,7 @@
                                     </Label>
                                     <JFXTextField fx:id="txtRnumber" focusColor="#5271ff" prefHeight="30.0" prefWidth="220.0" promptText="TG/2020/711">
                                        <font>
-                                          <Font size="13.0" />
+                                          <Font size="14.0" />
                                        </font>
                                     </JFXTextField>
                                  </children>
@@ -99,7 +99,7 @@
                                     </Label>
                                     <JFXTextField fx:id="txtFname" focusColor="#5271ff" prefHeight="30.0" prefWidth="220.0" promptText="type user first name">
                                        <font>
-                                          <Font size="13.0" />
+                                          <Font size="14.0" />
                                        </font>
                                     </JFXTextField>
                                  </children>
@@ -116,7 +116,7 @@
                                     </Label>
                                     <JFXTextField fx:id="txtLname" focusColor="#5271ff" prefHeight="30.0" prefWidth="220.0" promptText="type user last name">
                                        <font>
-                                          <Font size="13.0" />
+                                          <Font size="14.0" />
                                        </font>
                                     </JFXTextField>
                                  </children>
@@ -133,7 +133,7 @@
                                     </Label>
                                     <JFXTextField fx:id="txtEmail" focusColor="#5271ff" prefHeight="30.0" prefWidth="220.0" promptText="type email ">
                                        <font>
-                                          <Font size="13.0" />
+                                          <Font size="14.0" />
                                        </font>
                                     </JFXTextField>
                                  </children>
@@ -150,7 +150,7 @@
                                     </Label>
                                     <JFXTextField fx:id="txtPhoneNumber" focusColor="#5271ff" prefHeight="30.0" prefWidth="220.0" promptText="enter phone number">
                                        <font>
-                                          <Font size="13.0" />
+                                          <Font size="14.0" />
                                        </font>
                                     </JFXTextField>
                                  </children>
@@ -167,7 +167,7 @@
                                     </Label>
                                     <JFXTextField fx:id="txtAddress" focusColor="#5271ff" prefHeight="30.0" prefWidth="220.0" promptText="type user full address">
                                        <font>
-                                          <Font size="13.0" />
+                                          <Font size="14.0" />
                                        </font>
                                     </JFXTextField>
                                  </children>
@@ -205,7 +205,7 @@
                                           <Font name="System Bold" size="17.0" />
                                        </font>
                                     </Label>
-                                    <JFXComboBox fx:id="comboGender" focusColor="#5271ff" prefHeight="30.0" prefWidth="220.0" promptText="selete gender" />
+                                    <JFXComboBox fx:id="comboGender" focusColor="#5271ff" prefHeight="30.0" prefWidth="220.0" promptText="selete gender" styleClass="comboBox" stylesheets="@../../../../../style/style.css" />
                                  </children>
                                  <VBox.margin>
                                     <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
@@ -218,7 +218,7 @@
                                           <Font name="System Bold" size="17.0" />
                                        </font>
                                     </Label>
-                                    <JFXComboBox fx:id="comboDepartment" focusColor="#5271ff" prefHeight="30.0" prefWidth="220.0" promptText="selete the department" />
+                                    <JFXComboBox fx:id="comboDepartment" focusColor="#5271ff" prefHeight="30.0" prefWidth="220.0" promptText="selete the department" styleClass="comboBox" stylesheets="@../../../../../style/style.css" />
                                  </children>
                                  <VBox.margin>
                                     <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
@@ -233,7 +233,7 @@
                                     </Label>
                                     <JFXPasswordField fx:id="txtPassword" focusColor="#5271ff" prefHeight="30.0" prefWidth="220.0" promptText="type a strong password">
                                        <font>
-                                          <Font size="13.0" />
+                                          <Font size="14.0" />
                                        </font>
                                     </JFXPasswordField>
                                  </children>
@@ -250,7 +250,7 @@
                                     </Label>
                                     <JFXPasswordField fx:id="txtPasswordC" focusColor="#5271ff" prefHeight="30.0" prefWidth="220.0" promptText="re-type above password">
                                        <font>
-                                          <Font size="13.0" />
+                                          <Font size="14.0" />
                                        </font>
                                     </JFXPasswordField>
                                  </children>
