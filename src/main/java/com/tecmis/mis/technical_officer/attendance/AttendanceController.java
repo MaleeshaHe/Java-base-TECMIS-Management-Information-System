@@ -105,9 +105,7 @@ public class AttendanceController implements Initializable {
 
     }
 
-
-    @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
+    public void setComboCourseCode(){
         connection = DbConnect.getConnect();
         query = "SELECT courseCode FROM course";
 
@@ -138,5 +136,10 @@ public class AttendanceController implements Initializable {
             }
         }
         cmbCourseCode.setItems(FXCollections.observableArrayList(data));
+    }
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        setComboCourseCode();
+        
     }
 }
