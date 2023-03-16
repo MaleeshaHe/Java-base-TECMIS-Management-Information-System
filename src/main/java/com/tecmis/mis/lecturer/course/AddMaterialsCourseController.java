@@ -57,7 +57,8 @@ public class AddMaterialsCourseController {
         else {
             try {
                 String materials = txtMaterials.getText();
-                String courseCode= getCourseCode();
+                String courseCode = txtCourseCode.getText();
+                //String courseCode= getCourseCode();
                 connection = DbConnect.getConnect();
                 query = "UPDATE course SET material=? WHERE courseCode = ?";
                 preparedStatement = connection.prepareStatement(query);
