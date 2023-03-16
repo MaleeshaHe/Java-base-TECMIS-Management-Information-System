@@ -99,26 +99,26 @@ public class NoticeController implements Initializable {
     @FXML
     void showNotice(MouseEvent event) {
             if (event.isPrimaryButtonDown() && event.getClickCount() == 2) {
-                try {
-                    noticeDetails = noticeTable.getSelectionModel().getSelectedItem();
-                    FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("view-notice.fxml"));
-                    Parent root = (Parent) fxmlLoader.load();
+            try {
+                noticeDetails = noticeTable.getSelectionModel().getSelectedItem();
+                FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("view-notice.fxml"));
+                Parent root = (Parent) fxmlLoader.load();
 
-                    ViewNoticeControlloer senddata = fxmlLoader.getController();
-                    senddata.showInformation(noticeDetails.getNotice_id(),noticeDetails.getTitle(),noticeDetails.getDate(),noticeDetails.getTime(),noticeDetails.getContent());
+                ViewNoticeControlloer senddata = fxmlLoader.getController();
+                senddata.showInformation(noticeDetails.getNotice_id(),noticeDetails.getTitle(),noticeDetails.getDate(),noticeDetails.getTime(),noticeDetails.getContent());
 
-                    Stage stage = new Stage();
-                    stage.setTitle("View Notice");
-                    javafx.scene.image.Image image = new Image("images/appIcon.png");
-                    stage.getIcons().add(image);
-                    stage.resizableProperty().setValue(false);
-                    stage.setScene(new Scene(root));
-                    stage.show();
+                Stage stage = new Stage();
+                stage.setTitle("View Notice");
+                javafx.scene.image.Image image = new Image("images/appIcon.png");
+                stage.getIcons().add(image);
+                stage.resizableProperty().setValue(false);
+                stage.setScene(new Scene(root));
+                stage.show();
 
-                } catch (IOException ex) {
-                    Logger.getLogger(com.tecmis.mis.admin.notice.NoticeController.class.getName()).log(Level.SEVERE, null, ex);
-                }
+            } catch (IOException ex) {
+                Logger.getLogger(com.tecmis.mis.admin.notice.NoticeController.class.getName()).log(Level.SEVERE, null, ex);
             }
+        }
     }
 
 }
