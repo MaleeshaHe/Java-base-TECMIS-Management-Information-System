@@ -2,16 +2,13 @@ package com.tecmis.mis.lecturer;
 
 import animatefx.animation.Shake;
 import com.jfoenix.controls.JFXComboBox;
-import com.jfoenix.controls.JFXPasswordField;
 import com.jfoenix.controls.JFXTextField;
 import com.tecmis.mis.UserSession;
 import com.tecmis.mis.db_connect.DbConnect;
 import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
@@ -31,7 +28,6 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.time.LocalDate;
-import java.util.Objects;
 import java.util.Optional;
 import java.util.ResourceBundle;
 
@@ -80,15 +76,14 @@ public class UpdateLecturerControlloer implements Initializable {
     }
 
     private void loadData(){
-        int userId = Integer.parseInt(UserSession.getUserName());
+        String usertg = UserSession.getUserTgNum();
         try {
             connection = DbConnect.getConnect();
-            query = "SELECT * FROM users WHERE user_id='"+userId+"'";
+            query = "SELECT * FROM user WHERE tgnum='"+usertg+"'";
             preparedStatement = connection.prepareStatement(query);
             resultSet = preparedStatement.executeQuery();
 
             while (resultSet.next()){
-
                 txtFname.setText(resultSet.getString("fname"));
                 txtLname.setText(resultSet.getString("lname"));
                 txtPhoneNumber.setText(resultSet.getString("phone_num"));
@@ -137,7 +132,6 @@ public class UpdateLecturerControlloer implements Initializable {
 
     @FXML
     void updateUser(ActionEvent event) {
-
         if(txtAddress.getText().isEmpty() || txtPhoneNumber.getText().isEmpty() || txtFname.getText().isEmpty() || txtLname.getText().isEmpty() || txtDoB.getValue().lengthOfYear() == 0 || comboDepartment.getSelectionModel().isEmpty()){
             new Shake(error).play();
             error.setText("Please fill the all Fields");
@@ -151,11 +145,11 @@ public class UpdateLecturerControlloer implements Initializable {
             String dob = String.valueOf(birtDate);
             int department = comboDepartment.getSelectionModel().getSelectedIndex()+1;
 
-            int userId = Integer.parseInt(UserSession.getUserName());
+            String usertg = UserSession.getUserTgNum();
 
             try {
                 connection = DbConnect.getConnect();
-                query = "UPDATE users SET fname= ?, lname = ?, phone_num = ?, dob = ?, address = ?,depId=?,profile_pic = ? WHERE user_id = ?";
+                query = "UPDATE user SET fname= ?, lname = ?, phone_num = ?, dob = ?, address = ?,depId=?,profile_pic = ? WHERE tgnum = ?";
                 preparedStatement = connection.prepareStatement(query);
                 preparedStatement.setString(1,fname);
                 preparedStatement.setString(2,lname);
@@ -165,7 +159,7 @@ public class UpdateLecturerControlloer implements Initializable {
                 preparedStatement.setInt(6,department);
                 fis = new FileInputStream(img);
                 preparedStatement.setBinaryStream(7, (InputStream)fis, (int)img.length());
-                preparedStatement.setInt(8,userId);
+                preparedStatement.setString(8,usertg);
 
                 preparedStatement.executeUpdate();
 

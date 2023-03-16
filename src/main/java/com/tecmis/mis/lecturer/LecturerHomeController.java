@@ -4,8 +4,8 @@ package com.tecmis.mis.lecturer;
 import animatefx.animation.FadeIn;
 import animatefx.animation.FadeInDown;
 import com.tecmis.mis.UserSession;
-import com.tecmis.mis.admin.notice.NoticeController;
 import com.tecmis.mis.db_connect.DbConnect;
+import com.tecmis.mis.lecturer.notice.NoticeController;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -74,8 +74,6 @@ public class LecturerHomeController implements Initializable {
     PreparedStatement preparedStatement = null ;
     ResultSet resultSet = null ;
 
-    public int user_Id;
-
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         dateShow();
@@ -83,19 +81,19 @@ public class LecturerHomeController implements Initializable {
         showData();
     }
     private void showData(){
-        int userId = Integer.parseInt(UserSession.getUserName());
+        String usertg = UserSession.getUserTgNum();
         try {
             connection = DbConnect.getConnect();
-            query = "SELECT * FROM users,department WHERE users.depId=department.depId AND user_id="+userId+"";
+            query = "SELECT * FROM user,department WHERE user.depId=department.depId AND tgnum='"+usertg+"'";
             preparedStatement = connection.prepareStatement(query);
             resultSet = preparedStatement.executeQuery();
 
             while (resultSet.next()){
-                tgnum.setText(": "+resultSet.getString(2));
-                name.setText(": "+resultSet.getString(3)+" "+resultSet.getString(4));
-                email.setText(": "+resultSet.getString(6));
-                phonenum.setText(": "+resultSet.getString(5));
-                dep.setText(": "+resultSet.getString(15));
+                tgnum.setText(": "+resultSet.getString("tgnum"));
+                name.setText(": "+resultSet.getString("fname")+" "+resultSet.getString("lname"));
+                email.setText(": "+resultSet.getString("email"));
+                phonenum.setText(": "+resultSet.getString("phone_num"));
+                dep.setText(": "+resultSet.getString("depName"));
                 if(Objects.equals(resultSet.getString("sex"),"Male")){
                     welcomeName.setText("Welcome Mr."+resultSet.getString("fname"));
                 }else{
