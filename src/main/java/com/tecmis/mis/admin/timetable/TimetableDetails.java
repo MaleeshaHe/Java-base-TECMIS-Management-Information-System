@@ -3,15 +3,15 @@ package com.tecmis.mis.admin.timetable;
 public class TimetableDetails {
     private int tid;
     private String title;
-    private String depName;
+    private int depId;
     private String short_name;
     private int level;
     private byte[] pdffile;
 
-    public TimetableDetails(int tid, String title, String depName, String short_name, int level, byte[] pdffile) {
+    public TimetableDetails(int tid, String title, int depId, String short_name, int level, byte[] pdffile) {
         this.tid = tid;
         this.title = title;
-        this.depName = depName;
+        this.depId = depId;
         this.short_name = short_name;
         this.level = level;
         this.pdffile = pdffile;
@@ -33,12 +33,12 @@ public class TimetableDetails {
         this.title = title;
     }
 
-    public String getDepName() {
-        return depName;
+    public int getDepId() {
+        return depId;
     }
 
-    public void setDepName(String depName) {
-        this.depName = depName;
+    public void setDepId(String depName) {
+        this.depId = depId;
     }
 
     public String getShort_name() {

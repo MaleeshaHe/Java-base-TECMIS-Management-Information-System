@@ -58,7 +58,6 @@ public class EditCourseControlloer implements Initializable {
     Connection connection = null ;
     PreparedStatement preparedStatement = null ;
     ResultSet resultSet = null ;
-    int c_id;
 
 
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -88,14 +87,14 @@ public class EditCourseControlloer implements Initializable {
 
 
                 connection = DbConnect.getConnect();
-                query = "UPDATE course SET courseCode = ?, courseName= ?, credit = ?, material = ?, depId = ? WHERE cId = ?";
+                query = "UPDATE course SET courseCode = ?, courseName= ?, credit = ?, material = ?, depId = ? WHERE courseCode = ?";
                 preparedStatement = connection.prepareStatement(query);
                 preparedStatement.setString(1,courseCode);
                 preparedStatement.setString(2,courseName);
                 preparedStatement.setString(3,credit);
                 preparedStatement.setString(4, materials);
                 preparedStatement.setInt(5,department);
-                preparedStatement.setInt(6,c_id);
+                preparedStatement.setString(6,courseCode);
                 preparedStatement.executeUpdate();
 
                 Alert alert = new Alert(Alert.AlertType.INFORMATION);
@@ -125,8 +124,7 @@ public class EditCourseControlloer implements Initializable {
         txtMaterials.setText("");
     }
 
-    public void showInformation(int cid, String courseCode,String courseName, int credit, String material){
-        c_id = cid;
+    public void showInformation(String courseCode,String courseName, int credit, String material){
         txtCourseCode.setText(courseCode);
         txtCourseName.setText(courseName);
         txtCredit.setText(String.valueOf(credit));

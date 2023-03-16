@@ -106,7 +106,7 @@ public class UserController implements Initializable {
                         Circle propic = new Circle(25);
                         try {
                             connection = DbConnect.getConnect();
-                            query = "SELECT profile_pic FROM users WHERE tgnum='"+tg+"'";
+                            query = "SELECT profile_pic FROM user WHERE tgnum='"+tg+"'";
                             preparedStatement = connection.prepareStatement(query);
                             resultSet = preparedStatement.executeQuery();
 
@@ -150,14 +150,13 @@ public class UserController implements Initializable {
         try {
             userList.clear();
 
-            query = "SELECT * FROM users,department WHERE users.depId=department.depId";
+            query = "SELECT * FROM user,department WHERE user.depId=department.depId";
             preparedStatement = connection.prepareStatement(query);
             resultSet = preparedStatement.executeQuery();
 
 
             while (resultSet.next()){
                 userList.add(new UserDetails(
-                        resultSet.getInt("user_id"),
                         resultSet.getString("tgnum"),
                         resultSet.getString("fname"),
                         resultSet.getString("lname"),
@@ -198,7 +197,7 @@ public class UserController implements Initializable {
             if(result.get() == ButtonType.OK){
                 try {
                     userDetails = userTable.getSelectionModel().getSelectedItem();
-                    query = "DELETE FROM `users` WHERE user_id='"+userDetails.getUser_id()+"'";
+                    query = "DELETE FROM `user` WHERE tgnum='"+userDetails.getTgnum()+"'";
                     connection = DbConnect.getConnect();
                     preparedStatement = connection.prepareStatement(query);
                     preparedStatement.execute();
@@ -277,7 +276,7 @@ public class UserController implements Initializable {
                         Circle propic = new Circle(25);
                         try {
                             connection = DbConnect.getConnect();
-                            query = "SELECT profile_pic FROM users WHERE tgnum='"+tg+"'";
+                            query = "SELECT profile_pic FROM user WHERE tgnum='"+tg+"'";
                             preparedStatement = connection.prepareStatement(query);
                             resultSet = preparedStatement.executeQuery();
 
@@ -321,14 +320,13 @@ public class UserController implements Initializable {
         try {
             userList.clear();
 
-            query = "SELECT * FROM users,department WHERE users.depId=department.depId AND user_roll='"+comboUserRole.getValue()+"'";
+            query = "SELECT * FROM user,department WHERE user.depId=department.depId AND user_roll='"+comboUserRole.getValue()+"'";
             preparedStatement = connection.prepareStatement(query);
             resultSet = preparedStatement.executeQuery();
 
 
             while (resultSet.next()){
                 userList.add(new UserDetails(
-                        resultSet.getInt("user_id"),
                         resultSet.getString("tgnum"),
                         resultSet.getString("fname"),
                         resultSet.getString("lname"),
