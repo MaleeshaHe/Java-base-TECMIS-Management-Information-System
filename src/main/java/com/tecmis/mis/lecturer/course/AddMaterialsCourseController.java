@@ -43,7 +43,6 @@ public class AddMaterialsCourseController {
     Connection connection = null ;
     PreparedStatement preparedStatement = null ;
     ResultSet resultSet = null ;
-    int c_id;
 
 
     @FXML
@@ -56,12 +55,12 @@ public class AddMaterialsCourseController {
         else {
             try {
                 String materials = txtMaterials.getText();
-
+                String courseCode=CourseDetails.getCourseCode();
                 connection = DbConnect.getConnect();
-                query = "UPDATE course SET material=? WHERE cId = ?";
+                query = "UPDATE course SET material=? WHERE courseCode = ?";
                 preparedStatement = connection.prepareStatement(query);
                 preparedStatement.setString(1, materials);
-                preparedStatement.setInt(2,c_id);
+                preparedStatement.setString(2,courseCode );
                 preparedStatement.executeUpdate();
 
                 Alert alert = new Alert(Alert.AlertType.INFORMATION);
@@ -82,8 +81,7 @@ public class AddMaterialsCourseController {
     private void reset(){
         txtMaterials.setText("");
     }
-    public void showInformation(int cid, String courseCode,String courseName, int credit, String material){
-        c_id = cid;
+    public void showInformation(String courseCode,String courseName, int credit, String material){
         txtCourseCode.setText(courseCode);
         txtCourseName.setText(courseName);
         txtCredit.setText(String.valueOf(credit));
