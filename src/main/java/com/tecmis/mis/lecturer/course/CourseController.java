@@ -101,7 +101,7 @@ public class CourseController implements Initializable {
         try {
             courseList.clear();
 
-            query = "SELECT * FROM `course` WHERE depId="+DepId+"";
+            query = "SELECT * FROM `course` WHERE depId='"+DepId+"'";
             preparedStatement = connection.prepareStatement(query);
             resultSet = preparedStatement.executeQuery();
 

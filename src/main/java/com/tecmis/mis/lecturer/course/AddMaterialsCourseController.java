@@ -17,6 +17,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.Optional;
 
+import static com.tecmis.mis.student.course.CourseDetails.getCourseCode;
+
 public class AddMaterialsCourseController {
     @FXML
     private Label txtCourseCode;
@@ -55,7 +57,7 @@ public class AddMaterialsCourseController {
         else {
             try {
                 String materials = txtMaterials.getText();
-                String courseCode=CourseDetails.getCourseCode();
+                String courseCode= getCourseCode();
                 connection = DbConnect.getConnect();
                 query = "UPDATE course SET material=? WHERE courseCode = ?";
                 preparedStatement = connection.prepareStatement(query);

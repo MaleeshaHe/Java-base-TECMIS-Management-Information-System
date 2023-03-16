@@ -1,20 +1,19 @@
 package com.tecmis.mis.lecturer.course;
 
 public class CourseDetails {
-    private static String courseCode;
-    private static String courseName;
-    private static int credit;
-    private static String material;
+    private String courseCode;
+    private String courseName;
+    private int credit;
+    private String material;
 
-    public CourseDetails( String courseCode, String courseName, int credit, String material) {
+    public CourseDetails(String courseCode, String courseName, int credit, String material) {
         this.courseCode = courseCode;
         this.courseName = courseName;
         this.credit = credit;
         this.material = material;
     }
 
-
-    public static String getCourseCode() {
+    public String getCourseCode() {
         return courseCode;
     }
 
@@ -22,7 +21,7 @@ public class CourseDetails {
         this.courseCode = courseCode;
     }
 
-    public static String getCourseName() {
+    public String getCourseName() {
         return courseName;
     }
 
@@ -30,7 +29,7 @@ public class CourseDetails {
         this.courseName = courseName;
     }
 
-    public static int getCredit() {
+    public int getCredit() {
         return credit;
     }
 
@@ -38,7 +37,7 @@ public class CourseDetails {
         this.credit = credit;
     }
 
-    public static String getMaterial() {
+    public String getMaterial() {
         return material;
     }
 
