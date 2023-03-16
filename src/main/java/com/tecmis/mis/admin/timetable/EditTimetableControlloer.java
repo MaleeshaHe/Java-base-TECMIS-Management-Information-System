@@ -94,7 +94,7 @@ public class EditTimetableControlloer implements Initializable {
                 int id = tid;
 
                 connection = DbConnect.getConnect();
-                query = "UPDATE timetable SET title = ?, depName= ?, level = ?, pdffile = ? WHERE tid = ?";
+                query = "UPDATE timetable SET title = ?, depId= ?, level = ?, pdffile = ? WHERE tid = ?";
                 preparedStatement = connection.prepareStatement(query);
                 preparedStatement.setString(1,title);
                 preparedStatement.setInt(2,department);
