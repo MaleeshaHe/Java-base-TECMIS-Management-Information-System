@@ -137,9 +137,44 @@ public class AttendanceController implements Initializable {
         }
         cmbCourseCode.setItems(FXCollections.observableArrayList(data));
     }
+
+    public void setComboStudentTG(){
+        connection = DbConnect.getConnect();
+        query = "SELECT tgnum FROM user WHERE user_roll = 'Student'";
+
+        try {
+            preparedStatement = connection.prepareStatement(query);
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+
+        try {
+            resultSet = preparedStatement.executeQuery(query);
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+
+        ObservableList data = FXCollections.observableArrayList();
+
+        while (true){
+            try {
+                if (!resultSet.next()) break;
+            } catch (SQLException e) {
+                throw new RuntimeException(e);
+            }
+            try {
+                data.add(new String(resultSet.getString(1)));
+            } catch (SQLException e) {
+                throw new RuntimeException(e);
+            }
+        }
+        cmbStudentTG.setItems(FXCollections.observableArrayList(data));
+    }
+
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         setComboCourseCode();
-        
+        setComboStudentTG();
     }
 }
