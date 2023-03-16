@@ -4,6 +4,7 @@ import animatefx.animation.Shake;
 import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXPasswordField;
 import com.jfoenix.controls.JFXTextField;
+import com.tecmis.mis.UserSession;
 import com.tecmis.mis.db_connect.DbConnect;
 import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
@@ -90,29 +91,39 @@ public class EditUserControlloer implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        imageView.setFill(new ImagePattern(new Image(getClass().getResourceAsStream("..\\..\\..\\..\\..\\images\\profilePic.jpg"))));
-        comboDepartment.setItems(FXCollections.observableArrayList("Engineering Technology","Information & Communication Technology","Biosystems Technology","Multidisciplinary Studies"));
-        comboGender.setItems(FXCollections.observableArrayList("Male","Female","Other"));
-        comboUserType.setItems(FXCollections.observableArrayList("Student","Lecturer","Admin","Technical Officer"));
+        comboInitialize();
         selectedUser = UserController.getSelectedUser();
         loadData();
     }
 
-    private void loadData(){
-        txtRnumber.setText(selectedUser.getTgnum());
-        txtFname.setText(selectedUser.getFname());
-        txtLname.setText(selectedUser.getLname());
-        txtEmail.setText(selectedUser.getEmail());
-        txtPhoneNumber.setText(selectedUser.getPhone_num());
-        txtAddress.setText(selectedUser.getAddress());
+    private void comboInitialize(){
+        imageView.setFill(new ImagePattern(new Image(getClass().getResourceAsStream("..\\..\\..\\..\\..\\images\\profilePic.jpg"))));
+        comboDepartment.setItems(FXCollections.observableArrayList("Engineering Technology","Information & Communication Technology","Biosystems Technology","Multidisciplinary Studies"));
+        comboGender.setItems(FXCollections.observableArrayList("Male","Female","Other"));
+        comboUserType.setItems(FXCollections.observableArrayList("Student","Lecturer","Admin","Technical Officer"));
+    }
 
+    private void loadData(){
         try {
             connection = DbConnect.getConnect();
-            query = "SELECT profile_pic FROM user WHERE tgnum='"+selectedUser.getTgnum()+"'";
+            query = "SELECT * FROM user,department WHERE user.depId=department.depId AND tgnum='"+selectedUser.getTgnum()+"'";
             preparedStatement = connection.prepareStatement(query);
             resultSet = preparedStatement.executeQuery();
 
             while (resultSet.next()){
+
+                txtRnumber.setText(resultSet.getString("tgnum"));
+                txtFname.setText(resultSet.getString("fname"));
+                txtLname.setText(resultSet.getString("lname"));
+                txtEmail.setText(resultSet.getString("email"));
+                txtPhoneNumber.setText(resultSet.getString("phone_num"));
+                txtAddress.setText(resultSet.getString("address"));
+                txtDoB.setValue(LocalDate.parse(resultSet.getString("dob")));
+                txtPassword.setText(resultSet.getString("password"));
+                txtPasswordC.setText(resultSet.getString("password"));
+                comboUserType.getSelectionModel().select(resultSet.getString("user_roll"));
+                comboGender.getSelectionModel().select(resultSet.getString("sex"));
+                comboDepartment.getSelectionModel().select(resultSet.getString("depName"));
 
                 InputStream is = resultSet.getBinaryStream("profile_pic");
                 OutputStream os = new FileOutputStream(new File("photo.jpg"));
@@ -154,7 +165,7 @@ public class EditUserControlloer implements Initializable {
         txtAddress.setText("");
         txtPassword.setText("");
         txtPasswordC.setText("");
-        imageView.setFill(new ImagePattern(new Image(getClass().getResourceAsStream("..\\..\\..\\..\\..\\images\\profilePic.jpg"))));
+        comboInitialize();
     }
 
     @FXML
@@ -175,7 +186,11 @@ public class EditUserControlloer implements Initializable {
             new Shake(error).play();
             error.setText("Please fill the all Fields");
         }
-        else {
+        else if (!(txtPasswordC.getText().equals(txtPassword.getText()))) {
+            new Shake(error).play();
+            error.setText("Password are not matching");
+
+        } else {
             LocalDate birtDate = txtDoB.getValue();
 
             String tgnum = txtRnumber.getText();
@@ -189,7 +204,7 @@ public class EditUserControlloer implements Initializable {
             String gender = comboGender.getValue();
             String password = txtPasswordC.getText();
             int department = comboDepartment.getSelectionModel().getSelectedIndex()+1;
-            tgnum = selectedUser.getTgnum();
+            String stgnum = selectedUser.getTgnum();
 
 
             try {
@@ -209,7 +224,7 @@ public class EditUserControlloer implements Initializable {
                 preparedStatement.setInt(11,department);
                 fis = new FileInputStream(img);
                 preparedStatement.setBinaryStream(12, (InputStream)fis, (int)img.length());
-                preparedStatement.setString(13,tgnum);
+                preparedStatement.setString(13,stgnum);
                 preparedStatement.executeUpdate();
 
                 Alert alert = new Alert(Alert.AlertType.INFORMATION);
