@@ -1,0 +1,240 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import java.net.URL?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="600.0" prefWidth="900.0" stylesheets="@../../../../../style/style.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.tecmis.mis.lecturer.student.LecturerStudentHomeController">
+    <children>
+        <BorderPane fx:id="borderpane" layoutX="114.0" layoutY="54.0" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #ffffff;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <center>
+                <AnchorPane prefHeight="600.0" prefWidth="870.0" style="-fx-background-color: #ffff;" BorderPane.alignment="CENTER">
+                    <children>
+                        <BorderPane fx:id="borderpane2" prefHeight="378.0" prefWidth="914.0">
+                            <center>
+                                <HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="378.0" prefWidth="914.0" BorderPane.alignment="CENTER">
+                                    <children>
+                              <Pane minWidth="-Infinity" prefHeight="378.0" prefWidth="916.0">
+                                 <children>
+                                    <TableView fx:id="studentTable" layoutX="66.0" layoutY="95.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMousePressed="#viewStudent" prefHeight="270.0" prefWidth="377.0" style="-fx-background-color: #ffff; -fx-background-radius: 20;">
+                                       <columns>
+                                          <TableColumn fx:id="tgnumCol" maxWidth="193.60007333755493" prefWidth="88.0" resizable="false" style="-fx-alignment: center;" text="TG Number" />
+                                          <TableColumn fx:id="stNameCol" maxWidth="320.00003814697266" prefWidth="150.0" resizable="false" style="-fx-alignment: center;" text="Name" />
+                                          <TableColumn fx:id="stPhoneCol" maxWidth="630.0" minWidth="0.0" prefWidth="126.0" resizable="false" style="-fx-alignment: center;" text="Phone" />
+                                       </columns>
+                                       <padding>
+                                          <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                       </padding>
+                                       <stylesheets>
+                                          <URL value="@../../../../../style/style.css" />
+                                          <URL value="@../../../../../style/table_view.css" />
+                                       </stylesheets>
+                                    </TableView>
+                                    <VBox alignment="CENTER" layoutX="468.0" layoutY="96.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="269.0" prefWidth="373.0" style="-fx-background-color: #fff; -fx-background-radius: 20;" styleClass="detailsShadow">
+                                       <children>
+                                          <HBox alignment="CENTER" layoutX="10.0" layoutY="252.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="109.0" prefWidth="134.0">
+                                             <children>
+                                                <Circle fx:id="pic" fill="#f7f7f7" radius="50.0" stroke="#5271ff" strokeType="INSIDE" strokeWidth="2.0" />
+                                             </children>
+                                          </HBox>
+                                          <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="344.0" prefHeight="41.0" prefWidth="340.0">
+                                             <children>
+                                                <Label prefWidth="120.0" text="User ID " textFill="#797979">
+                                                   <font>
+                                                      <Font name="System Bold" size="14.0" />
+                                                   </font>
+                                                </Label>
+                                                <Label fx:id="tgnum" layoutX="10.0" layoutY="52.0" prefWidth="240.0" text="TG/2020/700" textFill="#797979">
+                                                   <font>
+                                                      <Font name="System Bold" size="14.0" />
+                                                   </font>
+                                                </Label>
+                                             </children>
+                                          </HBox>
+                                          <HBox alignment="CENTER_LEFT" prefHeight="41.0" prefWidth="340.0">
+                                             <children>
+                                                <Label prefWidth="120.0" text="Name " textFill="#797979">
+                                                   <font>
+                                                      <Font name="System Bold" size="14.0" />
+                                                   </font>
+                                                </Label>
+                                                <Label fx:id="name" layoutX="10.0" layoutY="52.0" prefWidth="240.0" text="Nimesh Rangana" textFill="#797979">
+                                                   <font>
+                                                      <Font name="System Bold" size="14.0" />
+                                                   </font>
+                                                </Label>
+                                             </children>
+                                          </HBox>
+                                          <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="282.0" prefHeight="41.0" prefWidth="340.0">
+                                             <children>
+                                                <Label prefHeight="27.0" prefWidth="120.0" text="Email " textFill="#797979">
+                                                   <font>
+                                                      <Font name="System Bold" size="14.0" />
+                                                   </font>
+                                                </Label>
+                                                <Label fx:id="email" layoutX="10.0" layoutY="52.0" prefHeight="27.0" prefWidth="240.0" text="nimeshrangana77@gmail.com" textFill="#797979">
+                                                   <font>
+                                                      <Font name="System Bold" size="14.0" />
+                                                   </font>
+                                                </Label>
+                                             </children>
+                                          </HBox>
+                                          <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="303.0" prefHeight="41.0" prefWidth="340.0">
+                                             <children>
+                                                <Label prefWidth="120.0" text="Phone " textFill="#797979">
+                                                   <font>
+                                                      <Font name="System Bold" size="14.0" />
+                                                   </font>
+                                                </Label>
+                                                <Label fx:id="phonenum" layoutX="10.0" layoutY="52.0" prefWidth="240.0" text="0758810648" textFill="#797979">
+                                                   <font>
+                                                      <Font name="System Bold" size="14.0" />
+                                                   </font>
+                                                </Label>
+                                             </children>
+                                          </HBox>
+                                          <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="324.0" minHeight="-Infinity" prefHeight="29.0" prefWidth="333.0">
+                                             <children>
+                                                <Label prefHeight="27.0" prefWidth="120.0" text="Department" textFill="#797979">
+                                                   <font>
+                                                      <Font name="System Bold" size="14.0" />
+                                                   </font>
+                                                </Label>
+                                                <Label fx:id="depName" layoutX="10.0" layoutY="52.0" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="56.0" prefWidth="238.0" text="ICT" textFill="#797979">
+                                                   <font>
+                                                      <Font name="System Bold" size="14.0" />
+                                                   </font>
+                                                </Label>
+                                             </children>
+                                          </HBox>
+                                       </children>
+                                       <padding>
+                                          <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                                       </padding>
+                                       <stylesheets>
+                                          <URL value="@../../../../../style/style.css" />
+                                          <URL value="@../../../../../style/table_view.css" />
+                                       </stylesheets>
+                                    </VBox>
+                                    <Label layoutX="364.0" layoutY="14.0" text="Student Details">
+                                       <font>
+                                          <Font name="System Bold" size="26.0" />
+                                       </font>
+                                    </Label>
+                                    <JFXComboBox fx:id="comboStudent" layoutX="66.0" layoutY="52.0" onAction="#comboStudent" promptText="Search  student" />
+                                 </children>
+                              </Pane>
+                              <Label text="Label" />
+                                    </children>
+                                </HBox>
+                            </center>
+                        </BorderPane>
+                  <VBox alignment="CENTER" layoutX="71.0" layoutY="396.0" prefHeight="182.0" prefWidth="772.0" style="-fx-background-color: #ffff; -fx-background-radius: 20;" styleClass="detailsShadow" stylesheets="@../../../../../style/style.css">
+                     <children>
+                        <HBox alignment="BOTTOM_LEFT" layoutX="30.0" layoutY="30.0" prefHeight="200.0" prefWidth="539.0">
+                           <children>
+                              <JFXButton contentDisplay="GRAPHIC_ONLY" onAction="#btnStudentDetailsView" prefHeight="115.0" prefWidth="115.0" style="-fx-background-color: #ffff; -fx-border-radius: 20; -fx-background-radius: 20; -fx-border-color: #565656;" text="USER" textFill="#565656">
+                                 <graphic>
+                                    <ImageView fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../../../../../images/team.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                                 <font>
+                                    <Font size="20.0" />
+                                 </font>
+                                 <HBox.margin>
+                                    <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
+                                 </HBox.margin>
+                              </JFXButton>
+                              <JFXButton contentDisplay="GRAPHIC_ONLY" onAction="#btnStudentEligibilityView" prefHeight="115.0" prefWidth="115.0" style="-fx-background-color: #ffff; -fx-border-radius: 20; -fx-background-radius: 20; -fx-border-color: #565656;" text="USER" textFill="#565656">
+                                 <graphic>
+                                    <ImageView fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../../../../../images/immigration.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                                 <font>
+                                    <Font size="20.0" />
+                                 </font>
+                                 <HBox.margin>
+                                    <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
+                                 </HBox.margin>
+                              </JFXButton>
+                              <HBox alignment="BOTTOM_LEFT" prefHeight="142.0" prefWidth="292.0">
+                                 <children>
+                                    <JFXButton contentDisplay="GRAPHIC_ONLY" onAction="#btnStudentMarksView" prefHeight="115.0" prefWidth="115.0" style="-fx-background-color: #ffff; -fx-border-radius: 20; -fx-background-radius: 20; -fx-border-color: #565656;" text="USER" textFill="#565656">
+                                       <graphic>
+                                          <ImageView fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../../../../../images/exam-results.png" />
+                                             </image>
+                                          </ImageView>
+                                       </graphic>
+                                       <font>
+                                          <Font size="20.0" />
+                                       </font>
+                                       <HBox.margin>
+                                          <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
+                                       </HBox.margin>
+                                    </JFXButton>
+                                    <JFXButton contentDisplay="GRAPHIC_ONLY" onAction="#btnStudentAttendanceView" prefHeight="115.0" prefWidth="115.0" style="-fx-background-color: #ffff; -fx-border-radius: 20; -fx-background-radius: 20; -fx-border-color: #565656;" text="USER" textFill="#565656">
+                                       <graphic>
+                                          <ImageView fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../../../../../images/student-attendance-icon-2.jpg" />
+                                             </image>
+                                          </ImageView>
+                                       </graphic>
+                                       <font>
+                                          <Font size="20.0" />
+                                       </font>
+                                       <HBox.margin>
+                                          <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
+                                       </HBox.margin>
+                                    </JFXButton>
+                                 </children>
+                              </HBox>
+                              <JFXButton contentDisplay="GRAPHIC_ONLY" onAction="#btnStudentMedicalView" prefHeight="115.0" prefWidth="115.0" style="-fx-background-color: #ffff; -fx-border-radius: 20; -fx-background-radius: 20; -fx-border-color: #565656;" text="USER" textFill="#565656">
+                                 <graphic>
+                                    <ImageView fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../../../../../images/medical-record.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                                 <font>
+                                    <Font size="20.0" />
+                                 </font>
+                                 <HBox.margin>
+                                    <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
+                                 </HBox.margin>
+                              </JFXButton>
+                           </children>
+                        </HBox>
+                     </children>
+                     <padding>
+                        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                     </padding>
+                  </VBox>
+                    </children>
+                </AnchorPane>
+            </center>
+        </BorderPane>
+    </children>
+</AnchorPane>
