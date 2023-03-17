@@ -3,13 +3,13 @@
 }
 .table-view {
     -fx-background-color: #ffffff;
-    -fx-background-radius:8 8 0 0;
+    -fx-background-radius:8 8 8 8;
 
 }
 .table-view .column-header-background{
     -fx-background-color: #eeeeee;
     -fx-background-insets: 0 0 0 0;
-    -fx-background-radius:8 8 0 0;
+    -fx-background-radius:8 8 8 8;
 }
 .table-view .column-header, .table-view .filler{
     -fx-size:45px;
