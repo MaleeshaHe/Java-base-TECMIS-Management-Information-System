@@ -60,14 +60,11 @@
                         <Insets left="20.0" right="20.0" top="20.0" />
                      </padding>
                      <children>
-<<<<<<< Updated upstream
                         <Label prefHeight="26.0" prefWidth="125.0" text="Course Name" textFill="#595959">
                            <font>
                               <Font name="System Bold" size="17.0" />
                            </font>
                         </Label>
-=======
->>>>>>> Stashed changes
                         <JFXComboBox fx:id="comboCourse" prefHeight="35.0" prefWidth="302.0" promptText="selete a course" />
                         <JFXButton alignment="CENTER" maxWidth="167.0" onAction="#findExams" prefHeight="34.0" prefWidth="148.0" style="-fx-background-radius: 18;" styleClass="addNoticeBtn" stylesheets="@../../../../../style/style.css" text="FIND EXAMS" textAlignment="CENTER">
                            <font>
