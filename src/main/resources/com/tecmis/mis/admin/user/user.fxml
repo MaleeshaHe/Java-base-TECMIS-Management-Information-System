@@ -20,120 +20,113 @@
 <AnchorPane prefHeight="600.0" prefWidth="900.0" stylesheets="@../../../../../style/table_view.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.tecmis.mis.admin.user.UserController">
    <children>
       <BorderPane fx:id="borderpane" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #ffff;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-         <top>
-            <VBox prefHeight="42.0" prefWidth="900.0" BorderPane.alignment="CENTER">
-               <children>
-                  <HBox alignment="CENTER" layoutX="10.0" layoutY="10.0" prefHeight="55.0" prefWidth="798.0" styleClass="table-view" stylesheets="@../../../../../style/table_view.css">
-                     <children>
-                        <Label alignment="CENTER" contentDisplay="CENTER" text="User Details" textAlignment="CENTER" textFill="#515151">
-                           <font>
-                              <Font name="System Bold" size="26.0" />
-                           </font>
-                        </Label>
-                     </children>
-                     <VBox.margin>
-                        <Insets left="200.0" right="200.0" top="5.0" />
-                     </VBox.margin>
-                  </HBox>
-                  <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
-                     <children>
-                        <Line endX="580.8928833007812" endY="0.8000076413154602" startX="-100.0" stroke="#c9c8c8" strokeWidth="2.0" />
-                     </children>
-                  </HBox>
-                  <HBox alignment="TOP_CENTER" prefHeight="55.0" prefWidth="799.0" styleClass="table-view" stylesheets="@../../../../../style/table_view.css">
-                     <children>
-                        <JFXButton onAction="#refreshTable" prefHeight="32.0" prefWidth="121.0" styleClass="menuItem" text="Refresh">
-                           <graphic>
-                              <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@../../../../../images/sinchronize-64.png" />
-                                 </image>
-                              </ImageView>
-                           </graphic>
-                           <cursor>
-                              <Cursor fx:constant="HAND" />
-                           </cursor>
-                           <font>
-                              <Font size="14.0" />
-                           </font>
-                        </JFXButton>
-                        <JFXButton onAction="#addUser" prefHeight="32.0" prefWidth="170.0" styleClass="menuItem" text="Add a New User">
-                           <graphic>
-                              <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@../../../../../images/add-64.png" />
-                                 </image>
-                              </ImageView>
-                           </graphic>
-                           <cursor>
-                              <Cursor fx:constant="HAND" />
-                           </cursor>
-                           <font>
-                              <Font size="14.0" />
-                           </font>
-                        </JFXButton>
-                        <JFXButton layoutX="436.0" layoutY="30.0" onAction="#editUser" prefHeight="32.0" prefWidth="136.0" styleClass="menuItem" text="Edit User">
-                           <graphic>
-                              <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@../../../../../images/edit-11-64.png" />
-                                 </image>
-                              </ImageView>
-                           </graphic>
-                           <cursor>
-                              <Cursor fx:constant="HAND" />
-                           </cursor>
-                           <font>
-                              <Font size="14.0" />
-                           </font>
-                        </JFXButton>
-                        <JFXButton layoutX="528.0" layoutY="30.0" onAction="#deleteUser" prefHeight="32.0" prefWidth="136.0" styleClass="menuItem" text="Delete User">
-                           <graphic>
-                              <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@../../../../../images/delete-64.png" />
-                                 </image>
-                              </ImageView>
-                           </graphic>
-                           <cursor>
-                              <Cursor fx:constant="HAND" />
-                           </cursor>
-                           <font>
-                              <Font size="14.0" />
-                           </font>
-                        </JFXButton>
-                     </children>
-                     <padding>
-                        <Insets left="20.0" right="20.0" top="20.0" />
-                     </padding>
-                     <VBox.margin>
-                        <Insets bottom="5.0" left="50.0" right="50.0" />
-                     </VBox.margin>
-                  </HBox>
-               </children>
-            </VBox>
-         </top>
          <center>
             <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
                <children>
+                  <VBox prefHeight="42.0" prefWidth="900.0">
+                     <children>
+                        <HBox alignment="CENTER" layoutX="10.0" layoutY="10.0" prefHeight="55.0" prefWidth="798.0" styleClass="table-view" stylesheets="@../../../../../style/table_view.css">
+                           <children>
+                              <Label alignment="CENTER" contentDisplay="CENTER" text="User Details" textAlignment="CENTER" textFill="#515151">
+                                 <font>
+                                    <Font name="System Bold" size="26.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                           <VBox.margin>
+                              <Insets left="200.0" right="200.0" top="5.0" />
+                           </VBox.margin>
+                        </HBox>
+                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                           <children>
+                              <Line endX="580.8928833007812" endY="0.8000076413154602" startX="-100.0" stroke="#c9c8c8" strokeWidth="2.0" />
+                           </children>
+                        </HBox>
+                        <HBox alignment="TOP_CENTER" prefHeight="55.0" prefWidth="799.0" styleClass="table-view" stylesheets="@../../../../../style/table_view.css">
+                           <children>
+                              <JFXButton onAction="#addUser" prefHeight="32.0" prefWidth="170.0" styleClass="menuItem" text="Add a New User">
+                                 <graphic>
+                                    <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../../../../../images/add-64.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </JFXButton>
+                              <JFXButton layoutX="436.0" layoutY="30.0" onAction="#editUser" prefHeight="32.0" prefWidth="136.0" styleClass="menuItem" text="Edit User">
+                                 <graphic>
+                                    <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../../../../../images/edit-11-64.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </JFXButton>
+                              <JFXButton layoutX="528.0" layoutY="30.0" onAction="#deleteUser" prefHeight="32.0" prefWidth="136.0" styleClass="menuItem" text="Delete User">
+                                 <graphic>
+                                    <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../../../../../images/delete-64.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </JFXButton>
+                              <HBox prefHeight="47.0" prefWidth="200.0">
+                                 <children>
+                                    <ImageView fitHeight="18.0" fitWidth="18.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../../../../../images/search-9-64.png" />
+                                       </image>
+                                       <HBox.margin>
+                                          <Insets top="6.0" />
+                                       </HBox.margin>
+                                    </ImageView>
+                                    <JFXTextField fx:id="txtKeyword" focusColor="#405aa800" prefHeight="26.0" prefWidth="171.0" promptText="Search user (type name) " style="-fx-border-color: #acacac; -fx-border-radius: 12;" unFocusColor="#ababab00">
+                                       <padding>
+                                          <Insets left="15.0" />
+                                       </padding>
+                                       <HBox.margin>
+                                          <Insets left="5.0" top="2.0" />
+                                       </HBox.margin>
+                                       <font>
+                                          <Font size="13.0" />
+                                       </font>
+                                    </JFXTextField>
+                                 </children>
+                                 <HBox.margin>
+                                    <Insets left="12.0" />
+                                 </HBox.margin>
+                              </HBox>
+                           </children>
+                           <padding>
+                              <Insets left="20.0" right="20.0" top="20.0" />
+                           </padding>
+                           <VBox.margin>
+                              <Insets bottom="5.0" left="50.0" right="50.0" />
+                           </VBox.margin>
+                        </HBox>
+                     </children>
+                  </VBox>
                   <HBox alignment="CENTER" prefHeight="30.0" prefWidth="900.0">
                      <children>
-                        <ImageView fitHeight="18.0" fitWidth="18.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../../../../../images/search-9-64.png" />
-                           </image>
-                        </ImageView>
-                        <JFXTextField fx:id="txtKeyword" focusColor="#405aa800" prefHeight="26.0" prefWidth="202.0" promptText="Search user (type name) " style="-fx-border-color: #acacac; -fx-border-radius: 12;" unFocusColor="#ababab00">
-                           <padding>
-                              <Insets left="15.0" />
-                           </padding>
-                           <HBox.margin>
-                              <Insets left="5.0" right="30.0" />
-                           </HBox.margin>
-                           <font>
-                              <Font size="13.0" />
-                           </font>
-                        </JFXTextField>
                         <JFXComboBox fx:id="comboUserRole" focusColor="#5271ff" onAction="#comboSelectUser" prefHeight="30.0" prefWidth="161.0" promptText="Select User type" styleClass="comboBox" stylesheets="@../../../../../style/style.css" unFocusColor="#4d4d4d00">
                            <HBox.margin>
                               <Insets />
