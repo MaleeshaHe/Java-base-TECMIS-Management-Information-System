@@ -19,6 +19,7 @@ import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.paint.Color;
 import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Circle;
 import javafx.stage.FileChooser;
@@ -135,13 +136,23 @@ public class AddUserControlloer implements Initializable {
 
     @FXML
     void addUser(ActionEvent event) {
+        LocalDate birtDate = txtDoB.getValue();
 
-        if(txtPassword.getText().length() == 0 || txtPasswordC.getText().length() == 0 || txtAddress.getText().length() == 0 || txtPhoneNumber.getText().length() == 0 || txtRnumber.getText().length() == 0 || txtFname.getText().length() == 0 || txtLname.getText().length() == 0 || txtEmail.getText().length() == 0){
+        if(txtDoB.getValue() == null  || comboGender.getValue() == null || comboDepartment.getValue() == null || comboUserType.getValue() == null || txtPassword.getText().length() == 0 || txtPasswordC.getText().length() == 0 || txtAddress.getText().length() == 0 || txtPhoneNumber.getText().length() == 0 || txtRnumber.getText().length() == 0 || txtFname.getText().length() == 0 || txtLname.getText().length() == 0 || txtEmail.getText().length() == 0){
             new Shake(error).play();
             error.setText("Please fill the all Fields");
         }
+        else if (!(txtPasswordC.getText().equals(txtPassword.getText()))) {
+            new Shake(error).play();
+            error.setText("Password are not matching");
+        }
+        else if (img == null) {
+            new Shake(error).play();
+            new Shake(imageView).play();
+            imageView.setStroke(Color.RED);
+            error.setText("Please add a photo");
+        }
         else {
-            LocalDate birtDate = txtDoB.getValue();
 
             String tgnum = txtRnumber.getText();
             String fname = txtFname.getText();
