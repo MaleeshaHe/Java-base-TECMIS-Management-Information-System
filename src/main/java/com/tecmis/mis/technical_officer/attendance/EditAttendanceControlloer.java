@@ -76,6 +76,13 @@ public class EditAttendanceControlloer implements Initializable {
         setComboCourseCode();
         setComboStudentTG();
     }
+    @FXML
+    void clear(ActionEvent event) {
+        reset();
+        setState();
+        setComboCourseCode();
+        setComboStudentTG();
+    }
 
     public void reset(){
         cmbEditCourseCode.setItems(FXCollections.emptyObservableList());

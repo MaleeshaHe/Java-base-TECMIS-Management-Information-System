@@ -104,7 +104,7 @@
                   </ImageView>
                </graphic>
             </JFXButton>
-            <JFXButton fx:id="btnEditClear" alignment="CENTER" layoutX="173.0" layoutY="43.0" maxWidth="88.0" onAction="#reset" prefHeight="34.0" prefWidth="86.0" style="-fx-background-radius: 18;" styleClass="cancelNoticeBtn" stylesheets="@../../../../../style/style.css" text="Clear" textAlignment="CENTER">
+            <JFXButton fx:id="btnEditClear" alignment="CENTER" layoutX="173.0" layoutY="43.0" maxWidth="88.0" onAction="#clear" prefHeight="34.0" prefWidth="86.0" style="-fx-background-radius: 18;" styleClass="cancelNoticeBtn" stylesheets="@../../../../../style/style.css" text="Clear" textAlignment="CENTER">
                <font>
                   <Font name="System Bold" size="14.0" />
                </font>
