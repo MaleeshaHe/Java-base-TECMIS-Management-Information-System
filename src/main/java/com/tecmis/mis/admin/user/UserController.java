@@ -2,10 +2,13 @@ package com.tecmis.mis.admin.user;
 
 import animatefx.animation.*;
 import com.jfoenix.controls.JFXComboBox;
+import com.jfoenix.controls.JFXTextField;
 import com.tecmis.mis.admin.notice.NoticeController;
 import com.tecmis.mis.db_connect.DbConnect;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.collections.transformation.FilteredList;
+import javafx.collections.transformation.SortedList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -55,6 +58,8 @@ public class UserController implements Initializable {
     private TableColumn<UserDetails, String> phonecol;
     @FXML
     private TableView<UserDetails> userTable;
+    @FXML
+    private JFXTextField txtKeyword;
 
     String query = null;
     Connection connection = null ;
@@ -143,6 +148,35 @@ public class UserController implements Initializable {
         photocol.setCellFactory(cellFoctory);
         userTable.setItems(userList);
         new FadeIn(userTable).play();
+
+        FilteredList<UserDetails> filteredData = new FilteredList<>(userList,b -> true);
+        txtKeyword.textProperty().addListener((observable, oldValue, newValue) -> {
+            filteredData.setPredicate(UserDetails -> {
+
+                if(newValue.isEmpty() || newValue.isBlank() || newValue == null){
+                    return true;
+                }
+
+                String searchKeyword = newValue.toLowerCase();
+
+                if (UserDetails.getFname().toLowerCase().indexOf(searchKeyword) > -1){
+                    return true;
+                } else if (UserDetails.getLname().toLowerCase().indexOf(searchKeyword) > -1 ) {
+                    return true;
+                } else if (UserDetails.getTgnum().toLowerCase().indexOf(searchKeyword) > -1 ) {
+                    return true;
+                } else {
+                    return false;
+                }
+
+            });
+        });
+
+        SortedList<UserDetails> sortedData = new SortedList<>(filteredData);
+        sortedData.comparatorProperty().bind(userTable.comparatorProperty());
+        userTable.setItems(sortedData);
+        new FadeIn(userTable).play();
+
     }
 
     @FXML
@@ -313,6 +347,35 @@ public class UserController implements Initializable {
         photocol.setCellFactory(cellFoctory);
         userTable.setItems(userList);
         new FadeIn(userTable).play();
+
+        FilteredList<UserDetails> filteredData = new FilteredList<>(userList,b -> true);
+        txtKeyword.textProperty().addListener((observable, oldValue, newValue) -> {
+            filteredData.setPredicate(UserDetails -> {
+
+                if(newValue.isEmpty() || newValue.isBlank() || newValue == null){
+                    return true;
+                }
+
+                String searchKeyword = newValue.toLowerCase();
+
+                if (UserDetails.getFname().toLowerCase().indexOf(searchKeyword) > -1){
+                    return true;
+                } else if (UserDetails.getLname().toLowerCase().indexOf(searchKeyword) > -1 ) {
+                    return true;
+                } else if (UserDetails.getTgnum().toLowerCase().indexOf(searchKeyword) > -1 ) {
+                    return true;
+                } else {
+                    return false;
+                }
+
+            });
+        });
+
+        SortedList<UserDetails> sortedData = new SortedList<>(filteredData);
+        sortedData.comparatorProperty().bind(userTable.comparatorProperty());
+        userTable.setItems(sortedData);
+        new FadeIn(userTable).play();
+
     }
 
     @FXML
