@@ -23,6 +23,7 @@
                 <AnchorPane prefHeight="600.0" prefWidth="870.0" style="-fx-background-color: #ffff;" BorderPane.alignment="CENTER">
                     <children>
                         <BorderPane fx:id="borderpane2" prefHeight="378.0" prefWidth="829.0">
+<<<<<<< Updated upstream
                             <top>
                                 <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="90.0" prefWidth="914.0" BorderPane.alignment="CENTER">
                                     <children>
@@ -155,6 +156,17 @@
                                     <Pane prefHeight="290.0" prefWidth="838.0">
                                        <children>
                                           <VBox alignment="CENTER" layoutX="413.0" layoutY="13.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="269.0" prefWidth="373.0" style="-fx-background-color: #fff; -fx-background-radius: 20;" styleClass="detailsShadow" stylesheets="@../../../../../style/style.css">
+=======
+                            <center>
+                                <HBox minWidth="-Infinity" prefHeight="266.0" prefWidth="914.0" BorderPane.alignment="CENTER">
+                                    <children>
+                                        <Pane prefHeight="532.0" prefWidth="914.0" />
+                              <HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="290.0" prefWidth="890.0">
+                                 <children>
+                                    <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="389.0" prefWidth="827.0">
+                                       <children>
+                                          <VBox alignment="CENTER" layoutX="414.0" layoutY="106.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="269.0" prefWidth="373.0" style="-fx-background-color: #fff; -fx-background-radius: 20;" styleClass="detailsShadow" stylesheets="@../../../../../style/style.css">
+>>>>>>> Stashed changes
                                              <children>
                                                 <HBox alignment="CENTER" layoutX="10.0" layoutY="252.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="109.0" prefWidth="134.0">
                                                    <children>
@@ -238,16 +250,33 @@
                                                 <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
                                              </padding>
                                           </VBox>
+<<<<<<< Updated upstream
                                           <TableView fx:id="studentTable" layoutX="31.0" layoutY="12.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMousePressed="#viewStudent" prefHeight="270.0" prefWidth="347.0" style="-fx-background-color: #ffff; -fx-background-radius: 20;" styleClass="detailsShadow" stylesheets="@../../../../../style/style.css">
                                              <columns>
                                                 <TableColumn fx:id="tgnumCol" maxWidth="193.60007333755493" prefWidth="88.0" resizable="false" style="-fx-alignment: center;" text="TG Number" />
                                                 <TableColumn fx:id="stNameCol" maxWidth="320.00003814697266" prefWidth="150.0" resizable="false" style="-fx-alignment: center;" text="Name" />
                                                 <TableColumn fx:id="stPhoneCol" maxWidth="630.0" minWidth="0.0" prefWidth="126.0" resizable="false" style="-fx-alignment: center;" text="Phone" />
+=======
+                                          <TableView fx:id="studentTable" layoutX="28.0" layoutY="105.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMousePressed="#viewStudent" prefHeight="270.0" prefWidth="347.0" style="-fx-background-color: #ffff; -fx-background-radius: 20;" styleClass="detailsShadow" stylesheets="@../../../../../style/style.css">
+                                             <columns>
+                                                <TableColumn fx:id="tgnumCol" maxWidth="193.60007333755493" prefWidth="97.0" resizable="false" style="-fx-alignment: center;" text="TG Number" />
+                                                <TableColumn fx:id="stNameCol" maxWidth="320.00003814697266" prefWidth="128.0" resizable="false" style="-fx-alignment: center;" text="Name" />
+                                                <TableColumn fx:id="stPhoneCol" maxWidth="630.0" minWidth="0.0" prefWidth="111.0" resizable="false" style="-fx-alignment: center;" text="Phone" />
+>>>>>>> Stashed changes
                                              </columns>
                                              <padding>
                                                 <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                                              </padding>
                                           </TableView>
+<<<<<<< Updated upstream
+=======
+                                          <Label fx:id="heading" alignment="CENTER" layoutX="3.0" layoutY="14.0" prefHeight="38.0" prefWidth="823.0" text="Students Details" textFill="#515151">
+                                             <font>
+                                                <Font name="System Bold" size="26.0" />
+                                             </font>
+                                          </Label>
+                                          <JFXComboBox fx:id="comboStudent" editable="true" layoutX="36.0" layoutY="52.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onAction="#comboStudent" prefHeight="35.0" prefWidth="128.0" promptText="Search  student" />
+>>>>>>> Stashed changes
                                        </children>
                                     </Pane>
                                  </children>
@@ -256,6 +285,99 @@
                                 </HBox>
                             </center>
                         </BorderPane>
+<<<<<<< Updated upstream
+=======
+                  <VBox alignment="CENTER" layoutX="51.0" layoutY="394.0" prefHeight="182.0" prefWidth="772.0" style="-fx-background-color: #ffff; -fx-background-radius: 20;" styleClass="detailsShadow" stylesheets="@../../../../../style/style.css">
+                     <padding>
+                        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                     </padding>
+                     <children>
+                        <HBox alignment="BOTTOM_LEFT" layoutX="30.0" layoutY="30.0" prefHeight="200.0" prefWidth="539.0">
+                           <children>
+                              <JFXButton contentDisplay="GRAPHIC_ONLY" onAction="#btnStudentDetailsView" prefHeight="115.0" prefWidth="115.0" style="-fx-background-color: #ffff; -fx-border-radius: 20; -fx-background-radius: 20; -fx-border-color: #565656;" text="USER" textFill="#565656">
+                                 <graphic>
+                                    <ImageView fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../../../../../images/team.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                                 <font>
+                                    <Font size="20.0" />
+                                 </font>
+                                 <HBox.margin>
+                                    <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
+                                 </HBox.margin>
+                              </JFXButton>
+                              <JFXButton contentDisplay="GRAPHIC_ONLY" onAction="#btnStudentEligibilityView" prefHeight="115.0" prefWidth="115.0" style="-fx-background-color: #ffff; -fx-border-radius: 20; -fx-background-radius: 20; -fx-border-color: #565656;" text="USER" textFill="#565656">
+                                 <graphic>
+                                    <ImageView fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../../../../../images/immigration.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                                 <font>
+                                    <Font size="20.0" />
+                                 </font>
+                                 <HBox.margin>
+                                    <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
+                                 </HBox.margin>
+                              </JFXButton>
+                              <HBox alignment="BOTTOM_LEFT" prefHeight="142.0" prefWidth="292.0">
+                                 <children>
+                                    <JFXButton contentDisplay="GRAPHIC_ONLY" onAction="#btnStudentMarksView" prefHeight="115.0" prefWidth="115.0" style="-fx-background-color: #ffff; -fx-border-radius: 20; -fx-background-radius: 20; -fx-border-color: #565656;" text="USER" textFill="#565656">
+                                       <graphic>
+                                          <ImageView fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../../../../../images/exam-results.png" />
+                                             </image>
+                                          </ImageView>
+                                       </graphic>
+                                       <font>
+                                          <Font size="20.0" />
+                                       </font>
+                                       <HBox.margin>
+                                          <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
+                                       </HBox.margin>
+                                    </JFXButton>
+                                    <JFXButton contentDisplay="GRAPHIC_ONLY" onAction="#btnStudentAttendanceView" prefHeight="115.0" prefWidth="115.0" style="-fx-background-color: #ffff; -fx-border-radius: 20; -fx-background-radius: 20; -fx-border-color: #565656;" text="USER" textFill="#565656">
+                                       <graphic>
+                                          <ImageView fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../../../../../images/student-attendance-icon-2.jpg" />
+                                             </image>
+                                          </ImageView>
+                                       </graphic>
+                                       <font>
+                                          <Font size="20.0" />
+                                       </font>
+                                       <HBox.margin>
+                                          <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
+                                       </HBox.margin>
+                                    </JFXButton>
+                                 </children>
+                              </HBox>
+                              <JFXButton contentDisplay="GRAPHIC_ONLY" onAction="#btnStudentMedicalView" prefHeight="115.0" prefWidth="115.0" style="-fx-background-color: #ffff; -fx-border-radius: 20; -fx-background-radius: 20; -fx-border-color: #565656;" text="USER" textFill="#565656">
+                                 <graphic>
+                                    <ImageView fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../../../../../images/medical-record.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                                 <font>
+                                    <Font size="20.0" />
+                                 </font>
+                                 <HBox.margin>
+                                    <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
+                                 </HBox.margin>
+                              </JFXButton>
+                           </children>
+                        </HBox>
+                     </children>
+                  </VBox>
+>>>>>>> Stashed changes
                     </children>
                 </AnchorPane>
             </center>

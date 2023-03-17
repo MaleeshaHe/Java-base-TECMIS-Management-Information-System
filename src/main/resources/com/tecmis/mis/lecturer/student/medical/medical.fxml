@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="378.0" prefWidth="829.0" style="-fx-background-color: #ffff;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.tecmis.mis.lecturer.student.medical.MedicalController">
+   <children>
+      <BorderPane fx:id="borderpane2" prefHeight="290.0" prefWidth="914.0">
+         <top>
+            <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="90.0" prefWidth="914.0" BorderPane.alignment="CENTER">
+               <children>
+                  <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="310.0" prefWidth="838.0">
+                     <children>
+                        <TableView fx:id="medicalTable" layoutX="110.0" layoutY="75.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="275.0" prefWidth="618.0" style="-fx-background-color: #ffff; -fx-background-radius: 20;" styleClass="detailsShadow" stylesheets="@../../../../../../style/style.css">
+                           <columns>
+                              <TableColumn fx:id="tgnumCol" maxWidth="193.60007333755493" prefWidth="88.0" resizable="false" style="-fx-alignment: center;" text="TG Number" />
+                              <TableColumn fx:id="stNameCol" maxWidth="320.00003814697266" prefWidth="150.0" resizable="false" style="-fx-alignment: center;" text="Name" />
+                              <TableColumn fx:id="medTitleCol" maxWidth="630.0" minWidth="0.0" prefWidth="126.0" resizable="false" style="-fx-alignment: center;" text="Title" />
+                              <TableColumn fx:id="medStartDateCol" maxWidth="630.0" minWidth="0.0" prefWidth="126.0" resizable="false" style="-fx-alignment: center;" text="Date" />
+                              <TableColumn fx:id="medDcoCol" maxWidth="630.0" minWidth="0.0" prefWidth="117.0" resizable="false" style="-fx-alignment: center;" text="Document" />
+                           </columns>
+                           <padding>
+                              <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                           </padding>
+                        </TableView>
+                        <Label fx:id="heading" alignment="CENTER" layoutX="8.0" layoutY="-5.0" prefHeight="38.0" prefWidth="823.0" text="Students Medical Details" textFill="#515151">
+                           <font>
+                              <Font name="System Bold" size="26.0" />
+                           </font>
+                        </Label>
+                        <JFXComboBox fx:id="comboStudent" editable="true" layoutX="46.0" layoutY="33.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onAction="#comboStudent" prefHeight="35.0" prefWidth="128.0" promptText="Search  student" />
+                     </children>
+                  </Pane>
+               </children>
+               <BorderPane.margin>
+                  <Insets />
+               </BorderPane.margin>
+               <padding>
+                  <Insets bottom="20.0" left="20.0" right="20.0" top="10.0" />
+               </padding>
+            </VBox>
+         </top>
+      </BorderPane>
+   </children>
+</AnchorPane>
