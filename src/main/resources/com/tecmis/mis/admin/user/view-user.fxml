@@ -21,7 +21,7 @@
                <children>
                   <HBox alignment="CENTER_LEFT" prefHeight="49.0" prefWidth="862.0">
                      <children>
-                        <JFXButton alignment="CENTER" contentDisplay="CENTER" prefHeight="51.0" prefWidth="48.0" style="-fx-background-radius: 10;" text=" " textAlignment="CENTER">
+                        <JFXButton alignment="CENTER" contentDisplay="CENTER" onAction="#backBtn" prefHeight="51.0" prefWidth="48.0" style="-fx-background-radius: 10;" text=" " textAlignment="CENTER">
                            <HBox.margin>
                               <Insets left="10.0" top="10.0" />
                            </HBox.margin>
@@ -35,7 +35,7 @@
                         </JFXButton>
                         <Label alignment="CENTER" contentDisplay="CENTER" text="User Details" textAlignment="CENTER" textFill="#535353">
                            <font>
-                              <Font name="System Bold" size="22.0" />
+                              <Font name="System Bold" size="26.0" />
                            </font>
                            <HBox.margin>
                               <Insets top="8.0" />
