@@ -44,13 +44,13 @@ public class EditAttendanceControlloer implements Initializable {
     private TableView<Attendance> table_attendance;
 
     @FXML
-    private JFXComboBox<Attendance> cmbEditCourseCode;
+    private JFXComboBox<String> cmbEditCourseCode;
 
     @FXML
-    private JFXComboBox<Attendance> cmbEditState;
+    private JFXComboBox<String> cmbEditState;
 
     @FXML
-    private JFXComboBox<Attendance> cmbEditStudentTG;
+    private JFXComboBox<String> cmbEditStudentTG;
 
     @FXML
     private DatePicker dtpEditDate;
@@ -65,6 +65,10 @@ public class EditAttendanceControlloer implements Initializable {
     Connection connection = null ;
     PreparedStatement preparedStatement = null ;
     ResultSet resultSet = null ;
+
+    String tg;
+    String cCode;
+    String aDate;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -100,12 +104,15 @@ public class EditAttendanceControlloer implements Initializable {
                 String eDate = String.valueOf(dtpEditDate.getValue());
 
                 connection = DbConnect.getConnect();
-                query = "UPDATE attendance SET CourseCode = ?, tgnum= ?, State = ?, date = ?";
+                query = "UPDATE attendance SET CourseCode = ?, tgnum= ?, State = ?, date = ? WHERE tgnum= ? AND CourseCode = ? AND date = ?";
                 preparedStatement = connection.prepareStatement(query);
                 preparedStatement.setString(1,eCourseCode);
                 preparedStatement.setString(2,eStudentTG);
                 preparedStatement.setString(3,eState);
                 preparedStatement.setString(4,eDate);
+                preparedStatement.setString(5,tg);
+                preparedStatement.setString(6,cCode);
+                preparedStatement.setString(7,aDate);
                 preparedStatement.executeUpdate();
 
                 Alert alert = new Alert(Alert.AlertType.INFORMATION);
@@ -129,9 +136,12 @@ public class EditAttendanceControlloer implements Initializable {
     }
 
     public void showInformation(String courseCode, String studentTg, String attendanceState, String attDate) {
-        cmbEditCourseCode.setAccessibleText(courseCode);
-        cmbEditStudentTG.setAccessibleText(studentTg);
-        cmbEditState.setAccessibleText(attendanceState);
+        tg = studentTg;
+        cCode = courseCode;
+        aDate = attDate;
+        cmbEditCourseCode.getSelectionModel().select(courseCode);
+        cmbEditStudentTG.getSelectionModel().select(studentTg);
+        cmbEditState.getSelectionModel().select(attendanceState);
         dtpEditDate.setValue(LocalDate.parse(attDate));
     }
 
