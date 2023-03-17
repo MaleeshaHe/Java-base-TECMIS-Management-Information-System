@@ -104,7 +104,7 @@
          <center>
             <HBox prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
                <children>
-                  <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="450.0" prefWidth="397.0" style="-fx-background-color: #ffffff;">
+                  <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="450.0" prefWidth="370.0" style="-fx-background-color: #ffffff;">
                      <children>
                         <HBox alignment="CENTER" prefHeight="78.0" prefWidth="412.0">
                            <children>
@@ -122,7 +122,7 @@
                                     <Font name="System Bold" size="17.0" />
                                  </font>
                               </Label>
-                              <JFXTextField fx:id="txtTimetableTitle" focusColor="#5271ff" prefHeight="30.0" prefWidth="245.0" promptText="type the title">
+                              <JFXTextField fx:id="txtTimetableTitle" focusColor="#5271ff" prefHeight="30.0" prefWidth="220.0" promptText="type the title">
                                  <font>
                                     <Font size="14.0" />
                                  </font>
@@ -139,7 +139,7 @@
                                     <Font name="System Bold" size="17.0" />
                                  </font>
                               </Label>
-                              <JFXComboBox fx:id="comboDepartment" prefHeight="26.0" prefWidth="245.0" promptText="selete the department" />
+                              <JFXComboBox fx:id="comboDepartment" prefHeight="26.0" prefWidth="220.0" promptText="selete the department" />
                            </children>
                            <VBox.margin>
                               <Insets bottom="20.0" />
@@ -152,7 +152,7 @@
                                     <Font name="System Bold" size="17.0" />
                                  </font>
                               </Label>
-                              <JFXComboBox fx:id="comboLevel" prefHeight="26.0" prefWidth="245.0" promptText="selete the level" />
+                              <JFXComboBox fx:id="comboLevel" prefHeight="26.0" prefWidth="220.0" promptText="selete the level" />
                            </children>
                            <VBox.margin>
                               <Insets bottom="20.0" />
@@ -165,7 +165,7 @@
                                     <Font name="System Bold" size="17.0" />
                                  </font>
                               </Label>
-                              <JFXTextField fx:id="txtMaterials" focusColor="#5271ff" prefHeight="30.0" prefWidth="146.0" promptText="select the PDF ">
+                              <JFXTextField fx:id="txtMaterials" focusColor="#5271ff" prefHeight="30.0" prefWidth="120.0" promptText="select the PDF ">
                                  <font>
                                     <Font size="14.0" />
                                  </font>
@@ -222,19 +222,39 @@
                            </children>
                         </HBox>
                      </children>
+                     <HBox.margin>
+                        <Insets />
+                     </HBox.margin>
                   </VBox>
-                  <Line endX="-99.37870788574219" endY="476.0929260253906" startX="-100.0" stroke="#c9c8c8" />
-                  <TableView fx:id="timeTable" onMouseClicked="#showPdf" onMousePressed="#showPdf" prefHeight="498.0" prefWidth="477.0">
-                     <columns>
-                        <TableColumn fx:id="titleCol" maxWidth="193.60007333755493" prefWidth="187.20004892349243" resizable="false" style="-fx-alignment: center;" text="Title" />
-                        <TableColumn fx:id="depCol" maxWidth="320.00003814697266" prefWidth="95.99993896484375" resizable="false" style="-fx-alignment: center;" text="Deparment" />
-                        <TableColumn fx:id="levelCol" maxWidth="630.0" minWidth="0.0" prefWidth="55.2000732421875" resizable="false" style="-fx-alignment: center;" text="Level" />
-                        <TableColumn fx:id="timeCol" maxWidth="339.20001220703125" prefWidth="128.0" resizable="false" style="-fx-alignment: center;" text="TimeTable" />
-                     </columns>
-                     <padding>
-                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-                     </padding>
-                  </TableView>
+                  <Line endX="-99.37870788574219" endY="476.0929260253906" startX="-100.0" stroke="#c9c8c8">
+                     <HBox.margin>
+                        <Insets left="5.0" right="5.0" />
+                     </HBox.margin></Line>
+                  <VBox>
+                     <children>
+                        <HBox alignment="CENTER">
+                           <children>
+                              <TableView fx:id="timeTable" onMouseClicked="#showPdf" onMousePressed="#showPdf" prefHeight="471.0" prefWidth="478.0" styleClass="tableShadow" stylesheets="@../../../../../style/style.css">
+                                 <columns>
+                                    <TableColumn fx:id="titleCol" maxWidth="193.60007333755493" prefWidth="187.20004892349243" resizable="false" style="-fx-alignment: center;" text="Title" />
+                                    <TableColumn fx:id="depCol" maxWidth="320.00003814697266" prefWidth="95.99993896484375" resizable="false" style="-fx-alignment: center;" text="Deparment" />
+                                    <TableColumn fx:id="levelCol" maxWidth="630.0" minWidth="0.0" prefWidth="55.2000732421875" resizable="false" style="-fx-alignment: center;" text="Level" />
+                                    <TableColumn fx:id="timeCol" maxWidth="339.20001220703125" prefWidth="97.5999755859375" resizable="false" style="-fx-alignment: center;" text="TimeTable" />
+                                 </columns>
+                                 <padding>
+                                    <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                 </padding>
+                                 <HBox.margin>
+                                    <Insets top="7.0" />
+                                 </HBox.margin>
+                              </TableView>
+                           </children>
+                           <VBox.margin>
+                              <Insets left="5.0" />
+                           </VBox.margin>
+                        </HBox>
+                     </children>
+                  </VBox>
                </children>
             </HBox>
          </center>

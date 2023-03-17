@@ -1,0 +1,241 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="600.0" prefWidth="900.0" style="-fx-background-color: #fff;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.tecmis.mis.admin.user.ViewUserController">
+   <children>
+      <Pane prefHeight="600.0" prefWidth="900.0" style="-fx-background-color: #ffff;">
+         <children>
+            <VBox alignment="TOP_CENTER" prefHeight="600.0" prefWidth="900.0">
+               <children>
+                  <HBox alignment="CENTER_LEFT" prefHeight="49.0" prefWidth="862.0">
+                     <children>
+                        <JFXButton alignment="CENTER" contentDisplay="CENTER" onAction="#backBtn" prefHeight="51.0" prefWidth="48.0" style="-fx-background-radius: 10;" text=" " textAlignment="CENTER">
+                           <HBox.margin>
+                              <Insets left="10.0" top="10.0" />
+                           </HBox.margin>
+                           <graphic>
+                              <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../../../../images/arrow-93-48.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </JFXButton>
+                        <Label alignment="CENTER" contentDisplay="CENTER" text="User Details" textAlignment="CENTER" textFill="#535353">
+                           <font>
+                              <Font name="System Bold" size="26.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets top="8.0" />
+                           </HBox.margin>
+                        </Label>
+                     </children>
+                     <VBox.margin>
+                        <Insets top="30.0" />
+                     </VBox.margin>
+                  </HBox>
+                  <HBox alignment="CENTER" prefHeight="16.0" prefWidth="852.0">
+                     <children>
+                        <Line endX="580.8928833007812" endY="0.8000076413154602" startX="-194.88125610351562" startY="-0.8002060651779175" stroke="#c9c8c8" strokeWidth="2.0" />
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER" prefHeight="459.0" prefWidth="900.0">
+                     <children>
+                        <VBox alignment="CENTER" prefHeight="450.0" prefWidth="510.0" style="-fx-background-color: #fff; -fx-background-radius: 23;" styleClass="detailsShadow" stylesheets="@../../../../../style/style.css">
+                           <children>
+                              <HBox alignment="CENTER" layoutX="10.0" layoutY="344.0" prefHeight="35.0" prefWidth="500.0">
+                                 <children>
+                                    <Label prefHeight="30.0" prefWidth="140.0" text="User ID " textFill="#797979">
+                                       <font>
+                                          <Font name="System Bold" size="16.0" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="tgnum" layoutX="10.0" layoutY="52.0" prefHeight="30.0" prefWidth="300.0" text=": TG/ADMIN/711" textFill="#797979">
+                                       <font>
+                                          <Font name="System Bold" size="16.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                                 <VBox.margin>
+                                    <Insets bottom="12.0" />
+                                 </VBox.margin>
+                              </HBox>
+                              <HBox alignment="CENTER" prefHeight="35.0" prefWidth="500.0">
+                                 <children>
+                                    <Label prefHeight="30.0" prefWidth="140.0" text="Name " textFill="#797979">
+                                       <font>
+                                          <Font name="System Bold" size="16.0" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="name" layoutX="10.0" layoutY="52.0" prefHeight="30.0" prefWidth="300.0" text=": Maleesha Herath" textFill="#797979">
+                                       <font>
+                                          <Font name="System Bold" size="16.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                                 <VBox.margin>
+                                    <Insets bottom="12.0" />
+                                 </VBox.margin>
+                              </HBox>
+                              <HBox alignment="CENTER" layoutX="10.0" layoutY="282.0" prefHeight="35.0" prefWidth="500.0">
+                                 <children>
+                                    <Label prefHeight="30.0" prefWidth="140.0" text="Email " textFill="#797979">
+                                       <font>
+                                          <Font name="System Bold" size="16.0" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="email" layoutX="10.0" layoutY="52.0" prefHeight="30.0" prefWidth="300.0" text=": malishaherath77@gmail.com" textFill="#797979">
+                                       <font>
+                                          <Font name="System Bold" size="16.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                                 <VBox.margin>
+                                    <Insets bottom="12.0" />
+                                 </VBox.margin>
+                              </HBox>
+                              <HBox alignment="CENTER" layoutX="10.0" layoutY="303.0" prefHeight="35.0" prefWidth="500.0">
+                                 <children>
+                                    <Label prefHeight="30.0" prefWidth="140.0" text="Phone " textFill="#797979">
+                                       <font>
+                                          <Font name="System Bold" size="16.0" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="phonenum" layoutX="10.0" layoutY="52.0" prefHeight="30.0" prefWidth="300.0" text=": 078 6981236" textFill="#797979">
+                                       <font>
+                                          <Font name="System Bold" size="16.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                                 <VBox.margin>
+                                    <Insets bottom="12.0" />
+                                 </VBox.margin>
+                              </HBox>
+                              <HBox alignment="CENTER" layoutX="10.0" layoutY="324.0" prefHeight="35.0" prefWidth="500.0">
+                                 <children>
+                                    <Label prefHeight="30.0" prefWidth="140.0" text="Department  " textFill="#797979">
+                                       <font>
+                                          <Font name="System Bold" size="16.0" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="dep" layoutX="10.0" layoutY="52.0" prefHeight="30.0" prefWidth="300.0" text=": ICT" textFill="#797979">
+                                       <font>
+                                          <Font name="System Bold" size="16.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                                 <VBox.margin>
+                                    <Insets bottom="12.0" />
+                                 </VBox.margin>
+                              </HBox>
+                              <HBox alignment="CENTER" layoutX="10.0" layoutY="188.0" prefHeight="35.0" prefWidth="500.0">
+                                 <children>
+                                    <Label prefHeight="30.0" prefWidth="140.0" text="Date of Birth" textFill="#797979">
+                                       <font>
+                                          <Font name="System Bold" size="16.0" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="userDob" layoutX="10.0" layoutY="52.0" prefHeight="30.0" prefWidth="300.0" text=": ICT" textFill="#797979">
+                                       <font>
+                                          <Font name="System Bold" size="16.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                                 <VBox.margin>
+                                    <Insets bottom="12.0" />
+                                 </VBox.margin>
+                              </HBox>
+                              <HBox alignment="CENTER" layoutX="30.0" layoutY="336.0" prefHeight="35.0" prefWidth="500.0">
+                                 <children>
+                                    <Label prefHeight="30.0" prefWidth="140.0" text="Gender" textFill="#797979">
+                                       <font>
+                                          <Font name="System Bold" size="16.0" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="sex" layoutX="10.0" layoutY="52.0" prefHeight="30.0" prefWidth="300.0" text=": Male" textFill="#797979">
+                                       <font>
+                                          <Font name="System Bold" size="16.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                                 <VBox.margin>
+                                    <Insets bottom="12.0" />
+                                 </VBox.margin>
+                              </HBox>
+                              <HBox alignment="CENTER" layoutX="30.0" layoutY="388.0" prefHeight="35.0" prefWidth="500.0">
+                                 <children>
+                                    <Label prefHeight="30.0" prefWidth="140.0" text="Address" textFill="#797979">
+                                       <font>
+                                          <Font name="System Bold" size="16.0" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="addres" layoutX="10.0" layoutY="52.0" prefHeight="30.0" prefWidth="300.0" text=": 32/A,Krideniya,Norwod" textFill="#797979">
+                                       <font>
+                                          <Font name="System Bold" size="16.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                                 <VBox.margin>
+                                    <Insets bottom="12.0" />
+                                 </VBox.margin>
+                              </HBox>
+                              <HBox alignment="CENTER" layoutX="30.0" layoutY="475.0" prefHeight="35.0" prefWidth="500.0">
+                                 <children>
+                                    <Label prefHeight="30.0" prefWidth="140.0" text="User Type" textFill="#797979">
+                                       <font>
+                                          <Font name="System Bold" size="16.0" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="userType" layoutX="10.0" layoutY="52.0" prefHeight="30.0" prefWidth="300.0" text=": Student" textFill="#797979">
+                                       <font>
+                                          <Font name="System Bold" size="16.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                                 <VBox.margin>
+                                    <Insets bottom="12.0" />
+                                 </VBox.margin>
+                              </HBox>
+                           </children>
+                           <padding>
+                              <Insets top="15.0" />
+                           </padding>
+                           <HBox.margin>
+                              <Insets top="5.0" />
+                           </HBox.margin>
+                        </VBox>
+                        <VBox alignment="CENTER">
+                           <children>
+                              <HBox alignment="CENTER" prefHeight="482.0" prefWidth="226.0" stylesheets="@../../../../../style/style.css">
+                                 <children>
+                                    <Circle fx:id="pic" fill="#f7f7f7" radius="98.0" stroke="#5271ff" strokeType="INSIDE" strokeWidth="2.0" styleClass="detailsShadow" />
+                                 </children>
+                                 <VBox.margin>
+                                    <Insets left="15.0" />
+                                 </VBox.margin>
+                              </HBox>
+                           </children>
+                        </VBox>
+                     </children>
+                     <VBox.margin>
+                        <Insets top="10.0" />
+                     </VBox.margin>
+                  </HBox>
+               </children>
+            </VBox>
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>

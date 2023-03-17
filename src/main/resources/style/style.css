@@ -45,3 +45,7 @@
     -fx-font-size: 13;
     -fx-background-radius: 0 6 6 0;
 }
+
+.tableShadow{
+    -fx-effect: dropshadow(three-pass-box, rgba(149, 157, 165, 1), 15,0,0,0);
+}

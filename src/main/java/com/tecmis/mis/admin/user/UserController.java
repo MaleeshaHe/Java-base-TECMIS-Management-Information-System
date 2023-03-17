@@ -17,6 +17,7 @@ import javafx.geometry.Insets;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
@@ -24,6 +25,7 @@ import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Circle;
 import javafx.util.Callback;
 
+import java.awt.*;
 import java.io.*;
 import java.net.URL;
 import java.sql.Connection;
@@ -408,5 +410,32 @@ public class UserController implements Initializable {
             Logger.getLogger(NoticeController.class.getName()).log(Level.SEVERE, null, ex);
         }
 
+    }
+
+    @FXML
+    void showUserDetails(MouseEvent event) {
+        if (event.isPrimaryButtonDown() && event.getClickCount() == 2) {
+            if(userTable.getSelectionModel().getSelectedItem() != null){
+                try {
+
+                    userDetails = userTable.getSelectionModel().getSelectedItem();
+                    UserController.setSelectedUser(userDetails);
+                    AnchorPane view = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("view-user.fxml")));
+                    borderpane.getChildren().removeAll();
+                    borderpane.setCenter(view);
+                    new FadeInRight(view).play();
+
+                } catch (IOException ex) {
+                    Logger.getLogger(NoticeController.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+            else {
+                Alert alert = new Alert(Alert.AlertType.WARNING);
+                alert.setTitle("Warning");
+                alert.setContentText("If you want to view any user details, First you select the row that you want to view");
+                alert.showAndWait();
+            }
+
+        }
     }
 }
