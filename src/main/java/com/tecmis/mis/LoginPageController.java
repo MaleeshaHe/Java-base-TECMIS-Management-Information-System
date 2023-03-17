@@ -104,7 +104,7 @@ public class LoginPageController implements Initializable {
                             FXMLLoader loader = new FXMLLoader(getClass().getResource("admin/admin-home.fxml"));
                             root = loader.load();
                             stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-                            scene = new Scene(root, 1070,600);
+                            scene = new Scene(root, 1080,610);
                             stage.setScene(scene);
                             stage.centerOnScreen();
                             stage.show();
@@ -124,7 +124,7 @@ public class LoginPageController implements Initializable {
                             FXMLLoader loader = new FXMLLoader(getClass().getResource("student/student-home.fxml"));
                             root = loader.load();
                             stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-                            scene = new Scene(root, 1070,600);
+                            scene = new Scene(root, 1080,610);
                             stage.setScene(scene);
                             stage.centerOnScreen();
                             stage.show();
@@ -144,7 +144,7 @@ public class LoginPageController implements Initializable {
                             FXMLLoader loader = new FXMLLoader(getClass().getResource("technical_officer/technical-officer-home.fxml"));
                             root = loader.load();
                             stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-                            scene = new Scene(root, 1070,600);
+                            scene = new Scene(root, 1080,610);
                             stage.setScene(scene);
                             stage.centerOnScreen();
                             stage.show();
@@ -164,7 +164,7 @@ public class LoginPageController implements Initializable {
                             FXMLLoader loader = new FXMLLoader(getClass().getResource("lecturer/lecturer-home.fxml"));
                             root = loader.load();
                             stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-                            scene = new Scene(root, 1070,600);
+                            scene = new Scene(root, 1080,610);
                             stage.setScene(scene);
                             stage.centerOnScreen();
                             stage.show();
