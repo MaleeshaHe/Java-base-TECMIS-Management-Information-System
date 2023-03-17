@@ -63,9 +63,13 @@ public class LecturerStudentHomeController implements Initializable {
     @FXML
     private TableColumn<LecturerStudentDetails, String> stPhoneCol;
     @FXML
+<<<<<<< Updated upstream
     private JFXComboBox<String> comboStudent;
+=======
+    public JFXComboBox<String> comboStudent;
     @FXML
     private Label heading;
+>>>>>>> Stashed changes
     @FXML
     private Stage stage;
     private Scene scene;
@@ -267,13 +271,13 @@ public class LecturerStudentHomeController implements Initializable {
         borderpane2.getChildren().removeAll();
     }
     public void btnStudentMedicalView(ActionEvent actionEvent)throws IOException{
-
+<<<<<<< Updated upstream
         borderpane2.getChildren().removeAll();
-
+=======
         AnchorPane view = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("medical/medical.fxml")));
         borderpane2.getChildren().removeAll();
         borderpane2.setCenter(view);
         new FadeInDown(view).play();
-
+>>>>>>> Stashed changes
     }
 }
