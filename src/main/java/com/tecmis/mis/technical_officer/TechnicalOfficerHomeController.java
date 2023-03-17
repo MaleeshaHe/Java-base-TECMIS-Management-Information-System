@@ -222,6 +222,13 @@ public class TechnicalOfficerHomeController implements Initializable {
         new FadeInDown(view).play();
     }
 
+    public void btnAttendance(ActionEvent actionEvent) throws IOException {
+        AnchorPane view = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("attendance/attendance.fxml")));
+        borderpane.getChildren().removeAll();
+        borderpane.setCenter(view);
+        new FadeInDown(view).play();
+    }
+
     public void btnLogOut(ActionEvent event) throws IOException {
 
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("../login-page.fxml")));
@@ -236,4 +243,5 @@ public class TechnicalOfficerHomeController implements Initializable {
 
         UserSession.cleanUserSession();
     }
+
 }

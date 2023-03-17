@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="412.0" prefWidth="397.0" style="-fx-background-color: #ffffff;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.tecmis.mis.technical_officer.attendance.EditAttendanceControlloer">
+   <children>
+      <HBox alignment="CENTER" prefHeight="78.0" prefWidth="412.0">
+         <children>
+            <Label contentDisplay="CENTER" text="Upload New Attendance" textAlignment="CENTER" textFill="#535353">
+               <font>
+                  <Font name="System Bold" size="22.0" />
+               </font>
+            </Label>
+         </children>
+      </HBox>
+      <HBox alignment="CENTER" layoutX="10.0" layoutY="150.0" prefHeight="41.0" prefWidth="412.0">
+         <children>
+            <Label prefHeight="26.0" prefWidth="125.0" text="Course Code" textFill="#595959">
+               <font>
+                  <Font name="System Bold" size="17.0" />
+               </font>
+            </Label>
+            <JFXComboBox fx:id="cmbEditCourseCode" prefHeight="26.0" prefWidth="245.0" promptText="selete the course code" />
+         </children>
+         <padding>
+            <Insets bottom="20.0" />
+         </padding>
+      </HBox>
+      <HBox alignment="CENTER" prefHeight="41.0" prefWidth="412.0">
+         <children>
+            <Label prefHeight="26.0" prefWidth="125.0" text="Student TG" textFill="#595959">
+               <font>
+                  <Font name="System Bold" size="17.0" />
+               </font>
+            </Label>
+            <JFXComboBox fx:id="cmbEditStudentTG" prefHeight="26.0" prefWidth="245.0" promptText="selete the student tg" />
+         </children>
+         <VBox.margin>
+            <Insets bottom="20.0" />
+         </VBox.margin>
+      </HBox>
+      <HBox alignment="CENTER" layoutX="10.0" layoutY="260.0" prefHeight="41.0" prefWidth="412.0">
+         <children>
+            <Label prefHeight="26.0" prefWidth="125.0" text="State" textFill="#595959">
+               <font>
+                  <Font name="System Bold" size="17.0" />
+               </font>
+            </Label>
+            <JFXComboBox fx:id="cmbEditState" prefHeight="26.0" prefWidth="245.0" promptText="selete the state" />
+         </children>
+         <VBox.margin>
+            <Insets bottom="20.0" />
+         </VBox.margin>
+      </HBox>
+      <HBox alignment="CENTER" layoutX="10.0" layoutY="218.0" prefHeight="41.0" prefWidth="412.0">
+         <children>
+            <Label prefHeight="26.0" prefWidth="125.0" text="Date" textFill="#595959">
+               <font>
+                  <Font name="System Bold" size="17.0" />
+               </font>
+            </Label>
+            <DatePicker fx:id="dtpEditDate" prefHeight="26.0" prefWidth="245.0" />
+         </children>
+         <VBox.margin>
+            <Insets bottom="20.0" />
+         </VBox.margin>
+      </HBox>
+      <HBox alignment="CENTER" prefHeight="30.0" prefWidth="398.0">
+         <children>
+            <Label fx:id="errorEdit" textAlignment="CENTER" textFill="#e70000">
+               <font>
+                  <Font size="13.0" />
+               </font>
+            </Label>
+         </children>
+      </HBox>
+      <HBox alignment="CENTER" prefHeight="52.0" prefWidth="398.0">
+         <children>
+            <JFXButton fx:id="btnEditAttendance" alignment="CENTER" maxWidth="88.0" onAction="#uploadAttendance" prefHeight="34.0" prefWidth="86.0" style="-fx-background-radius: 18;" styleClass="addNoticeBtn" stylesheets="@../../../../../style/style.css" text="Update" textAlignment="CENTER">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+               <HBox.margin>
+                  <Insets right="10.0" />
+               </HBox.margin>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+               <graphic>
+                  <ImageView fitHeight="13.0" fitWidth="13.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../../../images/upload-2-64.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </JFXButton>
+            <JFXButton fx:id="btnEditClear" alignment="CENTER" layoutX="173.0" layoutY="43.0" maxWidth="88.0" onAction="#clear" prefHeight="34.0" prefWidth="86.0" style="-fx-background-radius: 18;" styleClass="cancelNoticeBtn" stylesheets="@../../../../../style/style.css" text="Clear" textAlignment="CENTER">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+               <HBox.margin>
+                  <Insets left="10.0" />
+               </HBox.margin>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </JFXButton>
+         </children>
+      </HBox>
+   </children>
+</VBox>
