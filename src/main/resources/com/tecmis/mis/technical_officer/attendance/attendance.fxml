@@ -45,7 +45,7 @@
                   </HBox>
                   <HBox alignment="CENTER" prefHeight="50.0" prefWidth="839.0" styleClass="table-view" stylesheets="@../../../../../style/table_view.css">
                      <children>
-                        <JFXButton fx:id="refreshAttendance" prefHeight="38.0" prefWidth="121.0" styleClass="menuItem" text="Refresh">
+                        <JFXButton fx:id="refreshAttendance" onAction="#loadAttendance" prefHeight="38.0" prefWidth="121.0" styleClass="menuItem" text="Refresh">
                            <graphic>
                               <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
@@ -60,7 +60,7 @@
                               <Font size="14.0" />
                            </font>
                         </JFXButton>
-                        <JFXButton fx:id="editAttendance" layoutX="436.0" layoutY="30.0" prefHeight="38.0" prefWidth="170.0" styleClass="menuItem" text="Edit Attendance">
+                        <JFXButton fx:id="editAttendance" layoutX="436.0" layoutY="30.0" onAction="#setEditAttendance" prefHeight="38.0" prefWidth="170.0" styleClass="menuItem" text="Edit Attendance">
                            <graphic>
                               <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
@@ -75,7 +75,7 @@
                               <Font size="14.0" />
                            </font>
                         </JFXButton>
-                        <JFXButton fx:id="deleteAttendance" layoutX="528.0" layoutY="30.0" prefHeight="32.0" prefWidth="161.0" styleClass="menuItem" text="Delete Attendance">
+                        <JFXButton fx:id="deleteAttendance" layoutX="528.0" layoutY="30.0" onAction="#setDeleteAttendance" prefHeight="32.0" prefWidth="161.0" styleClass="menuItem" text="Delete Attendance">
                            <graphic>
                               <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
                                  <image>

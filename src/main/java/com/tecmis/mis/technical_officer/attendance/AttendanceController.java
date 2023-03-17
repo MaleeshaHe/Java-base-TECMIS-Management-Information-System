@@ -3,24 +3,26 @@ package com.tecmis.mis.technical_officer.attendance;
 import animatefx.animation.Shake;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXComboBox;
+import com.tecmis.mis.admin.notice.NoticeController;
 import com.tecmis.mis.db_connect.DbConnect;
+import com.tecmis.mis.technical_officer.medical.EditMedicalControlloer;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.DatePicker;
-import javafx.scene.control.Label;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
+import javafx.scene.control.*;
 import com.tecmis.mis.JDBC.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
 
 import java.awt.event.ActionEvent;
 import java.awt.event.MouseEvent;
+import java.io.IOException;
 import java.net.URL;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -28,7 +30,10 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.time.LocalDate;
 import java.util.Date;
+import java.util.Optional;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class AttendanceController implements Initializable {
     @FXML
@@ -250,6 +255,68 @@ public class AttendanceController implements Initializable {
                 throw new RuntimeException(e);
             }
             loadAttendance();
+        }
+    }
+
+    @FXML
+    void setEditAttendance(javafx.event.ActionEvent event) {
+        if(table_attendance.getSelectionModel().getSelectedItem() != null){
+            try{
+                Attendance attendance = table_attendance.getSelectionModel().getSelectedItem();
+                FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("edit-attendance.fxml"));
+                Parent root = (Parent) fxmlLoader.load();
+
+                EditAttendanceControlloer senddata = fxmlLoader.getController();
+                senddata.showInformation(attendance.getCourse_Code(),attendance.getStudent_TG(),attendance.getAttendance_State(),attendance.getAttDate());
+
+                Stage stage = new Stage();
+                stage.setTitle("Edit Attendance");
+                javafx.scene.image.Image image = new Image("images/appIcon.png");
+                stage.getIcons().add(image);
+                stage.resizableProperty().setValue(false);
+                stage.setScene(new Scene(root));
+                stage.show();
+
+            } catch (IOException ex) {
+                Logger.getLogger(NoticeController.class.getName()).log(Level.SEVERE, null, ex);
+            }
+
+        }
+        else {
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Warning");
+            alert.setContentText("If you want to update any Attendance, First you select the row that you want to update");
+            alert.showAndWait();
+        }
+    }
+
+    @FXML
+    void setDeleteAttendance(javafx.event.ActionEvent event) {
+        if(table_attendance.getSelectionModel().getSelectedItem() != null){
+            Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+            alert.setTitle("Delete Attendance");
+            alert.setContentText("Are you sure delete this Attendance");
+            Optional<ButtonType> result = alert.showAndWait();
+
+            if(result.get() == ButtonType.OK){
+                try {
+                    Attendance attendance = table_attendance.getSelectionModel().getSelectedItem();
+                    query = "DELETE FROM `attendance` WHERE CourseCode='"+attendance.getCourse_Code()+"'AND tgnum='"+attendance.getStudent_TG()+"' AND State='"+attendance.getAttendance_State()+"' AND date='"+attendance.getAttDate()+"'";
+                    connection = DbConnect.getConnect();
+                    preparedStatement = connection.prepareStatement(query);
+                    preparedStatement.execute();
+                    loadAttendance();
+
+                } catch (SQLException ex) {
+                    Logger.getLogger(NoticeController.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+        }
+        else{
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Warning");
+            alert.setContentText("If you want to delete any Attendance, First you select the row that you want to delete");
+            alert.showAndWait();
         }
     }
 }
