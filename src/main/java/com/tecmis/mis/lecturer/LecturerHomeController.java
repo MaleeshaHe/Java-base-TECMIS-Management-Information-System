@@ -188,11 +188,17 @@ public class LecturerHomeController implements Initializable {
     }
 
     public void btnExams (ActionEvent actionEvent) throws IOException{
-
+        AnchorPane view = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("exam/exam.fxml")));
+        borderpane.getChildren().removeAll();
+        borderpane.setCenter(view);
+        new FadeInDown(view).play();
     }
 
     public void btnStudents (ActionEvent actionEvent) throws IOException{
-
+        AnchorPane view = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("student/lecturer-student-home.fxml")));
+        borderpane.getChildren().removeAll();
+        borderpane.setCenter(view);
+        new FadeInDown(view).play();
     }
 
     public void btnLogOut(ActionEvent event) throws IOException {

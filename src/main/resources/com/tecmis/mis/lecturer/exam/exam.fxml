@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="600.0" prefWidth="900.0" stylesheets="@../../../../../style/table_view.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.tecmis.mis.lecturer.exam.ExamController">
+    <children>
+        <BorderPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #ffff;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <center>
+            <TableView fx:id="examTable" prefHeight="241.0" prefWidth="860.0" BorderPane.alignment="CENTER">
+              <columns>
+                <TableColumn fx:id="examCodeCol" maxWidth="114.39998817443848" prefWidth="109.5999698638916" resizable="false" style="-fx-alignment: center;" text="Exam Code" />
+                <TableColumn fx:id="courseNameCol" maxWidth="524.8000793457031" prefWidth="462.0" resizable="false" style="-fx-alignment: center;" text="Course Name" />
+                  <TableColumn fx:id="examType" maxWidth="455.2000427246094" prefWidth="123.0" resizable="false" style="-fx-alignment: center;" text="Exam Type" />
+                  <TableColumn fx:id="examScore" maxWidth="630.0" prefWidth="153.5999755859375" resizable="false" style="-fx-alignment: center;" text="Exam Score" />
+              </columns>
+               <BorderPane.margin>
+                  <Insets bottom="20.0" left="20.0" right="20.0" top="5.0" />
+               </BorderPane.margin>
+               <padding>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </padding>
+            </TableView>
+         </center>
+         <top>
+            <VBox prefHeight="42.0" prefWidth="900.0" BorderPane.alignment="CENTER">
+               <children>
+                  <HBox alignment="CENTER" layoutX="10.0" layoutY="10.0" prefHeight="55.0" prefWidth="798.0" styleClass="table-view" stylesheets="@../../../../../style/table_view.css">
+                     <children>
+                        <Label alignment="CENTER" contentDisplay="CENTER" text="Exams" textAlignment="CENTER" textFill="#515151">
+                           <font>
+                              <Font name="System Bold" size="26.0" />
+                           </font>
+                        </Label>
+                     </children>
+                     <VBox.margin>
+                        <Insets left="200.0" right="200.0" top="5.0" />
+                     </VBox.margin>
+                  </HBox>
+                  <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                     <children>
+                        <Line endX="580.8928833007812" endY="0.8000076413154602" startX="-100.0" stroke="#c9c8c8" strokeWidth="2.0" />
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER" prefHeight="50.0" prefWidth="839.0" styleClass="table-view" stylesheets="@../../../../../style/table_view.css">
+                     <padding>
+                        <Insets left="20.0" right="20.0" top="20.0" />
+                     </padding>
+                     <children>
+                        <JFXComboBox fx:id="comboCourse" prefHeight="35.0" prefWidth="302.0" promptText="selete a course" />
+                        <JFXButton alignment="CENTER" maxWidth="167.0" onAction="#findExams" prefHeight="34.0" prefWidth="148.0" style="-fx-background-radius: 18;" styleClass="addNoticeBtn" stylesheets="@../../../../../style/style.css" text="FIND EXAMS" textAlignment="CENTER">
+                           <font>
+                              <Font name="System Bold" size="14.0" />
+                           </font>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                           <graphic>
+                              <ImageView fitHeight="13.0" fitWidth="13.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../../../../images/add.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </JFXButton>
+                     </children>
+                  </HBox>
+                  <ImageView fitHeight="13.0" fitWidth="13.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../../../images/add.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </VBox>
+         </top>
+        </BorderPane>
+    </children>
+</AnchorPane>
