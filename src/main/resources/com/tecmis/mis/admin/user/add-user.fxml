@@ -18,43 +18,59 @@
 <?import javafx.scene.paint.LinearGradient?>
 <?import javafx.scene.paint.Stop?>
 <?import javafx.scene.shape.Circle?>
+<?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.tecmis.mis.admin.user.AddUserControlloer">
+<AnchorPane prefHeight="600.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.tecmis.mis.admin.user.AddUserControlloer">
    <children>
       <BorderPane fx:id="borderpane" prefHeight="500.0" prefWidth="600.0" style="-fx-background-color: #fff;">
          <top>
-            <HBox alignment="CENTER_LEFT" prefHeight="53.0" prefWidth="824.0" BorderPane.alignment="CENTER">
+            <VBox BorderPane.alignment="CENTER">
                <children>
-                  <JFXButton alignment="CENTER" contentDisplay="CENTER" onAction="#backBtn" prefHeight="51.0" prefWidth="48.0" style="-fx-background-radius: 10;" text=" " textAlignment="CENTER">
-                     <HBox.margin>
-                        <Insets left="10.0" top="10.0" />
-                     </HBox.margin>
-                     <graphic>
-                        <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../../../../../images/arrow-93-48.png" />
-                           </image>
-                        </ImageView>
-                     </graphic>
-                  </JFXButton>
-                  <Label alignment="CENTER" contentDisplay="CENTER" text="Create New User" textAlignment="CENTER" textFill="#535353">
-                     <font>
-                        <Font name="System Bold" size="22.0" />
-                     </font>
-                     <HBox.margin>
-                        <Insets top="8.0" />
-                     </HBox.margin>
-                  </Label>
+                  <HBox alignment="CENTER_LEFT" prefHeight="5.0" prefWidth="852.0">
+                     <children>
+                        <JFXButton alignment="CENTER" contentDisplay="CENTER" onAction="#backBtn" prefHeight="51.0" prefWidth="48.0" style="-fx-background-radius: 10;" text=" " textAlignment="CENTER">
+                           <HBox.margin>
+                              <Insets left="10.0" top="10.0" />
+                           </HBox.margin>
+                           <graphic>
+                              <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../../../../images/arrow-93-48.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </JFXButton>
+                        <Label alignment="CENTER" contentDisplay="CENTER" text="Create New User" textAlignment="CENTER" textFill="#535353">
+                           <font>
+                              <Font name="System Bold" size="22.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets top="8.0" />
+                           </HBox.margin>
+                        </Label>
+                     </children>
+                     <VBox.margin>
+                        <Insets top="40.0" />
+                     </VBox.margin>
+                  </HBox>
+                  <HBox alignment="CENTER" prefHeight="16.0" prefWidth="852.0">
+                     <children>
+                        <Line endX="580.8928833007812" endY="0.8000076413154602" startX="-194.88125610351562" startY="-0.8002060651779175" stroke="#c9c8c8" strokeWidth="2.0" />
+                     </children>
+                  </HBox>
                </children>
-            </HBox>
+               <BorderPane.margin>
+                  <Insets />
+               </BorderPane.margin>
+            </VBox>
          </top>
          <center>
-            <VBox prefHeight="390.0" prefWidth="824.0" BorderPane.alignment="CENTER">
+            <VBox prefHeight="353.0" prefWidth="852.0" BorderPane.alignment="CENTER">
                <children>
-                  <HBox prefHeight="100.0" prefWidth="200.0">
+                  <HBox prefHeight="134.0" prefWidth="852.0">
                      <children>
-                        <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="360.0" prefWidth="440.0" style="-fx-background-color: #ffffff;">
+                        <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="406.0" prefWidth="440.0" style="-fx-background-color: #ffffff;">
                            <children>
                               <HBox alignment="CENTER" prefHeight="41.0" prefWidth="412.0">
                                  <children>
@@ -70,7 +86,7 @@
                                     </JFXComboBox>
                                  </children>
                                  <VBox.margin>
-                                    <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                    <Insets bottom="15.0" />
                                  </VBox.margin>
                               </HBox>
                               <HBox alignment="CENTER" layoutX="10.0" layoutY="10.0" prefHeight="41.0" prefWidth="412.0">
@@ -87,7 +103,7 @@
                                     </JFXTextField>
                                  </children>
                                  <VBox.margin>
-                                    <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                    <Insets bottom="15.0" />
                                  </VBox.margin>
                               </HBox>
                               <HBox alignment="CENTER" layoutX="10.0" layoutY="76.0" prefHeight="41.0" prefWidth="412.0">
@@ -104,7 +120,7 @@
                                     </JFXTextField>
                                  </children>
                                  <VBox.margin>
-                                    <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                    <Insets bottom="15.0" />
                                  </VBox.margin>
                               </HBox>
                               <HBox alignment="CENTER" layoutX="10.0" layoutY="218.0" prefHeight="41.0" prefWidth="412.0">
@@ -121,7 +137,7 @@
                                     </JFXTextField>
                                  </children>
                                  <VBox.margin>
-                                    <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                    <Insets bottom="15.0" />
                                  </VBox.margin>
                               </HBox>
                               <HBox alignment="CENTER" layoutX="10.0" layoutY="260.0" prefHeight="41.0" prefWidth="412.0">
@@ -138,7 +154,7 @@
                                     </JFXTextField>
                                  </children>
                                  <VBox.margin>
-                                    <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                    <Insets bottom="15.0" />
                                  </VBox.margin>
                               </HBox>
                               <HBox alignment="CENTER" layoutX="10.0" layoutY="229.0" prefHeight="41.0" prefWidth="412.0">
@@ -155,7 +171,7 @@
                                     </JFXTextField>
                                  </children>
                                  <VBox.margin>
-                                    <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                    <Insets bottom="15.0" />
                                  </VBox.margin>
                               </HBox>
                               <HBox alignment="CENTER" layoutX="10.0" layoutY="247.0" prefHeight="41.0" prefWidth="412.0">
@@ -172,18 +188,18 @@
                                     </JFXTextField>
                                  </children>
                                  <VBox.margin>
-                                    <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                    <Insets bottom="15.0" />
                                  </VBox.margin>
                               </HBox>
                            </children>
                            <HBox.margin>
-                              <Insets />
+                              <Insets top="10.0" />
                            </HBox.margin>
                            <padding>
                               <Insets left="30.0" />
                            </padding>
                         </VBox>
-                        <VBox layoutX="10.0" layoutY="10.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="360.0" prefWidth="412.0" style="-fx-background-color: #ffffff;">
+                        <VBox layoutX="10.0" layoutY="10.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="404.0" prefWidth="412.0" style="-fx-background-color: #ffffff;">
                            <children>
                               <HBox alignment="CENTER" layoutX="10.0" layoutY="76.0" prefHeight="41.0" prefWidth="412.0">
                                  <children>
@@ -195,7 +211,7 @@
                                     <DatePicker fx:id="txtDoB" prefHeight="26.0" prefWidth="220.0" promptText="select your birth day" />
                                  </children>
                                  <VBox.margin>
-                                    <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                    <Insets bottom="15.0" />
                                  </VBox.margin>
                               </HBox>
                               <HBox alignment="CENTER" layoutX="10.0" layoutY="218.0" prefHeight="41.0" prefWidth="412.0">
@@ -208,7 +224,7 @@
                                     <JFXComboBox fx:id="comboGender" focusColor="#5271ff" prefHeight="30.0" prefWidth="220.0" promptText="selete gender" />
                                  </children>
                                  <VBox.margin>
-                                    <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                    <Insets bottom="15.0" />
                                  </VBox.margin>
                               </HBox>
                               <HBox alignment="CENTER" layoutX="10.0" layoutY="260.0" prefHeight="41.0" prefWidth="412.0">
@@ -221,7 +237,7 @@
                                     <JFXComboBox fx:id="comboDepartment" focusColor="#5271ff" prefHeight="30.0" prefWidth="220.0" promptText="selete the department" />
                                  </children>
                                  <VBox.margin>
-                                    <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                    <Insets bottom="15.0" />
                                  </VBox.margin>
                               </HBox>
                               <HBox alignment="CENTER" layoutX="10.0" layoutY="201.0" prefHeight="41.0" prefWidth="412.0">
@@ -238,7 +254,7 @@
                                     </JFXPasswordField>
                                  </children>
                                  <VBox.margin>
-                                    <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                    <Insets bottom="15.0" />
                                  </VBox.margin>
                               </HBox>
                               <HBox alignment="CENTER" layoutX="10.0" layoutY="218.0" prefHeight="41.0" prefWidth="412.0">
@@ -255,7 +271,7 @@
                                     </JFXPasswordField>
                                  </children>
                                  <VBox.margin>
-                                    <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                    <Insets bottom="15.0" />
                                  </VBox.margin>
                               </HBox>
                               <HBox alignment="CENTER" prefHeight="86.0" prefWidth="402.0">
@@ -290,25 +306,31 @@
                                     </JFXButton>
                                  </children>
                                  <VBox.margin>
-                                    <Insets top="2.0" />
+                                    <Insets bottom="15.0" top="5.0" />
                                  </VBox.margin>
                               </HBox>
                            </children>
+                           <HBox.margin>
+                              <Insets top="10.0" />
+                           </HBox.margin>
                         </VBox>
                      </children>
                   </HBox>
-                  <HBox alignment="CENTER" prefHeight="23.0" prefWidth="852.0">
+                  <HBox alignment="CENTER" prefHeight="42.0" prefWidth="852.0">
                      <children>
                         <Label fx:id="error" textAlignment="CENTER" textFill="#e70000">
                            <font>
                               <Font size="13.0" />
                            </font>
+                           <HBox.margin>
+                              <Insets bottom="8.0" />
+                           </HBox.margin>
                         </Label>
                      </children>
                   </HBox>
                   <HBox prefHeight="52.0" prefWidth="824.0">
                      <children>
-                        <HBox alignment="CENTER" prefHeight="52.0" prefWidth="841.0">
+                        <HBox alignment="CENTER" prefHeight="38.0" prefWidth="842.0">
                            <children>
                               <JFXButton alignment="CENTER" maxWidth="88.0" onAction="#addUser" prefHeight="34.0" prefWidth="86.0" style="-fx-background-radius: 18;" styleClass="addNoticeBtn" stylesheets="@../../../../../style/style.css" text="Add" textAlignment="CENTER">
                                  <font>
@@ -337,6 +359,9 @@
                      </children>
                   </HBox>
                </children>
+               <BorderPane.margin>
+                  <Insets />
+               </BorderPane.margin>
             </VBox>
          </center>
       </BorderPane>
