@@ -1,22 +1,22 @@
-.body{
-    -fx-background-color: #202124;
-}
+/*.body{*/
+/*    -fx-background-color: #202124;*/
+/*}*/
 
-.success{
-    -fx-background-color: #2c2c2c;
-}
+/*.success{*/
+/*    -fx-background-color: #2c2c2c;*/
+/*}*/
 
-.btn-primary{
-    -fx-background-color: #303134;
-    -fx-text-fill: #ffff;
-}
+/*.btn-primary{*/
+/*    -fx-background-color: #303134;*/
+/*    -fx-text-fill: #ffff;*/
+/*}*/
 
-.btn-success{
-    -fx-border-radius: 50px;
-    -fx-background-color: #303134;
-    -fx-text-fill: #ffff;
-}
+/*.btn-success{*/
+/*    -fx-border-radius: 50px;*/
+/*    -fx-background-color: #303134;*/
+/*    -fx-text-fill: #ffff;*/
+/*}*/
 
-.txt-primary{
-    -fx-text-fill: #ffff;
-}
+/*.txt-primary{*/
+/*    -fx-text-fill: #ffff;*/
+/*}*/
