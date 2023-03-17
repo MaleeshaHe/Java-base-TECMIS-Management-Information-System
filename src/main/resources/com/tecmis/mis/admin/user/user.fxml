@@ -2,6 +2,7 @@
 
 <?import com.jfoenix.controls.JFXButton?>
 <?import com.jfoenix.controls.JFXComboBox?>
+<?import com.jfoenix.controls.JFXTextField?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Label?>
@@ -117,7 +118,23 @@
                <children>
                   <HBox alignment="CENTER" prefHeight="30.0" prefWidth="900.0">
                      <children>
-                        <JFXComboBox fx:id="comboUserRole" focusColor="#5271ff" onAction="#comboSelectUser" prefHeight="32.0" prefWidth="120.0" promptText="Select User type" styleClass="comboBox" stylesheets="@../../../../../style/style.css">
+                        <ImageView fitHeight="18.0" fitWidth="18.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../../../images/search-9-64.png" />
+                           </image>
+                        </ImageView>
+                        <JFXTextField fx:id="txtKeyword" focusColor="#405aa800" prefHeight="26.0" prefWidth="202.0" promptText="Search user (type name) " style="-fx-border-color: #acacac; -fx-border-radius: 12;" unFocusColor="#ababab00">
+                           <padding>
+                              <Insets left="15.0" />
+                           </padding>
+                           <HBox.margin>
+                              <Insets left="5.0" right="30.0" />
+                           </HBox.margin>
+                           <font>
+                              <Font size="13.0" />
+                           </font>
+                        </JFXTextField>
+                        <JFXComboBox fx:id="comboUserRole" focusColor="#5271ff" onAction="#comboSelectUser" prefHeight="30.0" prefWidth="161.0" promptText="Select User type" styleClass="comboBox" stylesheets="@../../../../../style/style.css" unFocusColor="#4d4d4d00">
                            <HBox.margin>
                               <Insets />
                            </HBox.margin>
