@@ -251,6 +251,10 @@ public class LecturerStudentHomeController implements Initializable {
     }
     public void btnStudentMarksView(ActionEvent actionEvent)throws IOException{
         borderpane2.getChildren().removeAll();
+        AnchorPane view = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("marks/marks.fxml")));
+        borderpane2.getChildren().removeAll();
+        borderpane2.setCenter(view);
+        new FadeInDown(view).play();
     }
     public void btnStudentAttendanceView(ActionEvent actionEvent)throws IOException{
         borderpane2.getChildren().removeAll();
