@@ -16,7 +16,7 @@
    <children>
       <HBox alignment="CENTER" prefHeight="78.0" prefWidth="412.0">
          <children>
-            <Label contentDisplay="CENTER" text="Upload New Attendance" textAlignment="CENTER" textFill="#535353">
+            <Label contentDisplay="CENTER" text="Update Attendance" textAlignment="CENTER" textFill="#535353">
                <font>
                   <Font name="System Bold" size="22.0" />
                </font>
@@ -99,7 +99,7 @@
                <graphic>
                   <ImageView fitHeight="13.0" fitWidth="13.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../../../../../images/upload-2-64.png" />
+                        <Image url="@../../../../../images/ok-24.png" />
                      </image>
                   </ImageView>
                </graphic>

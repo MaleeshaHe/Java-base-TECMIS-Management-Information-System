@@ -108,7 +108,7 @@
                      <children>
                         <HBox alignment="CENTER" prefHeight="78.0" prefWidth="412.0">
                            <children>
-                              <Label contentDisplay="CENTER" text="Upload New Attendance" textAlignment="CENTER" textFill="#535353">
+                              <Label contentDisplay="CENTER" text="Mark Attendance" textAlignment="CENTER" textFill="#535353">
                                  <font>
                                     <Font name="System Bold" size="22.0" />
                                  </font>
@@ -178,7 +178,7 @@
                         </HBox>
                         <HBox alignment="CENTER" prefHeight="52.0" prefWidth="398.0">
                            <children>
-                              <JFXButton fx:id="btnAttendanceUpload" alignment="CENTER" maxWidth="88.0" onAction="#addAttendance" prefHeight="34.0" prefWidth="86.0" style="-fx-background-radius: 18;" styleClass="addNoticeBtn" stylesheets="@../../../../../style/style.css" text="Upload" textAlignment="CENTER">
+                              <JFXButton fx:id="btnAttendanceUpload" alignment="CENTER" maxWidth="88.0" onAction="#addAttendance" prefHeight="34.0" prefWidth="86.0" style="-fx-background-radius: 18;" styleClass="addNoticeBtn" stylesheets="@../../../../../style/style.css" text="Mark" textAlignment="CENTER">
                                  <font>
                                     <Font name="System Bold" size="14.0" />
                                  </font>
@@ -191,7 +191,7 @@
                                  <graphic>
                                     <ImageView fitHeight="13.0" fitWidth="13.0" pickOnBounds="true" preserveRatio="true">
                                        <image>
-                                          <Image url="@../../../../../images/upload-2-64.png" />
+                                          <Image url="@../../../../../images/ok-24.png" />
                                        </image>
                                     </ImageView>
                                  </graphic>
