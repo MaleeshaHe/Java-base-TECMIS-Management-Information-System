@@ -47,5 +47,5 @@
 }
 
 .tableShadow{
-    -fx-effect: dropshadow(three-pass-box, rgba(149, 157, 165, 1), 15,0,0,0);
+    /*-fx-effect: dropshadow(three-pass-box, rgba(149, 157, 165, 1), 15,0,0,0);*/
 }
