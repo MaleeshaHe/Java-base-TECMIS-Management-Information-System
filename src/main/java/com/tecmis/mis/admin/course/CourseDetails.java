@@ -3,14 +3,18 @@ package com.tecmis.mis.admin.course;
 public class CourseDetails {
     private String courseCode;
     private String courseName;
+    private String courseType;
     private int credit;
     private String material;
+    private String cDepName;
 
-    public CourseDetails(String courseCode, String courseName, int credit, String material) {
+    public CourseDetails(String courseCode, String courseName, String courseType, int credit, String material, String cDepName) {
         this.courseCode = courseCode;
         this.courseName = courseName;
+        this.courseType = courseType;
         this.credit = credit;
         this.material = material;
+        this.cDepName = cDepName;
     }
 
     public String getCourseCode() {
@@ -29,6 +33,14 @@ public class CourseDetails {
         this.courseName = courseName;
     }
 
+    public String getCourseType() {
+        return courseType;
+    }
+
+    public void setCourseType(String courseType) {
+        this.courseType = courseType;
+    }
+
     public int getCredit() {
         return credit;
     }
@@ -45,4 +57,11 @@ public class CourseDetails {
         this.material = material;
     }
 
+    public String getcDepName() {
+        return cDepName;
+    }
+
+    public void setcDepName(String cDepName) {
+        this.cDepName = cDepName;
+    }
 }

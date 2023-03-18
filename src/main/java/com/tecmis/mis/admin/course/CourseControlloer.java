@@ -37,7 +37,8 @@ import java.util.logging.Logger;
 public class CourseControlloer implements Initializable {
     @FXML
     private TableColumn<CourseDetails, String> materialCol;
-
+    @FXML
+    private TableColumn<CourseDetails, String> courseType;
     @FXML
     private TableView<CourseDetails> courseTable;
     @FXML
@@ -82,7 +83,7 @@ public class CourseControlloer implements Initializable {
                 Parent root = (Parent) fxmlLoader.load();
 
                 EditCourseControlloer senddata = fxmlLoader.getController();
-                senddata.showInformation(courseDetails.getCourseCode(),courseDetails.getCourseName(),courseDetails.getCredit(),courseDetails.getMaterial());
+                senddata.showInformation(courseDetails.getCourseCode(),courseDetails.getCourseName(),courseDetails.getCredit(),courseDetails.getMaterial(),courseDetails.getCourseType(),courseDetails.getcDepName());
 
                 Stage stage = new Stage();
                 stage.setTitle("Edit Course");
@@ -159,7 +160,7 @@ public class CourseControlloer implements Initializable {
         try {
             courseList.clear();
 
-            query = "SELECT * FROM `course`";
+            query = "SELECT * FROM course,department WHERE course.depId=department.depId ";
             preparedStatement = connection.prepareStatement(query);
             resultSet = preparedStatement.executeQuery();
 
@@ -168,8 +169,10 @@ public class CourseControlloer implements Initializable {
                 courseList.add(new CourseDetails(
                         resultSet.getString("courseCode"),
                         resultSet.getString("courseName"),
+                        resultSet.getString("courseType"),
                         resultSet.getInt("credit"),
-                        resultSet.getString("material")));
+                        resultSet.getString("material"),
+                        resultSet.getString("depName")));
                 courseTable.setItems(courseList);
             }
 
@@ -185,6 +188,7 @@ public class CourseControlloer implements Initializable {
 
         courseCodeCol.setCellValueFactory(new PropertyValueFactory<>("courseCode"));
         courseNameCol.setCellValueFactory(new PropertyValueFactory<>("courseName"));
+        courseType.setCellValueFactory(new PropertyValueFactory<>("courseType"));
         creditCol.setCellValueFactory(new PropertyValueFactory<>("credit"));
 
         Callback<TableColumn<CourseDetails, String>, TableCell<CourseDetails, String>> cellFoctory = (TableColumn<CourseDetails, String> param) -> {

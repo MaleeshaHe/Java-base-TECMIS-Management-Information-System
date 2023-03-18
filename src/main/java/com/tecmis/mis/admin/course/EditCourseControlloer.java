@@ -31,6 +31,8 @@ import java.util.ResourceBundle;
 
 public class EditCourseControlloer implements Initializable {
     @FXML
+    private JFXComboBox<String> comboCourseType;
+    @FXML
     private JFXComboBox<String> comboDepartment;
 
     @FXML
@@ -62,6 +64,7 @@ public class EditCourseControlloer implements Initializable {
 
     public void initialize(URL url, ResourceBundle resourceBundle) {
         comboDepartment.setItems(FXCollections.observableArrayList("Engineering Technology","Information & Communication Technology","Biosystems Technology","Multidisciplinary Studies"));
+        comboCourseType.setItems(FXCollections.observableArrayList("Theory","Practical"));
     }
 
 
@@ -73,7 +76,7 @@ public class EditCourseControlloer implements Initializable {
     @FXML
     void addCourse(ActionEvent event) {
 
-        if(txtCourseCode.getText().length() == 0 || txtCourseName.getText().length() == 0 || txtCredit.getText().length() == 0 || txtMaterials.getText().length() == 0){
+        if(comboDepartment.getValue() == null || comboCourseType.getValue() == null || txtCourseCode.getText().length() == 0 || txtCourseName.getText().length() == 0 || txtCredit.getText().length() == 0 || txtMaterials.getText().length() == 0){
             new Shake(error).play();
             error.setText("Please fill the all Fields");
         }
@@ -81,20 +84,22 @@ public class EditCourseControlloer implements Initializable {
             try {
                 String courseCode = txtCourseCode.getText();
                 String courseName = txtCourseName.getText();
+                String courseType = comboCourseType.getValue();
                 String credit = txtCredit.getText();
                 String materials = txtMaterials.getText();
                 int department = comboDepartment.getSelectionModel().getSelectedIndex()+1;
 
 
                 connection = DbConnect.getConnect();
-                query = "UPDATE course SET courseCode = ?, courseName= ?, credit = ?, material = ?, depId = ? WHERE courseCode = ?";
+                query = "UPDATE course SET courseCode = ?, courseName= ?, credit = ?, material = ?, depId = ?, courseType = ? WHERE courseCode = ?";
                 preparedStatement = connection.prepareStatement(query);
                 preparedStatement.setString(1,courseCode);
                 preparedStatement.setString(2,courseName);
                 preparedStatement.setString(3,credit);
                 preparedStatement.setString(4, materials);
                 preparedStatement.setInt(5,department);
-                preparedStatement.setString(6,courseCode);
+                preparedStatement.setString(6,courseType);
+                preparedStatement.setString(7,courseCode);
                 preparedStatement.executeUpdate();
 
                 Alert alert = new Alert(Alert.AlertType.INFORMATION);
@@ -124,11 +129,13 @@ public class EditCourseControlloer implements Initializable {
         txtMaterials.setText("");
     }
 
-    public void showInformation(String courseCode,String courseName, int credit, String material){
+    public void showInformation(String courseCode,String courseName, int credit, String material, String courseType, String depName){
         txtCourseCode.setText(courseCode);
         txtCourseName.setText(courseName);
         txtCredit.setText(String.valueOf(credit));
         txtMaterials.setText(material);
+        comboCourseType.getSelectionModel().select(courseType);
+        comboDepartment.getSelectionModel().select(depName);
     }
 
 }

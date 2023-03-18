@@ -33,6 +33,8 @@ import java.util.*;
 
 public class AddCourseControlloer implements Initializable {
     @FXML
+    private JFXComboBox<String> comboCourseType;
+    @FXML
     private JFXComboBox<String> comboDepartment;
 
     @FXML
@@ -64,6 +66,7 @@ public class AddCourseControlloer implements Initializable {
 
     public void initialize(URL url, ResourceBundle resourceBundle) {
         comboDepartment.setItems(FXCollections.observableArrayList("Engineering Technology","Information & Communication Technology","Biosystems Technology","Multidisciplinary Studies"));
+        comboCourseType.setItems(FXCollections.observableArrayList("Theory","Practical"));
     }
 
     @FXML
@@ -74,7 +77,7 @@ public class AddCourseControlloer implements Initializable {
     @FXML
     void addCourse(ActionEvent event) {
 
-        if(txtCourseCode.getText().length() == 0 || txtCourseName.getText().length() == 0 || txtCredit.getText().length() == 0 || txtMaterials.getText().length() == 0){
+        if( comboDepartment.getValue() == null || comboCourseType.getValue() == null || txtCourseCode.getText().length() == 0 || txtCourseName.getText().length() == 0 || txtCredit.getText().length() == 0 || txtMaterials.getText().length() == 0){
             new Shake(error).play();
             error.setText("Please fill the all Fields");
         }
@@ -82,18 +85,20 @@ public class AddCourseControlloer implements Initializable {
             try {
                 String courseCode = txtCourseCode.getText();
                 String courseName = txtCourseName.getText();
+                String courseType = comboCourseType.getValue();
                 String credit = txtCredit.getText();
                 String materials = txtMaterials.getText();
                 int department = comboDepartment.getSelectionModel().getSelectedIndex()+1;
 
                 connection = DbConnect.getConnect();
-                query = "INSERT INTO course (courseCode,courseName,credit,material,depId) VALUES (?,?,?,?,?)";
+                query = "INSERT INTO course (courseCode,courseName,courseType,credit,material,depId) VALUES (?,?,?,?,?,?)";
                 preparedStatement = connection.prepareStatement(query);
                 preparedStatement.setString(1,courseCode);
                 preparedStatement.setString(2,courseName);
-                preparedStatement.setString(3,credit);
-                preparedStatement.setString(4, materials);
-                preparedStatement.setInt(5,department);
+                preparedStatement.setString(3,courseType);
+                preparedStatement.setString(4,credit);
+                preparedStatement.setString(5, materials);
+                preparedStatement.setInt(6,department);
                 preparedStatement.executeUpdate();
 
                 Alert alert = new Alert(Alert.AlertType.INFORMATION);
