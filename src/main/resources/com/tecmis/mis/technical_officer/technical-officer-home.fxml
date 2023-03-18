@@ -255,7 +255,7 @@
                                                    <graphic>
                                                       <ImageView fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true">
                                                          <image>
-                                                            <Image url="@../../../../images/immigration.png" />
+                                                            <Image url="@../../../../images/student-attendance-icon-2.jpg" />
                                                          </image>
                                                       </ImageView>
                                                    </graphic>
