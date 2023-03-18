@@ -6,13 +6,15 @@ public class CourseDetails {
     private String courseType;
     private int credit;
     private String material;
+    private String cDepName;
 
-    public CourseDetails(String courseCode, String courseName, String courseType, int credit, String material) {
+    public CourseDetails(String courseCode, String courseName, String courseType, int credit, String material, String cDepName) {
         this.courseCode = courseCode;
         this.courseName = courseName;
         this.courseType = courseType;
         this.credit = credit;
         this.material = material;
+        this.cDepName = cDepName;
     }
 
     public String getCourseCode() {
@@ -53,5 +55,13 @@ public class CourseDetails {
 
     public void setMaterial(String material) {
         this.material = material;
+    }
+
+    public String getcDepName() {
+        return cDepName;
+    }
+
+    public void setcDepName(String cDepName) {
+        this.cDepName = cDepName;
     }
 }

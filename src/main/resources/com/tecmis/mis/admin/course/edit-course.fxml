@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="450.0" prefWidth="412.0" style="-fx-background-color: #ffffff;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.tecmis.mis.admin.course.EditCourseControlloer">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="464.0" prefWidth="412.0" style="-fx-background-color: #ffffff;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.tecmis.mis.admin.course.EditCourseControlloer">
    <children>
       <HBox alignment="CENTER" prefHeight="66.0" prefWidth="412.0">
          <children>
@@ -50,6 +50,19 @@
                   <Font size="14.0" />
                </font>
             </JFXTextField>
+         </children>
+         <VBox.margin>
+            <Insets bottom="10.0" />
+         </VBox.margin>
+      </HBox>
+      <HBox alignment="CENTER" layoutX="10.0" layoutY="223.0" prefHeight="41.0" prefWidth="412.0">
+         <children>
+            <Label prefHeight="26.0" prefWidth="125.0" text="Course Type" textFill="#595959">
+               <font>
+                  <Font name="System Bold" size="17.0" />
+               </font>
+            </Label>
+            <JFXComboBox fx:id="comboCourseType" prefHeight="26.0" prefWidth="245.0" promptText="selete course type" />
          </children>
          <VBox.margin>
             <Insets bottom="10.0" />
@@ -102,7 +115,7 @@
             <Insets bottom="10.0" />
          </VBox.margin>
       </HBox>
-      <HBox alignment="CENTER" prefHeight="40.0" prefWidth="412.0">
+      <HBox alignment="CENTER" prefHeight="15.0" prefWidth="412.0">
          <children>
             <Label fx:id="error" textAlignment="CENTER" textFill="#e70000">
                <font>
@@ -111,7 +124,7 @@
             </Label>
          </children>
       </HBox>
-      <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+      <HBox alignment="CENTER" prefHeight="43.0" prefWidth="412.0">
          <children>
             <JFXButton alignment="CENTER" maxWidth="88.0" onAction="#addCourse" prefHeight="34.0" prefWidth="86.0" style="-fx-background-radius: 18;" styleClass="addNoticeBtn" stylesheets="@../../../../../style/style.css" text="Update" textAlignment="CENTER">
                <font>

@@ -83,7 +83,7 @@ public class CourseControlloer implements Initializable {
                 Parent root = (Parent) fxmlLoader.load();
 
                 EditCourseControlloer senddata = fxmlLoader.getController();
-                senddata.showInformation(courseDetails.getCourseCode(),courseDetails.getCourseName(),courseDetails.getCredit(),courseDetails.getMaterial());
+                senddata.showInformation(courseDetails.getCourseCode(),courseDetails.getCourseName(),courseDetails.getCredit(),courseDetails.getMaterial(),courseDetails.getCourseType(),courseDetails.getcDepName());
 
                 Stage stage = new Stage();
                 stage.setTitle("Edit Course");
@@ -160,7 +160,7 @@ public class CourseControlloer implements Initializable {
         try {
             courseList.clear();
 
-            query = "SELECT * FROM `course`";
+            query = "SELECT * FROM course,department WHERE course.depId=department.depId ";
             preparedStatement = connection.prepareStatement(query);
             resultSet = preparedStatement.executeQuery();
 
@@ -171,7 +171,8 @@ public class CourseControlloer implements Initializable {
                         resultSet.getString("courseName"),
                         resultSet.getString("courseType"),
                         resultSet.getInt("credit"),
-                        resultSet.getString("material")));
+                        resultSet.getString("material"),
+                        resultSet.getString("depName")));
                 courseTable.setItems(courseList);
             }
 
