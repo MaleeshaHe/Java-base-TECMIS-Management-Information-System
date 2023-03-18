@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="367.0" prefWidth="534.0" style="-fx-background-color: #ffffff;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.tecmis.mis.lecturer.student.marks.AddMarksController">
+   <children>
+      <HBox alignment="CENTER" prefHeight="66.0" prefWidth="534.0">
+         <children>
+            <Label contentDisplay="CENTER" text="Add Marks" textAlignment="CENTER" textFill="#535353">
+               <font>
+                  <Font name="System Bold" size="22.0" />
+               </font>
+            </Label>
+         </children>
+      </HBox>
+      <HBox alignment="CENTER" prefHeight="41.0" prefWidth="412.0">
+         <children>
+            <Label prefHeight="26.0" prefWidth="134.0" text="Exam Type" textFill="#595959">
+               <font>
+                  <Font name="System Bold" size="17.0" />
+               </font>
+            </Label>
+            <JFXComboBox fx:id="comboExamType" focusColor="#5271ff" prefHeight="30.0" prefWidth="175.0" promptText="Select Exam Type" styleClass="comboBox" stylesheets="@../../../../../../style/style.css" unFocusColor="#4d4d4d00" />
+         </children>
+      </HBox>
+      <HBox alignment="CENTER" layoutX="10.0" layoutY="76.0" prefHeight="41.0" prefWidth="412.0">
+         <children>
+            <Label prefHeight="26.0" prefWidth="130.0" text="Course" textFill="#595959">
+               <font>
+                  <Font name="System Bold" size="17.0" />
+               </font>
+            </Label>
+            <JFXComboBox fx:id="comboCourse" focusColor="#5271ff" prefHeight="30.0" prefWidth="180.0" promptText=" Select Course" styleClass="comboBox" stylesheets="@../../../../../../style/style.css" unFocusColor="#4d4d4d00" />
+         </children>
+      </HBox>
+      <HBox alignment="CENTER" layoutX="10.0" layoutY="118.0" prefHeight="41.0" prefWidth="412.0">
+         <children>
+            <Label prefHeight="26.0" prefWidth="133.0" text="TG Number" textFill="#595959">
+               <font>
+                  <Font name="System Bold" size="17.0" />
+               </font>
+            </Label>
+            <JFXComboBox fx:id="comboTgnum" focusColor="#5271ff" prefHeight="30.0" prefWidth="178.0" promptText="Select TG Number" styleClass="comboBox" stylesheets="@../../../../../../style/style.css" unFocusColor="#4d4d4d00" />
+         </children>
+      </HBox>
+      <HBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="42.0" prefWidth="536.0">
+         <children>
+            <Label prefHeight="26.0" prefWidth="129.0" text="Marks" textFill="#595959">
+               <font>
+                  <Font name="System Bold" size="17.0" />
+               </font>
+            </Label>
+            <JFXTextField fx:id="txtmarks" focusColor="#5271ff" prefHeight="30.0" prefWidth="179.0" promptText=" Enter Marks">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </JFXTextField>
+         </children>
+      </HBox>
+      <HBox alignment="CENTER" prefHeight="41.0" prefWidth="412.0">
+         <children>
+            <Label fx:id="error" textAlignment="CENTER" textFill="#e70000">
+               <font>
+                  <Font size="13.0" />
+               </font>
+            </Label>
+         </children></HBox>
+      <HBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="80.0" prefWidth="534.0">
+         <children>
+            <JFXButton fx:id="addBtn" alignment="CENTER" maxWidth="88.0" onAction="#addMarks" prefHeight="34.0" prefWidth="86.0" style="-fx-background-radius: 18;" styleClass="addNoticeBtn" stylesheets="@../../../../../../style/style.css" text="Add" textAlignment="CENTER">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+               <HBox.margin>
+                  <Insets right="10.0" />
+               </HBox.margin>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </JFXButton>
+            <JFXButton fx:id="clearBtn" alignment="CENTER" layoutX="173.0" layoutY="43.0" maxWidth="88.0" onAction="#clearMarks" prefHeight="34.0" prefWidth="86.0" style="-fx-background-radius: 18;" styleClass="cancelNoticeBtn" stylesheets="@../../../../../../style/style.css" text="Clear" textAlignment="CENTER">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+               <HBox.margin>
+                  <Insets left="10.0" />
+               </HBox.margin>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </JFXButton>
+         </children>
+      </HBox>
+   </children>
+</VBox>
