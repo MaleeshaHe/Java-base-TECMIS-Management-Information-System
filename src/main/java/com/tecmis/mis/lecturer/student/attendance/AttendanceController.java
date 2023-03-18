@@ -66,8 +66,8 @@ public class AttendanceController implements Initializable {
     public void refreshTable() {
         try {
             attendanceList.clear();
-
-            query = "SELECT * from attendance,user WHERE attendance.tgnum=user.tgnum";
+            int depId= Integer.parseInt(UserSession.getUserDepId());
+            query = "SELECT * from attendance,user WHERE attendance.tgnum=user.tgnum AND user.depId="+depId+"";
             preparedStatement = connection.prepareStatement(query);
             resultSet = preparedStatement.executeQuery();
 
