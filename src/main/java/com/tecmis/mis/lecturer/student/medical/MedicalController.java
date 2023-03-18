@@ -3,6 +3,7 @@ package com.tecmis.mis.lecturer.student.medical;
 import animatefx.animation.FadeIn;
 import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXTextField;
+import com.tecmis.mis.UserSession;
 import com.tecmis.mis.db_connect.DbConnect;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -72,8 +73,8 @@ public class MedicalController implements Initializable{
     public void refreshTable(){
         try {
             medicalList.clear();
-
-            query="SELECT * from medical,user WHERE medical.students_tg=user.tgnum";
+            int depId= Integer.parseInt(UserSession.getUserDepId());
+            query="SELECT * from medical,user WHERE medical.students_tg=user.tgnum AND user.depId="+depId+"";
             preparedStatement = connection.prepareStatement(query);
             resultSet = preparedStatement.executeQuery();
 
