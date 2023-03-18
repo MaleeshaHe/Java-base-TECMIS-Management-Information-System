@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="600.0" prefWidth="900.0" stylesheets="@../../../../../style/table_view.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.tecmis.mis.student.course.CourseControlloer">
+    <children>
+        <BorderPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #ffff;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <top>
+            <VBox prefHeight="69.0" prefWidth="900.0" BorderPane.alignment="CENTER">
+               <children>
+                  <HBox prefHeight="100.0" prefWidth="200.0">
+                     <VBox.margin>
+                        <Insets top="20.0" />
+                     </VBox.margin>
+                  </HBox>
+                  <HBox alignment="CENTER" layoutX="10.0" layoutY="10.0" prefHeight="78.0" prefWidth="900.0" styleClass="table-view" stylesheets="@../../../../../style/table_view.css">
+                     <children>
+                        <Label alignment="CENTER" prefHeight="38.0" prefWidth="853.0" text="Courses" textFill="#515151">
+                           <font>
+                              <Font name="System Bold" size="26.0" />
+                           </font>
+                        </Label>
+                     </children>
+                     <VBox.margin>
+                        <Insets />
+                     </VBox.margin>
+                  </HBox>
+                  <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                     <VBox.margin>
+                        <Insets bottom="15.0" />
+                     </VBox.margin>
+                     <children>
+                        <Line endX="580.8928833007812" endY="0.8000076413154602" startX="-100.0" stroke="#c9c8c8" strokeWidth="2.0" />
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+         </top>
+         <center>
+            <VBox alignment="CENTER" prefHeight="603.0" prefWidth="900.0" BorderPane.alignment="CENTER">
+               <children>
+                  <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="78.0" prefWidth="850.0" style="-fx-background-color: #ffffff;">
+                     <children>
+                        <HBox alignment="CENTER" prefHeight="42.0" prefWidth="398.0">
+                           <children>
+                              <Label contentDisplay="CENTER" text="Enroll with courses" textAlignment="CENTER" textFill="#535353">
+                                 <font>
+                                    <Font name="System Bold" size="22.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </HBox>
+                        <HBox alignment="CENTER" layoutX="10.0" layoutY="260.0" prefHeight="40.0" prefWidth="456.0">
+                           <children>
+                              <Label prefHeight="26.0" prefWidth="125.0" text="Course Name" textFill="#595959">
+                                 <font>
+                                    <Font name="System Bold" size="17.0" />
+                                 </font>
+                              </Label>
+                              <JFXComboBox fx:id="comboCourse" prefHeight="26.0" prefWidth="245.0" promptText="selete a course" />
+                              <JFXButton alignment="CENTER" maxWidth="88.0" onAction="#enrollCourse" prefHeight="34.0" prefWidth="127.0" style="-fx-background-radius: 18;" styleClass="addNoticeBtn" stylesheets="@../../../../../style/style.css" text="Enroll" textAlignment="CENTER">
+                                 <font>
+                                    <Font name="System Bold" size="14.0" />
+                                 </font>
+                                 <HBox.margin>
+                                    <Insets left="20.0" right="10.0" />
+                                 </HBox.margin>
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                                 <graphic>
+                                    <ImageView fitHeight="13.0" fitWidth="13.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../../../../../images/add.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                              </JFXButton>
+                           </children>
+                           <VBox.margin>
+                              <Insets bottom="20.0" />
+                           </VBox.margin>
+                        </HBox>
+                     </children>
+                  </VBox>
+                  <Line endX="-330.0125427246094" endY="474.7000427246094" startX="519.9142456054688" startY="474.7000427246094" stroke="#c9c8c8" />
+                  <TableView fx:id="courseTable" prefHeight="482.0" prefWidth="885.0">
+                    <columns>
+                      <TableColumn fx:id="courseCodeCol" maxWidth="114.39998817443848" prefWidth="109.5999698638916" resizable="false" style="-fx-alignment: center;" text="Course Code" />
+                      <TableColumn fx:id="courseNameCol" maxWidth="524.8000793457031" prefWidth="524.8000793457031" resizable="false" style="-fx-alignment: center;" text="Course Name" />
+                        <TableColumn fx:id="creditCol" maxWidth="455.2000427246094" prefWidth="59.199951171875" resizable="false" style="-fx-alignment: center;" text="Credit" />
+                        <TableColumn fx:id="materialCol" maxWidth="630.0" prefWidth="153.5999755859375" resizable="false" style="-fx-alignment: center;" text="Materials" />
+                    </columns>
+                     <padding>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </padding>
+                     <VBox.margin>
+                        <Insets bottom="10.0" left="5.0" right="10.0" />
+                     </VBox.margin>
+                  </TableView>
+               </children>
+            </VBox>
+         </center>
+        </BorderPane>
+    </children>
+</AnchorPane>
