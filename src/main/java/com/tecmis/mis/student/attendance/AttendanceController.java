@@ -6,9 +6,7 @@ import com.jfoenix.controls.JFXTextField;
 import com.tecmis.mis.UserSession;
 import com.tecmis.mis.admin.user.UserDetails;
 import com.tecmis.mis.db_connect.DbConnect;
-import com.tecmis.mis.student.notice.NoticeController;
-import com.tecmis.mis.student.notice.NoticeDetails;
-import com.tecmis.mis.student.notice.ViewNoticeControlloer;
+
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.collections.transformation.FilteredList;
@@ -122,7 +120,7 @@ public class AttendanceController implements Initializable {
             }
 
         } catch (SQLException ex) {
-            Logger.getLogger(NoticeController.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(AttendanceController.class.getName()).log(Level.SEVERE, null, ex);
         }
 
     }

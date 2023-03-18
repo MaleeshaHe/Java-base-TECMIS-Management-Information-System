@@ -6,7 +6,7 @@ import com.jfoenix.controls.JFXTextField;
 import com.tecmis.mis.admin.course.CourseDetails;
 import com.tecmis.mis.admin.notice.NoticeController;
 import com.tecmis.mis.db_connect.DbConnect;
-import com.tecmis.mis.student.notice.ViewNoticeControlloer;
+
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
