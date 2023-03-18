@@ -4,18 +4,28 @@ public class MedicalDetails {
     private int m_id;
     private String tgnum;
     private String fname;
+    private String lname;
     private String m_title;
     private String startDate;
     private String endDate;
     private byte[] documents;
-    public MedicalDetails(int m_id,String tgnum, String fname, String m_title, String startDate, String endDate, byte[] documents) {
+    public MedicalDetails(int m_id,String tgnum, String fname,String lname, String m_title, String startDate, String endDate, byte[] documents) {
         this.m_id = m_id;
         this.tgnum=tgnum;
         this.fname=fname;
+        this.lname=lname;
         this.m_title = m_title;
         this.startDate=startDate;
         this.endDate=endDate;
         this.documents=documents;
+    }
+
+    public void setLname(String lname) {
+        this.lname = lname;
+    }
+
+    public String getLname() {
+        return lname;
     }
 
     public int getM_id() {

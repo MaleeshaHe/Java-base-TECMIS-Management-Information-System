@@ -4,11 +4,15 @@ package com.tecmis.mis.lecturer.student;
 import animatefx.animation.FadeIn;
 import animatefx.animation.FadeInDown;
 import com.jfoenix.controls.JFXComboBox;
+import com.jfoenix.controls.JFXTextField;
 import com.mysql.cj.jdbc.MysqlSQLXML;
 import com.tecmis.mis.UserSession;
 import com.tecmis.mis.db_connect.DbConnect;
+import com.tecmis.mis.lecturer.student.attendance.AttendanceDetails;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.collections.transformation.FilteredList;
+import javafx.collections.transformation.SortedList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -63,6 +67,8 @@ public class LecturerStudentHomeController implements Initializable {
     @FXML
     private TableColumn<LecturerStudentDetails, String> stPhoneCol;
     @FXML
+    private JFXTextField txtKeyword;
+    @FXML
     private JFXComboBox<String> comboStudent;
     @FXML
     private Label heading;
@@ -81,7 +87,6 @@ public class LecturerStudentHomeController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         loadDataToTable();
         showData();
-        comboboxDataLoad();
     }
 
     private void showData(){
@@ -146,6 +151,39 @@ public class LecturerStudentHomeController implements Initializable {
         tgnumCol.setCellValueFactory(new PropertyValueFactory<>("tgnum"));
         stNameCol.setCellValueFactory(new PropertyValueFactory<>("fname"));
         stPhoneCol.setCellValueFactory(new PropertyValueFactory<>("phoneNum"));
+
+        studentTable.setItems(studentList);
+        new FadeIn(studentTable).play();
+
+        FilteredList<LecturerStudentDetails> filteredData = new FilteredList<>(studentList, b -> true);
+        txtKeyword.textProperty().addListener((observable, oldValue, newValue) -> {
+            filteredData.setPredicate(LecturerStudentDetails -> {
+
+                if(newValue.isEmpty() || newValue.isBlank() || newValue == null){
+                    return true;
+                }
+
+                String searchKeyword = newValue.toLowerCase();
+
+                if (LecturerStudentDetails.getFname().toLowerCase().indexOf(searchKeyword) > -1){
+                    return true;
+                } else if (LecturerStudentDetails.getLname().toLowerCase().indexOf(searchKeyword) > -1 ) {
+                    return true;
+                } else if (LecturerStudentDetails.getTgnum().toLowerCase().indexOf(searchKeyword) > -1 ) {
+                    return true;
+                } else if (LecturerStudentDetails.getPhoneNum().toLowerCase().indexOf(searchKeyword)> -1) {
+                    return true;
+                } else {
+                    return false;
+                }
+
+            });
+        });
+
+        SortedList<LecturerStudentDetails> sortedData = new SortedList<>(filteredData);
+        sortedData.comparatorProperty().bind(studentTable.comparatorProperty());
+        studentTable.setItems(sortedData);
+        new FadeIn(studentTable).play();
     }
     private void showData(String tg){
         try {
@@ -160,7 +198,7 @@ public class LecturerStudentHomeController implements Initializable {
                 name.setText(": "+resultSet.getString("fname")+" "+resultSet.getString("lname"));
                 email.setText(": "+resultSet.getString("email"));
                 phonenum.setText(": "+resultSet.getString("phone_num"));
-                depName.setText(": "+resultSet.getString("address"));
+                depName.setText(": "+resultSet.getString("short_name"));
 
                 InputStream is = resultSet.getBinaryStream("profile_pic");
                 OutputStream os = new FileOutputStream(new File("photo.jpg"));
@@ -205,58 +243,9 @@ public class LecturerStudentHomeController implements Initializable {
             }
         }
     }
-    @FXML
-    public void comboStudent(){
-        loadDataByCombo();
-    }
-    public void  comboboxDataLoad(){
-        try {
-            int depId= Integer.parseInt(UserSession.getUserDepId());
-            connection = DbConnect.getConnect();
-            query="SELECT * FROM user,department WHERE user.depId=department.depId AND user_roll='Student' AND user.depId="+depId+"";
-            preparedStatement = connection.prepareStatement(query);
-            resultSet = preparedStatement.executeQuery();
 
-            ObservableList data = FXCollections.observableArrayList();
 
-            while (resultSet.next()){
-                data.add(new String(resultSet.getString("tgnum")));
-            }
-            comboStudent.setItems(data);
-        } catch (Exception e) {
-            throw new RuntimeException(e);
-        }
-    }
-    public void loadDataByCombo(){
-        connection = DbConnect.getConnect();
-        refreshTableByCombo();
 
-        tgnumCol.setCellValueFactory(new PropertyValueFactory<>("tgnum"));
-        stNameCol.setCellValueFactory(new PropertyValueFactory<>("fname"));
-        stPhoneCol.setCellValueFactory(new PropertyValueFactory<>("phoneNum"));
-    }
-    @FXML
-    private void refreshTableByCombo(){
-        try{
-            studentList.clear();
-            int depId= Integer.parseInt(UserSession.getUserDepId());
-            query="SELECT * FROM user,department WHERE user.depId=department.depId AND user_roll='Student' AND user.depId="+depId+" AND user.tgnum='"+comboStudent.getValue()+"'";
-            preparedStatement = connection.prepareStatement(query);
-            resultSet = preparedStatement.executeQuery();
-
-            while (resultSet.next()){
-                studentList.add(new LecturerStudentDetails(
-                        resultSet.getString("tgnum"),
-                        resultSet.getString("fname"),
-                        resultSet.getString("lname"),
-                        resultSet.getString("phone_num")));
-                studentTable.setItems(studentList);
-            }
-
-        } catch (Exception e) {
-            throw new RuntimeException(e);
-        }
-    }
     public void btnStudentEligibilityView(ActionEvent actionEvent)throws IOException{
         borderpane2.getChildren().removeAll();
     }
@@ -265,6 +254,10 @@ public class LecturerStudentHomeController implements Initializable {
     }
     public void btnStudentAttendanceView(ActionEvent actionEvent)throws IOException{
         borderpane2.getChildren().removeAll();
+        AnchorPane view = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("attendance/attendance.fxml")));
+        borderpane2.getChildren().removeAll();
+        borderpane2.setCenter(view);
+        new FadeInDown(view).play();
     }
     public void btnStudentMedicalView(ActionEvent actionEvent)throws IOException{
         borderpane2.getChildren().removeAll();
