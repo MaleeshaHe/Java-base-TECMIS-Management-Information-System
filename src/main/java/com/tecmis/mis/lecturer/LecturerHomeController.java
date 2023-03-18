@@ -148,7 +148,7 @@ public class LecturerHomeController implements Initializable {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("lecturer-home.fxml"));
         root = loader.load();
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-        scene = new Scene(root, 1050,600);
+        scene = new Scene(root, 1080,610);
         stage.setScene(scene);
         stage.centerOnScreen();
         stage.show();
