@@ -15,7 +15,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="378.0" prefWidth="829.0" style="-fx-background-color: #ffff;" stylesheets="@../../../../../../style/table_view.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.tecmis.mis.lecturer.student.medical.MedicalController">
+<AnchorPane prefHeight="378.0" prefWidth="829.0" style="-fx-background-color: #ffff;" stylesheets="@../../../../../../style/table_view.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.tecmis.mis.lecturer.student.attendance.AttendanceController">
    <children>
       <BorderPane fx:id="borderpane2" prefHeight="378.0" prefWidth="914.0">
          <top>
@@ -23,13 +23,13 @@
                <children>
                   <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="369.0" prefWidth="878.0">
                      <children>
-                        <TableView id="medicalTable" fx:id="medicalTable" layoutX="54.0" layoutY="75.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="275.0" prefWidth="746.0" style="-fx-background-color: #ffff; -fx-background-radius: 20;">
+                        <TableView id="medicalTable" fx:id="attendanceTable" layoutX="73.0" layoutY="75.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="275.0" prefWidth="679.0" style="-fx-background-color: #ffff; -fx-background-radius: 20;">
                            <columns>
-                              <TableColumn fx:id="tgnumCol" maxWidth="193.60007333755493" prefWidth="120.0" resizable="false" style="-fx-alignment: center;" text="TG Number" />
-                              <TableColumn fx:id="stNameCol" maxWidth="320.00003814697266" prefWidth="124.0" resizable="false" style="-fx-alignment: center;" text="Name" />
-                              <TableColumn fx:id="medTitleCol" maxWidth="630.0" minWidth="0.0" prefWidth="230.0" resizable="false" style="-fx-alignment: center;" text="Title" />
-                              <TableColumn fx:id="medStartDateCol" maxWidth="630.0" minWidth="0.0" prefWidth="132.0" resizable="false" style="-fx-alignment: center;" text="Date" />
-                              <TableColumn fx:id="medDcoCol" maxWidth="630.0" minWidth="0.0" prefWidth="129.0" resizable="false" style="-fx-alignment: center;" text="Document" />
+                              <TableColumn fx:id="tgnumCol" maxWidth="193.60007333755493" prefWidth="138.0" resizable="false" style="-fx-alignment: center;" text="TG Number" />
+                              <TableColumn fx:id="stNameCol" maxWidth="320.00003814697266" prefWidth="167.0" resizable="false" style="-fx-alignment: center;" text="Name" />
+                              <TableColumn fx:id="courseCol" maxWidth="630.0" minWidth="0.0" prefWidth="130.0" resizable="false" style="-fx-alignment: center;" text="Course Code" />
+                              <TableColumn fx:id="dateCol" maxWidth="630.0" minWidth="0.0" prefWidth="121.0" resizable="false" style="-fx-alignment: center;" text="Date" />
+                              <TableColumn fx:id="stateCol" maxWidth="630.0" minWidth="0.0" prefWidth="113.0" resizable="false" style="-fx-alignment: center;" text="State" />
                            </columns>
                            <padding>
                               <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
@@ -39,12 +39,12 @@
                               <URL value="@../../../../../../style/table_view.css" />
                            </stylesheets>
                         </TableView>
-                        <Label fx:id="heading" alignment="CENTER" layoutX="8.0" layoutY="-5.0" prefHeight="38.0" prefWidth="823.0" text="Students Medical Details" textFill="#515151">
+                        <Label fx:id="heading" alignment="CENTER" layoutX="8.0" layoutY="-5.0" prefHeight="38.0" prefWidth="823.0" text="Students Attendance Details" textFill="#515151">
                            <font>
                               <Font name="System Bold" size="26.0" />
                            </font>
                         </Label>
-                        <HBox layoutY="42.0" prefHeight="34.0" prefWidth="200.0">
+                        <HBox layoutY="37.0" prefHeight="39.0" prefWidth="200.0">
                            <children>
                               <ImageView fitHeight="18.0" fitWidth="18.0" pickOnBounds="true" preserveRatio="true">
                                  <image>

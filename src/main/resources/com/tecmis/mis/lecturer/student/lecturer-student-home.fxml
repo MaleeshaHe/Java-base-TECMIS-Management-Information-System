@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXButton?>
-<?import com.jfoenix.controls.JFXComboBox?>
+<?import com.jfoenix.controls.JFXTextField?>
 <?import java.net.URL?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
@@ -31,9 +31,9 @@
                                  <children>
                                     <TableView fx:id="studentTable" layoutX="66.0" layoutY="95.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMousePressed="#viewStudent" prefHeight="270.0" prefWidth="377.0" style="-fx-background-color: #ffff; -fx-background-radius: 20;">
                                        <columns>
-                                          <TableColumn fx:id="tgnumCol" maxWidth="193.60007333755493" prefWidth="88.0" resizable="false" style="-fx-alignment: center;" text="TG Number" />
-                                          <TableColumn fx:id="stNameCol" maxWidth="320.00003814697266" prefWidth="150.0" resizable="false" style="-fx-alignment: center;" text="Name" />
-                                          <TableColumn fx:id="stPhoneCol" maxWidth="630.0" minWidth="0.0" prefWidth="126.0" resizable="false" style="-fx-alignment: center;" text="Phone" />
+                                          <TableColumn fx:id="tgnumCol" maxWidth="193.60007333755493" prefWidth="115.0" resizable="false" style="-fx-alignment: center;" text="TG Number" />
+                                          <TableColumn fx:id="stNameCol" maxWidth="320.00003814697266" prefWidth="133.0" resizable="false" style="-fx-alignment: center;" text="Name" />
+                                          <TableColumn fx:id="stPhoneCol" maxWidth="630.0" minWidth="0.0" prefWidth="116.0" resizable="false" style="-fx-alignment: center;" text="Phone" />
                                        </columns>
                                        <padding>
                                           <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
@@ -134,7 +134,29 @@
                                           <Font name="System Bold" size="26.0" />
                                        </font>
                                     </Label>
-                                    <JFXComboBox fx:id="comboStudent" layoutX="66.0" layoutY="52.0" onAction="#comboStudent" promptText="Search  student" />
+                                    <HBox layoutX="16.0" layoutY="65.0" prefHeight="31.0" prefWidth="199.0">
+                                       <children>
+                                          <ImageView fitHeight="18.0" fitWidth="18.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../../../../../images/search-9-64.png" />
+                                             </image>
+                                             <HBox.margin>
+                                                <Insets top="6.0" />
+                                             </HBox.margin>
+                                          </ImageView>
+                                          <JFXTextField fx:id="txtKeyword" focusColor="#405aa800" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="26.0" prefWidth="182.0" promptText="Search" style="-fx-border-color: #acacac; -fx-border-radius: 12;" unFocusColor="#ababab00">
+                                             <padding>
+                                                <Insets left="15.0" />
+                                             </padding>
+                                             <HBox.margin>
+                                                <Insets left="5.0" top="2.0" />
+                                             </HBox.margin>
+                                             <font>
+                                                <Font size="13.0" />
+                                             </font>
+                                          </JFXTextField>
+                                       </children>
+                                    </HBox>
                                  </children>
                               </Pane>
                               <Label text="Label" />
