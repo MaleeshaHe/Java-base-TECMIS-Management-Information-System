@@ -193,17 +193,17 @@
                      <top>
                         <VBox prefHeight="87.0" prefWidth="870.0" BorderPane.alignment="CENTER">
                            <children>
-                              <Label fx:id="welcomeName" text="Welcome Maleesha" textFill="#515151">
+                              <Label fx:id="welcomeName" prefHeight="40.0" prefWidth="327.0" text="Welcome Maleesha" textFill="#515151">
                                  <font>
                                     <Font name="System Bold" size="28.0" />
                                  </font>
                               </Label>
-                              <Label fx:id="date" layoutX="763.0" layoutY="59.0" text="05 : 25 : 45 PM" textFill="#515151">
+                              <Label fx:id="date" layoutX="763.0" layoutY="59.0" prefHeight="26.0" prefWidth="315.0" text="05 : 25 : 45 PM" textFill="#515151">
                                  <font>
                                     <Font size="16.0" />
                                  </font>
                               </Label>
-                              <Label fx:id="time" textFill="#515151">
+                              <Label fx:id="time" prefHeight="26.0" prefWidth="196.0" text="10 : 56 PM" textFill="#515151">
                                  <font>
                                     <Font size="16.0" />
                                  </font>
@@ -331,7 +331,7 @@
                               </Pane>
                               <Pane prefHeight="488.0" prefWidth="435.0">
                                  <children>
-                                    <VBox alignment="CENTER" layoutX="42.0" prefHeight="429.0" prefWidth="351.0" style="-fx-background-color: #fff; -fx-background-radius: 20;" styleClass="detailsShadow" stylesheets="@../../../../style/style.css">
+                                    <VBox alignment="CENTER" layoutX="35.0" layoutY="-19.0" prefHeight="447.0" prefWidth="351.0" style="-fx-background-color: #fff; -fx-background-radius: 20;" styleClass="detailsShadow" stylesheets="@../../../../style/style.css">
                                        <children>
                                           <HBox alignment="CENTER" layoutX="30.0" layoutY="30.0" prefHeight="36.0" prefWidth="375.0">
                                              <children>
@@ -344,7 +344,7 @@
                                           </HBox>
                                           <HBox alignment="CENTER" layoutX="10.0" layoutY="252.0" prefHeight="130.0" prefWidth="375.0">
                                              <children>
-                                                <Circle fx:id="pic" fill="#f7f7f7" radius="50.0" stroke="#5271ff" strokeType="INSIDE" strokeWidth="2.0" />
+                                                <Circle fx:id="pic" fill="#f7f7f7" radius="62.0" stroke="#5271ff" strokeType="INSIDE" strokeWidth="2.0" />
                                              </children>
                                           </HBox>
                                           <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="344.0" prefHeight="41.0" prefWidth="340.0">
@@ -410,7 +410,7 @@
                                                       <Font name="System Bold" size="14.0" />
                                                    </font>
                                                 </Label>
-                                                <Label fx:id="dep" layoutX="10.0" layoutY="52.0" prefWidth="240.0" text="ICT" textFill="#797979">
+                                                <Label fx:id="dep" layoutX="10.0" layoutY="52.0" prefHeight="40.0" prefWidth="241.0" text="ICT" textFill="#797979" wrapText="true">
                                                    <font>
                                                       <Font name="System Bold" size="14.0" />
                                                    </font>
@@ -427,7 +427,8 @@
                                                             <Image url="@../../../../images/edit-11-64.png" />
                                                          </image>
                                                       </ImageView>
-                                                   </graphic></JFXButton>
+                                                   </graphic>
+                                                </JFXButton>
                                              </children>
                                           </HBox>
                                        </children>
