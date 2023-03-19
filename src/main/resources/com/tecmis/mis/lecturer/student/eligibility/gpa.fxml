@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import java.net.URL?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="378.0" prefWidth="829.0" style="-fx-background-color: #ffff;" stylesheets="@../../../../../../style/table_view.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.tecmis.mis.lecturer.student.eligibility.GpaController">
+   <children>
+      <BorderPane fx:id="borderpane2" prefHeight="378.0" prefWidth="914.0">
+         <top>
+            <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="90.0" prefWidth="914.0" BorderPane.alignment="CENTER">
+               <children>
+                  <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="369.0" prefWidth="863.0">
+                     <children>
+                        <TableView id="medicalTable" fx:id="gpaTable" layoutX="64.0" layoutY="75.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="275.0" prefWidth="614.0" style="-fx-background-color: #ffff; -fx-background-radius: 20;">
+                           <columns>
+                              <TableColumn fx:id="tgnumCol" maxWidth="309.0" prefWidth="148.0" resizable="false" style="-fx-alignment: center;" text="TG Number" />
+                              <TableColumn fx:id="stNameCol" maxWidth="364.0" prefWidth="168.0" resizable="false" style="-fx-alignment: center;" text="Name" />
+                              <TableColumn fx:id="sgpaCol" maxWidth="630.0" minWidth="0.0" prefWidth="135.0" resizable="false" style="-fx-alignment: center;" text="Semester GPA" />
+                              <TableColumn fx:id="cgpaCol" maxWidth="630.0" minWidth="0.0" prefWidth="156.0" resizable="false" style="-fx-alignment: center;" text="Culmulative GPA" />
+                           </columns>
+                           <padding>
+                              <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                           </padding>
+                           <stylesheets>
+                              <URL value="@../../../../../../style/table_view.css" />
+                              <URL value="@../../../../../../style/table_view.css" />
+                           </stylesheets>
+                        </TableView>
+                        <Label fx:id="heading" alignment="CENTER" layoutX="-14.0" layoutY="-5.0" prefHeight="47.0" prefWidth="862.0" text="Students Grade Point Average Values" textFill="#515151">
+                           <font>
+                              <Font name="System Bold" size="26.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </Pane>
+                  <Pane prefHeight="0.0" prefWidth="785.0">
+                     <children>
+                        <HBox layoutX="25.0" layoutY="-329.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="39.0" prefWidth="231.0">
+                           <children>
+                              <ImageView fitHeight="18.0" fitWidth="18.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../../../../../images/search-9-64.png" />
+                                 </image>
+                                 <HBox.margin>
+                                    <Insets top="6.0" />
+                                 </HBox.margin>
+                              </ImageView>
+                              <JFXTextField fx:id="txtKeyword" focusColor="#405aa800" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="27.0" prefWidth="182.0" promptText="Search" style="-fx-border-color: #acacac; -fx-border-radius: 12;" unFocusColor="#ababab00">
+                                 <padding>
+                                    <Insets left="15.0" />
+                                 </padding>
+                                 <HBox.margin>
+                                    <Insets left="5.0" top="2.0" />
+                                 </HBox.margin>
+                                 <font>
+                                    <Font size="13.0" />
+                                 </font>
+                              </JFXTextField>
+                           </children>
+                        </HBox>
+                     </children>
+                  </Pane>
+               </children>
+               <BorderPane.margin>
+                  <Insets />
+               </BorderPane.margin>
+               <padding>
+                  <Insets bottom="20.0" left="20.0" right="20.0" top="10.0" />
+               </padding>
+            </VBox>
+         </top>
+      </BorderPane>
+      <JFXButton contentDisplay="GRAPHIC_ONLY" layoutX="747.0" layoutY="162.0" prefHeight="122.0" prefWidth="124.0" style="-fx-background-color: #ffff; -fx-border-radius: 20; -fx-background-radius: 20; -fx-border-color: #565656;" text="USER" textFill="#565656">
+         <graphic>
+            <ImageView fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../../../../images/1945926.png" />
+               </image>
+            </ImageView>
+         </graphic>
+         <font>
+            <Font size="20.0" />
+         </font>
+      </JFXButton>
+      <Label layoutX="793.0" layoutY="285.0" prefHeight="23.0" prefWidth="79.0" text="View" textFill="#515151">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>
