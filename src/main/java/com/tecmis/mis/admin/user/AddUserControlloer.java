@@ -194,7 +194,7 @@ public class AddUserControlloer implements Initializable {
                 if(result.get() == ButtonType.OK){
                     Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("../admin-home.fxml")));
                     stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-                    scene = new Scene(root, 1050,600);
+                    scene = new Scene(root, 1080,610);
                     stage.setScene(scene);
                     stage.centerOnScreen();
                     stage.show();
