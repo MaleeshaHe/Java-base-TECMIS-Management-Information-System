@@ -3,12 +3,14 @@ package com.tecmis.mis.student.course;
 public class CourseDetails {
     private String courseCode;
     private String courseName;
+    private String courseType;
     private int credit;
     private String material;
 
-    public CourseDetails(String courseCode, String courseName, int credit, String material) {
+    public CourseDetails(String courseCode, String courseName, String courseType, int credit, String material) {
         this.courseCode = courseCode;
         this.courseName = courseName;
+        this.courseType = courseType;
         this.credit = credit;
         this.material = material;
     }
@@ -29,6 +31,14 @@ public class CourseDetails {
         this.courseName = courseName;
     }
 
+    public String getCourseType() {
+        return courseType;
+    }
+
+    public void setCourseType(String courseType) {
+        this.courseType = courseType;
+    }
+
     public int getCredit() {
         return credit;
     }
@@ -44,5 +54,4 @@ public class CourseDetails {
     public void setMaterial(String material) {
         this.material = material;
     }
-
 }

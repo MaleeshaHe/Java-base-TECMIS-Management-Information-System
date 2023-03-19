@@ -66,7 +66,7 @@
                         </HBox>
                         <HBox alignment="CENTER" layoutX="10.0" layoutY="260.0" prefHeight="40.0" prefWidth="456.0">
                            <children>
-                              <Label prefHeight="26.0" prefWidth="125.0" text="Course Name" textFill="#595959">
+                              <Label prefHeight="26.0" prefWidth="125.0" text="Course Code" textFill="#595959">
                                  <font>
                                     <Font name="System Bold" size="17.0" />
                                  </font>
@@ -98,20 +98,25 @@
                      </children>
                   </VBox>
                   <Line endX="-330.0125427246094" endY="474.7000427246094" startX="519.9142456054688" startY="474.7000427246094" stroke="#c9c8c8" />
-                  <TableView fx:id="courseTable" prefHeight="482.0" prefWidth="885.0">
-                    <columns>
-                      <TableColumn fx:id="courseCodeCol" maxWidth="114.39998817443848" prefWidth="109.5999698638916" resizable="false" style="-fx-alignment: center;" text="Course Code" />
-                      <TableColumn fx:id="courseNameCol" maxWidth="524.8000793457031" prefWidth="524.8000793457031" resizable="false" style="-fx-alignment: center;" text="Course Name" />
-                        <TableColumn fx:id="creditCol" maxWidth="455.2000427246094" prefWidth="59.199951171875" resizable="false" style="-fx-alignment: center;" text="Credit" />
-                        <TableColumn fx:id="materialCol" maxWidth="630.0" prefWidth="153.5999755859375" resizable="false" style="-fx-alignment: center;" text="Materials" />
-                    </columns>
-                     <padding>
-                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-                     </padding>
+                  <HBox alignment="CENTER">
                      <VBox.margin>
                         <Insets bottom="10.0" left="5.0" right="10.0" />
                      </VBox.margin>
-                  </TableView>
+                     <children>
+                        <TableView fx:id="courseTable" prefHeight="430.0" prefWidth="830.0">
+                          <columns>
+                            <TableColumn fx:id="courseCodeCol" maxWidth="114.39998817443848" prefWidth="109.5999698638916" resizable="false" style="-fx-alignment: center;" text="Course Code" />
+                            <TableColumn fx:id="courseNameCol" maxWidth="524.8000793457031" prefWidth="362.3999710083008" resizable="false" style="-fx-alignment: center;" text="Course Name" />
+                              <TableColumn fx:id="courseTypecol" maxWidth="455.2000427246094" prefWidth="165.60006713867188" resizable="false" style="-fx-alignment: center;" text="Course Type" />
+                              <TableColumn fx:id="creditCol" maxWidth="455.2000427246094" prefWidth="78.4000244140625" resizable="false" style="-fx-alignment: center;" text="Credit" />
+                              <TableColumn fx:id="materialCol" maxWidth="630.0" prefWidth="114.4000244140625" resizable="false" style="-fx-alignment: center;" text="Materials" />
+                          </columns>
+                           <padding>
+                              <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                           </padding>
+                        </TableView>
+                     </children>
+                  </HBox>
                </children>
             </VBox>
          </center>

@@ -59,6 +59,9 @@ public class CourseControlloer implements Initializable {
 
     @FXML
     private TableColumn<NoticeDetails, Integer> creditCol;
+
+    @FXML
+    private TableColumn<CourseDetails, String> courseTypecol;
     @FXML
     private JFXButton addNewCourse;
 
@@ -95,7 +98,7 @@ public class CourseControlloer implements Initializable {
             ObservableList data = FXCollections.observableArrayList();
 
             while (resultSet.next()){
-                data.add(new String(resultSet.getString("courseName")));
+                data.add(new String(resultSet.getString("courseCode")));
             }
             comboCourse.setItems(data);
         }catch (Exception e){
@@ -117,6 +120,7 @@ public class CourseControlloer implements Initializable {
                 courseList.add(new CourseDetails(
                         resultSet.getString("courseCode"),
                         resultSet.getString("courseName"),
+                        resultSet.getString("courseType"),
                         resultSet.getInt("credit"),
                         resultSet.getString("material")));
                 courseTable.setItems(courseList);
@@ -134,6 +138,7 @@ public class CourseControlloer implements Initializable {
 
         courseCodeCol.setCellValueFactory(new PropertyValueFactory<>("courseCode"));
         courseNameCol.setCellValueFactory(new PropertyValueFactory<>("courseName"));
+        courseTypecol.setCellValueFactory(new PropertyValueFactory<>("courseType"));
         creditCol.setCellValueFactory(new PropertyValueFactory<>("credit"));
 
         Callback<TableColumn<CourseDetails, String>, TableCell<CourseDetails, String>> cellFoctory = (TableColumn<CourseDetails, String> param) -> {
@@ -201,11 +206,11 @@ public class CourseControlloer implements Initializable {
 
     @FXML
     private void enrollCourse(){
-        String coursename = comboCourse.getValue();
+        String courseCode = comboCourse.getValue();
         String coursecode = null;
         try {
             connection = DbConnect.getConnect();
-            query = "SELECT courseCode FROM course WHERE courseName='"+coursename+"'";
+            query = "SELECT courseCode FROM course WHERE courseCode='"+courseCode+"'";
             preparedStatement = connection.prepareStatement(query);
             resultSet = preparedStatement.executeQuery();
 
