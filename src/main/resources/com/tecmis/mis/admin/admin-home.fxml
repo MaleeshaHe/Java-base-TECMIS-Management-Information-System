@@ -177,15 +177,15 @@
                            <children>
                               <Label fx:id="welcomeName" text="Welcome Maleesha" textFill="#515151">
                                  <font>
-                                    <Font name="System Bold" size="26.0" />
+                                    <Font name="System Bold" size="28.0" />
                                  </font>
                               </Label>
-                              <Label fx:id="date" layoutX="763.0" layoutY="59.0" text="05 : 25 : 45 PM" textFill="#515151">
+                              <Label fx:id="date" layoutX="763.0" layoutY="59.0" prefHeight="22.0" prefWidth="269.0" text="05 : 25 : 45 PM" textFill="#515151">
                                  <font>
                                     <Font size="15.0" />
                                  </font>
                               </Label>
-                              <Label fx:id="time" textFill="#515151">
+                              <Label fx:id="time" prefHeight="22.0" prefWidth="254.0" text="10 : 15 PM" textFill="#515151">
                                  <font>
                                     <Font size="15.0" />
                                  </font>
@@ -204,84 +204,81 @@
                            <children>
                               <Pane prefHeight="488.0" prefWidth="435.0">
                                  <children>
-                                    <VBox alignment="CENTER" layoutX="43.0" layoutY="36.0" prefHeight="350.0" prefWidth="350.0" style="-fx-background-color: #ffff; -fx-background-radius: 20;" styleClass="detailsShadow" stylesheets="@../../../../style/style.css">
+                                    <VBox alignment="CENTER" layoutX="54.0" layoutY="41.0" prefHeight="344.0" prefWidth="350.0" style="-fx-background-color: #ffff; -fx-background-radius: 20;" styleClass="detailsShadow" stylesheets="@../../../../style/style.css">
                                        <children>
-                                          <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                                          <HBox alignment="CENTER" prefHeight="61.0" prefWidth="310.0">
                                              <children>
-                                                <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="30.0" prefWidth="171.0" text="Admin Dashboard" textAlignment="CENTER" textFill="#797979">
+                                                <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="20.0" prefWidth="226.0" text="Admin Dashboard" textAlignment="CENTER" textFill="#797979">
                                                    <font>
-                                                      <Font name="System Bold" size="20.0" />
+                                                      <Font name="System Bold" size="24.0" />
                                                    </font>
                                                 </Label>
                                              </children>
+                                             <VBox.margin>
+                                                <Insets bottom="15.0" />
+                                             </VBox.margin>
                                           </HBox>
-                                          <HBox alignment="CENTER" layoutX="30.0" layoutY="30.0" prefHeight="200.0" prefWidth="311.0">
+                                          <HBox alignment="CENTER" layoutX="30.0" layoutY="30.0" prefHeight="102.0" prefWidth="310.0">
                                              <children>
-                                                <JFXButton contentDisplay="GRAPHIC_ONLY" onAction="#btnUser" prefHeight="120.0" prefWidth="120.0" style="-fx-background-color: #ffff; -fx-border-radius: 20; -fx-background-radius: 20; -fx-border-color: #565656;" text="USER" textFill="#565656">
+                                                <JFXButton contentDisplay="TOP" onAction="#btnUser" prefHeight="100.0" prefWidth="100.0" style="-fx-background-color: #ffff; -fx-border-radius: 20; -fx-background-radius: 20; -fx-border-color: #565656;" text="User" textFill="#565656">
                                                    <graphic>
-                                                      <ImageView fitHeight="70.0" fitWidth="70.0" pickOnBounds="true" preserveRatio="true">
+                                                      <ImageView fitHeight="55.0" fitWidth="55.0" pickOnBounds="true" preserveRatio="true">
                                                          <image>
                                                             <Image url="@../../../../images/team.png" />
                                                          </image>
                                                       </ImageView>
                                                    </graphic>
-                                                   <font>
-                                                      <Font size="20.0" />
-                                                   </font>
                                                    <HBox.margin>
-                                                      <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
+                                                      <Insets left="10.0" right="10.0" />
                                                    </HBox.margin>
                                                 </JFXButton>
-                                                <JFXButton contentDisplay="GRAPHIC_ONLY" onAction="#btnTimeTable" prefHeight="120.0" prefWidth="120.0" style="-fx-background-color: #ffff; -fx-border-radius: 20; -fx-background-radius: 20; -fx-border-color: #565656;" text="USER" textFill="#565656">
+                                                <JFXButton contentDisplay="TOP" onAction="#btnTimeTable" prefHeight="100.0" prefWidth="100.0" style="-fx-background-color: #ffff; -fx-border-radius: 20; -fx-background-radius: 20; -fx-border-color: #565656;" text="Time Table" textFill="#565656">
                                                    <graphic>
-                                                      <ImageView fitHeight="70.0" fitWidth="70.0" pickOnBounds="true" preserveRatio="true">
+                                                      <ImageView fitHeight="55.0" fitWidth="55.0" pickOnBounds="true" preserveRatio="true">
                                                          <image>
                                                             <Image url="@../../../../images/clock.png" />
                                                          </image>
                                                       </ImageView>
                                                    </graphic>
-                                                   <font>
-                                                      <Font size="20.0" />
-                                                   </font>
                                                    <HBox.margin>
-                                                      <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
+                                                      <Insets left="10.0" right="10.0" />
                                                    </HBox.margin>
                                                 </JFXButton>
                                              </children>
+                                             <VBox.margin>
+                                                <Insets bottom="20.0" />
+                                             </VBox.margin>
                                           </HBox>
-                                          <HBox alignment="CENTER" layoutX="10.0" layoutY="252.0" prefHeight="200.0" prefWidth="311.0">
+                                          <HBox alignment="CENTER" layoutX="10.0" layoutY="252.0" prefHeight="105.0" prefWidth="310.0">
                                              <children>
-                                                <JFXButton contentDisplay="GRAPHIC_ONLY" onAction="#btnCourse" prefHeight="120.0" prefWidth="120.0" style="-fx-background-color: #ffff; -fx-border-radius: 20; -fx-background-radius: 20; -fx-border-color: #565656;" text="USER" textFill="#565656">
+                                                <JFXButton contentDisplay="TOP" onAction="#btnCourse" prefHeight="100.0" prefWidth="100.0" style="-fx-background-color: #ffff; -fx-border-radius: 20; -fx-background-radius: 20; -fx-border-color: #565656;" text="Course" textFill="#565656">
                                                    <graphic>
-                                                      <ImageView fitHeight="70.0" fitWidth="70.0" pickOnBounds="true" preserveRatio="true">
+                                                      <ImageView fitHeight="55.0" fitWidth="55.0" pickOnBounds="true" preserveRatio="true">
                                                          <image>
                                                             <Image url="@../../../../images/online-course.png" />
                                                          </image>
                                                       </ImageView>
                                                    </graphic>
-                                                   <font>
-                                                      <Font size="20.0" />
-                                                   </font>
                                                    <HBox.margin>
-                                                      <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
+                                                      <Insets left="10.0" right="10.0" />
                                                    </HBox.margin>
                                                 </JFXButton>
-                                                <JFXButton contentDisplay="GRAPHIC_ONLY" onAction="#btnNotice" prefHeight="120.0" prefWidth="120.0" style="-fx-background-color: #ffff; -fx-border-radius: 20; -fx-background-radius: 20; -fx-border-color: #565656;" text="USER" textFill="#565656">
+                                                <JFXButton contentDisplay="TOP" onAction="#btnNotice" prefHeight="100.0" prefWidth="100.0" style="-fx-background-color: #ffff; -fx-border-radius: 20; -fx-background-radius: 20; -fx-border-color: #565656;" text="Notice" textFill="#565656">
                                                    <graphic>
-                                                      <ImageView fitHeight="70.0" fitWidth="70.0" pickOnBounds="true" preserveRatio="true">
+                                                      <ImageView fitHeight="55.0" fitWidth="55.0" pickOnBounds="true" preserveRatio="true">
                                                          <image>
                                                             <Image url="@../../../../images/notification-bell.png" />
                                                          </image>
                                                       </ImageView>
                                                    </graphic>
-                                                   <font>
-                                                      <Font size="20.0" />
-                                                   </font>
                                                    <HBox.margin>
-                                                      <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
+                                                      <Insets left="10.0" right="10.0" />
                                                    </HBox.margin>
                                                 </JFXButton>
                                              </children>
+                                             <VBox.margin>
+                                                <Insets bottom="15.0" />
+                                             </VBox.margin>
                                           </HBox>
                                        </children>
                                        <padding>
@@ -292,7 +289,7 @@
                               </Pane>
                               <Pane prefHeight="488.0" prefWidth="435.0">
                                  <children>
-                                    <VBox alignment="CENTER" layoutX="42.0" prefHeight="429.0" prefWidth="351.0" style="-fx-background-color: #fff; -fx-background-radius: 20;" styleClass="detailsShadow" stylesheets="@../../../../style/style.css">
+                                    <VBox alignment="CENTER" layoutX="42.0" layoutY="-18.0" prefHeight="447.0" prefWidth="351.0" style="-fx-background-color: #fff; -fx-background-radius: 20;" styleClass="detailsShadow" stylesheets="@../../../../style/style.css">
                                        <children>
                                           <HBox alignment="CENTER" layoutX="30.0" layoutY="30.0" prefHeight="36.0" prefWidth="375.0">
                                              <children>
@@ -305,7 +302,7 @@
                                           </HBox>
                                           <HBox alignment="CENTER" layoutX="10.0" layoutY="252.0" prefHeight="130.0" prefWidth="375.0">
                                              <children>
-                                                <Circle fx:id="pic" fill="#f7f7f7" radius="50.0" stroke="#5271ff" strokeType="INSIDE" strokeWidth="2.0" />
+                                                <Circle fx:id="pic" fill="#f7f7f7" radius="60.0" stroke="#5271ff" strokeType="INSIDE" strokeWidth="2.0" />
                                              </children>
                                           </HBox>
                                           <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="344.0" prefHeight="41.0" prefWidth="340.0">
@@ -371,7 +368,7 @@
                                                       <Font name="System Bold" size="14.0" />
                                                    </font>
                                                 </Label>
-                                                <Label fx:id="dep" layoutX="10.0" layoutY="52.0" prefWidth="240.0" text="ICT" textFill="#797979">
+                                                <Label fx:id="dep" layoutX="10.0" layoutY="52.0" prefHeight="40.0" prefWidth="238.0" text="ICT" textFill="#797979" wrapText="true">
                                                    <font>
                                                       <Font name="System Bold" size="14.0" />
                                                    </font>

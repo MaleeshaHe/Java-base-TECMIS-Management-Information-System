@@ -200,12 +200,12 @@
                               </Label>
                               <Label fx:id="date" layoutX="763.0" layoutY="59.0" prefHeight="26.0" prefWidth="315.0" text="05 : 25 : 45 PM" textFill="#515151">
                                  <font>
-                                    <Font size="16.0" />
+                                    <Font size="15.0" />
                                  </font>
                               </Label>
                               <Label fx:id="time" prefHeight="26.0" prefWidth="196.0" text="10 : 56 PM" textFill="#515151">
                                  <font>
-                                    <Font size="16.0" />
+                                    <Font size="15.0" />
                                  </font>
                               </Label>
                            </children>
@@ -240,7 +240,7 @@
                                              <children>
                                                 <JFXButton alignment="CENTER" contentDisplay="TOP" onAction="#btnNotice" prefHeight="90.0" prefWidth="90.0" style="-fx-background-color: #ffff; -fx-border-radius: 20; -fx-background-radius: 20; -fx-border-color: #565656;" text="Notice" textFill="#565656">
                                                    <graphic>
-                                                      <ImageView fitHeight="60.0" fitWidth="45.0" pickOnBounds="true" preserveRatio="true">
+                                                      <ImageView fitHeight="45.0" fitWidth="45.0" pickOnBounds="true" preserveRatio="true">
                                                          <image>
                                                             <Image url="@../../../../images/notification-bell.png" />
                                                          </image>
@@ -344,7 +344,7 @@
                                           </HBox>
                                           <HBox alignment="CENTER" layoutX="10.0" layoutY="252.0" prefHeight="130.0" prefWidth="375.0">
                                              <children>
-                                                <Circle fx:id="pic" fill="#f7f7f7" radius="62.0" stroke="#5271ff" strokeType="INSIDE" strokeWidth="2.0" />
+                                                <Circle fx:id="pic" fill="#f7f7f7" radius="60.0" stroke="#5271ff" strokeType="INSIDE" strokeWidth="2.0" />
                                              </children>
                                           </HBox>
                                           <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="344.0" prefHeight="41.0" prefWidth="340.0">
