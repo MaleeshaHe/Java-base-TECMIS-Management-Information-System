@@ -1,9 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import com.jfoenix.controls.JFXTextField?>
+<?import java.net.URL?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
@@ -11,7 +15,7 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="600.0" prefWidth="900.0" stylesheets="@../../../../../style/table_view.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.tecmis.mis.student.course.CourseControlloer">
+<AnchorPane prefHeight="600.0" prefWidth="900.0" stylesheets="@../../../../../style/table_view.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.tecmis.mis.student.grade_gpa.GradeGpaController">
    <children>
       <BorderPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #ffff;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <top>
@@ -46,27 +50,45 @@
             </VBox>
          </top>
          <center>
-            <VBox alignment="CENTER" prefHeight="498.0" prefWidth="900.0" BorderPane.alignment="CENTER">
+            <VBox alignment="TOP_CENTER" prefHeight="498.0" prefWidth="900.0" BorderPane.alignment="CENTER">
                <children>
-                  <HBox alignment="CENTER" prefHeight="376.0" prefWidth="885.0">
-                     <VBox.margin>
-                        <Insets bottom="10.0" left="5.0" right="10.0" />
-                     </VBox.margin>
+                  <HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="39.0" prefWidth="225.0">
                      <children>
-                        <TableView fx:id="courseTable" prefHeight="376.0" prefWidth="823.0">
-                           <columns>
-                              <TableColumn fx:id="courseCodeCol" maxWidth="114.39998817443848" prefWidth="109.5999698638916" resizable="false" style="-fx-alignment: center;" text="Course Code" />
-                              <TableColumn fx:id="courseNameCol" maxWidth="524.8000793457031" prefWidth="362.3999710083008" resizable="false" style="-fx-alignment: center;" text="Course Name" />
-                              <TableColumn fx:id="courseTypecol" maxWidth="455.2000427246094" prefWidth="165.60006713867188" resizable="false" style="-fx-alignment: center;" text="Course Type" />
-                              <TableColumn fx:id="creditCol" maxWidth="455.2000427246094" prefWidth="78.4000244140625" resizable="false" style="-fx-alignment: center;" text="Credit" />
-                              <TableColumn fx:id="materialCol" maxWidth="630.0" prefWidth="114.4000244140625" resizable="false" style="-fx-alignment: center;" text="Materials" />
-                           </columns>
+                        <ImageView fitHeight="18.0" fitWidth="18.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../../../images/search-9-64.png" />
+                           </image>
+                           <HBox.margin>
+                              <Insets top="6.0" />
+                           </HBox.margin>
+                        </ImageView>
+                        <JFXTextField fx:id="txtKeyword" focusColor="#405aa800" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="27.0" prefWidth="182.0" promptText="Search" style="-fx-border-color: #acacac; -fx-border-radius: 12;" unFocusColor="#ababab00">
                            <padding>
-                              <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                              <Insets left="15.0" />
                            </padding>
-                        </TableView>
+                           <HBox.margin>
+                              <Insets left="5.0" top="2.0" />
+                           </HBox.margin>
+                           <font>
+                              <Font size="13.0" />
+                           </font>
+                        </JFXTextField>
                      </children>
                   </HBox>
+                  <TableView id="medicalTable" fx:id="gradeTable" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="360.0" prefWidth="455.0" style="-fx-background-color: #ffff; -fx-background-radius: 20;">
+                     <columns>
+                        <TableColumn fx:id="courseCol" maxWidth="630.0" minWidth="0.0" prefWidth="169.59994792938232" resizable="false" style="-fx-alignment: center;" text="Course" />
+                        <TableColumn fx:id="marksCol" maxWidth="630.0" minWidth="0.0" prefWidth="140.7999725341797" resizable="false" style="-fx-alignment: center;" text="Marks" />
+                        <TableColumn fx:id="gradesCol" maxWidth="630.0" minWidth="0.0" prefWidth="107.20004272460938" resizable="false" style="-fx-alignment: center;" text="Grade" />
+                     </columns>
+                     <padding>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </padding>
+                     <stylesheets>
+                        <URL value="@../../../../../style/table_view.css" />
+                        <URL value="@../../../../../style/table_view.css" />
+                     </stylesheets>
+                  </TableView>
                </children>
             </VBox>
          </center>
