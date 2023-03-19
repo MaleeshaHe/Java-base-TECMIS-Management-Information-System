@@ -20,14 +20,14 @@
             <left>
                 <AnchorPane fx:id="slider" prefHeight="307.0" prefWidth="176.0" style="-fx-background-color: #5271FF; -fx-background-radius: 0 30 0 0;" styleClass="sidebarShadow" stylesheets="@../../../../style/style.css" BorderPane.alignment="CENTER">
                     <children>
-                        <VBox alignment="BASELINE_LEFT" layoutX="14.0" layoutY="35.0" prefHeight="560.0" prefWidth="155.0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+                        <VBox alignment="BASELINE_LEFT" layoutX="14.0" layoutY="35.0" prefHeight="594.0" prefWidth="188.0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
                             <children>
                                 <ImageView fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true" translateX="30.0">
                                     <image>
                                         <Image url="@../../../../images/logo200.png" />
                                     </image>
                                 </ImageView>
-                        <JFXButton alignment="BASELINE_LEFT" layoutX="10.0" layoutY="144.0" onAction="#btnHome" prefHeight="50.0" prefWidth="176.0" styleClass="sidebarItem" text="  Home" textFill="WHITE">
+                        <JFXButton alignment="BASELINE_LEFT" layoutX="10.0" layoutY="144.0" onAction="#btnHome" prefHeight="50.0" prefWidth="155.0" styleClass="sidebarItem" text="  Home" textFill="WHITE">
                            <font>
                               <Font name="System Bold" size="16.0" />
                            </font>
@@ -42,10 +42,13 @@
                               <Insets />
                            </opaqueInsets>
                            <padding>
-                              <Insets bottom="15.0" left="15.0" right="15.0" top="10.0" />
+                              <Insets bottom="10.0" left="15.0" right="15.0" top="10.0" />
                            </padding>
+                           <VBox.margin>
+                              <Insets bottom="8.0" />
+                           </VBox.margin>
                         </JFXButton>
-                                <JFXButton alignment="BASELINE_LEFT" onAction="#btnNotice" prefHeight="50.0" prefWidth="176.0" styleClass="sidebarItem" text="  Notice" textFill="WHITE">
+                                <JFXButton alignment="BASELINE_LEFT" onAction="#btnNotice" prefHeight="50.0" prefWidth="155.0" styleClass="sidebarItem" text="  Notice" textFill="WHITE">
                                     <font>
                                         <Font name="System Bold" size="16.0" />
                                     </font>
@@ -57,16 +60,16 @@
                                         </ImageView>
                                     </graphic>
                                     <VBox.margin>
-                                        <Insets bottom="10.0" />
+                                        <Insets bottom="8.0" />
                                     </VBox.margin>
                                     <opaqueInsets>
                                         <Insets />
                                     </opaqueInsets>
                                     <padding>
-                                        <Insets bottom="15.0" left="15.0" right="15.0" top="10.0" />
+                                        <Insets bottom="10.0" left="15.0" right="15.0" top="10.0" />
                                     </padding>
                                 </JFXButton>
-                                <JFXButton fx:id="course_btn" alignment="BASELINE_LEFT" onAction="#btnCourse" prefHeight="50.0" prefWidth="176.0" styleClass="sidebarItem" text="  Course" textFill="WHITE">
+                                <JFXButton fx:id="course_btn" alignment="BASELINE_LEFT" onAction="#btnCourse" prefHeight="50.0" prefWidth="155.0" styleClass="sidebarItem" text="  Course" textFill="WHITE">
                                     <font>
                                         <Font name="System Bold" size="16.0" />
                                     </font>
@@ -78,16 +81,16 @@
                                         </ImageView>
                                     </graphic>
                                     <VBox.margin>
-                                        <Insets bottom="10.0" />
+                                        <Insets bottom="8.0" />
                                     </VBox.margin>
                                     <opaqueInsets>
                                         <Insets />
                                     </opaqueInsets>
                                     <padding>
-                                        <Insets bottom="15.0" left="15.0" right="15.0" top="10.0" />
+                                        <Insets bottom="10.0" left="15.0" right="15.0" top="10.0" />
                                     </padding>
                                 </JFXButton>
-                                <JFXButton alignment="BASELINE_LEFT" onAction="#btnTimeTable" prefHeight="50.0" prefWidth="176.0" styleClass="sidebarItem" text="  Time Table" textFill="WHITE">
+                                <JFXButton alignment="BASELINE_LEFT" onAction="#btnTimeTable" prefHeight="50.0" prefWidth="155.0" styleClass="sidebarItem" text="  Time Table" textFill="WHITE">
                                     <font>
                                         <Font name="System Bold" size="16.0" />
                                     </font>
@@ -99,16 +102,16 @@
                                         </ImageView>
                                     </graphic>
                                     <VBox.margin>
-                                        <Insets bottom="10.0" />
+                                        <Insets bottom="8.0" />
                                     </VBox.margin>
                                     <opaqueInsets>
                                         <Insets />
                                     </opaqueInsets>
                                     <padding>
-                                        <Insets bottom="15.0" left="15.0" right="15.0" top="10.0" />
+                                        <Insets bottom="10.0" left="15.0" right="15.0" top="10.0" />
                                     </padding>
                                 </JFXButton>
-                                <JFXButton alignment="BASELINE_LEFT" onAction="#btnMedical" prefHeight="50.0" prefWidth="176.0" styleClass="sidebarItem" text="  Medical" textFill="WHITE">
+                                <JFXButton alignment="BASELINE_LEFT" onAction="#btnMedical" prefHeight="50.0" prefWidth="155.0" styleClass="sidebarItem" text="  Medical" textFill="WHITE">
                                     <font>
                                         <Font name="System Bold" size="16.0" />
                                     </font>
@@ -120,16 +123,16 @@
                                         </ImageView>
                                     </graphic>
                                     <VBox.margin>
-                                        <Insets bottom="10.0" />
+                                        <Insets bottom="8.0" />
                                     </VBox.margin>
                                     <opaqueInsets>
                                         <Insets />
                                     </opaqueInsets>
                                     <padding>
-                                        <Insets bottom="15.0" left="15.0" right="15.0" top="10.0" />
+                                        <Insets bottom="10.0" left="15.0" right="15.0" top="10.0" />
                                     </padding>
                                 </JFXButton>
-                        <JFXButton alignment="BASELINE_LEFT" layoutX="10.0" layoutY="380.0" onAction="#btnAttendance" prefHeight="50.0" prefWidth="176.0" styleClass="sidebarItem" text="  Attendance" textFill="WHITE">
+                        <JFXButton alignment="BASELINE_LEFT" layoutX="10.0" layoutY="380.0" onAction="#btnAttendance" prefHeight="50.0" prefWidth="155.0" styleClass="sidebarItem" text="  Attendance" textFill="WHITE">
                            <font>
                               <Font name="System Bold" size="16.0" />
                            </font>
@@ -144,10 +147,34 @@
                               <Insets />
                            </opaqueInsets>
                            <padding>
-                              <Insets bottom="15.0" left="15.0" right="15.0" top="10.0" />
+                              <Insets bottom="10.0" left="15.0" right="15.0" top="10.0" />
                            </padding>
+                           <VBox.margin>
+                              <Insets bottom="8.0" />
+                           </VBox.margin>
                         </JFXButton>
-                        <HBox alignment="BOTTOM_RIGHT" prefHeight="100.0" prefWidth="200.0">
+                        <JFXButton alignment="BASELINE_LEFT" layoutX="10.0" layoutY="380.0" onAction="#btnMedical" prefHeight="51.0" prefWidth="196.0" styleClass="sidebarItem" text="  Grades and GPA" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="16.0" />
+                           </font>
+                           <graphic>
+                              <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../../../images/literature-64.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                           <opaqueInsets>
+                              <Insets />
+                           </opaqueInsets>
+                           <padding>
+                              <Insets bottom="10.0" left="15.0" right="15.0" top="10.0" />
+                           </padding>
+                           <VBox.margin>
+                              <Insets bottom="8.0" />
+                           </VBox.margin>
+                        </JFXButton>
+                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
                            <children>
                               <JFXButton alignment="CENTER" graphicTextGap="10.0" onAction="#btnLogOut" prefHeight="13.0" prefWidth="130.0" style="-fx-border-color: #fff; -fx-border-radius: 18; -fx-background-radius: 18;" text="Log Out" textFill="WHITE">
                                  <font>
@@ -170,12 +197,12 @@
                                     <Cursor fx:constant="HAND" />
                                  </cursor>
                                  <HBox.margin>
-                                    <Insets />
+                                    <Insets top="35.0" />
                                  </HBox.margin>
                               </JFXButton>
                            </children>
                            <VBox.margin>
-                              <Insets top="55.0" />
+                              <Insets />
                            </VBox.margin>
                         </HBox>
                             </children>
