@@ -153,7 +153,7 @@
                               <Insets bottom="8.0" />
                            </VBox.margin>
                         </JFXButton>
-                        <JFXButton alignment="BASELINE_LEFT" layoutX="10.0" layoutY="380.0" onAction="#btnMedical" prefHeight="51.0" prefWidth="196.0" styleClass="sidebarItem" text="  Grades and GPA" textFill="WHITE">
+                        <JFXButton alignment="BASELINE_LEFT" layoutX="10.0" layoutY="380.0" onAction="#btnGradeGpa" prefHeight="51.0" prefWidth="196.0" styleClass="sidebarItem" text="  Grades and GPA" textFill="WHITE">
                            <font>
                               <Font name="System Bold" size="16.0" />
                            </font>
@@ -174,7 +174,7 @@
                               <Insets bottom="8.0" />
                            </VBox.margin>
                         </JFXButton>
-                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                        <HBox alignment="CENTER" onDragDetected="#btnGradeGpa" prefHeight="100.0" prefWidth="200.0">
                            <children>
                               <JFXButton alignment="CENTER" graphicTextGap="10.0" onAction="#btnLogOut" prefHeight="13.0" prefWidth="130.0" style="-fx-border-color: #fff; -fx-border-radius: 18; -fx-background-radius: 18;" text="Log Out" textFill="WHITE">
                                  <font>

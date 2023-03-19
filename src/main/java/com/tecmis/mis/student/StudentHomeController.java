@@ -231,6 +231,12 @@ public class StudentHomeController implements Initializable {
         new FadeInDown(view).play();
     }
 
+    public void btnGradeGpa(ActionEvent actionEvent) throws IOException {
+        AnchorPane view = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("grade_gpa/grade-gpa.fxml")));
+        borderpane.getChildren().removeAll();
+        borderpane.setCenter(view);
+        new FadeInDown(view).play();
+    }
     public void btnLogOut(ActionEvent event) throws IOException {
 
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("../login-page.fxml")));
