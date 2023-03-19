@@ -48,8 +48,8 @@ public class GpaController implements Initializable {
         refreshTable();
         tgnumCol.setCellValueFactory(new PropertyValueFactory<>("tgnum"));
         stNameCol.setCellValueFactory(new PropertyValueFactory<>("fname"));
-        sgpaCol.setCellValueFactory(new PropertyValueFactory<>("fname"));
-        cgpaCol.setCellValueFactory(new PropertyValueFactory<>("fname"));
+        sgpaCol.setCellValueFactory(new PropertyValueFactory<>("sgpa"));
+        cgpaCol.setCellValueFactory(new PropertyValueFactory<>("cgpa"));
         gpaTable.setItems(gpaList);
 
         new FadeIn(gpaTable).play();
