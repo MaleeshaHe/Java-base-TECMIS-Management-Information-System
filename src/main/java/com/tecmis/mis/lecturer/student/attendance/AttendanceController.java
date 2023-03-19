@@ -118,7 +118,9 @@ public class AttendanceController implements Initializable {
                     return true;
                 } else if (AttendanceDetails.getCourseCode().toLowerCase().indexOf(searchKeyword)> -1) {
                     return true;
-                } else {
+                } else if (AttendanceDetails.getState().toLowerCase().indexOf(searchKeyword)> -1) {
+                    return true;
+                }else {
                     return false;
                 }
 

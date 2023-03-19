@@ -9,6 +9,7 @@ public class MarksDetails {
     private String examtype;
     private Float marks;
     private String examId;
+    private int marksId;
 
     public MarksDetails(String examId,String tgnum, String fname, String lname, String courseName, String courseCode, String examtype, float marks) {
         this.examId=examId;
@@ -18,6 +19,14 @@ public class MarksDetails {
         this.courseCode=courseCode;
         this.examtype=examtype;
         this.marks=marks;
+    }
+
+    public int getMarksId() {
+        return marksId;
+    }
+
+    public void setMarksId(int marksId) {
+        this.marksId = marksId;
     }
 
     public String getExamId() {

@@ -25,7 +25,7 @@
                <children>
                   <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="369.0" prefWidth="878.0">
                      <children>
-                        <TableView id="medicalTable" fx:id="marksTable" layoutX="65.0" layoutY="75.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="275.0" prefWidth="721.0" style="-fx-background-color: #ffff; -fx-background-radius: 20;">
+                        <TableView id="medicalTable" fx:id="marksTable" layoutX="34.0" layoutY="75.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="275.0" prefWidth="776.0" style="-fx-background-color: #ffff; -fx-background-radius: 20;">
                            <columns>
                               <TableColumn fx:id="tgnumCol" maxWidth="193.60007333755493" prefWidth="145.0" resizable="false" style="-fx-alignment: center;" text="TG Number" />
                               <TableColumn fx:id="stNameCol" maxWidth="320.00003814697266" prefWidth="129.0" resizable="false" style="-fx-alignment: center;" text="Name" />
