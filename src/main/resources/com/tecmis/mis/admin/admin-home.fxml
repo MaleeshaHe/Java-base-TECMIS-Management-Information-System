@@ -204,7 +204,7 @@
                            <children>
                               <Pane prefHeight="488.0" prefWidth="435.0">
                                  <children>
-                                    <VBox alignment="CENTER" layoutX="54.0" layoutY="41.0" prefHeight="344.0" prefWidth="350.0" style="-fx-background-color: #ffff; -fx-background-radius: 20;" styleClass="detailsShadow" stylesheets="@../../../../style/style.css">
+                                    <VBox alignment="CENTER" layoutX="54.0" layoutY="41.0" prefHeight="350.0" prefWidth="350.0" style="-fx-background-color: #ffff; -fx-background-radius: 20;" styleClass="detailsShadow" stylesheets="@../../../../style/style.css">
                                        <children>
                                           <HBox alignment="CENTER" prefHeight="61.0" prefWidth="310.0">
                                              <children>
