@@ -180,7 +180,7 @@ public class LoginPageController implements Initializable {
                 }
 
             }catch (Exception e){
-                System.out.println(e);
+                System.out.println("Database Connectivity Failure! : "+e.getMessage());
             }
 
         }
