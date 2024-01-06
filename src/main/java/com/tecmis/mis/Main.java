@@ -34,7 +34,7 @@ public class Main extends Application {
             primaryStage.setY(event.getScreenY() - y);
         });
 
-        primaryStage.setScene(new Scene(root, 600,400));
+        primaryStage.setScene(new Scene(root, 601,401));
         primaryStage.show();
         primaryStage.centerOnScreen();
         primaryStage.resizableProperty().setValue(false);
